@@ -1,4 +1,4 @@
-data_empty
+data_water
 #
 loop_
 _atom_site.group_PDB
@@ -14,5 +14,5 @@ _atom_site.Cartn_x
 _atom_site.Cartn_y
 _atom_site.Cartn_z
 _atom_site.auth_asym_id
-ATOM 1    C C   . SER A 1 40  140.332 136.152 113.794 A 
+HETATM 1    O O   . HOH A 1 .  0.1 0.1 0.1 A 
 #
