@@ -1,0 +1,766 @@
+value	n_counts	seq_length	description	name	IEDB___n_unique_epitopes	AAgAtlas___n_PubMed_ID
+Q9BQ69	19441	325	ADP-ribose glycohydrolase MACROD1 OS=Homo sapiens (Human) OX=9606 GN=MACROD1 PE=1 SV=2	ADP-ribose glycohydrolase MACROD1	0	0
+Q6ZMI0	52	780	Protein phosphatase 1 regulatory subunit 21 OS=Homo sapiens (Human) OX=9606 GN=PPP1R21 PE=1 SV=1	Protein phosphatase 1 regulatory subunit 21	0	0
+O94991	51	958	SLIT and NTRK-like protein 5 OS=Homo sapiens (Human) OX=9606 GN=SLITRK5 PE=2 SV=2	SLIT and NTRK-like protein 5	0	0
+Q8N139	51	1617	ATP-binding cassette sub-family A member 6 OS=Homo sapiens (Human) OX=9606 GN=ABCA6 PE=1 SV=2	ATP-binding cassette sub-family A member 6	0	0
+Q13576	51	1575	Ras GTPase-activating-like protein IQGAP2 OS=Homo sapiens (Human) OX=9606 GN=IQGAP2 PE=1 SV=4	Ras GTPase-activating-like protein IQGAP2	0	0
+Q8NGJ6	198	313	Olfactory receptor 51A4 OS=Homo sapiens (Human) OX=9606 GN=OR51A4 PE=2 SV=1	Olfactory receptor 51A4	0	0
+Q9Y3N9	50	320	Olfactory receptor 2W1 OS=Homo sapiens (Human) OX=9606 GN=OR2W1 PE=2 SV=1	Olfactory receptor 2W1	0	0
+P20648	198	1035	Potassium-transporting ATPase alpha chain 1 OS=Homo sapiens (Human) OX=9606 GN=ATP4A PE=2 SV=5	Potassium-transporting ATPase alpha chain 1	0	13
+P14151	346	372	L-selectin OS=Homo sapiens (Human) OX=9606 GN=SELL PE=1 SV=2	L-selectin	0	0
+Q86SQ6	197	560	Adhesion G protein-coupled receptor A1 OS=Homo sapiens (Human) OX=9606 GN=ADGRA1 PE=2 SV=3	Adhesion G protein-coupled receptor A1	0	0
+P32927	50	897	Cytokine receptor common subunit beta OS=Homo sapiens (Human) OX=9606 GN=CSF2RB PE=1 SV=2	Cytokine receptor common subunit beta	0	0
+Q13362	197	524	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit gamma isoform OS=Homo sapiens (Human) OX=9606 GN=PPP2R5C PE=1 SV=3	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit gamma isoform	0	0
+Q13217	342	504	DnaJ homolog subfamily C member 3 OS=Homo sapiens (Human) OX=9606 GN=DNAJC3 PE=1 SV=1	DnaJ homolog subfamily C member 3	0	0
+Q8WYA0	737	676	Intraflagellar transport protein 81 homolog OS=Homo sapiens (Human) OX=9606 GN=IFT81 PE=1 SV=1	Intraflagellar transport protein 81 homolog	0	0
+Q2NKQ1	49	1148	Small G protein signaling modulator 1 OS=Homo sapiens (Human) OX=9606 GN=SGSM1 PE=1 SV=2	Small G protein signaling modulator 1	0	0
+O95995	196	478	Dynein regulatory complex subunit 4 OS=Homo sapiens (Human) OX=9606 GN=GAS8 PE=1 SV=1	Dynein regulatory complex subunit 4	0	0
+Q13635	342	1447	Protein patched homolog 1 OS=Homo sapiens (Human) OX=9606 GN=PTCH1 PE=1 SV=2	Protein patched homolog 1	0	0
+O75165	196	2243	DnaJ homolog subfamily C member 13 OS=Homo sapiens (Human) OX=9606 GN=DNAJC13 PE=1 SV=5	DnaJ homolog subfamily C member 13	0	0
+Q8N2N9	48	1353	Ankyrin repeat domain-containing protein 36B OS=Homo sapiens (Human) OX=9606 GN=ANKRD36B PE=1 SV=4	Ankyrin repeat domain-containing protein 36B	0	0
+P25929	195	384	Neuropeptide Y receptor type 1 OS=Homo sapiens (Human) OX=9606 GN=NPY1R PE=1 SV=1	Neuropeptide Y receptor type 1	0	0
+Q9Y3Z3	732	626	Deoxynucleoside triphosphate triphosphohydrolase SAMHD1 OS=Homo sapiens (Human) OX=9606 GN=SAMHD1 PE=1 SV=2	Deoxynucleoside triphosphate triphosphohydrolase SAMHD1	0	0
+Q9NPA1	195	279	Calcium-activated potassium channel subunit beta-3 OS=Homo sapiens (Human) OX=9606 GN=KCNMB3 PE=1 SV=2	Calcium-activated potassium channel subunit beta-3	0	0
+Q8N3J6	48	435	Cell adhesion molecule 2 OS=Homo sapiens (Human) OX=9606 GN=CADM2 PE=2 SV=1	Cell adhesion molecule 2	0	0
+Q9UKZ4	195	2725	Teneurin-1 OS=Homo sapiens (Human) OX=9606 GN=TENM1 PE=1 SV=2	Teneurin-1	0	0
+Q9Y6W3	337	813	Calpain-7 OS=Homo sapiens (Human) OX=9606 GN=CAPN7 PE=1 SV=1	Calpain-7	0	0
+Q8IYD1	194	628	Eukaryotic peptide chain release factor GTP-binding subunit ERF3B OS=Homo sapiens (Human) OX=9606 GN=GSPT2 PE=1 SV=2	Eukaryotic peptide chain release factor GTP-binding subunit ERF3B	0	0
+P55851	48	309	Mitochondrial uncoupling protein 2 OS=Homo sapiens (Human) OX=9606 GN=UCP2 PE=1 SV=1	Mitochondrial uncoupling protein 2	0	0
+Q969M2	732	543	Gap junction alpha-10 protein OS=Homo sapiens (Human) OX=9606 GN=GJA10 PE=2 SV=1	Gap junction alpha-10 protein	0	0
+Q8TDB6	332	740	E3 ubiquitin-protein ligase DTX3L OS=Homo sapiens (Human) OX=9606 GN=DTX3L PE=1 SV=1	E3 ubiquitin-protein ligase DTX3L	0	0
+P49116	194	596	Nuclear receptor subfamily 2 group C member 2 OS=Homo sapiens (Human) OX=9606 GN=NR2C2 PE=1 SV=1	Nuclear receptor subfamily 2 group C member 2	0	0
+Q9NYM9	1317	111	BET1-like protein OS=Homo sapiens (Human) OX=9606 GN=BET1L PE=1 SV=1	BET1-like protein	0	0
+Q9UEY8	192	706	Gamma-adducin OS=Homo sapiens (Human) OX=9606 GN=ADD3 PE=1 SV=1	Gamma-adducin	0	0
+Q8N143	331	479	B-cell CLL/lymphoma 6 member B protein OS=Homo sapiens (Human) OX=9606 GN=BCL6B PE=2 SV=2	B-cell CLL/lymphoma 6 member B protein	0	0
+Q8NG31	191	2342	Kinetochore scaffold 1 OS=Homo sapiens (Human) OX=9606 GN=KNL1 PE=1 SV=3	Kinetochore scaffold 1	0	0
+Q6ZR08	708	3092	Dynein heavy chain 12, axonemal OS=Homo sapiens (Human) OX=9606 GN=DNAH12 PE=2 SV=2	Dynein heavy chain 12, axonemal	0	0
+Q6ZUX7	191	228	LHFPL tetraspan subfamily member 2 protein OS=Homo sapiens (Human) OX=9606 GN=LHFPL2 PE=2 SV=2	LHFPL tetraspan subfamily member 2 protein	0	0
+Q92738	331	828	USP6 N-terminal-like protein OS=Homo sapiens (Human) OX=9606 GN=USP6NL PE=1 SV=3	USP6 N-terminal-like protein	0	0
+P15170	191	499	Eukaryotic peptide chain release factor GTP-binding subunit ERF3A OS=Homo sapiens (Human) OX=9606 GN=GSPT1 PE=1 SV=1	Eukaryotic peptide chain release factor GTP-binding subunit ERF3A	0	0
+P23946	48	247	Chymase OS=Homo sapiens (Human) OX=9606 GN=CMA1 PE=1 SV=1	Chymase	0	0
+Q8IZ63	191	422	Proline-rich protein 22 OS=Homo sapiens (Human) OX=9606 GN=PRR22 PE=2 SV=2	Proline-rich protein 22	0	0
+A0AVI2	329	2057	Fer-1-like protein 5 OS=Homo sapiens (Human) OX=9606 GN=FER1L5 PE=2 SV=3	Fer-1-like protein 5	0	0
+Q9Y6J9	693	622	TAF6-like RNA polymerase II p300/CBP-associated factor-associated factor 65 kDa subunit 6L OS=Homo sapiens (Human) OX=9606 GN=TAF6L PE=1 SV=1	TAF6-like RNA polymerase II p300/CBP-associated factor-associated factor 65 kDa subunit 6L	0	0
+Q99442	48	399	Translocation protein SEC62 OS=Homo sapiens (Human) OX=9606 GN=SEC62 PE=1 SV=1	Translocation protein SEC62	0	0
+Q9BVG3	1299	475	E3 ubiquitin-protein ligase TRIM62 OS=Homo sapiens (Human) OX=9606 GN=TRIM62 PE=1 SV=1	E3 ubiquitin-protein ligase TRIM62	0	0
+Q8N5Z0	324	425	Kynurenine/alpha-aminoadipate aminotransferase, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=AADAT PE=1 SV=2	Kynurenine/alpha-aminoadipate aminotransferase, mitochondrial	0	0
+Q9GZZ6	190	450	Neuronal acetylcholine receptor subunit alpha-10 OS=Homo sapiens (Human) OX=9606 GN=CHRNA10 PE=1 SV=1	Neuronal acetylcholine receptor subunit alpha-10	0	0
+Q9H2M3	48	363	S-methylmethionine--homocysteine S-methyltransferase BHMT2 OS=Homo sapiens (Human) OX=9606 GN=BHMT2 PE=1 SV=1	S-methylmethionine--homocysteine S-methyltransferase BHMT2	0	0
+Q07864	188	2286	DNA polymerase epsilon catalytic subunit A OS=Homo sapiens (Human) OX=9606 GN=POLE PE=1 SV=5	DNA polymerase epsilon catalytic subunit A	0	0
+Q6IMN6	687	1127	Caprin-2 OS=Homo sapiens (Human) OX=9606 GN=CAPRIN2 PE=1 SV=1	Caprin-2	0	0
+P67870	185	215	Casein kinase II subunit beta OS=Homo sapiens (Human) OX=9606 GN=CSNK2B PE=1 SV=1	Casein kinase II subunit beta	0	0
+Q96ID5	47	467	Immunoglobulin superfamily member 21 OS=Homo sapiens (Human) OX=9606 GN=IGSF21 PE=2 SV=1	Immunoglobulin superfamily member 21	0	0
+Q9C0D3	185	744	Protein zyg-11 homolog B OS=Homo sapiens (Human) OX=9606 GN=ZYG11B PE=1 SV=2	Protein zyg-11 homolog B	0	0
+P14679	322	529	Tyrosinase OS=Homo sapiens (Human) OX=9606 GN=TYR PE=1 SV=3	Tyrosinase	10	32
+Q06432	185	222	Voltage-dependent calcium channel gamma-1 subunit OS=Homo sapiens (Human) OX=9606 GN=CACNG1 PE=1 SV=1	Voltage-dependent calcium channel gamma-1 subunit	0	0
+Q05901	47	458	Neuronal acetylcholine receptor subunit beta-3 OS=Homo sapiens (Human) OX=9606 GN=CHRNB3 PE=2 SV=2	Neuronal acetylcholine receptor subunit beta-3	0	0
+Q6UDR6	677	99	Kunitz-type protease inhibitor 4 OS=Homo sapiens (Human) OX=9606 GN=SPINT4 PE=3 SV=1	Kunitz-type protease inhibitor 4	0	0
+Q9UQ16	1297	869	Dynamin-3 OS=Homo sapiens (Human) OX=9606 GN=DNM3 PE=1 SV=4	Dynamin-3	0	0
+O95405	184	1425	Zinc finger FYVE domain-containing protein 9 OS=Homo sapiens (Human) OX=9606 GN=ZFYVE9 PE=1 SV=2	Zinc finger FYVE domain-containing protein 9	0	0
+P23471	47	2315	Receptor-type tyrosine-protein phosphatase zeta OS=Homo sapiens (Human) OX=9606 GN=PTPRZ1 PE=1 SV=4	Receptor-type tyrosine-protein phosphatase zeta	0	0
+Q14683	184	1233	Structural maintenance of chromosomes protein 1A OS=Homo sapiens (Human) OX=9606 GN=SMC1A PE=1 SV=2	Structural maintenance of chromosomes protein 1A	0	0
+Q9ULI0	321	1458	ATPase family AAA domain-containing protein 2B OS=Homo sapiens (Human) OX=9606 GN=ATAD2B PE=1 SV=3	ATPase family AAA domain-containing protein 2B	0	0
+Q99497	183	189	Protein/nucleic acid deglycase DJ-1 OS=Homo sapiens (Human) OX=9606 GN=PARK7 PE=1 SV=2	Protein/nucleic acid deglycase DJ-1	0	2
+Q9NRM7	2123	1088	Serine/threonine-protein kinase LATS2 OS=Homo sapiens (Human) OX=9606 GN=LATS2 PE=1 SV=2	Serine/threonine-protein kinase LATS2	0	0
+Q5SZK8	181	3169	FRAS1-related extracellular matrix protein 2 OS=Homo sapiens (Human) OX=9606 GN=FREM2 PE=1 SV=2	FRAS1-related extracellular matrix protein 2	0	0
+P35590	320	1138	Tyrosine-protein kinase receptor Tie-1 OS=Homo sapiens (Human) OX=9606 GN=TIE1 PE=1 SV=1	Tyrosine-protein kinase receptor Tie-1	0	0
+Q9BYT8	179	704	Neurolysin, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=NLN PE=1 SV=1	Neurolysin, mitochondrial	0	0
+O95622	46	1261	Adenylate cyclase type 5 OS=Homo sapiens (Human) OX=9606 GN=ADCY5 PE=1 SV=3	Adenylate cyclase type 5	0	0
+P22102	178	1010	Trifunctional purine biosynthetic protein adenosine-3 OS=Homo sapiens (Human) OX=9606 GN=GART PE=1 SV=1	Trifunctional purine biosynthetic protein adenosine-3	0	0
+Q96M02	319	699	(E2-independent) E3 ubiquitin-conjugating enzyme FATS OS=Homo sapiens (Human) OX=9606 GN=C10orf90 PE=2 SV=2	(E2-independent) E3 ubiquitin-conjugating enzyme FATS	0	0
+A0A1B0GX68	1284	115	T cell receptor beta variable 2 OS=Homo sapiens (Human) OX=9606 GN=TRBV2 PE=3 SV=1	T cell receptor beta variable 2	0	0
+O95382	46	1288	Mitogen-activated protein kinase kinase kinase 6 OS=Homo sapiens (Human) OX=9606 GN=MAP3K6 PE=1 SV=3	Mitogen-activated protein kinase kinase kinase 6	0	0
+Q6TGC4	177	694	Protein-arginine deiminase type-6 OS=Homo sapiens (Human) OX=9606 GN=PADI6 PE=1 SV=3	Protein-arginine deiminase type-6	0	0
+Q9P0K7	4958	980	Ankycorbin OS=Homo sapiens (Human) OX=9606 GN=RAI14 PE=1 SV=2	Ankycorbin	0	0
+Q8IWD5	177	586	Major facilitator superfamily domain-containing protein 6-like OS=Homo sapiens (Human) OX=9606 GN=MFSD6L PE=2 SV=2	Major facilitator superfamily domain-containing protein 6-like	0	0
+Q9ULL8	46	1493	Protein Shroom4 OS=Homo sapiens (Human) OX=9606 GN=SHROOM4 PE=1 SV=3	Protein Shroom4	0	0
+P24821	177	2201	Tenascin OS=Homo sapiens (Human) OX=9606 GN=TNC PE=1 SV=3	Tenascin	3	0
+Q9UBU7	675	674	Protein DBF4 homolog A OS=Homo sapiens (Human) OX=9606 GN=DBF4 PE=1 SV=1	Protein DBF4 homolog A	0	0
+Q7Z4S6	176	1674	Kinesin-like protein KIF21A OS=Homo sapiens (Human) OX=9606 GN=KIF21A PE=1 SV=2	Kinesin-like protein KIF21A	0	0
+Q8IWZ3	45	2542	Ankyrin repeat and KH domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=ANKHD1 PE=1 SV=1	Ankyrin repeat and KH domain-containing protein 1	0	0
+Q14667	176	2235	Protein KIAA0100 OS=Homo sapiens (Human) OX=9606 GN=KIAA0100 PE=1 SV=3	Protein KIAA0100	0	0
+Q7Z419	318	303	E3 ubiquitin-protein ligase RNF144B OS=Homo sapiens (Human) OX=9606 GN=RNF144B PE=1 SV=1	E3 ubiquitin-protein ligase RNF144B	0	0
+Q9GZN6	175	736	Orphan sodium- and chloride-dependent neurotransmitter transporter NTT5 OS=Homo sapiens (Human) OX=9606 GN=SLC6A16 PE=2 SV=1	Orphan sodium- and chloride-dependent neurotransmitter transporter NTT5	0	0
+Q5VST9	1282	7968	Obscurin OS=Homo sapiens (Human) OX=9606 GN=OBSCN PE=1 SV=3	Obscurin	0	0
+Q01484	673	3957	Ankyrin-2 OS=Homo sapiens (Human) OX=9606 GN=ANK2 PE=1 SV=4	Ankyrin-2	0	0
+Q8NET4	317	1388	Retrotransposon Gag-like protein 9 OS=Homo sapiens (Human) OX=9606 GN=RTL9 PE=1 SV=1	Retrotransposon Gag-like protein 9	0	0
+O15020	173	2390	Spectrin beta chain, non-erythrocytic 2 OS=Homo sapiens (Human) OX=9606 GN=SPTBN2 PE=1 SV=3	Spectrin beta chain, non-erythrocytic 2	0	0
+Q9UL45	2067	172	Biogenesis of lysosome-related organelles complex 1 subunit 6 OS=Homo sapiens (Human) OX=9606 GN=BLOC1S6 PE=1 SV=1	Biogenesis of lysosome-related organelles complex 1 subunit 6	0	0
+Q15413	172	4870	Ryanodine receptor 3 OS=Homo sapiens (Human) OX=9606 GN=RYR3 PE=1 SV=3	Ryanodine receptor 3	0	0
+P00451	316	2351	Coagulation factor VIII OS=Homo sapiens (Human) OX=9606 GN=F8 PE=1 SV=1	Coagulation factor VIII	50	31
+O95487	172	1268	Protein transport protein Sec24B OS=Homo sapiens (Human) OX=9606 GN=SEC24B PE=1 SV=2	Protein transport protein Sec24B	0	0
+Q4G0P3	668	5121	Hydrocephalus-inducing protein homolog OS=Homo sapiens (Human) OX=9606 GN=HYDIN PE=1 SV=3	Hydrocephalus-inducing protein homolog	0	0
+P29597	172	1187	Non-receptor tyrosine-protein kinase TYK2 OS=Homo sapiens (Human) OX=9606 GN=TYK2 PE=1 SV=3	Non-receptor tyrosine-protein kinase TYK2	0	0
+Q9UHW9	312	1150	Solute carrier family 12 member 6 OS=Homo sapiens (Human) OX=9606 GN=SLC12A6 PE=1 SV=2	Solute carrier family 12 member 6	0	0
+Q12965	169	1108	Unconventional myosin-Ie OS=Homo sapiens (Human) OX=9606 GN=MYO1E PE=1 SV=2	Unconventional myosin-Ie	0	0
+Q9UBI4	45	398	Stomatin-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=STOML1 PE=1 SV=1	Stomatin-like protein 1	0	0
+Q92828	1264	525	Coronin-2A OS=Homo sapiens (Human) OX=9606 GN=CORO2A PE=1 SV=2	Coronin-2A	0	0
+Q6NX45	308	483	Zinc finger protein 774 OS=Homo sapiens (Human) OX=9606 GN=ZNF774 PE=1 SV=2	Zinc finger protein 774	0	0
+A8MYV0	657	364	Doublecortin domain-containing protein 2C OS=Homo sapiens (Human) OX=9606 GN=DCDC2C PE=1 SV=4	Doublecortin domain-containing protein 2C	0	0
+Q96KN2	44	507	Beta-Ala-His dipeptidase OS=Homo sapiens (Human) OX=9606 GN=CNDP1 PE=1 SV=4	Beta-Ala-His dipeptidase	0	4
+Q96A46	167	364	Mitoferrin-2 OS=Homo sapiens (Human) OX=9606 GN=SLC25A28 PE=2 SV=1	Mitoferrin-2	0	0
+Q8NGC5	307	347	Olfactory receptor 6J1 OS=Homo sapiens (Human) OX=9606 GN=OR6J1 PE=3 SV=1	Olfactory receptor 6J1	0	0
+Q96N23	10154	3096	Cilia- and flagella-associated protein 54 OS=Homo sapiens (Human) OX=9606 GN=CFAP54 PE=2 SV=3	Cilia- and flagella-associated protein 54	0	0
+Q96JW4	43	573	Solute carrier family 41 member 2 OS=Homo sapiens (Human) OX=9606 GN=SLC41A2 PE=1 SV=2	Solute carrier family 41 member 2	0	0
+Q9Y238	167	1755	Deleted in lung and esophageal cancer protein 1 OS=Homo sapiens (Human) OX=9606 GN=DLEC1 PE=2 SV=2	Deleted in lung and esophageal cancer protein 1	0	0
+P06133	652	528	UDP-glucuronosyltransferase 2B4 OS=Homo sapiens (Human) OX=9606 GN=UGT2B4 PE=1 SV=2	UDP-glucuronosyltransferase 2B4	0	0
+Q9Y2K7	167	1162	Lysine-specific demethylase 2A OS=Homo sapiens (Human) OX=9606 GN=KDM2A PE=1 SV=3	Lysine-specific demethylase 2A	0	0
+Q9NZ42	43	101	Gamma-secretase subunit PEN-2 OS=Homo sapiens (Human) OX=9606 GN=PSENEN PE=1 SV=1	Gamma-secretase subunit PEN-2	0	0
+Q5R3F8	166	820	Protein phosphatase 1 regulatory subunit 29 OS=Homo sapiens (Human) OX=9606 GN=ELFN2 PE=1 SV=1	Protein phosphatase 1 regulatory subunit 29	0	0
+Q9BVR0	1208	1158	Putative HERC2-like protein 3 OS=Homo sapiens (Human) OX=9606 GN=HERC2P3 PE=5 SV=2	Putative HERC2-like protein 3	0	0
+P50579	165	478	Methionine aminopeptidase 2 OS=Homo sapiens (Human) OX=9606 GN=METAP2 PE=1 SV=1	Methionine aminopeptidase 2	2	4
+Q8N9W8	2055	422	Protein FAM71D OS=Homo sapiens (Human) OX=9606 GN=FAM71D PE=2 SV=2	Protein FAM71D	0	0
+Q9P2D1	647	2997	Chromodomain-helicase-DNA-binding protein 7 OS=Homo sapiens (Human) OX=9606 GN=CHD7 PE=1 SV=3	Chromodomain-helicase-DNA-binding protein 7	0	0
+Q96P68	306	337	2-oxoglutarate receptor 1 OS=Homo sapiens (Human) OX=9606 GN=OXGR1 PE=2 SV=1	2-oxoglutarate receptor 1	0	0
+Q86UQ4	164	5058	ATP-binding cassette sub-family A member 13 OS=Homo sapiens (Human) OX=9606 GN=ABCA13 PE=2 SV=3	ATP-binding cassette sub-family A member 13	0	0
+P02489	42	173	Alpha-crystallin A2 chain OS=Homo sapiens (Human) OX=9606 GN=CRYAA2 PE=1 SV=1	Alpha-crystallin A2 chain	0	0
+Q7Z333	4532	2677	Probable helicase senataxin OS=Homo sapiens (Human) OX=9606 GN=SETX PE=1 SV=4	Probable helicase senataxin	0	0
+Q8IYW5	305	571	E3 ubiquitin-protein ligase RNF168 OS=Homo sapiens (Human) OX=9606 GN=RNF168 PE=1 SV=1	E3 ubiquitin-protein ligase RNF168	0	0
+O43286	163	388	Beta-1,4-galactosyltransferase 5 OS=Homo sapiens (Human) OX=9606 GN=B4GALT5 PE=1 SV=1	Beta-1,4-galactosyltransferase 5	0	0
+Q9UL17	640	535	T-box transcription factor TBX21 OS=Homo sapiens (Human) OX=9606 GN=TBX21 PE=1 SV=1	T-box transcription factor TBX21	0	0
+Q8IZU0	163	186	Protein FAM9B OS=Homo sapiens (Human) OX=9606 GN=FAM9B PE=1 SV=1	Protein FAM9B	0	0
+P18405	304	259	3-oxo-5-alpha-steroid 4-dehydrogenase 1 OS=Homo sapiens (Human) OX=9606 GN=SRD5A1 PE=1 SV=1	3-oxo-5-alpha-steroid 4-dehydrogenase 1	0	0
+P43686	1183	418	26S proteasome regulatory subunit 6B OS=Homo sapiens (Human) OX=9606 GN=PSMC4 PE=1 SV=2	26S proteasome regulatory subunit 6B	0	0
+Q9H9H5	42	199	MAP6 domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=MAP6D1 PE=1 SV=1	MAP6 domain-containing protein 1	0	0
+Q8TBZ0	163	833	Coiled-coil domain-containing protein 110 OS=Homo sapiens (Human) OX=9606 GN=CCDC110 PE=1 SV=1	Coiled-coil domain-containing protein 110	0	0
+Q9Y618	298	2514	Nuclear receptor corepressor 2 OS=Homo sapiens (Human) OX=9606 GN=NCOR2 PE=1 SV=3	Nuclear receptor corepressor 2	0	0
+Q6NXP0	636	572	EF-hand calcium-binding domain-containing protein 12 OS=Homo sapiens (Human) OX=9606 GN=EFCAB12 PE=1 SV=1	EF-hand calcium-binding domain-containing protein 12	0	0
+A0A140G945	42	173	Alpha-crystallin A2 chain OS=Homo sapiens (Human) OX=9606 GN=CRYAA2 PE=1 SV=1	Alpha-crystallin A2 chain	0	0
+O95521	162	474	PRAME family member 1 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF1 PE=2 SV=3	PRAME family member 1	0	0
+Q96CP6	294	724	Protein Aster-A OS=Homo sapiens (Human) OX=9606 GN=GRAMD1A PE=1 SV=2	Protein Aster-A	0	0
+Q9H869	161	796	YY1-associated protein 1 OS=Homo sapiens (Human) OX=9606 GN=YY1AP1 PE=1 SV=2	YY1-associated protein 1	0	0
+Q17RB8	41	773	LON peptidase N-terminal domain and RING finger protein 1 OS=Homo sapiens (Human) OX=9606 GN=LONRF1 PE=1 SV=2	LON peptidase N-terminal domain and RING finger protein 1	0	0
+O60244	160	1454	Mediator of RNA polymerase II transcription subunit 14 OS=Homo sapiens (Human) OX=9606 GN=MED14 PE=1 SV=2	Mediator of RNA polymerase II transcription subunit 14	0	0
+Q96N67	633	2140	Dedicator of cytokinesis protein 7 OS=Homo sapiens (Human) OX=9606 GN=DOCK7 PE=1 SV=4	Dedicator of cytokinesis protein 7	0	0
+Q7Z6W1	160	182	Transmembrane and coiled-coil domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=TMCO2 PE=2 SV=1	Transmembrane and coiled-coil domain-containing protein 2	0	0
+Q9NZM1	2030	2061	Myoferlin OS=Homo sapiens (Human) OX=9606 GN=MYOF PE=1 SV=1	Myoferlin	0	0
+Q8NFW9	159	859	Rab effector MyRIP OS=Homo sapiens (Human) OX=9606 GN=MYRIP PE=1 SV=2	Rab effector MyRIP	0	0
+Q6P047	294	294	Uncharacterized protein C8orf74 OS=Homo sapiens (Human) OX=9606 GN=C8orf74 PE=1 SV=3	Uncharacterized protein C8orf74	0	0
+Q13564	158	534	NEDD8-activating enzyme E1 regulatory subunit OS=Homo sapiens (Human) OX=9606 GN=NAE1 PE=1 SV=1	NEDD8-activating enzyme E1 regulatory subunit	0	0
+P61129	40	1189	Zinc finger CCCH domain-containing protein 6 OS=Homo sapiens (Human) OX=9606 GN=ZC3H6 PE=1 SV=2	Zinc finger CCCH domain-containing protein 6	0	0
+Q9NZP6	629	1156	Nuclear pore-associated protein 1 OS=Homo sapiens (Human) OX=9606 GN=NPAP1 PE=1 SV=2	Nuclear pore-associated protein 1	0	0
+O75071	292	495	EF-hand calcium-binding domain-containing protein 14 OS=Homo sapiens (Human) OX=9606 GN=EFCAB14 PE=1 SV=1	EF-hand calcium-binding domain-containing protein 14	0	0
+Q5JTH9	158	1297	RRP12-like protein OS=Homo sapiens (Human) OX=9606 GN=RRP12 PE=1 SV=2	RRP12-like protein	0	0
+Q9UFH2	40	4462	Dynein heavy chain 17, axonemal OS=Homo sapiens (Human) OX=9606 GN=DNAH17 PE=1 SV=3	Dynein heavy chain 17, axonemal	0	0
+Q86SX6	158	157	Glutaredoxin-related protein 5, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=GLRX5 PE=1 SV=2	Glutaredoxin-related protein 5, mitochondrial	0	0
+P35916	290	1363	Vascular endothelial growth factor receptor 3 OS=Homo sapiens (Human) OX=9606 GN=FLT4 PE=1 SV=3	Vascular endothelial growth factor receptor 3	0	0
+O00507	157	2555	Probable ubiquitin carboxyl-terminal hydrolase FAF-Y OS=Homo sapiens (Human) OX=9606 GN=USP9Y PE=2 SV=2	Probable ubiquitin carboxyl-terminal hydrolase FAF-Y	3	0
+Q5JRA6	628	1907	Transport and Golgi organization protein 1 homolog OS=Homo sapiens (Human) OX=9606 GN=MIA3 PE=1 SV=1	Transport and Golgi organization protein 1 homolog	0	0
+Q9HBG4	1176	840	V-type proton ATPase 116 kDa subunit a isoform 4 OS=Homo sapiens (Human) OX=9606 GN=ATP6V0A4 PE=1 SV=2	V-type proton ATPase 116 kDa subunit a isoform 4	0	0
+Q92674	290	756	Centromere protein I OS=Homo sapiens (Human) OX=9606 GN=CENPI PE=1 SV=2	Centromere protein I	0	0
+P58182	157	307	Olfactory receptor 12D2 OS=Homo sapiens (Human) OX=9606 GN=OR12D2 PE=2 SV=2	Olfactory receptor 12D2	0	0
+Q9BX97	40	442	Plasmalemma vesicle-associated protein OS=Homo sapiens (Human) OX=9606 GN=PLVAP PE=1 SV=1	Plasmalemma vesicle-associated protein	0	0
+P17301	157	1181	Integrin alpha-2 OS=Homo sapiens (Human) OX=9606 GN=ITGA2 PE=1 SV=1	Integrin alpha-2	0	7
+Q9NZ09	290	502	Ubiquitin-associated protein 1 OS=Homo sapiens (Human) OX=9606 GN=UBAP1 PE=1 SV=1	Ubiquitin-associated protein 1	0	0
+Q9BZF9	627	1416	Uveal autoantigen with coiled-coil domains and ankyrin repeats OS=Homo sapiens (Human) OX=9606 GN=UACA PE=1 SV=2	Uveal autoantigen with coiled-coil domains and ankyrin repeats	0	5
+O95388	40	367	CCN family member 4 OS=Homo sapiens (Human) OX=9606 GN=CCN4 PE=1 SV=1	CCN family member 4	0	0
+Q2NKX8	157	1250	DNA excision repair protein ERCC-6-like OS=Homo sapiens (Human) OX=9606 GN=ERCC6L PE=1 SV=1	DNA excision repair protein ERCC-6-like	0	0
+Q9HCC9	289	887	Lateral signaling target protein 2 homolog OS=Homo sapiens (Human) OX=9606 GN=ZFYVE28 PE=1 SV=3	Lateral signaling target protein 2 homolog	0	0
+Q08945	156	709	FACT complex subunit SSRP1 OS=Homo sapiens (Human) OX=9606 GN=SSRP1 PE=1 SV=1	FACT complex subunit SSRP1	0	0
+Q9H9E3	4521	785	Conserved oligomeric Golgi complex subunit 4 OS=Homo sapiens (Human) OX=9606 GN=COG4 PE=1 SV=3	Conserved oligomeric Golgi complex subunit 4	0	0
+Q9NP99	155	234	Triggering receptor expressed on myeloid cells 1 OS=Homo sapiens (Human) OX=9606 GN=TREM1 PE=1 SV=1	Triggering receptor expressed on myeloid cells 1	0	0
+Q86VP6	1161	1230	Cullin-associated NEDD8-dissociated protein 1 OS=Homo sapiens (Human) OX=9606 GN=CAND1 PE=1 SV=2	Cullin-associated NEDD8-dissociated protein 1	0	0
+O95677	155	639	Eyes absent homolog 4 OS=Homo sapiens (Human) OX=9606 GN=EYA4 PE=1 SV=2	Eyes absent homolog 4	0	0
+Q68DX3	40	1309	FERM and PDZ domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=FRMPD2 PE=1 SV=3	FERM and PDZ domain-containing protein 2	0	0
+P53814	155	917	Smoothelin OS=Homo sapiens (Human) OX=9606 GN=SMTN PE=1 SV=7	Smoothelin	0	0
+Q8NH48	289	314	Olfactory receptor 5B3 OS=Homo sapiens (Human) OX=9606 GN=OR5B3 PE=3 SV=1	Olfactory receptor 5B3	0	0
+Q9ULC6	155	663	Protein-arginine deiminase type-1 OS=Homo sapiens (Human) OX=9606 GN=PADI1 PE=1 SV=2	Protein-arginine deiminase type-1	0	0
+P0C7N1	39	319	Olfactory receptor 8U8 OS=Homo sapiens (Human) OX=9606 GN=OR8U8 PE=3 SV=1	Olfactory receptor 8U8	0	0
+Q13563	620	968	Polycystin-2 OS=Homo sapiens (Human) OX=9606 GN=PKD2 PE=1 SV=3	Polycystin-2	0	0
+Q8IX03	286	1113	Protein KIBRA OS=Homo sapiens (Human) OX=9606 GN=WWC1 PE=1 SV=1	Protein KIBRA	0	0
+P52747	155	638	Zinc finger protein 143 OS=Homo sapiens (Human) OX=9606 GN=ZNF143 PE=1 SV=2	Zinc finger protein 143	0	0
+Q86TW2	39	530	AarF domain-containing protein kinase 1 OS=Homo sapiens (Human) OX=9606 GN=ADCK1 PE=1 SV=2	AarF domain-containing protein kinase 1	0	0
+Q9NXB9	154	296	Elongation of very long chain fatty acids protein 2 OS=Homo sapiens (Human) OX=9606 GN=ELOVL2 PE=1 SV=2	Elongation of very long chain fatty acids protein 2	0	0
+Q9Y5B9	285	1047	FACT complex subunit SPT16 OS=Homo sapiens (Human) OX=9606 GN=SUPT16H PE=1 SV=1	FACT complex subunit SPT16	0	0
+O15040	1120	1411	Tectonin beta-propeller repeat-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=TECPR2 PE=1 SV=4	Tectonin beta-propeller repeat-containing protein 2	0	0
+Q9Y5S2	607	1711	Serine/threonine-protein kinase MRCK beta OS=Homo sapiens (Human) OX=9606 GN=CDC42BPB PE=1 SV=2	Serine/threonine-protein kinase MRCK beta	0	0
+Q5MNZ6	154	344	WD repeat domain phosphoinositide-interacting protein 3 OS=Homo sapiens (Human) OX=9606 GN=WDR45B PE=1 SV=2	WD repeat domain phosphoinositide-interacting protein 3	0	0
+Q8N328	284	593	PiggyBac transposable element-derived protein 3 OS=Homo sapiens (Human) OX=9606 GN=PGBD3 PE=1 SV=3	PiggyBac transposable element-derived protein 3	0	0
+Q9NR64	154	748	Kelch-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=KLHL1 PE=2 SV=1	Kelch-like protein 1	0	0
+P38935	8880	993	DNA-binding protein SMUBP-2 OS=Homo sapiens (Human) OX=9606 GN=IGHMBP2 PE=1 SV=3	DNA-binding protein SMUBP-2	0	0
+Q9UIF8	153	2168	Bromodomain adjacent to zinc finger domain protein 2B OS=Homo sapiens (Human) OX=9606 GN=BAZ2B PE=1 SV=3	Bromodomain adjacent to zinc finger domain protein 2B	0	0
+O14594	283	1321	Neurocan core protein OS=Homo sapiens (Human) OX=9606 GN=NCAN PE=1 SV=3	Neurocan core protein	0	0
+Q14BN4	598	828	Sarcolemmal membrane-associated protein OS=Homo sapiens (Human) OX=9606 GN=SLMAP PE=1 SV=1	Sarcolemmal membrane-associated protein	0	0
+Q96JM2	2029	2506	Zinc finger protein 462 OS=Homo sapiens (Human) OX=9606 GN=ZNF462 PE=1 SV=3	Zinc finger protein 462	0	0
+Q9H343	153	314	Olfactory receptor 51I1 OS=Homo sapiens (Human) OX=9606 GN=OR51I1 PE=2 SV=1	Olfactory receptor 51I1	0	0
+Q6NZY4	281	707	Zinc finger CCHC domain-containing protein 8 OS=Homo sapiens (Human) OX=9606 GN=ZCCHC8 PE=1 SV=2	Zinc finger CCHC domain-containing protein 8	0	0
+Q8NB49	152	1132	Phospholipid-transporting ATPase IG OS=Homo sapiens (Human) OX=9606 GN=ATP11C PE=1 SV=3	Phospholipid-transporting ATPase IG	0	0
+Q6NSI4	1116	855	RPA-related protein RADX OS=Homo sapiens (Human) OX=9606 GN=RADX PE=1 SV=2	RPA-related protein RADX	0	0
+Q9BZV3	151	1241	Interphotoreceptor matrix proteoglycan 2 OS=Homo sapiens (Human) OX=9606 GN=IMPG2 PE=1 SV=3	Interphotoreceptor matrix proteoglycan 2	0	0
+Q96PQ7	594	755	Kelch-like protein 5 OS=Homo sapiens (Human) OX=9606 GN=KLHL5 PE=2 SV=3	Kelch-like protein 5	0	0
+Q86WI1	151	4243	Fibrocystin-L OS=Homo sapiens (Human) OX=9606 GN=PKHD1L1 PE=2 SV=2	Fibrocystin-L	0	0
+Q9P0V3	38	963	SH3 domain-binding protein 4 OS=Homo sapiens (Human) OX=9606 GN=SH3BP4 PE=1 SV=1	SH3 domain-binding protein 4	0	0
+Q2M3C6	150	531	Transmembrane protein 266 OS=Homo sapiens (Human) OX=9606 GN=TMEM266 PE=1 SV=2	Transmembrane protein 266	0	0
+Q8NGN0	280	318	Olfactory receptor 4D5 OS=Homo sapiens (Human) OX=9606 GN=OR4D5 PE=2 SV=1	Olfactory receptor 4D5	0	0
+Q9UKP6	150	389	Urotensin-2 receptor OS=Homo sapiens (Human) OX=9606 GN=UTS2R PE=1 SV=1	Urotensin-2 receptor	0	0
+P31937	38	336	3-hydroxyisobutyrate dehydrogenase, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=HIBADH PE=1 SV=2	3-hydroxyisobutyrate dehydrogenase, mitochondrial	0	0
+Q9Y5F7	586	938	Protocadherin gamma-C4 OS=Homo sapiens (Human) OX=9606 GN=PCDHGC4 PE=2 SV=1	Protocadherin gamma-C4	0	0
+Q7Z7M0	279	2845	Multiple epidermal growth factor-like domains protein 8 OS=Homo sapiens (Human) OX=9606 GN=MEGF8 PE=1 SV=2	Multiple epidermal growth factor-like domains protein 8	0	0
+P24468	150	414	COUP transcription factor 2 OS=Homo sapiens (Human) OX=9606 GN=NR2F2 PE=1 SV=1	COUP transcription factor 2	0	0
+P29275	37	332	Adenosine receptor A2b OS=Homo sapiens (Human) OX=9606 GN=ADORA2B PE=1 SV=1	Adenosine receptor A2b	0	0
+P28072	1099	239	Proteasome subunit beta type-6 OS=Homo sapiens (Human) OX=9606 GN=PSMB6 PE=1 SV=4	Proteasome subunit beta type-6	0	0
+Q96GC9	277	406	Vacuole membrane protein 1 OS=Homo sapiens (Human) OX=9606 GN=VMP1 PE=1 SV=1	Vacuole membrane protein 1	0	0
+P51530	3820	1060	DNA replication ATP-dependent helicase/nuclease DNA2 OS=Homo sapiens (Human) OX=9606 GN=DNA2 PE=1 SV=3	DNA replication ATP-dependent helicase/nuclease DNA2	0	0
+Q14126	581	1118	Desmoglein-2 OS=Homo sapiens (Human) OX=9606 GN=DSG2 PE=1 SV=2	Desmoglein-2	0	5
+Q9NP84	149	129	Tumor necrosis factor receptor superfamily member 12A OS=Homo sapiens (Human) OX=9606 GN=TNFRSF12A PE=1 SV=1	Tumor necrosis factor receptor superfamily member 12A	0	0
+P48751	277	1232	Anion exchange protein 3 OS=Homo sapiens (Human) OX=9606 GN=SLC4A3 PE=2 SV=2	Anion exchange protein 3	0	0
+Q7Z3U7	149	1717	Protein MON2 homolog OS=Homo sapiens (Human) OX=9606 GN=MON2 PE=1 SV=3	Protein MON2 homolog	0	0
+O43164	2015	708	E3 ubiquitin-protein ligase Praja-2 OS=Homo sapiens (Human) OX=9606 GN=PJA2 PE=1 SV=4	E3 ubiquitin-protein ligase Praja-2	0	0
+Q9UPR0	148	1127	Inactive phospholipase C-like protein 2 OS=Homo sapiens (Human) OX=9606 GN=PLCL2 PE=1 SV=2	Inactive phospholipase C-like protein 2	0	0
+Q93100	276	1093	Phosphorylase b kinase regulatory subunit beta OS=Homo sapiens (Human) OX=9606 GN=PHKB PE=1 SV=3	Phosphorylase b kinase regulatory subunit beta	0	0
+Q5T9A4	579	648	ATPase family AAA domain-containing protein 3B OS=Homo sapiens (Human) OX=9606 GN=ATAD3B PE=1 SV=1	ATPase family AAA domain-containing protein 3B	0	0
+Q9UNY4	37	1162	Transcription termination factor 2 OS=Homo sapiens (Human) OX=9606 GN=TTF2 PE=1 SV=2	Transcription termination factor 2	0	0
+Q58A45	148	887	PAN2-PAN3 deadenylation complex subunit PAN3 OS=Homo sapiens (Human) OX=9606 GN=PAN3 PE=1 SV=3	PAN2-PAN3 deadenylation complex subunit PAN3	0	0
+P06727	1093	396	Apolipoprotein A-IV OS=Homo sapiens (Human) OX=9606 GN=APOA4 PE=1 SV=3	Apolipoprotein A-IV	0	0
+Q9Y5G6	148	932	Protocadherin gamma-A7 OS=Homo sapiens (Human) OX=9606 GN=PCDHGA7 PE=2 SV=1	Protocadherin gamma-A7	0	0
+Q15811	37	1721	Intersectin-1 OS=Homo sapiens (Human) OX=9606 GN=ITSN1 PE=1 SV=3	Intersectin-1	0	0
+P10589	147	423	COUP transcription factor 1 OS=Homo sapiens (Human) OX=9606 GN=NR2F1 PE=1 SV=1	COUP transcription factor 1	0	0
+Q8N475	573	847	Follistatin-related protein 5 OS=Homo sapiens (Human) OX=9606 GN=FSTL5 PE=2 SV=2	Follistatin-related protein 5	0	0
+Q05C16	147	580	Leucine-rich repeat-containing protein 63 OS=Homo sapiens (Human) OX=9606 GN=LRRC63 PE=2 SV=2	Leucine-rich repeat-containing protein 63	0	0
+P53667	37	647	LIM domain kinase 1 OS=Homo sapiens (Human) OX=9606 GN=LIMK1 PE=1 SV=3	LIM domain kinase 1	0	0
+Q03933	143	536	Heat shock factor protein 2 OS=Homo sapiens (Human) OX=9606 GN=HSF2 PE=1 SV=1	Heat shock factor protein 2	0	0
+P36406	276	574	E3 ubiquitin-protein ligase TRIM23 OS=Homo sapiens (Human) OX=9606 GN=TRIM23 PE=1 SV=1	E3 ubiquitin-protein ligase TRIM23	0	0
+Q6ZRI6	143	1047	Uncharacterized protein C15orf39 OS=Homo sapiens (Human) OX=9606 GN=C15orf39 PE=1 SV=3	Uncharacterized protein C15orf39	0	0
+O43149	37	2961	Zinc finger ZZ-type and EF-hand domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=ZZEF1 PE=1 SV=6	Zinc finger ZZ-type and EF-hand domain-containing protein 1	0	0
+Q8NBE8	552	558	Kelch-like protein 23 OS=Homo sapiens (Human) OX=9606 GN=KLHL23 PE=1 SV=1	Kelch-like protein 23	0	0
+O75179	276	2603	Ankyrin repeat domain-containing protein 17 OS=Homo sapiens (Human) OX=9606 GN=ANKRD17 PE=1 SV=3	Ankyrin repeat domain-containing protein 17	0	0
+Q8NDM7	1086	1665	Cilia- and flagella-associated protein 43 OS=Homo sapiens (Human) OX=9606 GN=CFAP43 PE=2 SV=3	Cilia- and flagella-associated protein 43	0	0
+Q86UP3	37	3567	Zinc finger homeobox protein 4 OS=Homo sapiens (Human) OX=9606 GN=ZFHX4 PE=1 SV=1	Zinc finger homeobox protein 4	0	0
+Q9UPA5	143	3926	Protein bassoon OS=Homo sapiens (Human) OX=9606 GN=BSN PE=1 SV=4	Protein bassoon	0	0
+Q569G3	275	176	Uncharacterized protein C5orf47 OS=Homo sapiens (Human) OX=9606 GN=C5orf47 PE=2 SV=2	Uncharacterized protein C5orf47	0	0
+Q9UBU6	143	413	Protein FAM8A1 OS=Homo sapiens (Human) OX=9606 GN=FAM8A1 PE=1 SV=1	Protein FAM8A1	0	0
+P08238	1918	724	Heat shock protein HSP 90-beta OS=Homo sapiens (Human) OX=9606 GN=HSP90AB1 PE=1 SV=4	Heat shock protein HSP 90-beta	2	43
+Q9H7E2	142	651	Tudor domain-containing protein 3 OS=Homo sapiens (Human) OX=9606 GN=TDRD3 PE=1 SV=1	Tudor domain-containing protein 3	0	0
+Q9BXT5	273	2789	Testis-expressed protein 15 OS=Homo sapiens (Human) OX=9606 GN=TEX15 PE=1 SV=2	Testis-expressed protein 15	0	0
+P22830	142	423	Ferrochelatase, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=FECH PE=1 SV=2	Ferrochelatase, mitochondrial	0	0
+Q09470	36	495	Potassium voltage-gated channel subfamily A member 1 OS=Homo sapiens (Human) OX=9606 GN=KCNA1 PE=1 SV=2	Potassium voltage-gated channel subfamily A member 1	0	0
+Q9H0P0	142	336	Cytosolic 5'-nucleotidase 3A OS=Homo sapiens (Human) OX=9606 GN=NT5C3A PE=1 SV=3	Cytosolic 5'-nucleotidase 3A	0	0
+Q9UKL3	272	1982	CASP8-associated protein 2 OS=Homo sapiens (Human) OX=9606 GN=CASP8AP2 PE=1 SV=1	CASP8-associated protein 2	0	0
+Q8IVU1	549	814	Immunoglobulin superfamily DCC subclass member 3 OS=Homo sapiens (Human) OX=9606 GN=IGDCC3 PE=2 SV=2	Immunoglobulin superfamily DCC subclass member 3	0	0
+Q9NXN4	1076	497	Ganglioside-induced differentiation-associated protein 2 OS=Homo sapiens (Human) OX=9606 GN=GDAP2 PE=1 SV=1	Ganglioside-induced differentiation-associated protein 2	0	0
+Q9HCH3	142	593	Copine-5 OS=Homo sapiens (Human) OX=9606 GN=CPNE5 PE=1 SV=2	Copine-5	0	0
+Q96R06	271	1193	Sperm-associated antigen 5 OS=Homo sapiens (Human) OX=9606 GN=SPAG5 PE=1 SV=2	Sperm-associated antigen 5	0	0
+O75380	141	124	NADH dehydrogenase [ubiquinone] iron-sulfur protein 6, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=NDUFS6 PE=1 SV=1	NADH dehydrogenase [ubiquinone] iron-sulfur protein 6, mitochondrial	0	0
+P22001	36	575	Potassium voltage-gated channel subfamily A member 3 OS=Homo sapiens (Human) OX=9606 GN=KCNA3 PE=1 SV=3	Potassium voltage-gated channel subfamily A member 3	0	0
+Q5VWM3	141	479	PRAME family member 18 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF18 PE=3 SV=2	PRAME family member 18	0	0
+Q9UL36	3667	1845	Zinc finger protein 236 OS=Homo sapiens (Human) OX=9606 GN=ZNF236 PE=2 SV=2	Zinc finger protein 236	0	0
+Q5MY95	141	495	Ectonucleoside triphosphate diphosphohydrolase 8 OS=Homo sapiens (Human) OX=9606 GN=ENTPD8 PE=1 SV=2	Ectonucleoside triphosphate diphosphohydrolase 8	0	0
+Q8WWX0	36	329	Ankyrin repeat and SOCS box protein 5 OS=Homo sapiens (Human) OX=9606 GN=ASB5 PE=2 SV=1	Ankyrin repeat and SOCS box protein 5	0	0
+O75343	141	617	Guanylate cyclase soluble subunit beta-2 OS=Homo sapiens (Human) OX=9606 GN=GUCY1B2 PE=5 SV=2	Guanylate cyclase soluble subunit beta-2	0	0
+Q9HC98	270	313	Serine/threonine-protein kinase Nek6 OS=Homo sapiens (Human) OX=9606 GN=NEK6 PE=1 SV=2	Serine/threonine-protein kinase Nek6	0	0
+Q6ZPD8	141	337	Diacylglycerol O-acyltransferase 2-like protein 6 OS=Homo sapiens (Human) OX=9606 GN=DGAT2L6 PE=1 SV=1	Diacylglycerol O-acyltransferase 2-like protein 6	0	0
+P16389	35	499	Potassium voltage-gated channel subfamily A member 2 OS=Homo sapiens (Human) OX=9606 GN=KCNA2 PE=1 SV=2	Potassium voltage-gated channel subfamily A member 2	0	0
+Q99436	1063	277	Proteasome subunit beta type-7 OS=Homo sapiens (Human) OX=9606 GN=PSMB7 PE=1 SV=1	Proteasome subunit beta type-7	0	0
+Q8IUW3	269	424	Spermatogenesis-associated protein 2-like protein OS=Homo sapiens (Human) OX=9606 GN=SPATA2L PE=2 SV=1	Spermatogenesis-associated protein 2-like protein	0	0
+Q6ZT98	138	887	Tubulin polyglutamylase TTLL7 OS=Homo sapiens (Human) OX=9606 GN=TTLL7 PE=1 SV=2	Tubulin polyglutamylase TTLL7	0	0
+Q8IVN8	1912	264	Somatomedin-B and thrombospondin type-1 domain-containing protein OS=Homo sapiens (Human) OX=9606 GN=SBSPON PE=1 SV=2	Somatomedin-B and thrombospondin type-1 domain-containing protein	0	0
+Q9HCE1	8337	1003	Helicase MOV-10 OS=Homo sapiens (Human) OX=9606 GN=MOV10 PE=1 SV=2	Helicase MOV-10	0	0
+Q8IYJ1	266	553	Copine-9 OS=Homo sapiens (Human) OX=9606 GN=CPNE9 PE=1 SV=3	Copine-9	0	0
+Q69YQ0	137	1117	Cytospin-A OS=Homo sapiens (Human) OX=9606 GN=SPECC1L PE=1 SV=2	Cytospin-A	0	0
+Q9NZB2	547	1118	Constitutive coactivator of PPAR-gamma-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=FAM120A PE=1 SV=2	Constitutive coactivator of PPAR-gamma-like protein 1	0	0
+Q9Y4C8	137	960	Probable RNA-binding protein 19 OS=Homo sapiens (Human) OX=9606 GN=RBM19 PE=1 SV=3	Probable RNA-binding protein 19	0	0
+P43657	265	344	Lysophosphatidic acid receptor 6 OS=Homo sapiens (Human) OX=9606 GN=LPAR6 PE=1 SV=3	Lysophosphatidic acid receptor 6	0	0
+P10586	137	1907	Receptor-type tyrosine-protein phosphatase F OS=Homo sapiens (Human) OX=9606 GN=PTPRF PE=1 SV=2	Receptor-type tyrosine-protein phosphatase F	0	0
+Q9UHM6	35	478	Melanopsin OS=Homo sapiens (Human) OX=9606 GN=OPN4 PE=1 SV=1	Melanopsin	0	0
+Q9Y5K2	136	254	Kallikrein-4 OS=Homo sapiens (Human) OX=9606 GN=KLK4 PE=1 SV=2	Kallikrein-4	0	0
+O14841	1055	1288	5-oxoprolinase OS=Homo sapiens (Human) OX=9606 GN=OPLAH PE=1 SV=3	5-oxoprolinase	0	0
+Q96GX1	538	697	Tectonic-2 OS=Homo sapiens (Human) OX=9606 GN=TCTN2 PE=2 SV=1	Tectonic-2	0	0
+P17658	35	529	Potassium voltage-gated channel subfamily A member 6 OS=Homo sapiens (Human) OX=9606 GN=KCNA6 PE=1 SV=1	Potassium voltage-gated channel subfamily A member 6	0	0
+Q9NY43	136	387	BarH-like 2 homeobox protein OS=Homo sapiens (Human) OX=9606 GN=BARHL2 PE=1 SV=2	BarH-like 2 homeobox protein	0	0
+Q2M1P5	263	1343	Kinesin-like protein KIF7 OS=Homo sapiens (Human) OX=9606 GN=KIF7 PE=1 SV=2	Kinesin-like protein KIF7	0	0
+O15013	136	1369	Rho guanine nucleotide exchange factor 10 OS=Homo sapiens (Human) OX=9606 GN=ARHGEF10 PE=1 SV=4	Rho guanine nucleotide exchange factor 10	0	0
+Q496Y0	34	759	LON peptidase N-terminal domain and RING finger protein 3 OS=Homo sapiens (Human) OX=9606 GN=LONRF3 PE=1 SV=1	LON peptidase N-terminal domain and RING finger protein 3	0	0
+P29371	136	465	Neuromedin-K receptor OS=Homo sapiens (Human) OX=9606 GN=TACR3 PE=1 SV=1	Neuromedin-K receptor	0	0
+Q5SRI9	533	462	Glycoprotein endo-alpha-1,2-mannosidase OS=Homo sapiens (Human) OX=9606 GN=MANEA PE=1 SV=1	Glycoprotein endo-alpha-1,2-mannosidase	0	0
+Q96JQ5	135	239	Membrane-spanning 4-domains subfamily A member 4A OS=Homo sapiens (Human) OX=9606 GN=MS4A4A PE=1 SV=1	Membrane-spanning 4-domains subfamily A member 4A	0	0
+Q9P273	34	2699	Teneurin-3 OS=Homo sapiens (Human) OX=9606 GN=TENM3 PE=2 SV=3	Teneurin-3	0	0
+Q16363	135	1823	Laminin subunit alpha-4 OS=Homo sapiens (Human) OX=9606 GN=LAMA4 PE=1 SV=4	Laminin subunit alpha-4	0	0
+Q8N3J3	262	647	Uncharacterized protein C17orf53 OS=Homo sapiens (Human) OX=9606 GN=C17orf53 PE=1 SV=1	Uncharacterized protein C17orf53	0	0
+O95714	1043	4834	E3 ubiquitin-protein ligase HERC2 OS=Homo sapiens (Human) OX=9606 GN=HERC2 PE=1 SV=2	E3 ubiquitin-protein ligase HERC2	0	0
+P0C2L3	1861	166	Protein FAM163B OS=Homo sapiens (Human) OX=9606 GN=FAM163B PE=1 SV=1	Protein FAM163B	0	0
+Q9Y4G6	531	2542	Talin-2 OS=Homo sapiens (Human) OX=9606 GN=TLN2 PE=1 SV=4	Talin-2	0	0
+O76075	261	338	DNA fragmentation factor subunit beta OS=Homo sapiens (Human) OX=9606 GN=DFFB PE=1 SV=1	DNA fragmentation factor subunit beta	0	0
+Q8IWL3	134	235	Iron-sulfur cluster co-chaperone protein HscB OS=Homo sapiens (Human) OX=9606 GN=HSCB PE=1 SV=3	Iron-sulfur cluster co-chaperone protein HscB	0	0
+Q12996	33	717	Cleavage stimulation factor subunit 3 OS=Homo sapiens (Human) OX=9606 GN=CSTF3 PE=1 SV=1	Cleavage stimulation factor subunit 3	0	0
+Q9NYV6	133	651	RNA polymerase I-specific transcription initiation factor RRN3 OS=Homo sapiens (Human) OX=9606 GN=RRN3 PE=1 SV=1	RNA polymerase I-specific transcription initiation factor RRN3	0	0
+P23786	260	658	Carnitine O-palmitoyltransferase 2, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=CPT2 PE=1 SV=2	Carnitine O-palmitoyltransferase 2, mitochondrial	0	0
+O14668	133	218	Transmembrane gamma-carboxyglutamic acid protein 1 OS=Homo sapiens (Human) OX=9606 GN=PRRG1 PE=1 SV=1	Transmembrane gamma-carboxyglutamic acid protein 1	0	0
+Q96MZ0	525	367	Ganglioside-induced differentiation-associated protein 1-like 1 OS=Homo sapiens (Human) OX=9606 GN=GDAP1L1 PE=2 SV=2	Ganglioside-induced differentiation-associated protein 1-like 1	0	0
+Q9UPN3	3649	7388	Microtubule-actin cross-linking factor 1, isoforms 1/2/3/5 OS=Homo sapiens (Human) OX=9606 GN=MACF1 PE=1 SV=4	Microtubule-actin cross-linking factor 1, isoforms 1/2/3/5	0	0
+Q96M95	260	316	Coiled-coil domain-containing protein 42 OS=Homo sapiens (Human) OX=9606 GN=CCDC42 PE=1 SV=2	Coiled-coil domain-containing protein 42	0	0
+Q9Y4D2	132	1042	Sn1-specific diacylglycerol lipase alpha OS=Homo sapiens (Human) OX=9606 GN=DAGLA PE=1 SV=3	Sn1-specific diacylglycerol lipase alpha	0	0
+Q8N1W1	1039	1705	Rho guanine nucleotide exchange factor 28 OS=Homo sapiens (Human) OX=9606 GN=ARHGEF28 PE=1 SV=3	Rho guanine nucleotide exchange factor 28	0	0
+Q15172	132	486	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit alpha isoform OS=Homo sapiens (Human) OX=9606 GN=PPP2R5A PE=1 SV=1	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit alpha isoform	0	0
+Q99973	259	2627	Telomerase protein component 1 OS=Homo sapiens (Human) OX=9606 GN=TEP1 PE=1 SV=2	Telomerase protein component 1	0	0
+Q9NZ08	522	941	Endoplasmic reticulum aminopeptidase 1 OS=Homo sapiens (Human) OX=9606 GN=ERAP1 PE=1 SV=3	Endoplasmic reticulum aminopeptidase 1	0	0
+Q9BQS6	33	159	Heat shock protein beta-9 OS=Homo sapiens (Human) OX=9606 GN=HSPB9 PE=1 SV=1	Heat shock protein beta-9	0	0
+Q9Y2H0	132	992	Disks large-associated protein 4 OS=Homo sapiens (Human) OX=9606 GN=DLGAP4 PE=1 SV=3	Disks large-associated protein 4	0	0
+P04070	259	461	Vitamin K-dependent protein C OS=Homo sapiens (Human) OX=9606 GN=PROC PE=1 SV=1	Vitamin K-dependent protein C	0	1
+P49802	132	495	Regulator of G-protein signaling 7 OS=Homo sapiens (Human) OX=9606 GN=RGS7 PE=1 SV=3	Regulator of G-protein signaling 7	0	0
+Q9NSI6	33	2320	Bromodomain and WD repeat-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=BRWD1 PE=1 SV=4	Bromodomain and WD repeat-containing protein 1	0	0
+P15018	132	202	Leukemia inhibitory factor OS=Homo sapiens (Human) OX=9606 GN=LIF PE=1 SV=1	Leukemia inhibitory factor	0	0
+Q9NRC6	518	3674	Spectrin beta chain, non-erythrocytic 5 OS=Homo sapiens (Human) OX=9606 GN=SPTBN5 PE=1 SV=2	Spectrin beta chain, non-erythrocytic 5	0	0
+Q99972	132	504	Myocilin OS=Homo sapiens (Human) OX=9606 GN=MYOC PE=1 SV=2	Myocilin	0	0
+Q8N6M8	1748	205	IQ domain-containing protein F1 OS=Homo sapiens (Human) OX=9606 GN=IQCF1 PE=2 SV=2	IQ domain-containing protein F1	0	0
+Q9BXT6	1034	1211	RNA helicase Mov10l1 OS=Homo sapiens (Human) OX=9606 GN=MOV10L1 PE=2 SV=1	RNA helicase Mov10l1	0	0
+Q16853	258	763	Membrane primary amine oxidase OS=Homo sapiens (Human) OX=9606 GN=AOC3 PE=1 SV=3	Membrane primary amine oxidase	0	0
+P13747	131	358	HLA class I histocompatibility antigen, alpha chain E OS=Homo sapiens (Human) OX=9606 GN=HLA-E PE=1 SV=4	HLA class I histocompatibility antigen, alpha chain E	3	0
+Q99661	32	725	Kinesin-like protein KIF2C OS=Homo sapiens (Human) OX=9606 GN=KIF2C PE=1 SV=2	Kinesin-like protein KIF2C	0	0
+Q5GH72	511	579	XK-related protein 7 OS=Homo sapiens (Human) OX=9606 GN=XKR7 PE=2 SV=1	XK-related protein 7	0	0
+P48764	258	834	Sodium/hydrogen exchanger 3 OS=Homo sapiens (Human) OX=9606 GN=SLC9A3 PE=1 SV=2	Sodium/hydrogen exchanger 3	0	0
+Q92625	131	1134	Ankyrin repeat and SAM domain-containing protein 1A OS=Homo sapiens (Human) OX=9606 GN=ANKS1A PE=1 SV=4	Ankyrin repeat and SAM domain-containing protein 1A	0	0
+Q6AI08	32	1181	HEAT repeat-containing protein 6 OS=Homo sapiens (Human) OX=9606 GN=HEATR6 PE=1 SV=1	HEAT repeat-containing protein 6	0	0
+Q8NGF8	131	309	Olfactory receptor 4B1 OS=Homo sapiens (Human) OX=9606 GN=OR4B1 PE=3 SV=1	Olfactory receptor 4B1	0	0
+P09237	256	267	Matrilysin OS=Homo sapiens (Human) OX=9606 GN=MMP7 PE=1 SV=1	Matrilysin	0	0
+O75592	130	4678	E3 ubiquitin-protein ligase MYCBP2 OS=Homo sapiens (Human) OX=9606 GN=MYCBP2 PE=1 SV=4	E3 ubiquitin-protein ligase MYCBP2	0	0
+Q14203	505	1278	Dynactin subunit 1 OS=Homo sapiens (Human) OX=9606 GN=DCTN1 PE=1 SV=3	Dynactin subunit 1	0	0
+Q8NA75	129	395	DDB1- and CUL4-associated factor 4-like protein 2 OS=Homo sapiens (Human) OX=9606 GN=DCAF4L2 PE=1 SV=1	DDB1- and CUL4-associated factor 4-like protein 2	0	0
+Q8TF40	1033	1166	Folliculin-interacting protein 1 OS=Homo sapiens (Human) OX=9606 GN=FNIP1 PE=1 SV=3	Folliculin-interacting protein 1	0	0
+Q9NRJ5	128	636	Poly(A) polymerase beta OS=Homo sapiens (Human) OX=9606 GN=PAPOLB PE=2 SV=1	Poly(A) polymerase beta	0	0
+Q9Y2C9	32	796	Toll-like receptor 6 OS=Homo sapiens (Human) OX=9606 GN=TLR6 PE=1 SV=2	Toll-like receptor 6	0	0
+P51003	128	745	Poly(A) polymerase alpha OS=Homo sapiens (Human) OX=9606 GN=PAPOLA PE=1 SV=4	Poly(A) polymerase alpha	0	0
+Q13416	256	577	Origin recognition complex subunit 2 OS=Homo sapiens (Human) OX=9606 GN=ORC2 PE=1 SV=2	Origin recognition complex subunit 2	0	0
+Q9H2S6	500	317	Tenomodulin OS=Homo sapiens (Human) OX=9606 GN=TNMD PE=1 SV=1	Tenomodulin	0	0
+A0AV02	31	714	Solute carrier family 12 member 8 OS=Homo sapiens (Human) OX=9606 GN=SLC12A8 PE=2 SV=4	Solute carrier family 12 member 8	0	0
+Q9Y5E2	128	793	Protocadherin beta-7 OS=Homo sapiens (Human) OX=9606 GN=PCDHB7 PE=2 SV=1	Protocadherin beta-7	0	0
+O94823	255	1461	Probable phospholipid-transporting ATPase VB OS=Homo sapiens (Human) OX=9606 GN=ATP10B PE=2 SV=2	Probable phospholipid-transporting ATPase VB	0	0
+P48960	127	835	CD97 antigen OS=Homo sapiens (Human) OX=9606 GN=CD97 PE=1 SV=4	CD97 antigen	0	0
+P35749	1684	1972	Myosin-11 OS=Homo sapiens (Human) OX=9606 GN=MYH11 PE=1 SV=3	Myosin-11	0	0
+Q9Y5G5	127	932	Protocadherin gamma-A8 OS=Homo sapiens (Human) OX=9606 GN=PCDHGA8 PE=2 SV=1	Protocadherin gamma-A8	0	0
+Q9P0U4	500	656	CXXC-type zinc finger protein 1 OS=Homo sapiens (Human) OX=9606 GN=CXXC1 PE=1 SV=2	CXXC-type zinc finger protein 1	0	0
+O00232	1024	456	26S proteasome non-ATPase regulatory subunit 12 OS=Homo sapiens (Human) OX=9606 GN=PSMD12 PE=1 SV=3	26S proteasome non-ATPase regulatory subunit 12	0	0
+Q96QU1	3318	1955	Protocadherin-15 OS=Homo sapiens (Human) OX=9606 GN=PCDH15 PE=1 SV=2	Protocadherin-15	0	0
+Q8N1N2	124	210	Dynactin-associated protein OS=Homo sapiens (Human) OX=9606 GN=DYNAP PE=1 SV=1	Dynactin-associated protein	0	0
+O60306	7281	1485	RNA helicase aquarius OS=Homo sapiens (Human) OX=9606 GN=AQR PE=1 SV=4	RNA helicase aquarius	0	0
+P22083	123	530	Alpha-(1,3)-fucosyltransferase 4 OS=Homo sapiens (Human) OX=9606 GN=FUT4 PE=2 SV=3	Alpha-(1,3)-fucosyltransferase 4	0	0
+O43520	31	1251	Phospholipid-transporting ATPase IC OS=Homo sapiens (Human) OX=9606 GN=ATP8B1 PE=1 SV=3	Phospholipid-transporting ATPase IC	0	0
+Q8IWJ2	496	1684	GRIP and coiled-coil domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=GCC2 PE=1 SV=4	GRIP and coiled-coil domain-containing protein 2	0	0
+Q8NF91	255	8797	Nesprin-1 OS=Homo sapiens (Human) OX=9606 GN=SYNE1 PE=1 SV=4	Nesprin-1	0	0
+Q09161	123	790	Nuclear cap-binding protein subunit 1 OS=Homo sapiens (Human) OX=9606 GN=NCBP1 PE=1 SV=1	Nuclear cap-binding protein subunit 1	0	0
+Q6V1P9	31	2916	Protocadherin-23 OS=Homo sapiens (Human) OX=9606 GN=DCHS2 PE=2 SV=1	Protocadherin-23	0	0
+Q96JF0	123	529	Beta-galactoside alpha-2,6-sialyltransferase 2 OS=Homo sapiens (Human) OX=9606 GN=ST6GAL2 PE=1 SV=2	Beta-galactoside alpha-2,6-sialyltransferase 2	0	0
+Q9Y450	255	684	HBS1-like protein OS=Homo sapiens (Human) OX=9606 GN=HBS1L PE=1 SV=1	HBS1-like protein	0	0
+Q12840	122	1032	Kinesin heavy chain isoform 5A OS=Homo sapiens (Human) OX=9606 GN=KIF5A PE=1 SV=2	Kinesin heavy chain isoform 5A	0	0
+Q9Y4I1	998	1855	Unconventional myosin-Va OS=Homo sapiens (Human) OX=9606 GN=MYO5A PE=1 SV=2	Unconventional myosin-Va	0	0
+Q6ZMR5	121	421	Transmembrane protease serine 11A OS=Homo sapiens (Human) OX=9606 GN=TMPRSS11A PE=1 SV=1	Transmembrane protease serine 11A	0	0
+Q8TAQ2	254	1214	SWI/SNF complex subunit SMARCC2 OS=Homo sapiens (Human) OX=9606 GN=SMARCC2 PE=1 SV=1	SWI/SNF complex subunit SMARCC2	0	0
+P54317	120	469	Pancreatic lipase-related protein 2 OS=Homo sapiens (Human) OX=9606 GN=PNLIPRP2 PE=1 SV=2	Pancreatic lipase-related protein 2	0	0
+Q66K14	31	1250	TBC1 domain family member 9B OS=Homo sapiens (Human) OX=9606 GN=TBC1D9B PE=1 SV=3	TBC1 domain family member 9B	0	0
+Q68D51	120	928	DENN domain-containing protein 2C OS=Homo sapiens (Human) OX=9606 GN=DENND2C PE=1 SV=2	DENN domain-containing protein 2C	0	0
+Q70CQ4	253	1352	Ubiquitin carboxyl-terminal hydrolase 31 OS=Homo sapiens (Human) OX=9606 GN=USP31 PE=2 SV=2	Ubiquitin carboxyl-terminal hydrolase 31	0	0
+Q14982	495	345	Opioid-binding protein/cell adhesion molecule OS=Homo sapiens (Human) OX=9606 GN=OPCML PE=1 SV=1	Opioid-binding protein/cell adhesion molecule	0	0
+Q9BYK8	1677	2649	Helicase with zinc finger domain 2 OS=Homo sapiens (Human) OX=9606 GN=HELZ2 PE=1 SV=6	Helicase with zinc finger domain 2	0	0
+Q8IWV2	119	1026	Contactin-4 OS=Homo sapiens (Human) OX=9606 GN=CNTN4 PE=1 SV=1	Contactin-4	0	0
+O15121	252	323	Sphingolipid delta(4)-desaturase DES1 OS=Homo sapiens (Human) OX=9606 GN=DEGS1 PE=1 SV=1	Sphingolipid delta(4)-desaturase DES1	0	0
+O75037	119	1637	Kinesin-like protein KIF21B OS=Homo sapiens (Human) OX=9606 GN=KIF21B PE=1 SV=2	Kinesin-like protein KIF21B	0	0
+Q9HAS3	31	691	Solute carrier family 28 member 3 OS=Homo sapiens (Human) OX=9606 GN=SLC28A3 PE=1 SV=1	Solute carrier family 28 member 3	0	0
+Q8NH95	982	151	Putative olfactory receptor 13C6 OS=Homo sapiens (Human) OX=9606 GN=OR13C6P PE=5 SV=2	Putative olfactory receptor 13C6	0	0
+Q7Z6J4	495	655	FYVE, RhoGEF and PH domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=FGD2 PE=1 SV=1	FYVE, RhoGEF and PH domain-containing protein 2	0	0
+Q15020	119	963	Squamous cell carcinoma antigen recognized by T-cells 3 OS=Homo sapiens (Human) OX=9606 GN=SART3 PE=1 SV=1	Squamous cell carcinoma antigen recognized by T-cells 3	0	0
+Q86YF9	31	867	Zinc finger protein DZIP1 OS=Homo sapiens (Human) OX=9606 GN=DZIP1 PE=1 SV=1	Zinc finger protein DZIP1	0	0
+Q8TEU7	117	1601	Rap guanine nucleotide exchange factor 6 OS=Homo sapiens (Human) OX=9606 GN=RAPGEF6 PE=1 SV=2	Rap guanine nucleotide exchange factor 6	0	0
+O94889	252	574	Kelch-like protein 18 OS=Homo sapiens (Human) OX=9606 GN=KLHL18 PE=1 SV=3	Kelch-like protein 18	0	0
+Q5THJ4	117	4388	Vacuolar protein sorting-associated protein 13D OS=Homo sapiens (Human) OX=9606 GN=VPS13D PE=1 SV=2	Vacuolar protein sorting-associated protein 13D	0	0
+Q7Z7G8	30	4022	Vacuolar protein sorting-associated protein 13B OS=Homo sapiens (Human) OX=9606 GN=VPS13B PE=1 SV=2	Vacuolar protein sorting-associated protein 13B	0	0
+Q5SQH8	486	315	Uncharacterized protein C6orf136 OS=Homo sapiens (Human) OX=9606 GN=C6orf136 PE=2 SV=1	Uncharacterized protein C6orf136	0	0
+Q86VV8	250	2226	Rotatin OS=Homo sapiens (Human) OX=9606 GN=RTTN PE=1 SV=3	Rotatin	0	0
+Q5VV67	117	1664	Peroxisome proliferator-activated receptor gamma coactivator-related protein 1 OS=Homo sapiens (Human) OX=9606 GN=PPRC1 PE=1 SV=1	Peroxisome proliferator-activated receptor gamma coactivator-related protein 1	0	0
+P08922	30	2347	Proto-oncogene tyrosine-protein kinase ROS OS=Homo sapiens (Human) OX=9606 GN=ROS1 PE=1 SV=3	Proto-oncogene tyrosine-protein kinase ROS	0	0
+P04040	117	527	Catalase OS=Homo sapiens (Human) OX=9606 GN=CAT PE=1 SV=3	Catalase	0	15
+Q86Y82	974	276	Syntaxin-12 OS=Homo sapiens (Human) OX=9606 GN=STX12 PE=1 SV=1	Syntaxin-12	0	0
+Q7RTW8	117	1153	Otoancorin OS=Homo sapiens (Human) OX=9606 GN=OTOA PE=1 SV=1	Otoancorin	0	0
+Q8N4X5	479	818	Actin filament-associated protein 1-like 2 OS=Homo sapiens (Human) OX=9606 GN=AFAP1L2 PE=1 SV=1	Actin filament-associated protein 1-like 2	0	0
+O43567	117	381	E3 ubiquitin-protein ligase RNF13 OS=Homo sapiens (Human) OX=9606 GN=RNF13 PE=1 SV=1	E3 ubiquitin-protein ligase RNF13	0	0
+P16109	250	830	P-selectin OS=Homo sapiens (Human) OX=9606 GN=SELP PE=1 SV=3	P-selectin	0	13
+O60477	3003	761	BMP/retinoic acid-inducible neural-specific protein 1 OS=Homo sapiens (Human) OX=9606 GN=BRINP1 PE=1 SV=2	BMP/retinoic acid-inducible neural-specific protein 1	0	0
+Q58FF7	1647	597	Putative heat shock protein HSP 90-beta-3 OS=Homo sapiens (Human) OX=9606 GN=HSP90AB3P PE=5 SV=1	Putative heat shock protein HSP 90-beta-3	0	0
+Q13867	116	455	Bleomycin hydrolase OS=Homo sapiens (Human) OX=9606 GN=BLMH PE=1 SV=1	Bleomycin hydrolase	0	0
+O15018	250	2839	PDZ domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=PDZD2 PE=1 SV=4	PDZ domain-containing protein 2	0	0
+Q13233	475	1512	Mitogen-activated protein kinase kinase kinase 1 OS=Homo sapiens (Human) OX=9606 GN=MAP3K1 PE=1 SV=4	Mitogen-activated protein kinase kinase kinase 1	0	0
+Q460N5	14578	1801	Protein mono-ADP-ribosyltransferase PARP14 OS=Homo sapiens (Human) OX=9606 GN=PARP14 PE=1 SV=3	Protein mono-ADP-ribosyltransferase PARP14	0	0
+Q8WW38	116	1151	Zinc finger protein ZFPM2 OS=Homo sapiens (Human) OX=9606 GN=ZFPM2 PE=1 SV=3	Zinc finger protein ZFPM2	0	0
+Q8N3D4	246	1523	EH domain-binding protein 1-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=EHBP1L1 PE=1 SV=2	EH domain-binding protein 1-like protein 1	0	0
+Q9BW62	974	490	Katanin p60 ATPase-containing subunit A-like 1 OS=Homo sapiens (Human) OX=9606 GN=KATNAL1 PE=1 SV=1	Katanin p60 ATPase-containing subunit A-like 1	0	0
+Q1AE95	30	376	Transmembrane protein 183B OS=Homo sapiens (Human) OX=9606 GN=TMEM183B PE=2 SV=1	Transmembrane protein 183B	0	0
+Q9P2L0	115	1181	WD repeat-containing protein 35 OS=Homo sapiens (Human) OX=9606 GN=WDR35 PE=1 SV=3	WD repeat-containing protein 35	0	0
+Q9HBD1	473	1191	Roquin-2 OS=Homo sapiens (Human) OX=9606 GN=RC3H2 PE=1 SV=2	Roquin-2	0	0
+P42684	115	1182	Tyrosine-protein kinase ABL2 OS=Homo sapiens (Human) OX=9606 GN=ABL2 PE=1 SV=1	Tyrosine-protein kinase ABL2	0	0
+Q8IXX5	30	376	Transmembrane protein 183A OS=Homo sapiens (Human) OX=9606 GN=TMEM183A PE=1 SV=2	Transmembrane protein 183A	0	0
+P54577	115	528	Tyrosine--tRNA ligase, cytoplasmic OS=Homo sapiens (Human) OX=9606 GN=YARS1 PE=1 SV=4	Tyrosine--tRNA ligase, cytoplasmic	0	0
+Q32P41	244	509	tRNA (guanine(37)-N1)-methyltransferase OS=Homo sapiens (Human) OX=9606 GN=TRMT5 PE=1 SV=2	tRNA (guanine(37)-N1)-methyltransferase	0	0
+Q9NZN9	114	384	Aryl-hydrocarbon-interacting protein-like 1 OS=Homo sapiens (Human) OX=9606 GN=AIPL1 PE=1 SV=2	Aryl-hydrocarbon-interacting protein-like 1	0	0
+Q13474	29	957	Dystrophin-related protein 2 OS=Homo sapiens (Human) OX=9606 GN=DRP2 PE=2 SV=2	Dystrophin-related protein 2	0	0
+Q4G0S7	468	254	Coiled-coil domain-containing protein 152 OS=Homo sapiens (Human) OX=9606 GN=CCDC152 PE=2 SV=3	Coiled-coil domain-containing protein 152	0	0
+P22792	243	545	Carboxypeptidase N subunit 2 OS=Homo sapiens (Human) OX=9606 GN=CPN2 PE=1 SV=3	Carboxypeptidase N subunit 2	0	0
+Q9NWS1	113	579	PCNA-interacting partner OS=Homo sapiens (Human) OX=9606 GN=PARPBP PE=1 SV=3	PCNA-interacting partner	0	0
+Q9BYV7	973	579	Beta,beta-carotene 9',10'-oxygenase OS=Homo sapiens (Human) OX=9606 GN=BCO2 PE=1 SV=5	Beta,beta-carotene 9',10'-oxygenase	0	0
+Q8NBL1	113	392	Protein O-glucosyltransferase 1 OS=Homo sapiens (Human) OX=9606 GN=POGLUT1 PE=1 SV=1	Protein O-glucosyltransferase 1	0	0
+P01135	243	160	Protransforming growth factor alpha OS=Homo sapiens (Human) OX=9606 GN=TGFA PE=1 SV=1	Protransforming growth factor alpha	2	0
+Q14576	112	367	ELAV-like protein 3 OS=Homo sapiens (Human) OX=9606 GN=ELAVL3 PE=2 SV=3	ELAV-like protein 3	0	1
+O43633	1611	222	Charged multivesicular body protein 2a OS=Homo sapiens (Human) OX=9606 GN=CHMP2A PE=1 SV=1	Charged multivesicular body protein 2a	0	0
+P26378	112	385	ELAV-like protein 4 OS=Homo sapiens (Human) OX=9606 GN=ELAVL4 PE=1 SV=3	ELAV-like protein 4	2	6
+Q9UMZ2	243	1314	Synergin gamma OS=Homo sapiens (Human) OX=9606 GN=SYNRG PE=1 SV=2	Synergin gamma	0	0
+Q6PCD5	111	774	E3 ubiquitin-protein ligase RFWD3 OS=Homo sapiens (Human) OX=9606 GN=RFWD3 PE=1 SV=3	E3 ubiquitin-protein ligase RFWD3	0	0
+Q6P1Q0	29	360	LETM1 domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=LETMD1 PE=1 SV=1	LETM1 domain-containing protein 1	0	0
+Q9UNI1	111	258	Chymotrypsin-like elastase family member 1 OS=Homo sapiens (Human) OX=9606 GN=CELA1 PE=1 SV=2	Chymotrypsin-like elastase family member 1	0	1
+A6NHC0	242	703	Calpain-8 OS=Homo sapiens (Human) OX=9606 GN=CAPN8 PE=2 SV=3	Calpain-8	0	0
+O95561	466	183	Uncharacterized protein C1orf105 OS=Homo sapiens (Human) OX=9606 GN=C1orf105 PE=1 SV=1	Uncharacterized protein C1orf105	0	0
+Q96DL1	29	559	NXPE family member 2 OS=Homo sapiens (Human) OX=9606 GN=NXPE2 PE=1 SV=2	NXPE family member 2	0	0
+P56192	965	900	Methionine--tRNA ligase, cytoplasmic OS=Homo sapiens (Human) OX=9606 GN=MARS1 PE=1 SV=2	Methionine--tRNA ligase, cytoplasmic	0	0
+Q6PG37	242	636	Zinc finger protein 790 OS=Homo sapiens (Human) OX=9606 GN=ZNF790 PE=2 SV=2	Zinc finger protein 790	0	0
+Q8IXQ6	7057	854	Protein mono-ADP-ribosyltransferase PARP9 OS=Homo sapiens (Human) OX=9606 GN=PARP9 PE=1 SV=2	Protein mono-ADP-ribosyltransferase PARP9	0	0
+Q9HCJ2	28	640	Leucine-rich repeat-containing protein 4C OS=Homo sapiens (Human) OX=9606 GN=LRRC4C PE=1 SV=1	Leucine-rich repeat-containing protein 4C	0	0
+P42336	110	1068	Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform OS=Homo sapiens (Human) OX=9606 GN=PIK3CA PE=1 SV=2	Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform	0	0
+P35998	465	433	26S proteasome regulatory subunit 7 OS=Homo sapiens (Human) OX=9606 GN=PSMC2 PE=1 SV=3	26S proteasome regulatory subunit 7	0	0
+A6NFC9	110	320	Putative olfactory receptor 2W5 OS=Homo sapiens (Human) OX=9606 GN=OR2W5 PE=5 SV=1	Putative olfactory receptor 2W5	0	0
+Q96T53	28	435	Ghrelin O-acyltransferase OS=Homo sapiens (Human) OX=9606 GN=MBOAT4 PE=1 SV=2	Ghrelin O-acyltransferase	0	0
+P50570	110	870	Dynamin-2 OS=Homo sapiens (Human) OX=9606 GN=DNM2 PE=1 SV=2	Dynamin-2	0	0
+Q96NA8	2955	513	t-SNARE domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=TSNARE1 PE=1 SV=2	t-SNARE domain-containing protein 1	0	0
+Q9C0C2	109	1729	182 kDa tankyrase-1-binding protein OS=Homo sapiens (Human) OX=9606 GN=TNKS1BP1 PE=1 SV=4	182 kDa tankyrase-1-binding protein	0	0
+P53618	28	953	Coatomer subunit beta OS=Homo sapiens (Human) OX=9606 GN=COPB1 PE=1 SV=3	Coatomer subunit beta	0	0
+Q86VZ1	464	359	P2Y purinoceptor 8 OS=Homo sapiens (Human) OX=9606 GN=P2RY8 PE=1 SV=1	P2Y purinoceptor 8	0	0
+Q58FF8	951	381	Putative heat shock protein HSP 90-beta 2 OS=Homo sapiens (Human) OX=9606 GN=HSP90AB2P PE=1 SV=2	Putative heat shock protein HSP 90-beta 2	0	0
+Q05BV3	109	1969	Echinoderm microtubule-associated protein-like 5 OS=Homo sapiens (Human) OX=9606 GN=EML5 PE=2 SV=3	Echinoderm microtubule-associated protein-like 5	0	0
+Q9NYQ7	1603	3312	Cadherin EGF LAG seven-pass G-type receptor 3 OS=Homo sapiens (Human) OX=9606 GN=CELSR3 PE=1 SV=2	Cadherin EGF LAG seven-pass G-type receptor 3	0	0
+P30414	109	1462	NK-tumor recognition protein OS=Homo sapiens (Human) OX=9606 GN=NKTR PE=1 SV=2	NK-tumor recognition protein	0	0
+Q8IZJ3	242	1885	C3 and PZP-like alpha-2-macroglobulin domain-containing protein 8 OS=Homo sapiens (Human) OX=9606 GN=CPAMD8 PE=1 SV=2	C3 and PZP-like alpha-2-macroglobulin domain-containing protein 8	0	0
+Q9ULM0	108	1364	Pleckstrin homology domain-containing family H member 1 OS=Homo sapiens (Human) OX=9606 GN=PLEKHH1 PE=2 SV=2	Pleckstrin homology domain-containing family H member 1	0	0
+O43933	463	1283	Peroxisome biogenesis factor 1 OS=Homo sapiens (Human) OX=9606 GN=PEX1 PE=1 SV=1	Peroxisome biogenesis factor 1	0	0
+P98164	106	4655	Low-density lipoprotein receptor-related protein 2 OS=Homo sapiens (Human) OX=9606 GN=LRP2 PE=1 SV=3	Low-density lipoprotein receptor-related protein 2	0	41
+Q9Y5S1	241	764	Transient receptor potential cation channel subfamily V member 2 OS=Homo sapiens (Human) OX=9606 GN=TRPV2 PE=1 SV=1	Transient receptor potential cation channel subfamily V member 2	0	0
+Q99567	106	741	Nuclear pore complex protein Nup88 OS=Homo sapiens (Human) OX=9606 GN=NUP88 PE=1 SV=2	Nuclear pore complex protein Nup88	0	0
+O15305	27	246	Phosphomannomutase 2 OS=Homo sapiens (Human) OX=9606 GN=PMM2 PE=1 SV=1	Phosphomannomutase 2	0	0
+Q7Z407	105	3707	CUB and sushi domain-containing protein 3 OS=Homo sapiens (Human) OX=9606 GN=CSMD3 PE=2 SV=3	CUB and sushi domain-containing protein 3	0	0
+Q6PDB4	240	577	Zinc finger protein 880 OS=Homo sapiens (Human) OX=9606 GN=ZNF880 PE=2 SV=2	Zinc finger protein 880	0	0
+Q86SS6	946	491	Synaptotagmin-9 OS=Homo sapiens (Human) OX=9606 GN=SYT9 PE=2 SV=1	Synaptotagmin-9	0	0
+Q8WWI1	26	1683	LIM domain only protein 7 OS=Homo sapiens (Human) OX=9606 GN=LMO7 PE=1 SV=3	LIM domain only protein 7	0	0
+Q9BX84	105	2022	Transient receptor potential cation channel subfamily M member 6 OS=Homo sapiens (Human) OX=9606 GN=TRPM6 PE=1 SV=2	Transient receptor potential cation channel subfamily M member 6	0	0
+Q14764	240	893	Major vault protein OS=Homo sapiens (Human) OX=9606 GN=MVP PE=1 SV=4	Major vault protein	0	0
+Q8IXH7	105	590	Negative elongation factor C/D OS=Homo sapiens (Human) OX=9606 GN=NELFCD PE=1 SV=2	Negative elongation factor C/D	0	0
+P26718	25	216	NKG2-D type II integral membrane protein OS=Homo sapiens (Human) OX=9606 GN=KLRK1 PE=1 SV=1	NKG2-D type II integral membrane protein	0	0
+Q8N614	104	296	Transmembrane protein 156 OS=Homo sapiens (Human) OX=9606 GN=TMEM156 PE=2 SV=2	Transmembrane protein 156	0	0
+O14727	457	1248	Apoptotic protease-activating factor 1 OS=Homo sapiens (Human) OX=9606 GN=APAF1 PE=1 SV=2	Apoptotic protease-activating factor 1	0	0
+Q9H6A9	103	2034	Pecanex-like protein 3 OS=Homo sapiens (Human) OX=9606 GN=PCNX3 PE=1 SV=2	Pecanex-like protein 3	0	0
+P04049	25	648	RAF proto-oncogene serine/threonine-protein kinase OS=Homo sapiens (Human) OX=9606 GN=RAF1 PE=1 SV=1	RAF proto-oncogene serine/threonine-protein kinase	0	6
+Q6ZMH5	103	540	Zinc transporter ZIP5 OS=Homo sapiens (Human) OX=9606 GN=SLC39A5 PE=1 SV=3	Zinc transporter ZIP5	0	0
+Q92858	240	354	Protein atonal homolog 1 OS=Homo sapiens (Human) OX=9606 GN=ATOH1 PE=2 SV=1	Protein atonal homolog 1	0	0
+Q29RF7	102	1337	Sister chromatid cohesion protein PDS5 homolog A OS=Homo sapiens (Human) OX=9606 GN=PDS5A PE=1 SV=1	Sister chromatid cohesion protein PDS5 homolog A	0	0
+Q9NR82	1587	932	Potassium voltage-gated channel subfamily KQT member 5 OS=Homo sapiens (Human) OX=9606 GN=KCNQ5 PE=1 SV=3	Potassium voltage-gated channel subfamily KQT member 5	0	0
+P83436	455	770	Conserved oligomeric Golgi complex subunit 7 OS=Homo sapiens (Human) OX=9606 GN=COG7 PE=1 SV=1	Conserved oligomeric Golgi complex subunit 7	0	0
+Q6P1K1	240	146	Heme transporter HRG1 OS=Homo sapiens (Human) OX=9606 GN=SLC48A1 PE=1 SV=1	Heme transporter HRG1	0	0
+Q8IWR0	102	971	Zinc finger CCCH domain-containing protein 7A OS=Homo sapiens (Human) OX=9606 GN=ZC3H7A PE=1 SV=1	Zinc finger CCCH domain-containing protein 7A	0	0
+P15812	24	388	T-cell surface glycoprotein CD1e, membrane-associated OS=Homo sapiens (Human) OX=9606 GN=CD1E PE=1 SV=2	T-cell surface glycoprotein CD1e, membrane-associated	0	0
+P24043	101	3122	Laminin subunit alpha-2 OS=Homo sapiens (Human) OX=9606 GN=LAMA2 PE=1 SV=4	Laminin subunit alpha-2	0	0
+Q5GFL6	239	755	von Willebrand factor A domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=VWA2 PE=1 SV=1	von Willebrand factor A domain-containing protein 2	0	0
+Q5U623	100	682	Activating transcription factor 7-interacting protein 2 OS=Homo sapiens (Human) OX=9606 GN=ATF7IP2 PE=1 SV=2	Activating transcription factor 7-interacting protein 2	0	0
+Q8IVG5	455	1584	Sterile alpha motif domain-containing protein 9-like OS=Homo sapiens (Human) OX=9606 GN=SAMD9L PE=1 SV=2	Sterile alpha motif domain-containing protein 9-like	0	0
+Q5VWM6	99	474	Putative PRAME family member 13 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF13 PE=5 SV=2	Putative PRAME family member 13	0	0
+Q5VTA0	237	474	PRAME family member 17 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF17 PE=2 SV=1	PRAME family member 17	0	0
+P47869	99	451	Gamma-aminobutyric acid receptor subunit alpha-2 OS=Homo sapiens (Human) OX=9606 GN=GABRA2 PE=2 SV=2	Gamma-aminobutyric acid receptor subunit alpha-2	0	0
+Q8WXH0	24	6885	Nesprin-2 OS=Homo sapiens (Human) OX=9606 GN=SYNE2 PE=1 SV=3	Nesprin-2	0	0
+P05156	2859	583	Complement factor I OS=Homo sapiens (Human) OX=9606 GN=CFI PE=1 SV=2	Complement factor I	0	0
+Q96F81	234	1524	Protein dispatched homolog 1 OS=Homo sapiens (Human) OX=9606 GN=DISP1 PE=1 SV=3	Protein dispatched homolog 1	0	0
+Q2TAL5	452	461	Smoothelin-like protein 2 OS=Homo sapiens (Human) OX=9606 GN=SMTNL2 PE=2 SV=1	Smoothelin-like protein 2	0	0
+P19801	23	751	Amiloride-sensitive amine oxidase [copper-containing] OS=Homo sapiens (Human) OX=9606 GN=AOC1 PE=1 SV=4	Amiloride-sensitive amine oxidase [copper-containing]	0	0
+Q9H251	99	3354	Cadherin-23 OS=Homo sapiens (Human) OX=9606 GN=CDH23 PE=1 SV=2	Cadherin-23	0	0
+Q5SWL7	234	426	PRAME family member 14 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF14 PE=3 SV=1	PRAME family member 14	0	0
+Q9H1B5	99	865	Xylosyltransferase 2 OS=Homo sapiens (Human) OX=9606 GN=XYLT2 PE=1 SV=2	Xylosyltransferase 2	0	0
+O43497	23	2377	Voltage-dependent T-type calcium channel subunit alpha-1G OS=Homo sapiens (Human) OX=9606 GN=CACNA1G PE=1 SV=3	Voltage-dependent T-type calcium channel subunit alpha-1G	0	0
+Q96RT8	98	1024	Gamma-tubulin complex component 5 OS=Homo sapiens (Human) OX=9606 GN=TUBGCP5 PE=1 SV=1	Gamma-tubulin complex component 5	0	0
+Q9NWF9	444	866	E3 ubiquitin-protein ligase RNF216 OS=Homo sapiens (Human) OX=9606 GN=RNF216 PE=1 SV=3	E3 ubiquitin-protein ligase RNF216	0	0
+Q99523	97	831	Sortilin OS=Homo sapiens (Human) OX=9606 GN=SORT1 PE=1 SV=3	Sortilin	0	0
+P07900	1574	732	Heat shock protein HSP 90-alpha OS=Homo sapiens (Human) OX=9606 GN=HSP90AA1 PE=1 SV=5	Heat shock protein HSP 90-alpha	2	0
+P16333	97	377	Cytoplasmic protein NCK1 OS=Homo sapiens (Human) OX=9606 GN=NCK1 PE=1 SV=1	Cytoplasmic protein NCK1	0	0
+Q86SG6	932	692	Serine/threonine-protein kinase Nek8 OS=Homo sapiens (Human) OX=9606 GN=NEK8 PE=1 SV=1	Serine/threonine-protein kinase Nek8	0	0
+O60811	97	474	PRAME family member 2 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF2 PE=2 SV=2	PRAME family member 2	0	0
+Q9H4S2	23	264	GS homeobox 1 OS=Homo sapiens (Human) OX=9606 GN=GSX1 PE=2 SV=1	GS homeobox 1	0	0
+A0AVK6	441	867	Transcription factor E2F8 OS=Homo sapiens (Human) OX=9606 GN=E2F8 PE=1 SV=1	Transcription factor E2F8	0	0
+Q96DB2	231	347	Histone deacetylase 11 OS=Homo sapiens (Human) OX=9606 GN=HDAC11 PE=1 SV=1	Histone deacetylase 11	0	0
+Q5M775	97	1068	Cytospin-B OS=Homo sapiens (Human) OX=9606 GN=SPECC1 PE=1 SV=1	Cytospin-B	0	0
+P78334	23	506	Gamma-aminobutyric acid receptor subunit epsilon OS=Homo sapiens (Human) OX=9606 GN=GABRE PE=2 SV=2	Gamma-aminobutyric acid receptor subunit epsilon	0	0
+Q8N3Y3	97	721	LARGE xylosyl- and glucuronyltransferase 2 OS=Homo sapiens (Human) OX=9606 GN=LARGE2 PE=1 SV=2	LARGE xylosyl- and glucuronyltransferase 2	0	0
+Q10981	230	343	Galactoside 2-alpha-L-fucosyltransferase 2 OS=Homo sapiens (Human) OX=9606 GN=FUT2 PE=1 SV=1	Galactoside 2-alpha-L-fucosyltransferase 2	0	0
+O60906	96	423	Sphingomyelin phosphodiesterase 2 OS=Homo sapiens (Human) OX=9606 GN=SMPD2 PE=1 SV=2	Sphingomyelin phosphodiesterase 2	0	0
+Q5T2E6	441	689	Armadillo-like helical domain-containing protein 3 OS=Homo sapiens (Human) OX=9606 GN=ARMH3 PE=1 SV=1	Armadillo-like helical domain-containing protein 3	0	0
+Q9Y2L1	95	958	Exosome complex exonuclease RRP44 OS=Homo sapiens (Human) OX=9606 GN=DIS3 PE=1 SV=2	Exosome complex exonuclease RRP44	0	0
+Q8WWQ8	230	2551	Stabilin-2 OS=Homo sapiens (Human) OX=9606 GN=STAB2 PE=1 SV=3	Stabilin-2	0	0
+Q5T2N8	914	411	ATPase family AAA domain-containing protein 3C OS=Homo sapiens (Human) OX=9606 GN=ATAD3C PE=2 SV=2	ATPase family AAA domain-containing protein 3C	0	0
+Q7Z4V5	6092	671	Hepatoma-derived growth factor-related protein 2 OS=Homo sapiens (Human) OX=9606 GN=HDGFL2 PE=1 SV=1	Hepatoma-derived growth factor-related protein 2	0	0
+Q86UK5	95	1308	Limbin OS=Homo sapiens (Human) OX=9606 GN=EVC2 PE=1 SV=1	Limbin	0	0
+Q6NUQ4	229	689	Transmembrane protein 214 OS=Homo sapiens (Human) OX=9606 GN=TMEM214 PE=1 SV=2	Transmembrane protein 214	0	0
+Q9UHX3	440	823	Adhesion G protein-coupled receptor E2 OS=Homo sapiens (Human) OX=9606 GN=ADGRE2 PE=1 SV=2	Adhesion G protein-coupled receptor E2	0	0
+P23368	23	584	NAD-dependent malic enzyme, mitochondrial OS=Homo sapiens (Human) OX=9606 GN=ME2 PE=1 SV=1	NAD-dependent malic enzyme, mitochondrial	0	0
+P47712	95	749	Cytosolic phospholipase A2 OS=Homo sapiens (Human) OX=9606 GN=PLA2G4A PE=1 SV=2	Cytosolic phospholipase A2	0	0
+A0A286YF58	229	385	Transmembrane protein 271 OS=Homo sapiens (Human) OX=9606 GN=TMEM271 PE=3 SV=1	Transmembrane protein 271	0	0
+Q9H3R2	94	512	Mucin-13 OS=Homo sapiens (Human) OX=9606 GN=MUC13 PE=1 SV=3	Mucin-13	0	0
+Q70JA7	1564	882	Chondroitin sulfate synthase 3 OS=Homo sapiens (Human) OX=9606 GN=CHSY3 PE=2 SV=3	Chondroitin sulfate synthase 3	0	0
+G3V0H7	94	640	Putative solute carrier organic anion transporter family member 1B7 OS=Homo sapiens (Human) OX=9606 GN=SLCO1B7 PE=5 SV=1	Putative solute carrier organic anion transporter family member 1B7	0	0
+Q96K21	431	471	Abscission/NoCut checkpoint regulator OS=Homo sapiens (Human) OX=9606 GN=ZFYVE19 PE=1 SV=3	Abscission/NoCut checkpoint regulator	0	0
+Q13642	94	323	Four and a half LIM domains protein 1 OS=Homo sapiens (Human) OX=9606 GN=FHL1 PE=1 SV=4	Four and a half LIM domains protein 1	0	0
+Q5BJF6	905	829	Outer dense fiber protein 2 OS=Homo sapiens (Human) OX=9606 GN=ODF2 PE=1 SV=1	Outer dense fiber protein 2	0	1
+Q8NGC7	93	330	Olfactory receptor 11H6 OS=Homo sapiens (Human) OX=9606 GN=OR11H6 PE=3 SV=1	Olfactory receptor 11H6	0	0
+Q4ADV7	228	1423	RAB6A-GEF complex partner protein 1 OS=Homo sapiens (Human) OX=9606 GN=RIC1 PE=1 SV=2	RAB6A-GEF complex partner protein 1	0	0
+Q92888	92	912	Rho guanine nucleotide exchange factor 1 OS=Homo sapiens (Human) OX=9606 GN=ARHGEF1 PE=1 SV=2	Rho guanine nucleotide exchange factor 1	0	0
+P25787	2702	234	Proteasome subunit alpha type-2 OS=Homo sapiens (Human) OX=9606 GN=PSMA2 PE=1 SV=2	Proteasome subunit alpha type-2	0	0
+Q9UPR3	429	1016	Protein SMG5 OS=Homo sapiens (Human) OX=9606 GN=SMG5 PE=1 SV=3	Protein SMG5	0	0
+Q9P031	228	241	Thyroid transcription factor 1-associated protein 26 OS=Homo sapiens (Human) OX=9606 GN=CCDC59 PE=1 SV=2	Thyroid transcription factor 1-associated protein 26	0	0
+A8MXY4	91	864	Zinc finger protein 99 OS=Homo sapiens (Human) OX=9606 GN=ZNF99 PE=2 SV=3	Zinc finger protein 99	0	0
+O75386	23	442	Tubby-related protein 3 OS=Homo sapiens (Human) OX=9606 GN=TULP3 PE=1 SV=2	Tubby-related protein 3	0	0
+Q8NGI0	91	321	Olfactory receptor 52N2 OS=Homo sapiens (Human) OX=9606 GN=OR52N2 PE=2 SV=1	Olfactory receptor 52N2	0	0
+Q8NFT2	228	490	Metalloreductase STEAP2 OS=Homo sapiens (Human) OX=9606 GN=STEAP2 PE=1 SV=3	Metalloreductase STEAP2	0	0
+Q8N945	91	189	PRELI domain-containing protein 2 OS=Homo sapiens (Human) OX=9606 GN=PRELID2 PE=2 SV=1	PRELI domain-containing protein 2	0	0
+P35606	429	906	Coatomer subunit beta' OS=Homo sapiens (Human) OX=9606 GN=COPB2 PE=1 SV=2	Coatomer subunit beta'	0	0
+Q5JR59	892	1369	Microtubule-associated tumor suppressor candidate 2 OS=Homo sapiens (Human) OX=9606 GN=MTUS2 PE=1 SV=3	Microtubule-associated tumor suppressor candidate 2	0	0
+Q5VZK9	227	1371	F-actin-uncapping protein LRRC16A OS=Homo sapiens (Human) OX=9606 GN=CARMIL1 PE=1 SV=1	F-actin-uncapping protein LRRC16A	0	0
+Q9C0E8	91	428	Endoplasmic reticulum junction formation protein lunapark OS=Homo sapiens (Human) OX=9606 GN=LNPK PE=1 SV=2	Endoplasmic reticulum junction formation protein lunapark	0	0
+Q8IY63	22	956	Angiomotin-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=AMOTL1 PE=1 SV=1	Angiomotin-like protein 1	0	0
+P16157	13251	1881	Ankyrin-1 OS=Homo sapiens (Human) OX=9606 GN=ANK1 PE=1 SV=3	Ankyrin-1	0	0
+O60809	226	474	PRAME family member 10 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF10 PE=2 SV=4	PRAME family member 10	0	0
+Q16585	427	318	Beta-sarcoglycan OS=Homo sapiens (Human) OX=9606 GN=SGCB PE=1 SV=1	Beta-sarcoglycan	0	0
+P22314	1555	1058	Ubiquitin-like modifier-activating enzyme 1 OS=Homo sapiens (Human) OX=9606 GN=UBA1 PE=1 SV=3	Ubiquitin-like modifier-activating enzyme 1	0	0
+O43490	91	865	Prominin-1 OS=Homo sapiens (Human) OX=9606 GN=PROM1 PE=1 SV=1	Prominin-1	0	0
+A0A0G2JMD5	226	474	PRAME family member 33 OS=Homo sapiens (Human) OX=9606 GN=PRAMEF33 PE=3 SV=1	PRAME family member 33	0	0
+Q5VZL5	90	1548	Zinc finger MYM-type protein 4 OS=Homo sapiens (Human) OX=9606 GN=ZMYM4 PE=1 SV=1	Zinc finger MYM-type protein 4	0	0
+Q96K83	22	1311	Zinc finger protein 521 OS=Homo sapiens (Human) OX=9606 GN=ZNF521 PE=1 SV=1	Zinc finger protein 521	0	0
+P21917	88	419	D(4) dopamine receptor OS=Homo sapiens (Human) OX=9606 GN=DRD4 PE=1 SV=3	D(4) dopamine receptor	0	0
+Q9NYF5	889	915	Protein FAM13B OS=Homo sapiens (Human) OX=9606 GN=FAM13B PE=1 SV=2	Protein FAM13B	0	0
+Q9C0G6	88	4158	Dynein heavy chain 6, axonemal OS=Homo sapiens (Human) OX=9606 GN=DNAH6 PE=2 SV=3	Dynein heavy chain 6, axonemal	0	0
+P17181	22	557	Interferon alpha/beta receptor 1 OS=Homo sapiens (Human) OX=9606 GN=IFNAR1 PE=1 SV=3	Interferon alpha/beta receptor 1	0	0
+Q13427	87	754	Peptidyl-prolyl cis-trans isomerase G OS=Homo sapiens (Human) OX=9606 GN=PPIG PE=1 SV=2	Peptidyl-prolyl cis-trans isomerase G	0	0
+Q7Z553	225	956	MAM domain-containing glycosylphosphatidylinositol anchor protein 2 OS=Homo sapiens (Human) OX=9606 GN=MDGA2 PE=1 SV=2	MAM domain-containing glycosylphosphatidylinositol anchor protein 2	0	0
+Q6UXK2	87	745	Immunoglobulin superfamily containing leucine-rich repeat protein 2 OS=Homo sapiens (Human) OX=9606 GN=ISLR2 PE=2 SV=1	Immunoglobulin superfamily containing leucine-rich repeat protein 2	0	0
+Q96GF1	22	192	E3 ubiquitin-protein ligase RNF185 OS=Homo sapiens (Human) OX=9606 GN=RNF185 PE=1 SV=1	E3 ubiquitin-protein ligase RNF185	0	0
+Q9NUP1	425	217	Biogenesis of lysosome-related organelles complex 1 subunit 4 OS=Homo sapiens (Human) OX=9606 GN=BLOC1S4 PE=1 SV=1	Biogenesis of lysosome-related organelles complex 1 subunit 4	0	0
+Q9NTG1	225	2253	Polycystic kidney disease and receptor for egg jelly-related protein OS=Homo sapiens (Human) OX=9606 GN=PKDREJ PE=2 SV=2	Polycystic kidney disease and receptor for egg jelly-related protein	0	0
+Q8NDH2	87	2452	Coiled-coil domain-containing protein 168 OS=Homo sapiens (Human) OX=9606 GN=CCDC168 PE=2 SV=2	Coiled-coil domain-containing protein 168	0	0
+Q3T8J9	21	2241	GON-4-like protein OS=Homo sapiens (Human) OX=9606 GN=GON4L PE=1 SV=1	GON-4-like protein	0	0
+Q93050	87	837	V-type proton ATPase 116 kDa subunit a isoform 1 OS=Homo sapiens (Human) OX=9606 GN=ATP6V0A1 PE=1 SV=3	V-type proton ATPase 116 kDa subunit a isoform 1	0	0
+Q96GL9	224	167	Protein FAM163A OS=Homo sapiens (Human) OX=9606 GN=FAM163A PE=2 SV=1	Protein FAM163A	0	0
+P14222	885	555	Perforin-1 OS=Homo sapiens (Human) OX=9606 GN=PRF1 PE=1 SV=1	Perforin-1	0	0
+A4D1F6	416	860	Leucine-rich repeat and death domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=LRRD1 PE=2 SV=2	Leucine-rich repeat and death domain-containing protein 1	0	0
+Q5T197	86	706	E3 ubiquitin-protein ligase DCST1 OS=Homo sapiens (Human) OX=9606 GN=DCST1 PE=1 SV=1	E3 ubiquitin-protein ligase DCST1	0	0
+Q9Y328	224	171	Neuronal vesicle trafficking-associated protein 2 OS=Homo sapiens (Human) OX=9606 GN=NSG2 PE=2 SV=1	Neuronal vesicle trafficking-associated protein 2	0	0
+Q12797	86	758	Aspartyl/asparaginyl beta-hydroxylase OS=Homo sapiens (Human) OX=9606 GN=ASPH PE=1 SV=3	Aspartyl/asparaginyl beta-hydroxylase	0	0
+Q8TBY8	1538	1007	Polyamine-modulated factor 1-binding protein 1 OS=Homo sapiens (Human) OX=9606 GN=PMFBP1 PE=1 SV=3	Polyamine-modulated factor 1-binding protein 1	0	0
+Q2M389	86	1173	WASH complex subunit 4 OS=Homo sapiens (Human) OX=9606 GN=WASHC4 PE=1 SV=2	WASH complex subunit 4	0	0
+P40763	223	770	Signal transducer and activator of transcription 3 OS=Homo sapiens (Human) OX=9606 GN=STAT3 PE=1 SV=2	Signal transducer and activator of transcription 3	0	0
+Q8N0Z3	2489	855	Spindle and centriole-associated protein 1 OS=Homo sapiens (Human) OX=9606 GN=SPICE1 PE=1 SV=1	Spindle and centriole-associated protein 1	0	0
+Q8NFM4	21	1077	Adenylate cyclase type 4 OS=Homo sapiens (Human) OX=9606 GN=ADCY4 PE=1 SV=1	Adenylate cyclase type 4	0	0
+Q8N2Y8	85	1516	Iporin OS=Homo sapiens (Human) OX=9606 GN=RUSC2 PE=1 SV=3	Iporin	0	0
+Q8TDX7	223	302	Serine/threonine-protein kinase Nek7 OS=Homo sapiens (Human) OX=9606 GN=NEK7 PE=1 SV=1	Serine/threonine-protein kinase Nek7	0	0
+P07359	85	652	Platelet glycoprotein Ib alpha chain OS=Homo sapiens (Human) OX=9606 GN=GP1BA PE=1 SV=2	Platelet glycoprotein Ib alpha chain	5	3
+Q8NGX9	852	317	Olfactory receptor 6P1 OS=Homo sapiens (Human) OX=9606 GN=OR6P1 PE=3 SV=1	Olfactory receptor 6P1	0	0
+Q8NDI1	85	1231	EH domain-binding protein 1 OS=Homo sapiens (Human) OX=9606 GN=EHBP1 PE=1 SV=3	EH domain-binding protein 1	0	0
+Q13796	415	1616	Protein Shroom2 OS=Homo sapiens (Human) OX=9606 GN=SHROOM2 PE=1 SV=1	Protein Shroom2	0	0
+Q16478	85	980	Glutamate receptor ionotropic, kainate 5 OS=Homo sapiens (Human) OX=9606 GN=GRIK5 PE=2 SV=2	Glutamate receptor ionotropic, kainate 5	0	0
+Q5T848	21	1215	Probable G-protein coupled receptor 158 OS=Homo sapiens (Human) OX=9606 GN=GPR158 PE=1 SV=1	Probable G-protein coupled receptor 158	0	0
+Q8WZ75	84	1007	Roundabout homolog 4 OS=Homo sapiens (Human) OX=9606 GN=ROBO4 PE=1 SV=1	Roundabout homolog 4	0	0
+Q01538	221	1121	Myelin transcription factor 1 OS=Homo sapiens (Human) OX=9606 GN=MYT1 PE=1 SV=2	Myelin transcription factor 1	0	0
+Q5VU65	84	1888	Nuclear pore membrane glycoprotein 210-like OS=Homo sapiens (Human) OX=9606 GN=NUP210L PE=2 SV=1	Nuclear pore membrane glycoprotein 210-like	0	0
+P02790	20	462	Hemopexin OS=Homo sapiens (Human) OX=9606 GN=HPX PE=1 SV=2	Hemopexin	0	0
+Q4VNC1	413	1196	Probable cation-transporting ATPase 13A4 OS=Homo sapiens (Human) OX=9606 GN=ATP13A4 PE=2 SV=3	Probable cation-transporting ATPase 13A4	0	0
+Q9BZQ2	220	653	Testicular spindle-associated protein SHCBP1L OS=Homo sapiens (Human) OX=9606 GN=SHCBP1L PE=1 SV=3	Testicular spindle-associated protein SHCBP1L	0	0
+Q9Y253	84	713	DNA polymerase eta OS=Homo sapiens (Human) OX=9606 GN=POLH PE=1 SV=1	DNA polymerase eta	0	0
+P0C870	20	316	Bifunctional peptidase and (3S)-lysyl hydroxylase JMJD7 OS=Homo sapiens (Human) OX=9606 GN=JMJD7 PE=1 SV=1	Bifunctional peptidase and (3S)-lysyl hydroxylase JMJD7	0	0
+Q9UFE4	5867	941	Coiled-coil domain-containing protein 39 OS=Homo sapiens (Human) OX=9606 GN=CCDC39 PE=2 SV=3	Coiled-coil domain-containing protein 39	0	0
+Q8NGJ7	219	313	Olfactory receptor 51A2 OS=Homo sapiens (Human) OX=9606 GN=OR51A2 PE=3 SV=1	Olfactory receptor 51A2	0	0
+Q8WVI7	84	109	Protein phosphatase 1 regulatory subunit 1C OS=Homo sapiens (Human) OX=9606 GN=PPP1R1C PE=3 SV=1	Protein phosphatase 1 regulatory subunit 1C	0	0
+P50391	1529	375	Neuropeptide Y receptor type 4-2 OS=Homo sapiens (Human) OX=9606 GN=NPY4R2 PE=3 SV=1	Neuropeptide Y receptor type 4-2	0	0
+O14686	84	5537	Histone-lysine N-methyltransferase 2D OS=Homo sapiens (Human) OX=9606 GN=KMT2D PE=1 SV=2	Histone-lysine N-methyltransferase 2D	0	0
+Q2NL67	219	630	Protein mono-ADP-ribosyltransferase PARP6 OS=Homo sapiens (Human) OX=9606 GN=PARP6 PE=1 SV=1	Protein mono-ADP-ribosyltransferase PARP6	0	0
+Q15797	83	465	Mothers against decapentaplegic homolog 1 OS=Homo sapiens (Human) OX=9606 GN=SMAD1 PE=1 SV=1	Mothers against decapentaplegic homolog 1	0	0
+A6NFR6	20	353	Uncharacterized protein C5orf60 OS=Homo sapiens (Human) OX=9606 GN=C5orf60 PE=1 SV=2	Uncharacterized protein C5orf60	0	0
+P32418	83	973	Sodium/calcium exchanger 1 OS=Homo sapiens (Human) OX=9606 GN=SLC8A1 PE=1 SV=3	Sodium/calcium exchanger 1	0	0
+Q9BW60	218	279	Elongation of very long chain fatty acids protein 1 OS=Homo sapiens (Human) OX=9606 GN=ELOVL1 PE=1 SV=1	Elongation of very long chain fatty acids protein 1	0	0
+Q15878	409	2313	Voltage-dependent R-type calcium channel subunit alpha-1E OS=Homo sapiens (Human) OX=9606 GN=CACNA1E PE=1 SV=3	Voltage-dependent R-type calcium channel subunit alpha-1E	0	0
+Q13505	20	466	Metaxin-1 OS=Homo sapiens (Human) OX=9606 GN=MTX1 PE=1 SV=3	Metaxin-1	0	0
+Q9GZM6	83	311	Olfactory receptor 8D2 OS=Homo sapiens (Human) OX=9606 GN=OR8D2 PE=2 SV=1	Olfactory receptor 8D2	0	0
+P10911	837	925	Proto-oncogene DBL OS=Homo sapiens (Human) OX=9606 GN=MCF2 PE=1 SV=3	Proto-oncogene DBL	0	0
+Q9H553	82	416	Alpha-1,3/1,6-mannosyltransferase ALG2 OS=Homo sapiens (Human) OX=9606 GN=ALG2 PE=1 SV=1	Alpha-1,3/1,6-mannosyltransferase ALG2	0	0
+Q92551	19	441	Inositol hexakisphosphate kinase 1 OS=Homo sapiens (Human) OX=9606 GN=IP6K1 PE=1 SV=3	Inositol hexakisphosphate kinase 1	0	0
+Q8NH64	82	312	Olfactory receptor 51A7 OS=Homo sapiens (Human) OX=9606 GN=OR51A7 PE=2 SV=1	Olfactory receptor 51A7	0	0
+Q9C037	400	500	E3 ubiquitin-protein ligase TRIM4 OS=Homo sapiens (Human) OX=9606 GN=TRIM4 PE=1 SV=2	E3 ubiquitin-protein ligase TRIM4	0	0
+Q15645	81	432	Pachytene checkpoint protein 2 homolog OS=Homo sapiens (Human) OX=9606 GN=TRIP13 PE=1 SV=2	Pachytene checkpoint protein 2 homolog	0	0
+Q14697	19	944	Neutral alpha-glucosidase AB OS=Homo sapiens (Human) OX=9606 GN=GANAB PE=1 SV=3	Neutral alpha-glucosidase AB	0	0
+O95918	81	312	Olfactory receptor 2H2 OS=Homo sapiens (Human) OX=9606 GN=OR2H2 PE=2 SV=2	Olfactory receptor 2H2	0	0
+O43283	217	966	Mitogen-activated protein kinase kinase kinase 13 OS=Homo sapiens (Human) OX=9606 GN=MAP3K13 PE=1 SV=1	Mitogen-activated protein kinase kinase kinase 13	0	0
+Q9NWD8	81	314	Transmembrane protein 248 OS=Homo sapiens (Human) OX=9606 GN=TMEM248 PE=1 SV=1	Transmembrane protein 248	0	0
+Q2T9K0	18	475	Transmembrane protein 44 OS=Homo sapiens (Human) OX=9606 GN=TMEM44 PE=1 SV=3	Transmembrane protein 44	0	0
+P21728	397	446	D(1A) dopamine receptor OS=Homo sapiens (Human) OX=9606 GN=DRD1 PE=1 SV=1	D(1A) dopamine receptor	0	0
+O43820	2385	417	Hyaluronidase-3 OS=Homo sapiens (Human) OX=9606 GN=HYAL3 PE=1 SV=1	Hyaluronidase-3	0	0
+Q9Y289	835	635	Sodium-dependent multivitamin transporter OS=Homo sapiens (Human) OX=9606 GN=SLC5A6 PE=2 SV=2	Sodium-dependent multivitamin transporter	0	0
+P0DQD5	1529	375	Neuropeptide Y receptor type 4-2 OS=Homo sapiens (Human) OX=9606 GN=NPY4R2 PE=3 SV=1	Neuropeptide Y receptor type 4-2	0	0
+O94855	80	1032	Protein transport protein Sec24D OS=Homo sapiens (Human) OX=9606 GN=SEC24D PE=1 SV=2	Protein transport protein Sec24D	0	0
+Q9UHL9	215	959	General transcription factor II-I repeat domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=GTF2IRD1 PE=1 SV=1	General transcription factor II-I repeat domain-containing protein 1	0	0
+P42566	80	896	Epidermal growth factor receptor substrate 15 OS=Homo sapiens (Human) OX=9606 GN=EPS15 PE=1 SV=2	Epidermal growth factor receptor substrate 15	0	0
+Q6PI73	397	481	Leukocyte immunoglobulin-like receptor subfamily A member 6 OS=Homo sapiens (Human) OX=9606 GN=LILRA6 PE=2 SV=2	Leukocyte immunoglobulin-like receptor subfamily A member 6	0	0
+A8MV72	80	311	Putative UPF0607 protein ENSP00000382826 OS=Homo sapiens (Human) OX=9606 GN=- PE=5 SV=2	Putative UPF0607 protein ENSP00000382826	0	0
+Q6NSI8	215	718	Uncharacterized protein KIAA1841 OS=Homo sapiens (Human) OX=9606 GN=KIAA1841 PE=2 SV=2	Uncharacterized protein KIAA1841	0	0
+Q96GS6	80	310	Alpha/beta hydrolase domain-containing protein 17A OS=Homo sapiens (Human) OX=9606 GN=ABHD17A PE=1 SV=1	Alpha/beta hydrolase domain-containing protein 17A	0	0
+O60318	18	1980	Germinal-center associated nuclear protein OS=Homo sapiens (Human) OX=9606 GN=MCM3AP PE=1 SV=2	Germinal-center associated nuclear protein	0	0
+Q9Y672	79	507	Dolichyl pyrophosphate Man9GlcNAc2 alpha-1,3-glucosyltransferase OS=Homo sapiens (Human) OX=9606 GN=ALG6 PE=1 SV=2	Dolichyl pyrophosphate Man9GlcNAc2 alpha-1,3-glucosyltransferase	0	0
+Q96RG2	215	1323	PAS domain-containing serine/threonine-protein kinase OS=Homo sapiens (Human) OX=9606 GN=PASK PE=1 SV=3	PAS domain-containing serine/threonine-protein kinase	0	0
+Q9H706	396	876	GRB2-associated and regulator of MAPK protein 1 OS=Homo sapiens (Human) OX=9606 GN=GAREM1 PE=1 SV=2	GRB2-associated and regulator of MAPK protein 1	0	0
+Q9Y4A5	806	3859	Transformation/transcription domain-associated protein OS=Homo sapiens (Human) OX=9606 GN=TRRAP PE=1 SV=3	Transformation/transcription domain-associated protein	0	0
+Q09472	78	2414	Histone acetyltransferase p300 OS=Homo sapiens (Human) OX=9606 GN=EP300 PE=1 SV=2	Histone acetyltransferase p300	0	0
+Q8NBT0	214	407	POC1 centriolar protein homolog A OS=Homo sapiens (Human) OX=9606 GN=POC1A PE=1 SV=2	POC1 centriolar protein homolog A	0	0
+P04275	77	2813	von Willebrand factor OS=Homo sapiens (Human) OX=9606 GN=VWF PE=1 SV=4	von Willebrand factor	13	40
+Q6UWZ7	18	409	BRCA1-A complex subunit Abraxas 1 OS=Homo sapiens (Human) OX=9606 GN=ABRAXAS1 PE=1 SV=2	BRCA1-A complex subunit Abraxas 1	0	0
+Q9UKY4	76	750	Protein O-mannosyl-transferase 2 OS=Homo sapiens (Human) OX=9606 GN=POMT2 PE=1 SV=2	Protein O-mannosyl-transferase 2	0	0
+P08572	394	1712	Collagen alpha-2(IV) chain OS=Homo sapiens (Human) OX=9606 GN=COL4A2 PE=1 SV=4	Collagen alpha-2(IV) chain	2	0
+O60266	76	1144	Adenylate cyclase type 3 OS=Homo sapiens (Human) OX=9606 GN=ADCY3 PE=1 SV=3	Adenylate cyclase type 3	0	0
+Q495A1	18	244	T-cell immunoreceptor with Ig and ITIM domains OS=Homo sapiens (Human) OX=9606 GN=TIGIT PE=1 SV=1	T-cell immunoreceptor with Ig and ITIM domains	0	0
+Q5JQS5	75	317	Olfactory receptor 2B11 OS=Homo sapiens (Human) OX=9606 GN=OR2B11 PE=2 SV=1	Olfactory receptor 2B11	0	0
+P30530	213	894	Tyrosine-protein kinase receptor UFO OS=Homo sapiens (Human) OX=9606 GN=AXL PE=1 SV=4	Tyrosine-protein kinase receptor UFO	0	0
+Q96DZ1	74	483	Endoplasmic reticulum lectin 1 OS=Homo sapiens (Human) OX=9606 GN=ERLEC1 PE=1 SV=1	Endoplasmic reticulum lectin 1	0	0
+Q86UY6	1518	237	N-alpha-acetyltransferase 40 OS=Homo sapiens (Human) OX=9606 GN=NAA40 PE=1 SV=1	N-alpha-acetyltransferase 40	0	0
+Q9UN70	802	934	Protocadherin gamma-C3 OS=Homo sapiens (Human) OX=9606 GN=PCDHGC3 PE=1 SV=1	Protocadherin gamma-C3	0	0
+Q8WZA1	212	660	Protein O-linked-mannose beta-1,2-N-acetylglucosaminyltransferase 1 OS=Homo sapiens (Human) OX=9606 GN=POMGNT1 PE=1 SV=2	Protein O-linked-mannose beta-1,2-N-acetylglucosaminyltransferase 1	0	0
+Q96JN8	73	1562	Neuralized-like protein 4 OS=Homo sapiens (Human) OX=9606 GN=NEURL4 PE=1 SV=2	Neuralized-like protein 4	0	0
+Q86TN4	18	253	tRNA 2'-phosphotransferase 1 OS=Homo sapiens (Human) OX=9606 GN=TRPT1 PE=1 SV=2	tRNA 2'-phosphotransferase 1	0	0
+Q7L0X0	73	811	TLR4 interactor with leucine rich repeats OS=Homo sapiens (Human) OX=9606 GN=TRIL PE=1 SV=2	TLR4 interactor with leucine rich repeats	0	0
+Q15111	212	1095	Inactive phospholipase C-like protein 1 OS=Homo sapiens (Human) OX=9606 GN=PLCL1 PE=1 SV=3	Inactive phospholipase C-like protein 1	0	0
+Q86T13	73	490	C-type lectin domain family 14 member A OS=Homo sapiens (Human) OX=9606 GN=CLEC14A PE=1 SV=1	C-type lectin domain family 14 member A	0	0
+O75095	392	1541	Multiple epidermal growth factor-like domains protein 6 OS=Homo sapiens (Human) OX=9606 GN=MEGF6 PE=1 SV=4	Multiple epidermal growth factor-like domains protein 6	0	0
+Q9GZK4	73	316	Olfactory receptor 2H1 OS=Homo sapiens (Human) OX=9606 GN=OR2H1 PE=2 SV=1	Olfactory receptor 2H1	0	0
+Q9Y5Q0	211	445	Fatty acid desaturase 3 OS=Homo sapiens (Human) OX=9606 GN=FADS3 PE=1 SV=1	Fatty acid desaturase 3	0	0
+Q15619	73	314	Olfactory receptor 1C1 OS=Homo sapiens (Human) OX=9606 GN=OR1C1 PE=2 SV=4	Olfactory receptor 1C1	0	0
+Q9NTI2	17	1188	Phospholipid-transporting ATPase IB OS=Homo sapiens (Human) OX=9606 GN=ATP8A2 PE=1 SV=3	Phospholipid-transporting ATPase IB	0	0
+Q8N4S7	73	273	Progestin and adipoQ receptor family member 4 OS=Homo sapiens (Human) OX=9606 GN=PAQR4 PE=2 SV=3	Progestin and adipoQ receptor family member 4	0	0
+Q711Q0	796	1435	Cardiac-enriched FHL2-interacting protein OS=Homo sapiens (Human) OX=9606 GN=CEFIP PE=1 SV=2	Cardiac-enriched FHL2-interacting protein	0	0
+Q6ZRR7	390	1453	Leucine-rich repeat-containing protein 9 OS=Homo sapiens (Human) OX=9606 GN=LRRC9 PE=2 SV=2	Leucine-rich repeat-containing protein 9	0	0
+Q96DU7	17	683	Inositol-trisphosphate 3-kinase C OS=Homo sapiens (Human) OX=9606 GN=ITPKC PE=1 SV=1	Inositol-trisphosphate 3-kinase C	0	0
+Q92900	2346	1129	Regulator of nonsense transcripts 1 OS=Homo sapiens (Human) OX=9606 GN=UPF1 PE=1 SV=2	Regulator of nonsense transcripts 1	0	0
+Q6B9Z1	211	124	Insulin growth factor-like family member 4 OS=Homo sapiens (Human) OX=9606 GN=IGFL4 PE=2 SV=1	Insulin growth factor-like family member 4	0	0
+Q99500	73	378	Sphingosine 1-phosphate receptor 3 OS=Homo sapiens (Human) OX=9606 GN=S1PR3 PE=1 SV=2	Sphingosine 1-phosphate receptor 3	0	0
+A8MPP1	17	907	Putative ATP-dependent RNA helicase DDX11-like protein 8 OS=Homo sapiens (Human) OX=9606 GN=DDX11L8 PE=1 SV=1	Putative ATP-dependent RNA helicase DDX11-like protein 8	0	0
+Q9UPQ9	72	1833	Trinucleotide repeat-containing gene 6B protein OS=Homo sapiens (Human) OX=9606 GN=TNRC6B PE=1 SV=4	Trinucleotide repeat-containing gene 6B protein	0	0
+Q8WZ42	388	34350	Titin OS=Homo sapiens (Human) OX=9606 GN=TTN PE=1 SV=4	Titin	3	24
+O60721	72	1099	Sodium/potassium/calcium exchanger 1 OS=Homo sapiens (Human) OX=9606 GN=SLC24A1 PE=1 SV=1	Sodium/potassium/calcium exchanger 1	0	0
+Q9UI40	1517	661	Sodium/potassium/calcium exchanger 2 OS=Homo sapiens (Human) OX=9606 GN=SLC24A2 PE=1 SV=1	Sodium/potassium/calcium exchanger 2	0	0
+Q8TCY5	72	172	Melanocortin-2 receptor accessory protein OS=Homo sapiens (Human) OX=9606 GN=MRAP PE=1 SV=2	Melanocortin-2 receptor accessory protein	0	0
+Q96DR7	5383	871	Rho guanine nucleotide exchange factor 26 OS=Homo sapiens (Human) OX=9606 GN=ARHGEF26 PE=1 SV=4	Rho guanine nucleotide exchange factor 26	0	0
+Q96RS0	795	853	Trimethylguanosine synthase OS=Homo sapiens (Human) OX=9606 GN=TGS1 PE=1 SV=3	Trimethylguanosine synthase	0	0
+Q96FC9	16	970	ATP-dependent DNA helicase DDX11 OS=Homo sapiens (Human) OX=9606 GN=DDX11 PE=1 SV=1	ATP-dependent DNA helicase DDX11	0	0
+P50747	382	726	Biotin--protein ligase OS=Homo sapiens (Human) OX=9606 GN=HLCS PE=1 SV=1	Biotin--protein ligase	0	0
+Q9UM07	211	663	Protein-arginine deiminase type-4 OS=Homo sapiens (Human) OX=9606 GN=PADI4 PE=1 SV=2	Protein-arginine deiminase type-4	0	5
+Q5SVQ8	72	909	Zinc finger and BTB domain-containing protein 41 OS=Homo sapiens (Human) OX=9606 GN=ZBTB41 PE=1 SV=1	Zinc finger and BTB domain-containing protein 41	0	0
+C9JSJ3	16	638	Basic helix-loop-helix and HMG box domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=BHMG1 PE=3 SV=2	Basic helix-loop-helix and HMG box domain-containing protein 1	0	0
+Q3LI68	71	45	Keratin-associated protein 22-2 OS=Homo sapiens (Human) OX=9606 GN=KRTAP22-2 PE=3 SV=1	Keratin-associated protein 22-2	0	0
+Q8N398	210	1242	von Willebrand factor A domain-containing protein 5B2 OS=Homo sapiens (Human) OX=9606 GN=VWA5B2 PE=2 SV=3	von Willebrand factor A domain-containing protein 5B2	0	0
+O75093	71	1534	Slit homolog 1 protein OS=Homo sapiens (Human) OX=9606 GN=SLIT1 PE=2 SV=4	Slit homolog 1 protein	0	0
+Q9Y5G9	379	962	Protocadherin gamma-A4 OS=Homo sapiens (Human) OX=9606 GN=PCDHGA4 PE=2 SV=2	Protocadherin gamma-A4	0	0
+Q8NDZ2	71	872	SUMO-interacting motif-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=SIMC1 PE=1 SV=3	SUMO-interacting motif-containing protein 1	0	0
+Q86YA3	10397	2104	Protein ZGRF1 OS=Homo sapiens (Human) OX=9606 GN=ZGRF1 PE=1 SV=3	Protein ZGRF1	0	0
+O43909	70	919	Exostosin-like 3 OS=Homo sapiens (Human) OX=9606 GN=EXTL3 PE=1 SV=1	Exostosin-like 3	0	0
+Q6NSJ0	773	714	Myogenesis-regulating glycosidase OS=Homo sapiens (Human) OX=9606 GN=MYORG PE=1 SV=2	Myogenesis-regulating glycosidase	0	0
+Q9Y3M9	70	751	Zinc finger protein 337 OS=Homo sapiens (Human) OX=9606 GN=ZNF337 PE=1 SV=2	Zinc finger protein 337	0	0
+Q9BXX2	210	1392	Ankyrin repeat domain-containing protein 30B OS=Homo sapiens (Human) OX=9606 GN=ANKRD30B PE=2 SV=3	Ankyrin repeat domain-containing protein 30B	0	0
+Q9UQ03	376	480	Coronin-2B OS=Homo sapiens (Human) OX=9606 GN=CORO2B PE=1 SV=4	Coronin-2B	0	0
+Q9HAV0	16	340	Guanine nucleotide-binding protein subunit beta-4 OS=Homo sapiens (Human) OX=9606 GN=GNB4 PE=1 SV=3	Guanine nucleotide-binding protein subunit beta-4	0	0
+Q9UK61	69	1670	Protein TASOR OS=Homo sapiens (Human) OX=9606 GN=TASOR PE=1 SV=3	Protein TASOR	0	0
+O75818	209	363	Ribonuclease P protein subunit p40 OS=Homo sapiens (Human) OX=9606 GN=RPP40 PE=1 SV=3	Ribonuclease P protein subunit p40	0	0
+Q86UX6	69	486	Serine/threonine-protein kinase 32C OS=Homo sapiens (Human) OX=9606 GN=STK32C PE=1 SV=1	Serine/threonine-protein kinase 32C	0	0
+A8MTI9	1488	375	Putative serine protease 47 OS=Homo sapiens (Human) OX=9606 GN=PRSS47 PE=5 SV=2	Putative serine protease 47	0	0
+Q8NFC6	69	3051	Biorientation of chromosomes in cell division protein 1-like 1 OS=Homo sapiens (Human) OX=9606 GN=BOD1L1 PE=1 SV=2	Biorientation of chromosomes in cell division protein 1-like 1	0	0
+Q6TCH4	371	344	Membrane progestin receptor delta OS=Homo sapiens (Human) OX=9606 GN=PAQR6 PE=1 SV=2	Membrane progestin receptor delta	0	0
+Q9HCS7	68	855	Pre-mRNA-splicing factor SYF1 OS=Homo sapiens (Human) OX=9606 GN=XAB2 PE=1 SV=2	Pre-mRNA-splicing factor SYF1	0	0
+P82251	14	487	b(0,+)-type amino acid transporter 1 OS=Homo sapiens (Human) OX=9606 GN=SLC7A9 PE=1 SV=1	b(0,+)-type amino acid transporter 1	0	0
+Q5HYK7	766	790	SH3 domain-containing protein 19 OS=Homo sapiens (Human) OX=9606 GN=SH3D19 PE=1 SV=2	SH3 domain-containing protein 19	0	0
+Q92540	209	1137	Protein SMG7 OS=Homo sapiens (Human) OX=9606 GN=SMG7 PE=1 SV=2	Protein SMG7	0	0
+Q6UXU4	67	331	Germ cell-specific gene 1-like protein OS=Homo sapiens (Human) OX=9606 GN=GSG1L PE=1 SV=2	Germ cell-specific gene 1-like protein	0	0
+O15155	14	118	BET1 homolog OS=Homo sapiens (Human) OX=9606 GN=BET1 PE=1 SV=1	BET1 homolog	0	0
+Q5T4I8	364	152	Putative uncharacterized protein C6orf52 OS=Homo sapiens (Human) OX=9606 GN=C6orf52 PE=2 SV=2	Putative uncharacterized protein C6orf52	0	0
+Q8NA66	208	436	Cyclic nucleotide-binding domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=CNBD1 PE=2 SV=1	Cyclic nucleotide-binding domain-containing protein 1	0	0
+Q8NHY2	67	731	E3 ubiquitin-protein ligase COP1 OS=Homo sapiens (Human) OX=9606 GN=COP1 PE=1 SV=1	E3 ubiquitin-protein ligase COP1	0	0
+Q13751	2276	1172	Laminin subunit beta-3 OS=Homo sapiens (Human) OX=9606 GN=LAMB3 PE=1 SV=1	Laminin subunit beta-3	0	0
+Q9ULX3	67	412	RNA-binding protein NOB1 OS=Homo sapiens (Human) OX=9606 GN=NOB1 PE=1 SV=1	RNA-binding protein NOB1	2	0
+Q14554	207	519	Protein disulfide-isomerase A5 OS=Homo sapiens (Human) OX=9606 GN=PDIA5 PE=1 SV=1	Protein disulfide-isomerase A5	0	0
+Q9BSW7	67	474	Synaptotagmin-17 OS=Homo sapiens (Human) OX=9606 GN=SYT17 PE=1 SV=1	Synaptotagmin-17	0	0
+Q9Y2H5	362	1048	Pleckstrin homology domain-containing family A member 6 OS=Homo sapiens (Human) OX=9606 GN=PLEKHA6 PE=1 SV=4	Pleckstrin homology domain-containing family A member 6	0	0
+Q2M3G0	66	1257	ATP-binding cassette sub-family B member 5 OS=Homo sapiens (Human) OX=9606 GN=ABCB5 PE=1 SV=4	ATP-binding cassette sub-family B member 5	0	0
+P42568	765	568	Protein AF-9 OS=Homo sapiens (Human) OX=9606 GN=MLLT3 PE=1 SV=2	Protein AF-9	0	0
+Q9NV66	66	732	S-adenosyl-L-methionine-dependent tRNA 4-demethylwyosine synthase TYW1 OS=Homo sapiens (Human) OX=9606 GN=TYW1 PE=2 SV=2	S-adenosyl-L-methionine-dependent tRNA 4-demethylwyosine synthase TYW1	0	0
+Q2M1K9	14	1284	Zinc finger protein 423 OS=Homo sapiens (Human) OX=9606 GN=ZNF423 PE=1 SV=1	Zinc finger protein 423	0	0
+Q9Y2T1	65	843	Axin-2 OS=Homo sapiens (Human) OX=9606 GN=AXIN2 PE=1 SV=1	Axin-2	0	0
+Q5VZ46	206	1190	Uncharacterized protein KIAA1614 OS=Homo sapiens (Human) OX=9606 GN=KIAA1614 PE=2 SV=3	Uncharacterized protein KIAA1614	0	0
+P20929	362	6669	Nebulin OS=Homo sapiens (Human) OX=9606 GN=NEB PE=1 SV=5	Nebulin	0	1
+Q9NQ32	1389	467	Uncharacterized protein C11orf16 OS=Homo sapiens (Human) OX=9606 GN=C11orf16 PE=2 SV=3	Uncharacterized protein C11orf16	0	0
+Q9HBW9	65	690	Adhesion G protein-coupled receptor L4 OS=Homo sapiens (Human) OX=9606 GN=ADGRL4 PE=1 SV=3	Adhesion G protein-coupled receptor L4	0	0
+P0CJ79	205	718	Zinc finger protein 888 OS=Homo sapiens (Human) OX=9606 GN=ZNF888 PE=3 SV=2	Zinc finger protein 888	0	0
+Q6NUM6	65	668	S-adenosyl-L-methionine-dependent tRNA 4-demethylwyosine synthase TYW1B OS=Homo sapiens (Human) OX=9606 GN=TYW1B PE=2 SV=4	S-adenosyl-L-methionine-dependent tRNA 4-demethylwyosine synthase TYW1B	0	0
+Q9ULU4	13	1186	Protein kinase C-binding protein 1 OS=Homo sapiens (Human) OX=9606 GN=ZMYND8 PE=1 SV=2	Protein kinase C-binding protein 1	0	0
+Q96K49	64	555	Transmembrane protein 87B OS=Homo sapiens (Human) OX=9606 GN=TMEM87B PE=1 SV=1	Transmembrane protein 87B	0	0
+Q9BXC0	361	346	Hydroxycarboxylic acid receptor 1 OS=Homo sapiens (Human) OX=9606 GN=HCAR1 PE=1 SV=1	Hydroxycarboxylic acid receptor 1	0	0
+Q99704	765	481	Docking protein 1 OS=Homo sapiens (Human) OX=9606 GN=DOK1 PE=1 SV=1	Docking protein 1	0	0
+P78414	12	480	Iroquois-class homeodomain protein IRX-1 OS=Homo sapiens (Human) OX=9606 GN=IRX1 PE=2 SV=3	Iroquois-class homeodomain protein IRX-1	0	0
+Q96PH1	64	765	NADPH oxidase 5 OS=Homo sapiens (Human) OX=9606 GN=NOX5 PE=1 SV=1	NADPH oxidase 5	0	0
+P10747	205	220	T-cell-specific surface glycoprotein CD28 OS=Homo sapiens (Human) OX=9606 GN=CD28 PE=1 SV=1	T-cell-specific surface glycoprotein CD28	0	0
+Q0JRZ9	64	810	F-BAR domain only protein 2 OS=Homo sapiens (Human) OX=9606 GN=FCHO2 PE=1 SV=2	F-BAR domain only protein 2	0	0
+Q96RP8	12	456	Potassium voltage-gated channel subfamily A member 7 OS=Homo sapiens (Human) OX=9606 GN=KCNA7 PE=2 SV=1	Potassium voltage-gated channel subfamily A member 7	0	0
+O75923	358	2080	Dysferlin OS=Homo sapiens (Human) OX=9606 GN=DYSF PE=1 SV=1	Dysferlin	0	0
+Q86Y38	205	959	Xylosyltransferase 1 OS=Homo sapiens (Human) OX=9606 GN=XYLT1 PE=1 SV=1	Xylosyltransferase 1	0	0
+Q12767	64	1356	Transmembrane protein 94 OS=Homo sapiens (Human) OX=9606 GN=TMEM94 PE=1 SV=1	Transmembrane protein 94	0	0
+O76036	12	304	Natural cytotoxicity triggering receptor 1 OS=Homo sapiens (Human) OX=9606 GN=NCR1 PE=1 SV=1	Natural cytotoxicity triggering receptor 1	0	0
+P14210	63	728	Hepatocyte growth factor OS=Homo sapiens (Human) OX=9606 GN=HGF PE=1 SV=2	Hepatocyte growth factor	0	0
+Q99689	203	392	Fasciculation and elongation protein zeta-1 OS=Homo sapiens (Human) OX=9606 GN=FEZ1 PE=1 SV=1	Fasciculation and elongation protein zeta-1	0	0
+Q15389	63	498	Angiopoietin-1 OS=Homo sapiens (Human) OX=9606 GN=ANGPT1 PE=1 SV=2	Angiopoietin-1	0	0
+O60239	760	455	SH3 domain-binding protein 5 OS=Homo sapiens (Human) OX=9606 GN=SH3BP5 PE=1 SV=2	SH3 domain-binding protein 5	0	0
+P62273	62	56	40S ribosomal protein S29 OS=Homo sapiens (Human) OX=9606 GN=RPS29 PE=1 SV=2	40S ribosomal protein S29	0	0
+Q702N8	203	1843	Xin actin-binding repeat-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=XIRP1 PE=1 SV=1	Xin actin-binding repeat-containing protein 1	0	0
+Q8IZU8	61	1212	Dermatan-sulfate epimerase-like protein OS=Homo sapiens (Human) OX=9606 GN=DSEL PE=2 SV=2	Dermatan-sulfate epimerase-like protein	0	0
+Q8WW52	1381	585	Protein FAM151A OS=Homo sapiens (Human) OX=9606 GN=FAM151A PE=2 SV=2	Protein FAM151A	0	0
+Q8NHA6	60	318	Putative olfactory receptor 2W6 OS=Homo sapiens (Human) OX=9606 GN=OR2W6P PE=5 SV=1	Putative olfactory receptor 2W6	0	0
+Q96DZ9	202	223	CKLF-like MARVEL transmembrane domain-containing protein 5 OS=Homo sapiens (Human) OX=9606 GN=CMTM5 PE=1 SV=2	CKLF-like MARVEL transmembrane domain-containing protein 5	0	0
+A2PYH4	357	1435	Probable ATP-dependent DNA helicase HFM1 OS=Homo sapiens (Human) OX=9606 GN=HFM1 PE=1 SV=2	Probable ATP-dependent DNA helicase HFM1	0	0
+Q9H0J4	11	1663	Glutamine-rich protein 2 OS=Homo sapiens (Human) OX=9606 GN=QRICH2 PE=1 SV=1	Glutamine-rich protein 2	0	0
+Q9BUU2	60	404	Methyltransferase-like protein 22 OS=Homo sapiens (Human) OX=9606 GN=METTL22 PE=1 SV=2	Methyltransferase-like protein 22	0	0
+Q9Y4F4	202	1720	TOG array regulator of axonemal microtubules protein 1 OS=Homo sapiens (Human) OX=9606 GN=TOGARAM1 PE=1 SV=4	TOG array regulator of axonemal microtubules protein 1	0	0
+O15204	5283	470	ADAM DEC1 OS=Homo sapiens (Human) OX=9606 GN=ADAMDEC1 PE=1 SV=2	ADAM DEC1	0	0
+Q93008	11	2570	Probable ubiquitin carboxyl-terminal hydrolase FAF-X OS=Homo sapiens (Human) OX=9606 GN=USP9X PE=1 SV=3	Probable ubiquitin carboxyl-terminal hydrolase FAF-X	0	0
+Q6WRI0	757	2623	Immunoglobulin superfamily member 10 OS=Homo sapiens (Human) OX=9606 GN=IGSF10 PE=1 SV=1	Immunoglobulin superfamily member 10	0	0
+Q86YW9	356	2145	Mediator of RNA polymerase II transcription subunit 12-like protein OS=Homo sapiens (Human) OX=9606 GN=MED12L PE=1 SV=2	Mediator of RNA polymerase II transcription subunit 12-like protein	0	0
+Q66K64	60	600	DDB1- and CUL4-associated factor 15 OS=Homo sapiens (Human) OX=9606 GN=DCAF15 PE=1 SV=1	DDB1- and CUL4-associated factor 15	0	0
+Q9Y6H8	10	435	Gap junction alpha-3 protein OS=Homo sapiens (Human) OX=9606 GN=GJA3 PE=1 SV=4	Gap junction alpha-3 protein	0	0
+O14526	59	889	F-BAR domain only protein 1 OS=Homo sapiens (Human) OX=9606 GN=FCHO1 PE=1 SV=2	F-BAR domain only protein 1	0	0
+Q6ZRP7	201	698	Sulfhydryl oxidase 2 OS=Homo sapiens (Human) OX=9606 GN=QSOX2 PE=1 SV=3	Sulfhydryl oxidase 2	0	0
+Q8IZV2	59	173	CKLF-like MARVEL transmembrane domain-containing protein 8 OS=Homo sapiens (Human) OX=9606 GN=CMTM8 PE=1 SV=2	CKLF-like MARVEL transmembrane domain-containing protein 8	0	0
+Q9Y5Y5	9	336	Peroxisomal membrane protein PEX16 OS=Homo sapiens (Human) OX=9606 GN=PEX16 PE=1 SV=2	Peroxisomal membrane protein PEX16	0	0
+P54296	355	1465	Myomesin-2 OS=Homo sapiens (Human) OX=9606 GN=MYOM2 PE=1 SV=2	Myomesin-2	0	14
+Q14738	200	602	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit delta isoform OS=Homo sapiens (Human) OX=9606 GN=PPP2R5D PE=1 SV=1	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit delta isoform	0	0
+Q9Y6B7	59	739	AP-4 complex subunit beta-1 OS=Homo sapiens (Human) OX=9606 GN=AP4B1 PE=1 SV=2	AP-4 complex subunit beta-1	0	0
+Q7RTY7	9	1134	Ovochymase-1 OS=Homo sapiens (Human) OX=9606 GN=OVCH1 PE=2 SV=2	Ovochymase-1	0	0
+A6NH21	58	518	Serine incorporator 4 OS=Homo sapiens (Human) OX=9606 GN=SERINC4 PE=2 SV=1	Serine incorporator 4	0	0
+Q6NUN7	740	778	Jhy protein homolog OS=Homo sapiens (Human) OX=9606 GN=JHY PE=2 SV=1	Jhy protein homolog	0	0
+Q8TEQ8	58	1089	GPI ethanolamine phosphate transferase 3 OS=Homo sapiens (Human) OX=9606 GN=PIGO PE=1 SV=3	GPI ethanolamine phosphate transferase 3	0	0
+O43143	1349	795	Pre-mRNA-splicing factor ATP-dependent RNA helicase DHX15 OS=Homo sapiens (Human) OX=9606 GN=DHX15 PE=1 SV=2	Pre-mRNA-splicing factor ATP-dependent RNA helicase DHX15	0	0
+Q92797	58	1274	Symplekin OS=Homo sapiens (Human) OX=9606 GN=SYMPK PE=1 SV=2	Symplekin	0	0
+O75367	200	372	Core histone macro-H2A.1 OS=Homo sapiens (Human) OX=9606 GN=MACROH2A1 PE=1 SV=4	Core histone macro-H2A.1	0	0
+Q9Y2L9	57	728	Leucine-rich repeat and calponin homology domain-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=LRCH1 PE=1 SV=3	Leucine-rich repeat and calponin homology domain-containing protein 1	0	0
+Q99729	8	332	Heterogeneous nuclear ribonucleoprotein A/B OS=Homo sapiens (Human) OX=9606 GN=HNRNPAB PE=1 SV=2	Heterogeneous nuclear ribonucleoprotein A/B	0	5
+Q9HCE5	57	456	N6-adenosine-methyltransferase non-catalytic subunit OS=Homo sapiens (Human) OX=9606 GN=METTL14 PE=1 SV=2	N6-adenosine-methyltransferase non-catalytic subunit	0	0
+Q02809	200	727	Procollagen-lysine,2-oxoglutarate 5-dioxygenase 1 OS=Homo sapiens (Human) OX=9606 GN=PLOD1 PE=1 SV=2	Procollagen-lysine,2-oxoglutarate 5-dioxygenase 1	0	0
+Q8TF42	355	649	Ubiquitin-associated and SH3 domain-containing protein B OS=Homo sapiens (Human) OX=9606 GN=UBASH3B PE=1 SV=2	Ubiquitin-associated and SH3 domain-containing protein B	0	0
+Q9HAA7	3	133	Putative uncharacterized protein FLJ11871 OS=Homo sapiens (Human) OX=9606 GN=- PE=5 SV=1	Putative uncharacterized protein FLJ11871	0	0
+P07498	56	182	Kappa-casein OS=Homo sapiens (Human) OX=9606 GN=CSN3 PE=1 SV=3	Kappa-casein	0	0
+A6NNW6	199	625	Enolase 4 OS=Homo sapiens (Human) OX=9606 GN=ENO4 PE=2 SV=4	Enolase 4	0	0
+Q8WWZ7	740	1642	ATP-binding cassette sub-family A member 5 OS=Homo sapiens (Human) OX=9606 GN=ABCA5 PE=2 SV=2	ATP-binding cassette sub-family A member 5	0	0
+Q12905	2	390	Interleukin enhancer-binding factor 2 OS=Homo sapiens (Human) OX=9606 GN=ILF2 PE=1 SV=2	Interleukin enhancer-binding factor 2	0	0
+O00160	54	1098	Unconventional myosin-If OS=Homo sapiens (Human) OX=9606 GN=MYO1F PE=1 SV=3	Unconventional myosin-If	0	0
+Q9H344	353	312	Olfactory receptor 51I2 OS=Homo sapiens (Human) OX=9606 GN=OR51I2 PE=2 SV=1	Olfactory receptor 51I2	0	0
+Q9UIF3	54	430	Tektin-2 OS=Homo sapiens (Human) OX=9606 GN=TEKT2 PE=1 SV=1	Tektin-2	0	0
+Q8N4C0	1	152	Putative uncharacterized protein C9orf62 OS=Homo sapiens (Human) OX=9606 GN=C9orf62 PE=2 SV=1	Putative uncharacterized protein C9orf62	0	0
+Q99502	54	592	Eyes absent homolog 1 OS=Homo sapiens (Human) OX=9606 GN=EYA1 PE=1 SV=2	Eyes absent homolog 1	0	0
+Q5XX13	199	1052	F-box/WD repeat-containing protein 10 OS=Homo sapiens (Human) OX=9606 GN=FBXW10 PE=2 SV=2	F-box/WD repeat-containing protein 10	0	0
+Q9UNN8	53	238	Endothelial protein C receptor OS=Homo sapiens (Human) OX=9606 GN=PROCR PE=1 SV=1	Endothelial protein C receptor	0	5
+Q9HCD6	1	1990	Protein TANC2 OS=Homo sapiens (Human) OX=9606 GN=TANC2 PE=1 SV=3	Protein TANC2	0	0
+Q9NP87	352	494	DNA-directed DNA/RNA polymerase mu OS=Homo sapiens (Human) OX=9606 GN=POLM PE=1 SV=1	DNA-directed DNA/RNA polymerase mu	0	0
+O95170	199	752	CMT1A duplicated region transcript 1 protein OS=Homo sapiens (Human) OX=9606 GN=CDRT1 PE=2 SV=3	CMT1A duplicated region transcript 1 protein	0	0
+O60237	53	982	Protein phosphatase 1 regulatory subunit 12B OS=Homo sapiens (Human) OX=9606 GN=PPP1R12B PE=1 SV=2	Protein phosphatase 1 regulatory subunit 12B	0	0
+Q9P2E3	1328	1918	NFX1-type zinc finger-containing protein 1 OS=Homo sapiens (Human) OX=9606 GN=ZNFX1 PE=2 SV=2	NFX1-type zinc finger-containing protein 1	0	0
+P48060	53	266	Glioma pathogenesis-related protein 1 OS=Homo sapiens (Human) OX=9606 GN=GLIPR1 PE=1 SV=3	Glioma pathogenesis-related protein 1	0	0
+Q9Y6P5	2203	492	Sestrin-1 OS=Homo sapiens (Human) OX=9606 GN=SESN1 PE=1 SV=2	Sestrin-1	0	0
+Q16842	53	350	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialyltransferase 2 OS=Homo sapiens (Human) OX=9606 GN=ST3GAL2 PE=2 SV=1	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialyltransferase 2	0	0
+P54760	352	987	Ephrin type-B receptor 4 OS=Homo sapiens (Human) OX=9606 GN=EPHB4 PE=1 SV=2	Ephrin type-B receptor 4	0	0
+Q6W4X9	52	2439	Mucin-6 OS=Homo sapiens (Human) OX=9606 GN=MUC6 PE=1 SV=3	Mucin-6	0	0
+A1Z1Q3	16300	425	ADP-ribose glycohydrolase MACROD2 OS=Homo sapiens (Human) OX=9606 GN=MACROD2 PE=1 SV=2	ADP-ribose glycohydrolase MACROD2	0	0
