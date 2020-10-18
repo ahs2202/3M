@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>	   
+				<!-- CSS -->
+				<link rel="stylesheet" type="text/css" href="https://www.ebi.ac.uk/pdbe/pdb-component-library/css/pdbe-molstar-light-1.1.0-dev.4.css">
+				<!-- JS -->
+				<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+				<script type="text/javascript" src="https://www.ebi.ac.uk/pdbe/pdb-component-library/js/pdbe-molstar-plugin-1.1.0-dev.4.js"></script>
+    <style>
+      .pdb_viewer{
+        float:left;
+        width:50%;
+		height:300px;
+        position:relative;
+      }
+      .pdb_controlbox{
+        float:left;
+        width:50%;
+        position:relative;
+      }
+    </style>
+</head>
+
+<body>
+<div id="Plotly">
+	<div id="myDiv"></div>
+	<div id="myDiv2"></div>
+</div>
+<div id="PDB">
+	<div id="PDB_Viewer">
+		<div class="pdb_viewer" id="PDB_Viewer_Human_Protein"></div>
+		<div class="pdb_viewer" id="PDB_Viewer_Virus_Protein"></div>
+	</div>
+	<div id="PDB_controlBox">
+		<div id="PDB_Human_Protein_controlBox" class="pdb_controlbox">
+			<button onclick="PDB_Human_Protein_Focus()">Focus/Reset</button>&nbsp;
+			<button onclick="PDB_Human_Protein_Select()">Select/Reset</button><br><br>
+		</div>
+		<div id="PDB_Virus_Protein_controlBox" class="pdb_controlbox">
+			<button onclick="PDB_Virus_Protein_Focus()">Focus/Reset</button>&nbsp;
+			<button onclick="PDB_Virus_Protein_Select()">Select/Reset</button><br><br>
+		</div>
+		
+	</div>
+</div>
+<script>
+	function unpack(rows, key) {
+		return rows.map( function(row) { return row[key];});
+	};
+		
+	var d3 = Plotly.d3; // D3
+	d3.tsv("https://raw.githubusercontent.com/curran/data/gh-pages/d3Examples/temperatures/data.tsv", function(rows){ 
+	var trace1 = {
+	x: unpack( rows, 'date' ),
+	y: unpack( rows, 'New York' ),
+	type:'scatter', mode:'markers', marker:{size:16}	};
+	var trace2 = {
+	x: unpack( rows, 'date' ),
+	y: unpack( rows, 'San Francisco' ),
+	type:'scatter', mode:'markers', marker:{size:16}, xaxis: 'x2', yaxis: 'y2'	};
+	
+	var data = [ trace1, trace2 ] 
+
+	var layout = {
+	  title: 'Multiple Custom Sized Subplots',
+	  xaxis: {
+		domain: [0, 0.45],
+		anchor: 'y1'
+	  },
+	  yaxis: {
+		domain: [0.5, 1],
+		anchor: 'x1'
+	  },
+	  xaxis2: {
+		domain: [0.55, 1],
+		anchor: 'y2'
+	  },
+	  yaxis2: {
+		domain: [0.8, 1],
+		anchor: 'x2'
+	  }
+	};
+	
+	var config = {
+		responsive: true,
+		displaylogo: false
+	}
+	
+	Plotly.newPlot( 'myDiv', data, layout, config );
+	
+	
+	var myPlot = document.getElementById('myDiv')
+	myPlot.on('plotly_click', function(data){
+		var pts = '', x = 0, y = 0;
+		for(var i=0; i < data.points.length; i++){
+			pts = 'x = '+data.points[i].x +'\ny = '+ data.points[i].y.toPrecision(4) + '\n\n';
+			x = data.points[i].x
+			y = data.points[i].y
+		}
+		alert('Closest point clicked:\n\n'+pts);
+		Plotly.newPlot( 'myDiv2', [{x: [ x, 1, x ],y: [ y, 1, y] }], {margin: { t: 0 } }, { responsive: true, displaylogo: false } ); // draw new plot upon clicking
+	});
+
+// Mol* JS molecule renderer
+    //Create plugin instance
+    var pdbHumanProtein = new PDBeMolstarPlugin();
+	var pdbVirusProtein = new PDBeMolstarPlugin();
+    
+    //Get element from HTML/Template to place the viewer 
+    var pdbHumanProteinContainer = document.getElementById('PDB_Viewer_Human_Protein');
+	var pdbVirusProteinContainer = document.getElementById('PDB_Viewer_Virus_Protein');
+
+    //Call render method to display the 3D view
+    pdbHumanProtein.render(pdbHumanProteinContainer, { 
+		moleculeId: '6vxx',
+		landscape: true,
+		bgColor: {r:255,g:255,b:255},
+		hideControls: true });
+		
+    pdbVirusProtein.render(pdbVirusProteinContainer, { 
+		moleculeId: '6m3m',
+		landscape: true,
+		bgColor: {r:255,g:255,b:255},
+		hideControls: true });
+		
+	pdbHumanProteinContainer.visual.visibility({ water: false } ); // hide water
+	pdbVirusProteinContainer.visual.visibility({ water: false } ); // hide water
+	
+	function PDB_Human_Protein_Select(){
+	}
+	function PDB_Human_Protein_Focus(){
+	}
+	function PDB_Virus_Protein_Select(){
+	}
+	function PDB_Virus_Protein_Focus(){
+	}
+	
+	
+});
+
+
+</script>
+</body>
+</html>
