@@ -217,9 +217,31 @@
           -o-animation: fadein 0.5s ease-in 1s forwards; /* Opera */
             animation: fadein 0.5s ease-in 1s forwards;
         }
+        /* Add an extra .carousel parent class to increase specificity
+           avoiding the use of !important flag. */
         .carousel-caption {
-                color: black;
-            }
+            color: black;
+        }
+        .carousel .carousel-indicators li {
+            background-color: #fff;
+            background-color: rgba(70, 70, 70, 0.25);
+        }
+
+        .carousel .carousel-indicators .active {
+            background-color: #444;
+        }
+        .carousel .carousel-indicators li {
+            background-color: #fff;
+            background-color: rgba(70, 70, 70, 0.25);
+        }
+
+        .carousel .carousel-indicators .active {
+            background-color: #444;
+        }
+        .carousel-control-next,
+        .carousel-control-prev {
+            filter: invert(100%);
+        }
         /* for loading SVG images */
 /*         .loader{
           margin: 0 0 2em;
@@ -786,7 +808,7 @@
             </div>
             <div class="modal-body">
                 <h2></h2>
-                <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.cover.PNG" alt="introduction images" style="min-width:90%;max-width:90%;display: block;margin-left: auto;margin-right: auto;">
+                <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.cover.PNG" alt="introduction images" style="min-width:50%;max-width:90%;display: block;margin-left: auto;margin-right: auto;">
                 <br>
                 <div class="card mx-auto my-2" style="max-width: 60rem;">
                     <div class="card-body">
@@ -811,24 +833,25 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_main_graph.PNG" class="d-block w-100" alt="Explore cross-reactive immune epitopes">
+                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_main_graph.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Explore cross-reactive immune epitopes">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Explore cross-reactive immune epitopes</h2>
                                 <p>Toggle <b>help messages</b> by pressing <kbd>Cmd</kbd> + <kbd>H</kbd><br>Keyboard shorcuts can be found at the upper right corner</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_filter.PNG" class="d-block w-100" alt="Filter cross-reactive immune epitopes">
+                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_filter.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Filter cross-reactive immune epitopes">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Filter cross-reactive immune epitopes</h2>
                                 <p>Multiple filters can be applied.<br>To remove a filter, click the filter again</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_aligned_structures.PNG" class="d-block w-100" alt="Visualize Aligned Structures">
+                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_aligned_structures.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Visualize Aligned Structures">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Visualize Aligned Structures</h2>
-                                <p>Click a row in the [Aligned Sequence] table to highlight a pair of residues in the alignment on both virus and human protein structures<br>Change the representation of protein structure <i>(Control Panel > Components > Polymer > Actions > Add Representation > Molecular Surface)</i><br>When protein structure is not available, a black screen will be shown</p>
+                                <p>Click a row in the aligned sequence table to highlight<br>a pair of aligned residues on virus and human structures<br>When protein structure is not available, a black screen will be shown</p>
+<!--                                 Change the representation of protein structure <i>(Control Panel > Components > Polymer > Actions > Add Representation > Molecular Surface)</i><br> -->
                             </div>
                         </div>
                     </div>
@@ -841,7 +864,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <h4 class="text-muted">This program has been developed by Hyunsu An at Gwangju Institute of Science and Technology under the supervision of Professor JiHwan Park.</h4>
+                <h5 class="text-muted" style="text-align:center;">This program has been developed by Hyunsu An at Gwangju Institute of Science and Technology under the supervision of Professor JiHwan Park.</h5>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary btn-lg btn-block" data-dismiss="modal">Start!</button>
