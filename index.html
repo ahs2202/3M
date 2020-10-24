@@ -2085,7 +2085,7 @@
                 object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data_remote_file.l_n_records_for_each_step[ i ];
             }
         }
-        gtag( 'event', 'loading_remote_data', { t_cell_n_records : object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size = object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level = object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level = object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
+        gtag( 'event', 'loading_remote_data', { t_cell_n_records : object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size : object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level : object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level : object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
         // retrieve file names appropriate for current setting
         object_plot_BCellCrossReactivity.name_file = "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
         object_plot_TCellCrossReactivity.name_file = "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
