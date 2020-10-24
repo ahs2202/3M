@@ -1792,6 +1792,7 @@
         console.log( "[LoadRemoteData] now downloading and drawing peptide vaccine candidates" );
         await LoadOptiVax( );
         Loading_Screen( false );
+        ClickCallBack_BCellCrossReactivity( 127 ); // show an example potentially cross-reactive B-cell epitope after loading
     }
     async function LoadOptiVax( ) { // load OptiVax peptide vaccine candidates
         return new Promise( async function( resolve, reject ) {
@@ -2084,6 +2085,7 @@
                 object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data_remote_file.l_n_records_for_each_step[ i ];
             }
         }
+        gtag( 'event', 'loading_remote_data', { t_cell_n_records : object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size = object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level = object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level = object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
         // retrieve file names appropriate for current setting
         object_plot_BCellCrossReactivity.name_file = "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
         object_plot_TCellCrossReactivity.name_file = "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
@@ -2595,268 +2597,9 @@
             } else if ( name_trace == "vaccine_design" ) {
                 flag_data_type = "vaccine_design";
             }
+            gtag( 'event', 'main_graph_click_callback', { 'clicked_data_type' : flag_data_type } ); // [Google Analytics] record data_type of the clicked record to further improve the visualization of the data_type
             if ( flag_data_type == "B-Cell" ) { // when clicked data belongs to BCellCrossReactivity data         
-                Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
-                clicked_record = arr_data_BCellCrossReactivity[ index ];
-                console.log( "[plotMolecularMimicryMap] clicked record belongs to BCellCrossReactivity data:", clicked_record );
-                
-                arr_data_clicked = [ ]; // empty the array containing data of the clincked record
-                let representative_virus_protein = arr_data_acc_virus_representative[ clicked_record.representative_accession ];
-                arr_data_clicked.push( { "Data Name": "[virus] representative protein", Value: representative_virus_protein.name + " (" + representative_virus_protein.accession + ") from " + clicked_record.target_representative_start + " to " + clicked_record.target_representative_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + representative_virus_protein.accession } );
-                arr_data_clicked.push( { "Data Name": "[human] protein name", Value: arr_data_acc_human[ clicked_record.query_accession ].name, URL: "https://www.google.com/search?q=" + arr_data_acc_human[ clicked_record.query_accession ].description.split( "OS=" )[ 0 ] } ); // add human protein description with a link to a google search
-                arr_data_clicked.push( { "Data Name": "[virus] protein accession", Value: arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_start + " to " + clicked_record.target_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + arr_data_acc_virus[ clicked_record.target_accession ].value } );
-                arr_data_clicked.push( { "Data Name": "[human] protein accession", Value: arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_start + " to " + clicked_record.query_end, URL: "https://www.uniprot.org/uniprot/" + arr_data_acc_human[ clicked_record.query_accession ].value } );
-                let flag_structure_exist_for_human_sequence = clicked_record.structure_id_query != -1, flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1; // retrieve flag for structure property data availability for human and virus sequence
-                if ( flag_structure_exist_for_virus_sequence ) { 
-                    arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: arr_data_acc_pdb[ clicked_record.structure_id_target ].value + " (" + arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_structure_start + " to " + clicked_record.target_structure_end + ")", URL: "https://www.rcsb.org/structure/" + arr_data_acc_pdb[ clicked_record.structure_id_target ].id_pdb.toUpperCase( ), style: "font-family:Arial" } );
-                } else {
-                    arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: "unavailable", URL: null, style: "font-family:Arial" } );
-                }
-                if ( flag_structure_exist_for_human_sequence ) { 
-                    arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: arr_data_acc_pdb[ clicked_record.structure_id_query ].value + " (" + arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_structure_start + " to " + clicked_record.query_structure_end + ")", URL: "https://www.rcsb.org/structure/" + arr_data_acc_pdb[ clicked_record.structure_id_query ].id_pdb.toUpperCase( ), style: "font-family:Arial" } );
-                } else {
-                    arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: "unavailable", URL: null, style: "font-family:Arial" } );
-                }
-                arr_data_clicked.push( { "Data Name": "E-value (significance) of full-length alignment", Value: clicked_record.e_value, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "identity (similarity) of full-length alignment", Value: clicked_record.identity, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "number of redundant alignments", Value: clicked_record.duplicate_counts, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "correl. coeffi. of accessibility (p-value)", Value: clicked_record.correl_coeffi_acc + " (" + String( clicked_record.correl_p_value_acc ) + ")", URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "correl. coeffi. of torsion angle (phi) (p-value)", Value: clicked_record.correl_coeffi_phi + " (" + String( clicked_record.correl_p_value_phi ) + ")", URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "correl. coeffi. of torsion angle (psi) (p-value)", Value: clicked_record.correl_coeffi_psi + " (" + String( clicked_record.correl_p_value_psi ) + ")", URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "score_blosum", Value: clicked_record.score_blosum, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "score_blosum_weighted", Value: clicked_record.score_blosum_weighted, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "score_similarity_ss8", Value: clicked_record.score_similarity_ss8, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "prop_pdb_evidence_query", Value: clicked_record.prop_pdb_evidence_query, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "prop_pdb_evidence_target", Value: clicked_record.prop_pdb_evidence_target, URL: null, style: "font-family:Arial" } );
-                arr_data_clicked.push( { "Data Name": "sum_of_weights", Value: clicked_record.sum_of_weights, URL: null, style: "font-family:Arial" } );
-                
-                DrawD3Table_for_Record_Details( arr_data_clicked );
-                document.getElementById( "title_d3_table_metrics" ).innerHTML = "B-Cell Cross-Reactivity Prediction data"; // update table title for 'd3_table_metrics' table
-                document.getElementById( "footnote_d3_table_metrics" ).innerHTML = ""; // update table footnote for 'd3_table_metrics' table
-                
-                // draw interactive table displaying structural properties of aligned regions
-                let alignment_BCellCrossReactivity = arr_data_alignment_human_virus[ clicked_record.id_alignment ], structure_property_human_protein = arr_data_structural_property_human[ clicked_record.query_accession ], structure_property_virus_protein = arr_data_structural_property_virus[ clicked_record.target_accession ];
-                let alignment_start = clicked_record.alignment_start - 1, alignment_end = clicked_record.alignment_end, query_start = clicked_record.query_start - 1, query_end = clicked_record.query_end, target_start = clicked_record.target_start - 1, target_end = clicked_record.target_end; // 1-based coordinates to 0-based coordinates // initial start and end positions
-                let len_discarded_sequence_alignment = RetrieveDiscardedLength( alignment_BCellCrossReactivity.discarded_regions, alignment_start ), len_discarded_sequence_human = RetrieveDiscardedLength( structure_property_human_protein.discarded_regions, query_start ), len_discarded_sequence_virus = RetrieveDiscardedLength( structure_property_virus_protein.discarded_regions, target_start );
-                alignment_start -= len_discarded_sequence_alignment; alignment_end -= len_discarded_sequence_alignment; query_start -= len_discarded_sequence_human; query_end -= len_discarded_sequence_human; target_start -= len_discarded_sequence_virus; target_end -= len_discarded_sequence_virus; // retrieve coordinates excluding discarded regions
-                let query_aligned_sequence = alignment_BCellCrossReactivity.query_alignment__compact__for_web_application.slice( alignment_start, alignment_end ), target_aligned_sequence = alignment_BCellCrossReactivity.target_alignment__compact__for_web_application.slice( alignment_start, alignment_end );
-                let len_alignment = query_aligned_sequence.length;
-                let structure_property_human_sequence = { }, structure_property_virus_sequence = { }; // retrieve and parse structural property of aligned sequences
-                structure_property_human_sequence.rsa = Unpack_String_rsa( structure_property_human_protein[ "rsa_combined___ascii_encoding_1_character_from_33_to_126__from_0_to_1__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) )
-                structure_property_human_sequence.ss8 = Unpack_String_ss8( structure_property_human_protein[ "ss8_combined___ascii_encoding_1_character_from_33_to_41__states_G_H_I_E_B_T_S_C__compact__for_web_application" ].slice( query_start, query_end ) )
-                structure_property_human_sequence.datatype = Unpack_String_datatype( structure_property_human_protein[ "rsa_datatype_combined___ascii_encoding_1_character_from_33_to_36__states_Pred_Model_PDB__compact__for_web_application" ].slice( query_start, query_end ) )
-                if ( flag_structure_exist_for_human_sequence ) { 
-                    structure_property_human_sequence.phi = Unpack_String_torsion_angle( structure_property_human_protein[ "phi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
-                    structure_property_human_sequence.psi = Unpack_String_torsion_angle( structure_property_human_protein[ "psi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
-                    structure_property_human_sequence.structure_id = Unpack_String_structure_id( structure_property_human_protein[ "structure_id__compact__for_web_application" ] ).slice( query_start, query_end );
-                }
-                structure_property_virus_sequence.rsa = Unpack_String_rsa( structure_property_virus_protein[ "rsa_combined___ascii_encoding_1_character_from_33_to_126__from_0_to_1__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) )
-                structure_property_virus_sequence.ss8 = Unpack_String_ss8( structure_property_virus_protein[ "ss8_combined___ascii_encoding_1_character_from_33_to_41__states_G_H_I_E_B_T_S_C__compact__for_web_application" ].slice( target_start, target_end ) )
-                structure_property_virus_sequence.datatype = Unpack_String_datatype( structure_property_virus_protein[ "rsa_datatype_combined___ascii_encoding_1_character_from_33_to_36__states_Pred_Model_PDB__compact__for_web_application" ].slice( target_start, target_end ) )
-                if ( flag_structure_exist_for_virus_sequence ) { 
-                    structure_property_virus_sequence.phi = Unpack_String_torsion_angle( structure_property_virus_protein[ "phi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) );
-                    structure_property_virus_sequence.psi = Unpack_String_torsion_angle( structure_property_virus_protein[ "psi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) );
-                    structure_property_virus_sequence.structure_id = Unpack_String_structure_id( structure_property_virus_protein[ "structure_id__compact__for_web_application" ] ).slice( target_start, target_end );
-                }
-                // represent structural property with color 
-                structure_property_human_sequence.color_rsa = Color_for_rsa( structure_property_human_sequence.rsa )
-                structure_property_human_sequence.color_ss8 = Color_for_ss8( structure_property_human_sequence.ss8 )
-                structure_property_human_sequence.color_datatype = Color_for_datatype( structure_property_human_sequence.datatype )
-                if ( flag_structure_exist_for_human_sequence ) { 
-                    structure_property_human_sequence.color_phi = Color_for_torsion_angle( structure_property_human_sequence.phi )
-                    structure_property_human_sequence.color_psi = Color_for_torsion_angle( structure_property_human_sequence.psi )
-                    structure_property_human_sequence.color_structure_id = Color_for_structure_id( structure_property_human_sequence.structure_id )
-                }
-                
-                structure_property_virus_sequence.color_rsa = Color_for_rsa( structure_property_virus_sequence.rsa )
-                structure_property_virus_sequence.color_ss8 = Color_for_ss8( structure_property_virus_sequence.ss8 )
-                structure_property_virus_sequence.color_datatype = Color_for_datatype( structure_property_virus_sequence.datatype )
-                if ( flag_structure_exist_for_virus_sequence ) { 
-                    structure_property_virus_sequence.color_phi = Color_for_torsion_angle( structure_property_virus_sequence.phi )
-                    structure_property_virus_sequence.color_psi = Color_for_torsion_angle( structure_property_virus_sequence.psi )
-                    structure_property_virus_sequence.color_structure_id = Color_for_structure_id( structure_property_virus_sequence.structure_id )
-                }
-
-                // align retrieved structure property using the alignment
-                structure_property_human_sequence = Align_Structural_Property( structure_property_human_sequence, query_aligned_sequence );
-                structure_property_virus_sequence = Align_Structural_Property( structure_property_virus_sequence, target_aligned_sequence );
-                structure_property_human_sequence.seq = query_aligned_sequence.split( "" ); // add aligned sequence to the data
-                structure_property_virus_sequence.seq = target_aligned_sequence.split( "" );
-                let l_score_blosum = [ ], l_score_blosum_human = [ ], l_score_blosum_virus = [ ], pos_virus = clicked_record.target_start - 1, pos_human = clicked_record.query_start - 1;
-                object_pdb_human.dict_index_alignment_to_pos_human = { }, object_pdb_virus.dict_index_alignment_to_pos_virus = { };
-                for ( let i = 0; i < query_aligned_sequence.length; i ++ ) { 
-                    let score_blosum62 = Math.round( dict_blosum62[ query_aligned_sequence[ i ] + target_aligned_sequence[ i ] ] ), residue_human = query_aligned_sequence[ i ], residue_virus = target_aligned_sequence[ i ]; // round the blosum score so that step become 1
-                    l_score_blosum.push( score_blosum62 );
-                    // retrieve blosum score for human and virus sequence
-                    if ( residue_human == '-' ) {
-                        pos_virus += 1;
-                        l_score_blosum_virus.push( score_blosum62 );
-                        object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] = pos_virus;
-                    } else if ( residue_virus == '-' ) {
-                        pos_human += 1;
-                        l_score_blosum_human.push( score_blosum62 );
-                        object_pdb_human.dict_index_alignment_to_pos_human[ i ] = pos_human;
-                    } else {
-                        pos_human += 1; pos_virus += 1;
-                        l_score_blosum_human.push( score_blosum62 );
-                        l_score_blosum_virus.push( score_blosum62 );
-                        object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] = pos_virus;
-                        object_pdb_human.dict_index_alignment_to_pos_human[ i ] = pos_human;
-                    }
-                }
-                let l_color_score_blosum = Color_for_score_blosum( l_score_blosum ), l_color_score_blosum_human = Color_for_score_blosum( l_score_blosum_human ), l_color_score_blosum_virus = Color_for_score_blosum( l_score_blosum_virus ); // retrieve colors for blosum scores
-
-                console.log( "structural property human sequence:", structure_property_human_sequence );
-                console.log( "structural property virus sequence:", structure_property_virus_sequence );
-                // draw Plotly table for aligned sequences
-                object_data_tableSequence.flag_data_type = "B-Cell";
-                let colors = [ ], values = [ ], header = [ ], l_col = [ ];
-                if ( flag_structure_exist_for_virus_sequence ) { 
-                    l_col.push( ... [ 'virus_structure_id', 'virus_psi', 'virus_phi' ] );
-                    values.push( ... [ structure_property_virus_sequence.structure_id, structure_property_virus_sequence.psi, structure_property_virus_sequence.phi ] );
-                    colors.push( ... [ structure_property_virus_sequence.color_structure_id, structure_property_virus_sequence.color_psi, structure_property_virus_sequence.color_phi ] );
-                }
-                l_col.push( ... [ 'virus_datatype', 'virus_ss8', 'virus_rsa', 'virus_seq' ] );
-                values.push( ... [ structure_property_virus_sequence.datatype, structure_property_virus_sequence.ss8, structure_property_virus_sequence.rsa, structure_property_virus_sequence.seq ] );
-                colors.push( ... [ structure_property_virus_sequence.color_datatype, structure_property_virus_sequence.color_ss8, structure_property_virus_sequence.color_rsa, ArrayFull( len_alignment, "#ffffff" ) ] );
-                l_col.push( 'score_blosum62' );
-                values.push( l_score_blosum );
-                colors.push( l_color_score_blosum );
-                l_col.push( ... [ 'human_seq', 'human_rsa', 'human_ss8', 'human_datatype' ] );
-                values.push( ... [ structure_property_human_sequence.seq, structure_property_human_sequence.rsa, structure_property_human_sequence.ss8, structure_property_human_sequence.datatype ] );
-                colors.push( ... [ ArrayFull( len_alignment, "#ffffff" ), structure_property_human_sequence.color_rsa, structure_property_human_sequence.color_ss8, structure_property_human_sequence.color_datatype ] );
-                if ( flag_structure_exist_for_human_sequence ) { 
-                    l_col.push( ... [ 'human_phi', 'human_psi', 'human_structure_id' ] );
-                    values.push( ... [ structure_property_human_sequence.phi, structure_property_human_sequence.psi, structure_property_human_sequence.structure_id ] );
-                    colors.push( ... [ structure_property_human_sequence.color_phi, structure_property_human_sequence.color_psi, structure_property_human_sequence.color_structure_id ] );
-                }
-                for ( let i = 0; i < l_col.length; i ++ ) { header.push( [ "<b>" + l_col[ i ] + "</b>" ] ); } // build header from 'l_col'
-                let data = [{
-                    type: 'table', 
-                    header: { values: header, align: "center", height: 30, line: {width: 1, color: '#506784'}, fill: {color: '#f0f0f0'}, font: {family: "Arial", size: 12, color: "black"} },
-                    cells: {values: values, align: "center", height: 20, line: {color: colors, width: 1}, fill: {color: colors }, font: {family: "Arial", size: 12, color: ["#3d3d3d"] }}
-                }]
-                
-                document.getElementById( "plotly_table_sequence" ).style.height = String( Math.min( 20 * int_n_residues_per_window_table_sequence + 30 + 10, parseInt( l_score_blosum.length * 20 + 30 + 10 ) ) ) + "px" // set height of table according to the length of alignment # max height is 640
-                object_data_tableSequence.len_alignment = l_score_blosum.length; // retrieve the length of the alignment
-                str_jquery_container = "#container_plotly_table_sequence";
-                if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { Plotly.newPlot( tableSequence, data, lodash.cloneDeep( layout_tableSequence ), config_MolecularMimicryMap ); Add_Click_Callback_Aligned_Sequence_Table( ); // draw Plotly plot synchronously if the container is currently shown
-                } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { Plotly.newPlot( tableSequence, data, lodash.cloneDeep( layout_tableSequence ), config_MolecularMimicryMap ); Add_Click_Callback_Aligned_Sequence_Table( ); } ); } // draw Plotly plot once the container is shown if the container is currently hidden
-                
-                // Render molecular structures using the Mol* JS application
-                str_jquery_container = "#container_PDB";
-                let pos_protein = 0, pos_pdb = 0;
-                if ( flag_structure_exist_for_human_sequence ) { 
-                    object_pdb_human = Object.assign( object_pdb_human, arr_data_acc_pdb[ clicked_record.structure_id_query ] );
-                    object_pdb_human.id_chain = String( object_pdb_human.id_chain ) // 'auth_asym_id' should be a string
-                    object_pdb_human.start_pdb = clicked_record.structure_id_query_start;
-                    object_pdb_human.end_pdb = clicked_record.structure_id_query_end;
-                    object_pdb_human.alignment = { data: arr_data_alignment_human_pdb[ clicked_record.id_alignment_structure_query ], start: clicked_record.alignment_structure_query_start - 1, end: clicked_record.alignment_structure_query_end } // retrieve alignment data // 0-based coordinates
-                    object_pdb_human.alignment.data.len_discarded_sequence = RetrieveDiscardedLength( object_pdb_human.alignment.data.discarded_regions, object_pdb_human.alignment.start );
-                    object_pdb_human.alignment.start -= object_pdb_human.alignment.data.len_discarded_sequence;
-                    object_pdb_human.alignment.end -= object_pdb_human.alignment.data.len_discarded_sequence;
-                    object_pdb_human.aligned_sequence_pdb = object_pdb_human.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_human.alignment.start, object_pdb_human.alignment.end );
-                    object_pdb_human.aligned_sequence_protein = object_pdb_human.alignment.data.query_alignment__compact__for_web_application.slice( object_pdb_human.alignment.start, object_pdb_human.alignment.end );
-                    object_pdb_human.start_protein = clicked_record.query_structure_start;
-                    object_pdb_human.end_protein = clicked_record.query_structure_end;
-                    object_pdb_human.l_color_score_blosum_protein = l_color_score_blosum_human.slice( clicked_record.query_start - clicked_record.query_structure_start, l_color_score_blosum_human.length - ( clicked_record.query_end - clicked_record.query_structure_end ) );
-                    
-                    object_pdb_human.dict_pos_human_to_pos_pdb_human = { }, object_pdb_human.dict_index_alignment_to_pos_pdb_human = { };
-                    pos_protein = - 1, pos_pdb = object_pdb_human.start_pdb - 1, object_pdb_human.l_color_score_blosum_pdb = [ ];
-                    for ( let i = 0; i < object_pdb_human.aligned_sequence_pdb.length; i ++ ) {
-                        if ( object_pdb_human.aligned_sequence_pdb[ i ] == '-' ) { 
-                            pos_protein += 1;
-                            object_pdb_human.dict_pos_human_to_pos_pdb_human[ pos_protein + object_pdb_human.start_protein ] = pos_pdb;
-                        }
-                        else if ( object_pdb_human.aligned_sequence_protein[ i ] == '-' ) { 
-                            pos_pdb += 1;
-                            object_pdb_human.l_color_score_blosum_pdb.push( null );
-                        } // if there is a gap in the protein (so the residue in pdb does not exist in the protein sequence, push null value representing an invalid color)
-                        else { 
-                            pos_protein += 1; pos_pdb += 1;
-                            object_pdb_human.l_color_score_blosum_pdb.push( object_pdb_human.l_color_score_blosum_protein[ pos_protein ] );
-                            object_pdb_human.dict_pos_human_to_pos_pdb_human[ pos_protein + object_pdb_human.start_protein ] = pos_pdb;
-                        }
-                    }
-                    for ( let i = 0; i < object_data_tableSequence.len_alignment; i ++ ) {
-                        object_pdb_human.dict_index_alignment_to_pos_pdb_human[ i ] = object_pdb_human.dict_pos_human_to_pos_pdb_human[ object_pdb_human.dict_index_alignment_to_pos_human[ i ] ];
-                    }
-                    object_pdb_human.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
-                    if ( object_pdb_human.value.includes( "_source_" ) ) { object_pdb_human.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_human.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
-                    else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
-                        object_pdb_human.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_human.id_pdb + "/chains?entityId=" + object_pdb_human.id_entity + "&authAsymId=" + object_pdb_human.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
-                        if ( object_pdb_human.id_model != null ) { object_pdb_human.option_update.customData.url += "&modelId=" + object_pdb_human.id_model; } // use id_model to retrieve specific coordinates if it is available
-                    } 
-                    object_pdb_human.selection_showing_side_chain = [ ], object_pdb_human.selection = [ ];
-                    for ( let i = 0; i < object_pdb_human.l_color_score_blosum_pdb.length; i ++ ) {
-                        let color = object_pdb_human.l_color_score_blosum_pdb[ i ], pos = object_pdb_human.start_pdb + i;
-                        if ( color === null ) { continue; }
-                        object_pdb_human.selection_showing_side_chain.push( { auth_asym_id: object_pdb_human.id_chain, start_residue_number: pos, end_residue_number: pos, sideChain: true, color: color } );
-                        object_pdb_human.selection.push( { auth_asym_id: object_pdb_human.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
-                    }
-                    object_pdb_human.bool_flag_selected = false, object_pdb_human.bool_flag_focused = false; // set viewer setting
-                    if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
-                    } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
-                } else {  // show dummy if coordinates are not available
-                    if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
-                    } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
-                }
-                if ( flag_structure_exist_for_virus_sequence ) { 
-                    object_pdb_virus = Object.assign( object_pdb_virus, arr_data_acc_pdb[ clicked_record.structure_id_target ] );
-                    object_pdb_virus.id_chain = String( object_pdb_virus.id_chain ) // 'auth_asym_id' should be a string
-                    object_pdb_virus.start_pdb = clicked_record.structure_id_target_start;
-                    object_pdb_virus.end_pdb = clicked_record.structure_id_target_end;
-                    object_pdb_virus.alignment = { data: arr_data_alignment_virus_pdb[ clicked_record.id_alignment_structure_target ], start: clicked_record.alignment_structure_target_start - 1, end: clicked_record.alignment_structure_target_end } // retrieve alignment data // 0-based coordinates
-                    object_pdb_virus.alignment.data.len_discarded_sequence = RetrieveDiscardedLength( object_pdb_virus.alignment.data.discarded_regions, object_pdb_virus.alignment.start );
-                    object_pdb_virus.alignment.start -= object_pdb_virus.alignment.data.len_discarded_sequence;
-                    object_pdb_virus.alignment.end -= object_pdb_virus.alignment.data.len_discarded_sequence;
-                    object_pdb_virus.aligned_sequence_pdb = object_pdb_virus.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_virus.alignment.start, object_pdb_virus.alignment.end );
-                    object_pdb_virus.aligned_sequence_protein = object_pdb_virus.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_virus.alignment.start, object_pdb_virus.alignment.end );
-                    object_pdb_virus.start_protein = clicked_record.target_structure_start;
-                    object_pdb_virus.end_protein = clicked_record.target_structure_end;
-                    object_pdb_virus.l_color_score_blosum_protein = l_color_score_blosum_virus.slice( clicked_record.target_start - clicked_record.target_structure_start, l_color_score_blosum_virus.length - ( clicked_record.target_end - clicked_record.target_structure_end ) );
-
-                    object_pdb_virus.dict_pos_virus_to_pos_pdb_virus = { }, object_pdb_virus.dict_index_alignment_to_pos_pdb_virus = { };
-                    pos_protein = - 1, pos_pdb = object_pdb_virus.start_pdb - 1, object_pdb_virus.l_color_score_blosum_pdb = [ ];
-                    for ( let i = 0; i < object_pdb_virus.aligned_sequence_pdb.length; i ++ ) {
-                        if ( object_pdb_virus.aligned_sequence_pdb[ i ] == '-' ) { 
-                            pos_protein += 1;
-                            object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ pos_protein + object_pdb_virus.start_protein ] = pos_pdb;
-                        }
-                        else if ( object_pdb_virus.aligned_sequence_protein[ i ] == '-' ) { 
-                            pos_pdb += 1;
-                            object_pdb_virus.l_color_score_blosum_pdb.push( null );
-                        } // if there is a gap in the protein (so the residue in pdb does not exist in the protein sequence, push null value representing an invalid color)
-                        else { 
-                            pos_protein += 1; pos_pdb += 1;
-                            object_pdb_virus.l_color_score_blosum_pdb.push( object_pdb_virus.l_color_score_blosum_protein[ pos_protein ] );
-                            object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ pos_protein + object_pdb_virus.start_protein ] = pos_pdb;
-                        }
-                    }
-                    for ( let i = 0; i < object_data_tableSequence.len_alignment; i ++ ) {
-                        object_pdb_virus.dict_index_alignment_to_pos_pdb_virus[ i ] = object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] ];
-                    }
-                    object_pdb_virus.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
-                    if ( object_pdb_virus.value.includes( "_source_" ) ) { object_pdb_virus.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_virus.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
-                    else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
-                        object_pdb_virus.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_virus.id_pdb + "/chains?entityId=" + object_pdb_virus.id_entity + "&authAsymId=" + object_pdb_virus.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
-                        if ( object_pdb_virus.id_model != null ) { object_pdb_virus.option_update.customData.url += "&modelId=" + object_pdb_virus.id_model; } // use id_model to retrieve specific coordinates if it is available
-                    } 
-                    object_pdb_virus.selection_showing_side_chain = [ ], object_pdb_virus.selection = [ ];
-                    for ( let i = 0; i < object_pdb_virus.l_color_score_blosum_pdb.length; i ++ ) {
-                        let color = object_pdb_virus.l_color_score_blosum_pdb[ i ], pos = object_pdb_virus.start_pdb + i;
-                        if ( color === null ) { continue; }
-                        object_pdb_virus.selection_showing_side_chain.push( { auth_asym_id: object_pdb_virus.id_chain, start_residue_number: pos, end_residue_number: pos, sideChain: true, color: color } );
-                        object_pdb_virus.selection.push( { auth_asym_id: object_pdb_virus.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
-                    }
-                    object_pdb_virus.bool_flag_selected = false, object_pdb_virus.bool_flag_focused = false; // set viewer setting
-                    if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
-                    } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
-                } else {  // show dummy if coordinates are not available
-                    if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
-                    } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
-                }
-                document.getElementById( "description_clicked_position__table_sequence" ).innerHTML = "";
+                ClickCallBack_BCellCrossReactivity( index )
             } else if ( flag_data_type == "T-Cell" ) {
                 Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
                 clicked_record = arr_data_TCellCrossReactivity[ index ];
@@ -3002,6 +2745,269 @@
         await Adjust_Layout_MolecularMimicryMap( );
         resolve( "[DrawMolecularMimicryMap] resolved" );
     });
+    }
+    async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
+        Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
+        clicked_record = arr_data_BCellCrossReactivity[ index ];
+        console.log( "[plotMolecularMimicryMap] clicked record belongs to BCellCrossReactivity data:", clicked_record );
+
+        arr_data_clicked = [ ]; // empty the array containing data of the clincked record
+        let representative_virus_protein = arr_data_acc_virus_representative[ clicked_record.representative_accession ];
+        arr_data_clicked.push( { "Data Name": "[virus] representative protein", Value: representative_virus_protein.name + " (" + representative_virus_protein.accession + ") from " + clicked_record.target_representative_start + " to " + clicked_record.target_representative_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + representative_virus_protein.accession } );
+        arr_data_clicked.push( { "Data Name": "[human] protein name", Value: arr_data_acc_human[ clicked_record.query_accession ].name, URL: "https://www.google.com/search?q=" + arr_data_acc_human[ clicked_record.query_accession ].description.split( "OS=" )[ 0 ] } ); // add human protein description with a link to a google search
+        arr_data_clicked.push( { "Data Name": "[virus] protein accession", Value: arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_start + " to " + clicked_record.target_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + arr_data_acc_virus[ clicked_record.target_accession ].value } );
+        arr_data_clicked.push( { "Data Name": "[human] protein accession", Value: arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_start + " to " + clicked_record.query_end, URL: "https://www.uniprot.org/uniprot/" + arr_data_acc_human[ clicked_record.query_accession ].value } );
+        let flag_structure_exist_for_human_sequence = clicked_record.structure_id_query != -1, flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1; // retrieve flag for structure property data availability for human and virus sequence
+        if ( flag_structure_exist_for_virus_sequence ) { 
+            arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: arr_data_acc_pdb[ clicked_record.structure_id_target ].value + " (" + arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_structure_start + " to " + clicked_record.target_structure_end + ")", URL: "https://www.rcsb.org/structure/" + arr_data_acc_pdb[ clicked_record.structure_id_target ].id_pdb.toUpperCase( ), style: "font-family:Arial" } );
+        } else {
+            arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: "unavailable", URL: null, style: "font-family:Arial" } );
+        }
+        if ( flag_structure_exist_for_human_sequence ) { 
+            arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: arr_data_acc_pdb[ clicked_record.structure_id_query ].value + " (" + arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_structure_start + " to " + clicked_record.query_structure_end + ")", URL: "https://www.rcsb.org/structure/" + arr_data_acc_pdb[ clicked_record.structure_id_query ].id_pdb.toUpperCase( ), style: "font-family:Arial" } );
+        } else {
+            arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: "unavailable", URL: null, style: "font-family:Arial" } );
+        }
+        arr_data_clicked.push( { "Data Name": "E-value (significance) of full-length alignment", Value: clicked_record.e_value, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "identity (similarity) of full-length alignment", Value: clicked_record.identity, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "number of redundant alignments", Value: clicked_record.duplicate_counts, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "correl. coeffi. of accessibility (p-value)", Value: clicked_record.correl_coeffi_acc + " (" + String( clicked_record.correl_p_value_acc ) + ")", URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "correl. coeffi. of torsion angle (phi) (p-value)", Value: clicked_record.correl_coeffi_phi + " (" + String( clicked_record.correl_p_value_phi ) + ")", URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "correl. coeffi. of torsion angle (psi) (p-value)", Value: clicked_record.correl_coeffi_psi + " (" + String( clicked_record.correl_p_value_psi ) + ")", URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "score_blosum", Value: clicked_record.score_blosum, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "score_blosum_weighted", Value: clicked_record.score_blosum_weighted, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "score_similarity_ss8", Value: clicked_record.score_similarity_ss8, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "prop_pdb_evidence_query", Value: clicked_record.prop_pdb_evidence_query, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "prop_pdb_evidence_target", Value: clicked_record.prop_pdb_evidence_target, URL: null, style: "font-family:Arial" } );
+        arr_data_clicked.push( { "Data Name": "sum_of_weights", Value: clicked_record.sum_of_weights, URL: null, style: "font-family:Arial" } );
+
+        DrawD3Table_for_Record_Details( arr_data_clicked );
+        document.getElementById( "title_d3_table_metrics" ).innerHTML = "B-Cell Cross-Reactivity Prediction data"; // update table title for 'd3_table_metrics' table
+        document.getElementById( "footnote_d3_table_metrics" ).innerHTML = ""; // update table footnote for 'd3_table_metrics' table
+
+        // draw interactive table displaying structural properties of aligned regions
+        let alignment_BCellCrossReactivity = arr_data_alignment_human_virus[ clicked_record.id_alignment ], structure_property_human_protein = arr_data_structural_property_human[ clicked_record.query_accession ], structure_property_virus_protein = arr_data_structural_property_virus[ clicked_record.target_accession ];
+        let alignment_start = clicked_record.alignment_start - 1, alignment_end = clicked_record.alignment_end, query_start = clicked_record.query_start - 1, query_end = clicked_record.query_end, target_start = clicked_record.target_start - 1, target_end = clicked_record.target_end; // 1-based coordinates to 0-based coordinates // initial start and end positions
+        let len_discarded_sequence_alignment = RetrieveDiscardedLength( alignment_BCellCrossReactivity.discarded_regions, alignment_start ), len_discarded_sequence_human = RetrieveDiscardedLength( structure_property_human_protein.discarded_regions, query_start ), len_discarded_sequence_virus = RetrieveDiscardedLength( structure_property_virus_protein.discarded_regions, target_start );
+        alignment_start -= len_discarded_sequence_alignment; alignment_end -= len_discarded_sequence_alignment; query_start -= len_discarded_sequence_human; query_end -= len_discarded_sequence_human; target_start -= len_discarded_sequence_virus; target_end -= len_discarded_sequence_virus; // retrieve coordinates excluding discarded regions
+        let query_aligned_sequence = alignment_BCellCrossReactivity.query_alignment__compact__for_web_application.slice( alignment_start, alignment_end ), target_aligned_sequence = alignment_BCellCrossReactivity.target_alignment__compact__for_web_application.slice( alignment_start, alignment_end );
+        let len_alignment = query_aligned_sequence.length;
+        let structure_property_human_sequence = { }, structure_property_virus_sequence = { }; // retrieve and parse structural property of aligned sequences
+        structure_property_human_sequence.rsa = Unpack_String_rsa( structure_property_human_protein[ "rsa_combined___ascii_encoding_1_character_from_33_to_126__from_0_to_1__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) )
+        structure_property_human_sequence.ss8 = Unpack_String_ss8( structure_property_human_protein[ "ss8_combined___ascii_encoding_1_character_from_33_to_41__states_G_H_I_E_B_T_S_C__compact__for_web_application" ].slice( query_start, query_end ) )
+        structure_property_human_sequence.datatype = Unpack_String_datatype( structure_property_human_protein[ "rsa_datatype_combined___ascii_encoding_1_character_from_33_to_36__states_Pred_Model_PDB__compact__for_web_application" ].slice( query_start, query_end ) )
+        if ( flag_structure_exist_for_human_sequence ) { 
+            structure_property_human_sequence.phi = Unpack_String_torsion_angle( structure_property_human_protein[ "phi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
+            structure_property_human_sequence.psi = Unpack_String_torsion_angle( structure_property_human_protein[ "psi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
+            structure_property_human_sequence.structure_id = Unpack_String_structure_id( structure_property_human_protein[ "structure_id__compact__for_web_application" ] ).slice( query_start, query_end );
+        }
+        structure_property_virus_sequence.rsa = Unpack_String_rsa( structure_property_virus_protein[ "rsa_combined___ascii_encoding_1_character_from_33_to_126__from_0_to_1__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) )
+        structure_property_virus_sequence.ss8 = Unpack_String_ss8( structure_property_virus_protein[ "ss8_combined___ascii_encoding_1_character_from_33_to_41__states_G_H_I_E_B_T_S_C__compact__for_web_application" ].slice( target_start, target_end ) )
+        structure_property_virus_sequence.datatype = Unpack_String_datatype( structure_property_virus_protein[ "rsa_datatype_combined___ascii_encoding_1_character_from_33_to_36__states_Pred_Model_PDB__compact__for_web_application" ].slice( target_start, target_end ) )
+        if ( flag_structure_exist_for_virus_sequence ) { 
+            structure_property_virus_sequence.phi = Unpack_String_torsion_angle( structure_property_virus_protein[ "phi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) );
+            structure_property_virus_sequence.psi = Unpack_String_torsion_angle( structure_property_virus_protein[ "psi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) );
+            structure_property_virus_sequence.structure_id = Unpack_String_structure_id( structure_property_virus_protein[ "structure_id__compact__for_web_application" ] ).slice( target_start, target_end );
+        }
+        // represent structural property with color 
+        structure_property_human_sequence.color_rsa = Color_for_rsa( structure_property_human_sequence.rsa )
+        structure_property_human_sequence.color_ss8 = Color_for_ss8( structure_property_human_sequence.ss8 )
+        structure_property_human_sequence.color_datatype = Color_for_datatype( structure_property_human_sequence.datatype )
+        if ( flag_structure_exist_for_human_sequence ) { 
+            structure_property_human_sequence.color_phi = Color_for_torsion_angle( structure_property_human_sequence.phi )
+            structure_property_human_sequence.color_psi = Color_for_torsion_angle( structure_property_human_sequence.psi )
+            structure_property_human_sequence.color_structure_id = Color_for_structure_id( structure_property_human_sequence.structure_id )
+        }
+
+        structure_property_virus_sequence.color_rsa = Color_for_rsa( structure_property_virus_sequence.rsa )
+        structure_property_virus_sequence.color_ss8 = Color_for_ss8( structure_property_virus_sequence.ss8 )
+        structure_property_virus_sequence.color_datatype = Color_for_datatype( structure_property_virus_sequence.datatype )
+        if ( flag_structure_exist_for_virus_sequence ) { 
+            structure_property_virus_sequence.color_phi = Color_for_torsion_angle( structure_property_virus_sequence.phi )
+            structure_property_virus_sequence.color_psi = Color_for_torsion_angle( structure_property_virus_sequence.psi )
+            structure_property_virus_sequence.color_structure_id = Color_for_structure_id( structure_property_virus_sequence.structure_id )
+        }
+
+        // align retrieved structure property using the alignment
+        structure_property_human_sequence = Align_Structural_Property( structure_property_human_sequence, query_aligned_sequence );
+        structure_property_virus_sequence = Align_Structural_Property( structure_property_virus_sequence, target_aligned_sequence );
+        structure_property_human_sequence.seq = query_aligned_sequence.split( "" ); // add aligned sequence to the data
+        structure_property_virus_sequence.seq = target_aligned_sequence.split( "" );
+        let l_score_blosum = [ ], l_score_blosum_human = [ ], l_score_blosum_virus = [ ], pos_virus = clicked_record.target_start - 1, pos_human = clicked_record.query_start - 1;
+        object_pdb_human.dict_index_alignment_to_pos_human = { }, object_pdb_virus.dict_index_alignment_to_pos_virus = { };
+        for ( let i = 0; i < query_aligned_sequence.length; i ++ ) { 
+            let score_blosum62 = Math.round( dict_blosum62[ query_aligned_sequence[ i ] + target_aligned_sequence[ i ] ] ), residue_human = query_aligned_sequence[ i ], residue_virus = target_aligned_sequence[ i ]; // round the blosum score so that step become 1
+            l_score_blosum.push( score_blosum62 );
+            // retrieve blosum score for human and virus sequence
+            if ( residue_human == '-' ) {
+                pos_virus += 1;
+                l_score_blosum_virus.push( score_blosum62 );
+                object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] = pos_virus;
+            } else if ( residue_virus == '-' ) {
+                pos_human += 1;
+                l_score_blosum_human.push( score_blosum62 );
+                object_pdb_human.dict_index_alignment_to_pos_human[ i ] = pos_human;
+            } else {
+                pos_human += 1; pos_virus += 1;
+                l_score_blosum_human.push( score_blosum62 );
+                l_score_blosum_virus.push( score_blosum62 );
+                object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] = pos_virus;
+                object_pdb_human.dict_index_alignment_to_pos_human[ i ] = pos_human;
+            }
+        }
+        let l_color_score_blosum = Color_for_score_blosum( l_score_blosum ), l_color_score_blosum_human = Color_for_score_blosum( l_score_blosum_human ), l_color_score_blosum_virus = Color_for_score_blosum( l_score_blosum_virus ); // retrieve colors for blosum scores
+
+        console.log( "structural property human sequence:", structure_property_human_sequence );
+        console.log( "structural property virus sequence:", structure_property_virus_sequence );
+        // draw Plotly table for aligned sequences
+        object_data_tableSequence.flag_data_type = "B-Cell";
+        let colors = [ ], values = [ ], header = [ ], l_col = [ ];
+        if ( flag_structure_exist_for_virus_sequence ) { 
+            l_col.push( ... [ 'virus_structure_id', 'virus_psi', 'virus_phi' ] );
+            values.push( ... [ structure_property_virus_sequence.structure_id, structure_property_virus_sequence.psi, structure_property_virus_sequence.phi ] );
+            colors.push( ... [ structure_property_virus_sequence.color_structure_id, structure_property_virus_sequence.color_psi, structure_property_virus_sequence.color_phi ] );
+        }
+        l_col.push( ... [ 'virus_datatype', 'virus_ss8', 'virus_rsa', 'virus_seq' ] );
+        values.push( ... [ structure_property_virus_sequence.datatype, structure_property_virus_sequence.ss8, structure_property_virus_sequence.rsa, structure_property_virus_sequence.seq ] );
+        colors.push( ... [ structure_property_virus_sequence.color_datatype, structure_property_virus_sequence.color_ss8, structure_property_virus_sequence.color_rsa, ArrayFull( len_alignment, "#ffffff" ) ] );
+        l_col.push( 'score_blosum62' );
+        values.push( l_score_blosum );
+        colors.push( l_color_score_blosum );
+        l_col.push( ... [ 'human_seq', 'human_rsa', 'human_ss8', 'human_datatype' ] );
+        values.push( ... [ structure_property_human_sequence.seq, structure_property_human_sequence.rsa, structure_property_human_sequence.ss8, structure_property_human_sequence.datatype ] );
+        colors.push( ... [ ArrayFull( len_alignment, "#ffffff" ), structure_property_human_sequence.color_rsa, structure_property_human_sequence.color_ss8, structure_property_human_sequence.color_datatype ] );
+        if ( flag_structure_exist_for_human_sequence ) { 
+            l_col.push( ... [ 'human_phi', 'human_psi', 'human_structure_id' ] );
+            values.push( ... [ structure_property_human_sequence.phi, structure_property_human_sequence.psi, structure_property_human_sequence.structure_id ] );
+            colors.push( ... [ structure_property_human_sequence.color_phi, structure_property_human_sequence.color_psi, structure_property_human_sequence.color_structure_id ] );
+        }
+        for ( let i = 0; i < l_col.length; i ++ ) { header.push( [ "<b>" + l_col[ i ] + "</b>" ] ); } // build header from 'l_col'
+        let data = [{
+            type: 'table', 
+            header: { values: header, align: "center", height: 30, line: {width: 1, color: '#506784'}, fill: {color: '#f0f0f0'}, font: {family: "Arial", size: 12, color: "black"} },
+            cells: {values: values, align: "center", height: 20, line: {color: colors, width: 1}, fill: {color: colors }, font: {family: "Arial", size: 12, color: ["#3d3d3d"] }}
+        }]
+
+        document.getElementById( "plotly_table_sequence" ).style.height = String( Math.min( 20 * int_n_residues_per_window_table_sequence + 30 + 10, parseInt( l_score_blosum.length * 20 + 30 + 10 ) ) ) + "px" // set height of table according to the length of alignment # max height is 640
+        object_data_tableSequence.len_alignment = l_score_blosum.length; // retrieve the length of the alignment
+        str_jquery_container = "#container_plotly_table_sequence";
+        if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { Plotly.newPlot( tableSequence, data, lodash.cloneDeep( layout_tableSequence ), config_MolecularMimicryMap ); Add_Click_Callback_Aligned_Sequence_Table( ); // draw Plotly plot synchronously if the container is currently shown
+        } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { Plotly.newPlot( tableSequence, data, lodash.cloneDeep( layout_tableSequence ), config_MolecularMimicryMap ); Add_Click_Callback_Aligned_Sequence_Table( ); } ); } // draw Plotly plot once the container is shown if the container is currently hidden
+
+        // Render molecular structures using the Mol* JS application
+        str_jquery_container = "#container_PDB";
+        let pos_protein = 0, pos_pdb = 0;
+        if ( flag_structure_exist_for_human_sequence ) { 
+            object_pdb_human = Object.assign( object_pdb_human, arr_data_acc_pdb[ clicked_record.structure_id_query ] );
+            object_pdb_human.id_chain = String( object_pdb_human.id_chain ) // 'auth_asym_id' should be a string
+            object_pdb_human.start_pdb = clicked_record.structure_id_query_start;
+            object_pdb_human.end_pdb = clicked_record.structure_id_query_end;
+            object_pdb_human.alignment = { data: arr_data_alignment_human_pdb[ clicked_record.id_alignment_structure_query ], start: clicked_record.alignment_structure_query_start - 1, end: clicked_record.alignment_structure_query_end } // retrieve alignment data // 0-based coordinates
+            object_pdb_human.alignment.data.len_discarded_sequence = RetrieveDiscardedLength( object_pdb_human.alignment.data.discarded_regions, object_pdb_human.alignment.start );
+            object_pdb_human.alignment.start -= object_pdb_human.alignment.data.len_discarded_sequence;
+            object_pdb_human.alignment.end -= object_pdb_human.alignment.data.len_discarded_sequence;
+            object_pdb_human.aligned_sequence_pdb = object_pdb_human.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_human.alignment.start, object_pdb_human.alignment.end );
+            object_pdb_human.aligned_sequence_protein = object_pdb_human.alignment.data.query_alignment__compact__for_web_application.slice( object_pdb_human.alignment.start, object_pdb_human.alignment.end );
+            object_pdb_human.start_protein = clicked_record.query_structure_start;
+            object_pdb_human.end_protein = clicked_record.query_structure_end;
+            object_pdb_human.l_color_score_blosum_protein = l_color_score_blosum_human.slice( clicked_record.query_start - clicked_record.query_structure_start, l_color_score_blosum_human.length - ( clicked_record.query_end - clicked_record.query_structure_end ) );
+
+            object_pdb_human.dict_pos_human_to_pos_pdb_human = { }, object_pdb_human.dict_index_alignment_to_pos_pdb_human = { };
+            pos_protein = - 1, pos_pdb = object_pdb_human.start_pdb - 1, object_pdb_human.l_color_score_blosum_pdb = [ ];
+            for ( let i = 0; i < object_pdb_human.aligned_sequence_pdb.length; i ++ ) {
+                if ( object_pdb_human.aligned_sequence_pdb[ i ] == '-' ) { 
+                    pos_protein += 1;
+                    object_pdb_human.dict_pos_human_to_pos_pdb_human[ pos_protein + object_pdb_human.start_protein ] = pos_pdb;
+                }
+                else if ( object_pdb_human.aligned_sequence_protein[ i ] == '-' ) { 
+                    pos_pdb += 1;
+                    object_pdb_human.l_color_score_blosum_pdb.push( null );
+                } // if there is a gap in the protein (so the residue in pdb does not exist in the protein sequence, push null value representing an invalid color)
+                else { 
+                    pos_protein += 1; pos_pdb += 1;
+                    object_pdb_human.l_color_score_blosum_pdb.push( object_pdb_human.l_color_score_blosum_protein[ pos_protein ] );
+                    object_pdb_human.dict_pos_human_to_pos_pdb_human[ pos_protein + object_pdb_human.start_protein ] = pos_pdb;
+                }
+            }
+            for ( let i = 0; i < object_data_tableSequence.len_alignment; i ++ ) {
+                object_pdb_human.dict_index_alignment_to_pos_pdb_human[ i ] = object_pdb_human.dict_pos_human_to_pos_pdb_human[ object_pdb_human.dict_index_alignment_to_pos_human[ i ] ];
+            }
+            object_pdb_human.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
+            if ( object_pdb_human.value.includes( "_source_" ) ) { object_pdb_human.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_human.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
+            else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
+                object_pdb_human.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_human.id_pdb + "/chains?entityId=" + object_pdb_human.id_entity + "&authAsymId=" + object_pdb_human.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
+                if ( object_pdb_human.id_model != null ) { object_pdb_human.option_update.customData.url += "&modelId=" + object_pdb_human.id_model; } // use id_model to retrieve specific coordinates if it is available
+            } 
+            object_pdb_human.selection_showing_side_chain = [ ], object_pdb_human.selection = [ ];
+            for ( let i = 0; i < object_pdb_human.l_color_score_blosum_pdb.length; i ++ ) {
+                let color = object_pdb_human.l_color_score_blosum_pdb[ i ], pos = object_pdb_human.start_pdb + i;
+                if ( color === null ) { continue; }
+                object_pdb_human.selection_showing_side_chain.push( { auth_asym_id: object_pdb_human.id_chain, start_residue_number: pos, end_residue_number: pos, sideChain: true, color: color } );
+                object_pdb_human.selection.push( { auth_asym_id: object_pdb_human.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
+            }
+            object_pdb_human.bool_flag_selected = false, object_pdb_human.bool_flag_focused = false; // set viewer setting
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+        } else {  // show dummy if coordinates are not available
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
+        }
+        if ( flag_structure_exist_for_virus_sequence ) { 
+            object_pdb_virus = Object.assign( object_pdb_virus, arr_data_acc_pdb[ clicked_record.structure_id_target ] );
+            object_pdb_virus.id_chain = String( object_pdb_virus.id_chain ) // 'auth_asym_id' should be a string
+            object_pdb_virus.start_pdb = clicked_record.structure_id_target_start;
+            object_pdb_virus.end_pdb = clicked_record.structure_id_target_end;
+            object_pdb_virus.alignment = { data: arr_data_alignment_virus_pdb[ clicked_record.id_alignment_structure_target ], start: clicked_record.alignment_structure_target_start - 1, end: clicked_record.alignment_structure_target_end } // retrieve alignment data // 0-based coordinates
+            object_pdb_virus.alignment.data.len_discarded_sequence = RetrieveDiscardedLength( object_pdb_virus.alignment.data.discarded_regions, object_pdb_virus.alignment.start );
+            object_pdb_virus.alignment.start -= object_pdb_virus.alignment.data.len_discarded_sequence;
+            object_pdb_virus.alignment.end -= object_pdb_virus.alignment.data.len_discarded_sequence;
+            object_pdb_virus.aligned_sequence_pdb = object_pdb_virus.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_virus.alignment.start, object_pdb_virus.alignment.end );
+            object_pdb_virus.aligned_sequence_protein = object_pdb_virus.alignment.data.target_alignment__compact__for_web_application.slice( object_pdb_virus.alignment.start, object_pdb_virus.alignment.end );
+            object_pdb_virus.start_protein = clicked_record.target_structure_start;
+            object_pdb_virus.end_protein = clicked_record.target_structure_end;
+            object_pdb_virus.l_color_score_blosum_protein = l_color_score_blosum_virus.slice( clicked_record.target_start - clicked_record.target_structure_start, l_color_score_blosum_virus.length - ( clicked_record.target_end - clicked_record.target_structure_end ) );
+
+            object_pdb_virus.dict_pos_virus_to_pos_pdb_virus = { }, object_pdb_virus.dict_index_alignment_to_pos_pdb_virus = { };
+            pos_protein = - 1, pos_pdb = object_pdb_virus.start_pdb - 1, object_pdb_virus.l_color_score_blosum_pdb = [ ];
+            for ( let i = 0; i < object_pdb_virus.aligned_sequence_pdb.length; i ++ ) {
+                if ( object_pdb_virus.aligned_sequence_pdb[ i ] == '-' ) { 
+                    pos_protein += 1;
+                    object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ pos_protein + object_pdb_virus.start_protein ] = pos_pdb;
+                }
+                else if ( object_pdb_virus.aligned_sequence_protein[ i ] == '-' ) { 
+                    pos_pdb += 1;
+                    object_pdb_virus.l_color_score_blosum_pdb.push( null );
+                } // if there is a gap in the protein (so the residue in pdb does not exist in the protein sequence, push null value representing an invalid color)
+                else { 
+                    pos_protein += 1; pos_pdb += 1;
+                    object_pdb_virus.l_color_score_blosum_pdb.push( object_pdb_virus.l_color_score_blosum_protein[ pos_protein ] );
+                    object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ pos_protein + object_pdb_virus.start_protein ] = pos_pdb;
+                }
+            }
+            for ( let i = 0; i < object_data_tableSequence.len_alignment; i ++ ) {
+                object_pdb_virus.dict_index_alignment_to_pos_pdb_virus[ i ] = object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] ];
+            }
+            object_pdb_virus.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
+            if ( object_pdb_virus.value.includes( "_source_" ) ) { object_pdb_virus.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_virus.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
+            else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
+                object_pdb_virus.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_virus.id_pdb + "/chains?entityId=" + object_pdb_virus.id_entity + "&authAsymId=" + object_pdb_virus.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
+                if ( object_pdb_virus.id_model != null ) { object_pdb_virus.option_update.customData.url += "&modelId=" + object_pdb_virus.id_model; } // use id_model to retrieve specific coordinates if it is available
+            } 
+            object_pdb_virus.selection_showing_side_chain = [ ], object_pdb_virus.selection = [ ];
+            for ( let i = 0; i < object_pdb_virus.l_color_score_blosum_pdb.length; i ++ ) {
+                let color = object_pdb_virus.l_color_score_blosum_pdb[ i ], pos = object_pdb_virus.start_pdb + i;
+                if ( color === null ) { continue; }
+                object_pdb_virus.selection_showing_side_chain.push( { auth_asym_id: object_pdb_virus.id_chain, start_residue_number: pos, end_residue_number: pos, sideChain: true, color: color } );
+                object_pdb_virus.selection.push( { auth_asym_id: object_pdb_virus.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
+            }
+            object_pdb_virus.bool_flag_selected = false, object_pdb_virus.bool_flag_focused = false; // set viewer setting
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+        } else {  // show dummy if coordinates are not available
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
+        }
+        document.getElementById( "description_clicked_position__table_sequence" ).innerHTML = "";
     }
     
     var color_pdb_highlight = {r:255,g:255,b:0};
