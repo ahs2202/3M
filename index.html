@@ -306,8 +306,8 @@
                         <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" data-tooltip="tooltip" data-placement="left" data-html="true" title="Press to <b>on/off</b> the <i>legend</i> of the graph" id="button_toggle_legend_MolecularMimicryMap" onclick="Toggle_Legend_MolecularMimicryMap( )"><i class="material-icons icon-black" style="font-size:20px">list</i></button>
                         <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>on/off</b> displaying <i>record details</i> on hover (mouse over). It will <b>also disable click events</b>." id="button_toggle_hovermode_MolecularMimicryMap" onclick="Toggle_Hovermode_MolecularMimicryMap( )"><i class="material-icons icon-black" style="font-size:20px">article</i></button>
                         
-                        <div class="btn-group-toggle ml-1 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> B-cell cross-reactivity prediction data" aria-label="Press to toggle B-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_BCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">B-Cell Cross-Reactivity Prediction</label></div>
-                        <div class="btn-group-toggle ml-0 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> T-cell cross-reactivity prediction data" aria-label="Press to toggle T-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_TCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">T-Cell Cross-Reactivity Prediction</label></div>
+                        <div class="btn-group-toggle ml-1 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> B-cell cross-reactivity prediction data" aria-label="Press to toggle B-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_BCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">B-Cell Cross-Reactivity</label></div>
+                        <div class="btn-group-toggle ml-0 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> T-cell cross-reactivity prediction data" aria-label="Press to toggle T-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_TCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">T-Cell Cross-Reactivity</label></div>
                         <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> SARS-CoV-2 virus protein annotations and InterPro protein domain annotations" aria-label="Press to toggle SARS-CoV-2 virus protein annotations and InterPro protein domain annotations"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_VirusProteinAnnotation_MolecularMimicryMap" checked onclick="Toggle_VirusProteinAnnotation_MolecularMimicryMap( )" autocomplete="off">Virus Protein Annotations</label></div>
                         <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> immuno prediction data" aria-label="Press to toggle visibility of B-cell cross-reactivity prediction data and T-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_vaccine_metrics_MolecularMimicryMap" checked onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Vaccine Metrics</label></div>
                         <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> <i>immunogenicity prediction data</i> (MHC binding prediction) and <i>number of mutated proteins</i> for each mutation" aria-label="Press to toggle immunogenicity prediction data (MHC binding prediction) and number of mutated proteins for each mutation"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_iedb_epitope_virus_MolecularMimicryMap" checked onclick="Toggle_IEDB_Epitope_Virus_MolecularMimicryMap( )" autocomplete="off">IEDB Epitopes</label></div>
@@ -498,10 +498,12 @@
         <nav class="navbar navbar-dark bg-custom-navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent_supplementary_graph_setting_panel" aria-controls="navbarToggleExternalContent_supplementary_graph_setting_panel" aria-expanded="false" aria-label="Toggle supplementary plot setting panel" data-tooltip="tooltip" data-placement="right" data-html="true" title="Press to <b>select or remove columns</b> in for <i>parallel coordinate graphs</i> for filtering cross-reactivity prediction data"><i class="material-icons icon-white" style="font-size:20px;cursor:pointer">settings</i></button>
             <form class="form-inline">
-                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_b_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_b_cell_cross_reactivity' )"data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> B-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering B-cell cross-reactivity prediction data">B-Cell Cross-Reactivity Prediction Metrics</button>
-                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_t_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_t_cell_cross_reactivity' )"data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> T-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering T-cell cross-reactivity prediction data">T-Cell Cross-Reactivity Prediction Metrics</button>
+                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_b_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_b_cell_cross_reactivity' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> B-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering B-cell cross-reactivity prediction data">B-Cell Cross-Reactivity Filter</button>
+                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_t_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_t_cell_cross_reactivity' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> T-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering T-cell cross-reactivity prediction data">T-Cell Cross-Reactivity Filter</button>
+                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_human_protein" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_human_protein' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> human proteins" aria-label="Press to toggle a parallel coordinate graph for filtering human proteins">Human Protein Filter</button>
                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-controls="#container_datatable_panel_MolecularMimicryMap" aria-expanded="false" onclick="Toggle_Exclusive_Tabs( '#container_datatable_panel_MolecularMimicryMap' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a panel for exploring associated data using a <i>data table</i>. Data records associated with <b>a specific human protein can be highlighted</b> by entering the <i>UniProt accession</i> of the protein" aria-label="Press to toggle a panel for exploring associated data using a data table. Data records associated with a specific human protein can be highlighted by entering the UniProt accession of the protein">Data Tables</button>
 <!--                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="collapse" data-toggle="button" data-target="#container_d3_table_metrics" aria-expanded="false" aria-controls="container_d3_table_metrics">Record Details</button> -->
+                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="container_expression_panel_MolecularMimicryMap" onclick='Toggle_Panel( "#container_expression_panel_MolecularMimicryMap" )' data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a panel showing <b>mRNA expression</b> of the selected human protein" aria-label="Press to toggle a panel showing mRNA expression of the selected human protein">Expression</button>
                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="collapse" data-toggle="button" data-target="#container_plotly_table_sequence" aria-expanded="false" aria-controls="container_plotly_table_sequence"data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> <i>a table</i> showing <b>predicted/experimental structural properties</b> of aligned human and SARS-CoV-2 virus proteins" aria-label="">Aligned Sequences</button>
                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="collapse" data-toggle="button" data-target="#container_PDB" aria-expanded="false" aria-controls="container_PDB"data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> <i>molecule structure viewers</i> displaying aligned human and SARS-CoV-2 virus <i>protein structures</i>. Aligned residues were colored between <i>red to green</i> based on the <b>BLOSUM62 score</b> of the alignment at each position." aria-label="Press to toggle molecule structure viewers displaying aligned human and SARS-CoV-2 virus protein structures">Aligned Structures</button> 
             </form>
@@ -553,10 +555,55 @@
                     </div>
                 </p>
                 <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="Open_and_Draw_TCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
+                <p>
+                    <h5 class="text-muted">Human Protein Metrics</h5>
+                    <div class="form-group">
+                        <label for="selectmultiple_HumanProteinMetrics">Select columns <i class="material-icons" style="font-size:20px;cursor:pointer" data-toggle="tooltip" data-placement="right" title="Press ⌘ or Control Key to multi-select">help</i></label>
+                        <select multiple class="form-control" id="selectmultiple_HumanProteinMetrics" size="8">
+                            <option value="Adipose Tissue (n=1204) (log10)">Adipose Tissue (n=1204) (log10)</option>
+                            <option value="Adrenal Gland (n=258) (log10)">Adrenal Gland (n=258) (log10)</option>
+                            <option value="Bladder (n=21) (log10)">Bladder (n=21) (log10)</option>
+                            <option selected value="Blood (n=929) (log10)">Blood (n=929) (log10)</option>
+                            <option selected value="Blood Vessel (n=1335) (log10)">Blood Vessel (n=1335) (log10)</option>
+                            <option selected value="Brain (n=2642) (log10)">Brain (n=2642) (log10)</option>
+                            <option value="Breast (n=459) (log10)">Breast (n=459) (log10)</option>
+                            <option value="Cervix Uteri (n=19) (log10)">Cervix Uteri (n=19) (log10)</option>
+                            <option value="Colon (n=779) (log10)">Colon (n=779) (log10)</option>
+                            <option value="Esophagus (n=1445) (log10)">Esophagus (n=1445) (log10)</option>
+                            <option value="Fallopian Tube (n=9) (log10)">Fallopian Tube (n=9) (log10)</option>
+                            <option value="Heart (n=861) (log10)">Heart (n=861) (log10)</option>
+                            <option value="Kidney (n=89) (log10)">Kidney (n=89) (log10)</option>
+                            <option value="Liver (n=226) (log10)">Liver (n=226) (log10)</option>
+                            <option selected value="Lung (n=578) (log10)">Lung (n=578) (log10)</option>
+                            <option value="Muscle (n=803) (log10)">Muscle (n=803) (log10)</option>
+                            <option selected value="Nerve (n=619) (log10)">Nerve (n=619) (log10)</option>
+                            <option value="Ovary (n=180) (log10)">Ovary (n=180) (log10)</option>
+                            <option value="Pancreas (n=328) (log10)">Pancreas (n=328) (log10)</option>
+                            <option value="Pituitary (n=283) (log10)">Pituitary (n=283) (log10)</option>
+                            <option value="Prostate (n=245) (log10)">Prostate (n=245) (log10)</option>
+                            <option value="Salivary Gland (n=162) (log10)">Salivary Gland (n=162) (log10)</option>
+                            <option value="Skin (n=1809) (log10)">Skin (n=1809) (log10)</option>
+                            <option value="Small Intestine (n=187) (log10)">Small Intestine (n=187) (log10)</option>
+                            <option value="Spleen (n=241) (log10)">Spleen (n=241) (log10)</option>
+                            <option value="Stomach (n=359) (log10)">Stomach (n=359) (log10)</option>
+                            <option value="Testis (n=361) (log10)">Testis (n=361) (log10)</option>
+                            <option value="Thyroid (n=653) (log10)">Thyroid (n=653) (log10)</option>
+                            <option value="Uterus (n=142) (log10)">Uterus (n=142) (log10)</option>
+                            <option value="Vagina (n=156) (log10)">Vagina (n=156) (log10)</option>
+                            
+                            <option selected value="AAgAtlas___n_PubMed_ID">AAgAtlas___n_PubMed_ID</option>
+                            <option selected value="IEDB___n_unique_epitopes">IEDB___n_unique_epitopes</option>
+                            <option selected value="n_counts">n_counts</option>
+                            <option value="seq_length">seq_length</option>
+                        </select>
+                    </div>
+                </p>
+                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="Open_and_Draw_TCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
             </div>
         </div>
         <div id="plotly_graph_b_cell_cross_reactivity" class="collapse graph_for_selection"></div>
         <div id="plotly_graph_t_cell_cross_reactivity" class="collapse graph_for_selection"></div>
+        <div id="plotly_graph_human_protein" class="collapse graph_for_selection"></div>
         <div id="container_datatable_panel_MolecularMimicryMap" class="collapse">
             <nav class="navbar navbar-dark bg-custom-navbar">
                 <a class="navbar-brand mb-0 h5">Data Tables</a>
@@ -587,14 +634,20 @@
             </nav>
             <div id="container_datatable_MolecularMimicryMap"><table id="datatable_MolecularMimicryMap" class="display" width="100%"></table></div>
         </div>
-<!--         <div id="container_d3_table_metrics" class="collapse">
+        <div id="container_expression_panel_MolecularMimicryMap" class="collapse">
             <nav class="navbar navbar-dark bg-custom-navbar">
-                <a class="navbar-brand mb-0 h5" id="title_d3_table_metrics">Record Details</a>
-                <button type="button" class="close" aria-label="Close container_d3_table_metrics" data-toggle="collapse" data-target="#container_d3_table_metrics"><span aria-hidden="true">&times;</span></button>
+                <a class="navbar-brand mb-0 h5">Expression</a>
+                <div class="btn-toolbar" role="toolbar">
+                </div>
+                <form class="form-inline">
+                    <input class="form-control" type="search" placeholder="Enter Gene Symbol" aria-label="Draw plot of a gene symbol" id="input_gene_symbol_expression">
+                    <button class="btn btn-light mx-2 my-0" type="button" onclick="Highlight_MolecularMimicryMap( )">Plot</button>
+                </form>
+                <button type="button" class="close" aria-label="Close container_expression_panel_MolecularMimicryMap" data-toggle="collapse" data-target="#container_expression_panel_MolecularMimicryMap"><span aria-hidden="true">&times;</span></button>
             </nav>
-            <div id="d3_table_metrics"></div>
-            <p id="footnote_d3_table_metrics" class="text-muted"></p>
-        </div> -->
+            <div id="expression_panel__link_to_GTEx_portal"><a href="https://gtexportal.org/home/gene/MACROD1" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>go to the GTEx portal</b> to explore the expression of the gene further"><h5>GTEx Expression<i class="material-icons icon-black" style="font-size:20px">launch</i></h5></a></div>
+            <div id="plotly_graph_gtex"></div>
+        </div>
         <div id="container_plotly_table_sequence" class="collapse">
             <nav class="navbar navbar-dark bg-custom-navbar" style="padding-top: 5px; padding-bottom: 5px">
                 <a class="navbar-brand mb-0 h5">Aligned Sequences</a>
@@ -774,6 +827,7 @@
                 <h5 class="text-muted mb-2" style="font-size:20px">Panel Control</h5>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>b</kbd><b>(B-cell Cross Reactivity Pred.)</b> to show/hide the parallel coordinates plot showing B-cell cross reactivity prediction metrics</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>g</kbd><b>(T-cell Cross Reactivity Pred.)</b> to show/hide the parallel coordinates plot showing T-cell cross reactivity prediction metrics</p>
+                <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>p</kbd><b>(Human <i>P</i>rotein)</b> to show/hide the parallel coordinates plot for filtering human proteins</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>d</kbd><b>(DataTable)</b> to show/hide the DataTable panel</p>
                 <br>
             </div>
@@ -850,7 +904,7 @@
                             <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_aligned_structures.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Visualize Aligned Structures">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Visualize Aligned Structures</h2>
-                                <p>Click a row in the aligned sequence table to highlight<br>a pair of aligned residues on virus and human structures<br>When protein structure is not available, a black screen will be shown</p>
+                                <p>Click a row in the aligned sequence table to highlight a pair of aligned residues on virus and human structures<br>When protein structure is not available, a black screen will be shown</p>
 <!--                                 Change the representation of protein structure <i>(Control Panel > Components > Polymer > Actions > Add Representation > Molecular Surface)</i><br> -->
                             </div>
                         </div>
@@ -883,7 +937,7 @@
     window.addEventListener( "keypress", Record_KeyDown );
     window.addEventListener( "keydown", Record_KeyDown );
     
-    hotkeys( 'ctrl+a,ctrl+s,ctrl+r,ctrl+b,ctrl+g,ctrl+d,ctrl+h,ctrl+i,ctrl+u,command+a,command+s,command+r,command+b,command+g,command+d,command+h,command+i,command+u', function ( event, handler ) {
+    hotkeys( 'ctrl+a,ctrl+s,ctrl+r,ctrl+b,ctrl+g,ctrl+d,ctrl+h,ctrl+i,ctrl+u,ctrl+p,command+a,command+s,command+r,command+b,command+g,command+d,command+h,command+i,command+u,command+p', function ( event, handler ) {
         event.preventDefault( );
         switch ( handler.key ) {
             case 'ctrl+s': 
@@ -915,6 +969,10 @@
             case 'ctrl+d': 
             case 'command+d': 
                 Toggle_Exclusive_Tabs( '#container_datatable_panel_MolecularMimicryMap' );
+                break;
+            case 'ctrl+p': 
+            case 'command+p': 
+                Toggle_Exclusive_Tabs( '#plotly_graph_human_protein' );
                 break;
             case 'ctrl+h': 
             case 'command+h': 
@@ -951,7 +1009,8 @@
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_virus_representative.tsv", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_virus.tsv", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_pdb.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_human.tsv" ];
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_human.tsv",
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/gtex.tsv" ];
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
     object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
@@ -1078,6 +1137,11 @@
                  '<span aria-hidden="true">&times;</span>',
               '</button>',
             '</div>' ].join( "" ) ); 
+    }
+    
+    // basic functions
+    function isString ( value ) { // Returns if a value is a string
+        return typeof value === 'string' || value instanceof String;
     }
     
     // functions for numpy-like operations
@@ -1255,6 +1319,24 @@
         return l_mapped_color; // return mapped colors
     }
     
+    function hexToRgb(hex) { // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+    function rgbToHex(r, g, b) {
+      return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+    
     function RetrieveDiscardedLength( str_discarded_regions, alignment_start ) { // retrieve length of discarded sequence from 'str_discarded_regions' for the given alignment start position
         let len_discarded_sequence = 0, l_discarded_regions = str_discarded_regions.split( ";" ).map( function( str ) { return str.split( ":" ).map( function( str ) { return parseInt( str ); } ) } );
         for ( let i = 0; i < l_discarded_regions.length; i ++ ) {
@@ -1414,6 +1496,8 @@
     var plotMolecularMimicryMap = document.getElementById( 'plotly_graph_molecular_mimicry_map' );
     var plotBCellCrossReactivityMetrics = document.getElementById( 'plotly_graph_b_cell_cross_reactivity' );
     var plotTCellCrossReactivityMetrics = document.getElementById( 'plotly_graph_t_cell_cross_reactivity' );
+    var plotHumanProteinMetrics = document.getElementById( 'plotly_graph_human_protein' );
+    var plotGTEx = document.getElementById( 'plotly_graph_gtex' );
     var tableMetrics = document.getElementById( 'd3_table_metrics' );
     var tableSequence = document.getElementById( 'plotly_table_sequence' );
     
@@ -1521,7 +1605,7 @@
         });
     }
     // object containing parsed data
-    var object_data_acc_virus_representative = { }, object_data_vaccine_metric = { dict_data: { }, data: [ ] }, object_data_interpro_virus = { }, object_data_iedb_epitope_virus = { }, object_data_consensus_sequence_virus = { };
+    var object_data_acc_virus_representative = { }, object_data_vaccine_metric = { dict_data: { }, data: [ ] }, object_data_interpro_virus = { }, object_data_iedb_epitope_virus = { }, object_data_consensus_sequence_virus = { }, object_data_gtex = { };
     function AlignPeptide( ) { // align peptides to concatanated consensus protein sequence for the virus
         object_data_vaccine_design.arr_aligned_peptide = [ ]; // empty array containing records of aligned peptides
         let l_header = Object.keys( object_data_vaccine_design.dict_header_to_seq );
@@ -1793,8 +1877,9 @@
     }
     
     var l_parsed_data = [ ], dict_filename_to_parsed_data = { };
-    var l_colormap_rainbow_acc_human = [ ], dict_blosum62 = { }, function_colormap_rsa = chroma.scale( [ 'black', 'white' ] ), function_colormap_score_blosum = chroma.scale( [ '#f00','white', '#0f0' ] ), function_colormap_torsion_angle = chroma.scale( [ '#52f9ff', '#972ff7', 'yellow', '#52f9ff' ] ), function_colormap_score_iedb_epitope = chroma.scale( [ '#ff00f2', '#1500ff' ] ); // define functions for colormaps
+    var l_colormap_rainbow_acc_human = [ ], l_colormap_rainbow_acc_human_hex = [ ], dict_blosum62 = { }, function_colormap_rsa = chroma.scale( [ 'black', 'white' ] ), function_colormap_score_blosum = chroma.scale( [ '#f00','white', '#0f0' ] ), function_colormap_torsion_angle = chroma.scale( [ '#52f9ff', '#972ff7', 'yellow', '#52f9ff' ] ), function_colormap_score_iedb_epitope = chroma.scale( [ '#ff00f2', '#1500ff' ] ); // define functions for colormaps
     var arr_data_blosum62 = [ ], arr_data_acc_virus = [ ], arr_data_acc_human = [ ], arr_data_acc_pdb = [ ], arr_data_algorithms = [ ], arr_data_mhc_allele = [ ], arr_data_alignment_human_pdb = [ ], arr_data_alignment_human_virus = [ ], arr_data_alignment_virus_pdb = [ ], arr_data_structural_property_human = [ ], arr_data_structural_property_virus = [ ], arr_data_BCellCrossReactivity = [ ], arr_data_TCellCrossReactivity = [ ];
+    var dictdictarr_data_gtex = { };
     // dictionary-based indices for accessing data efficiently
     var dictionary_acc_human_BCellCrossReactivity = { }, dictionary_acc_human_TCellCrossReactivity = { }, dictionary_acc_human_to_integer_index = { };
     async function LoadRemoteData( l_file ) {
@@ -1840,6 +1925,45 @@
         await ParseData( );
         Loading_Screen( false );
     }
+    function SplitColumn( dictarr, delimiter = '|' ) { // split column name of the given dict_array into two with the given delimiter character and return dict_dict_array # 20201106
+        let dictdictarr = { };
+        for ( let col in dictarr ) {
+            let col_split = col.split( "|" );
+            if ( ! ( col_split[ 0 ] in dictdictarr ) ) {
+                dictdictarr[ col_split[ 0 ] ] = { };
+            }
+            dictdictarr[ col_split[ 0 ] ][ col_split[ 1 ] ] = dictarr[ col ];
+        }
+        return dictdictarr;
+    }
+    function SubsetDictDictArr( dictdictarr, l_col_inner ) { // subset a given dictdictarr with a given list of l_col_inner list containing column names of the inner layer. if only one column is given, return dictarray containing the inner column # 20201106
+        if ( Array.isArray( l_col_inner ) ) { // subset a given dictdictarr with a given list of l_col_inner list containing column names of the inner layer.
+            let dictdictarr_subset = { };
+            let set_col_inner = new Set( l_col_inner );
+            for ( let col_outer in dictdictarr ) {
+                for ( let col_inner in dictdictarr[ col_outer ] ) {
+                    if ( set_col_inner.has( col_inner ) ) {
+                        if ( ! ( col_outer in dictdictarr_subset ) ) {
+                            dictdictarr_subset[ col_outer ] = { };
+                        }
+                        dictdictarr_subset[ col_outer ][ col_inner ] = dictdictarr[ col_outer ][ col_inner ]
+                    }
+                }
+            }
+            return dictdictarr_subset;
+        } else { // if only one column is given, return dictarray containing the inner column
+            let col_inner_subset = l_col_inner;
+            let dictarr = { };
+            for ( let col_outer in dictdictarr ) {
+                for ( let col_inner in dictdictarr[ col_outer ] ) {
+                    if ( col_inner_subset == col_inner ) {
+                        dictarr[ col_outer ] = dictdictarr[ col_outer ][ col_inner ]
+                    }
+                }
+            }
+            return dictarr;
+        }
+    }
     async function ParseData( ) { // parse loaded data and prepare for plotting molecular mimicry map plots
         arr_data_blosum62 = dict_filename_to_parsed_data[ "blosum62.tsv" ]; // blosum62 score matrix
         arr_data_acc_virus = dict_filename_to_parsed_data[ "acc_virus.tsv" ];
@@ -1855,6 +1979,13 @@
         arr_data_structural_property_virus = dict_filename_to_parsed_data[ "structural_property_virus__compact__for_web_application.tsv" ];
         arr_data_iedb_epitope_virus = dict_filename_to_parsed_data[ "iedb_epitope_virus.tsv" ]; // IEDB records of virus proteins
         arr_data_interpro_virus = dict_filename_to_parsed_data[ "interpro_virus.tsv" ]; // interpro annotation of virus proteins
+        dictdictarr_data_gtex = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ "gtex.tsv" ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of gtex data
+        object_data_gtex.dictdictarr = dictdictarr_data_gtex;
+//         object_data_gtex.MIN = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MIN' ) // parse data into individual parameters
+//         object_data_gtex.Q1 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q1' )
+//         object_data_gtex.Q2 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q2' )
+//         object_data_gtex.Q3 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q3' )
+//         object_data_gtex.MAX = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MAX' )
         // parse data for displaying vaccine metrics
         let l_col = Object.keys( arr_data_acc_virus_representative[ 0 ] ); // retrieve list of columns of 'arr_data_acc_virus_representative'
         for ( let i = 0; i < l_col.length; i ++ ) {
@@ -2003,11 +2134,16 @@
         object_data_iedb_epitope_virus.data = [ trace_iedb_epitope_virus_lower_bound, trace_iedb_epitope_virus_upper_bound , trace_iedb_epitope_b_cell_assay, trace_iedb_epitope_t_cell_assay ];
 
         l_colormap_rainbow_acc_human = ColorMap_Rainbow( arr_data_acc_human.length ); // build a colormap for representing accessions of human proteins
+        for ( let i = 0; i < arr_data_acc_human.length; i ++ ) { // convert colors in the colormap to hex values
+            let color = l_colormap_rainbow_acc_human[ i ]
+            l_colormap_rainbow_acc_human_hex.push( rgbToHex( color.r, color.g, color.b ) )
+        }
         for ( let i = 0; i < arr_data_blosum62.length; i ++ ) { dict_blosum62[ arr_data_blosum62[ i ].pair_of_amino_acids ] = arr_data_blosum62[ i ].score_blosum62; } // parse 'arr_data_blosum62' and build blosum62 matrix
         dictionary_acc_human_to_integer_index = Index_list_with_dictionary( unpack( arr_data_acc_human, 'value' ) ); // build indices for datatables
         return new Promise( async function( resolve, reject ) { 
             await DrawMolecularMimicryMap( );
             Display_DataTable( );
+            DrawHumanProteinMetricsPlot( ); // draw a parallel coordinate plot for human protein filtering
             console.log( "[ParseData] resolved" );
             Loading_Screen( false );
             resolve( "[ParseData] resolved" );
@@ -2081,6 +2217,65 @@
     // for loading data from remote location
     // "Record Details" table styles settings
     var style_font_table_record_details = "font-family:Arial", int_n_residues_per_window_table_sequence = 20; // 'int_n_residues_per_window_table_sequence' number of residues per sequence in the table_sequence plot
+    var object_plot_HumanProteins = { }, trace_HumanProteinMetrics = { type: 'parcoords', line: { color: "#aa00ff" }, dimensions: [ ] };
+    function DrawHumanProteinMetricsPlot( ) {
+        // prepare data
+        object_plot_HumanProteins.n_records = arr_data_acc_human.length;
+        object_plot_HumanProteins.dictarr = SubsetDictDictArr( object_data_gtex.dictdictarr, "Q2" )
+        object_plot_HumanProteins.dictarr_log10 = { };
+        for ( let col in object_plot_HumanProteins.dictarr ) { // log10 transformation of median count values
+            object_plot_HumanProteins.dictarr_log10[ col + ' (log10)' ] = nj.log( object_plot_HumanProteins.dictarr[ col ] ).divide( 2.3025851 ).tolist( )
+        }
+        object_plot_HumanProteins.dictarr = { ... object_plot_HumanProteins.dictarr_log10, ... ( new DataFrame( arr_data_acc_human ) ).toDict( ) }
+            // prepare data based on selected options
+        let l_option = document.getElementById( "selectmultiple_HumanProteinMetrics" ).options, l_col = [ ], l_label = [ ];
+        for ( let i = 0; i < l_option.length; i ++ ) {
+            let option = l_option[ i ];
+            if ( option.selected ) { l_col.push( option.value ); l_label.push( option.text ); } // retrieve column name and label for each selected column
+        }
+        trace_HumanProteinMetrics.dimensions = [ ]; // initialize metrics data
+        trace_HumanProteinMetrics.line = { color: nj.arange( arr_data_acc_human.length ).tolist( ), colorscale : "Rainbow", cmin : 0, cmax : arr_data_acc_human.length - 1 }
+        for ( let i = 0; i < l_col.length; i ++ ) {
+            let col = l_col[ i ], label = l_label[ i ];
+            trace_HumanProteinMetrics.dimensions.push( { values: object_plot_HumanProteins.dictarr[ col ], label: label } );
+        }
+        Plotly.newPlot( plotHumanProteinMetrics, [ lodash.cloneDeep( trace_HumanProteinMetrics ) ], { margin: { l: 70, r: 65, b: 50, t: 50, pad: 4 } }, config );
+        // Add Plotly interactions // Selection event through a plot containing metrics (parallel coordinate plots) (BCellCrossReactivity prediction data)
+        object_plot_HumanProteins.l_mask = [ ]; // initialize list of masks
+        for ( let i = 0; i < trace_HumanProteinMetrics.dimensions.length; i ++ ) { object_plot_HumanProteins.l_mask.push( ArrayFull( object_plot_HumanProteins.n_records, true ) ); } // initialize masks used for retrieving selected entries
+        object_plot_BCellCrossReactivity.mask_selected_HumanProteinFilter = ArrayFull( object_plot_BCellCrossReactivity.n_records, true );
+        object_plot_TCellCrossReactivity.mask_selected_HumanProteinFilter = ArrayFull( object_plot_TCellCrossReactivity.n_records, true );
+        plotHumanProteinMetrics.on( 'plotly_restyle', function( eventData ) { // update trace_MolecularMimicryMap_BCellCrossReactivity and trace_MolecularMimicryMap_TCellCrossReactivity based on selection in trace_BCellCrossReactivityMetrics
+            let str_name_key = Object.keys( eventData[ 0 ] )[ 0 ];
+            if ( str_name_key.includes( "constraintrange" ) ) { // when entries are selected or deselected (ignore event where fields are rearranged and no selection or deselection occurred)
+                let index_field = parseInt( str_name_key.split( "].constraintrange" )[ 0 ].split( "dimensions[" )[ 1 ] ); // extract the index of field from the name of the key 
+                let l_selectedRange = eventData[ 0 ][ str_name_key ];
+                if ( l_selectedRange == null ) { // if all range of the current field is selected
+                    object_plot_HumanProteins.l_mask[ index_field ] = ArrayFull( object_plot_HumanProteins.n_records, true ); // reset selection
+                } else {
+                    let l_mask_for_each_selectedRange = [ ]; // overlap mask for each selected ranges
+                    for ( let i = 0; i < l_selectedRange.length; i++ ) { // for each selectedRange
+                        let selectedRange = l_selectedRange[ i ].sort( SortFloat );
+                        let l_data = trace_HumanProteinMetrics.dimensions[ index_field ].values;
+                        l_mask_for_each_selectedRange.push( ArrayBoolAND( [ ArrayGreaterThan( l_data, selectedRange[ 0 ] ), ArrayLessThan( l_data, selectedRange[ 1 ] ) ] ) );
+                    }
+                    object_plot_HumanProteins.l_mask[ index_field ] = ArrayBoolOR( l_mask_for_each_selectedRange ); // update mask with the currently selected range
+                }
+                object_plot_HumanProteins.mask_selected = ArrayBoolAND( object_plot_HumanProteins.l_mask ); // retrieve a mask for the selected records
+                // update masks for Bcell and Tcell cross-reactivity records
+                object_plot_BCellCrossReactivity.mask_selected_HumanProteinFilter = [ ]
+                for ( let i = 0; i < object_plot_BCellCrossReactivity.l_acc_human.length; i ++ ) {
+                    object_plot_BCellCrossReactivity.mask_selected_HumanProteinFilter.push( object_plot_HumanProteins.mask_selected[ object_plot_BCellCrossReactivity.l_acc_human[ i ] ] );
+                }
+                object_plot_TCellCrossReactivity.mask_selected_HumanProteinFilter = [ ]
+                for ( let i = 0; i < object_plot_TCellCrossReactivity.l_acc_human.length; i ++ ) {
+                    object_plot_TCellCrossReactivity.mask_selected_HumanProteinFilter.push( object_plot_HumanProteins.mask_selected[ object_plot_TCellCrossReactivity.l_acc_human[ i ] ] );
+                }
+                Filter_BCellCrossReactivity( ); // apply the filter
+                Filter_TCellCrossReactivity( );
+            }
+        });
+    }
     async function LoadRemoteData_BasedOnSettings( ) {
         object_plot_BCellCrossReactivity.n_records_from_setting = parseInt( document.getElementById( "input_n_alignments_for_plotting_BCellCrossReactivity" ).value );
         object_plot_TCellCrossReactivity.n_records_from_setting = parseInt( document.getElementById( "input_n_alignments_for_plotting_TCellCrossReactivity" ).value );
@@ -2092,7 +2287,9 @@
         object_plot_BCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
         object_plot_TCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
         
-        if ( object_plot_BCellCrossReactivity.n_records_from_setting >= object_plot_BCellCrossReactivity.n_records_max ) {
+        let float_thres_margin = 1.5 // a threshold for skipping writing a file if the number of records for subset is too close to the maximum number
+        
+        if ( object_plot_BCellCrossReactivity.n_records_from_setting * float_thres_margin >= object_plot_BCellCrossReactivity.n_records_max ) {
             object_plot_BCellCrossReactivity.n_records_of_remote_file = object_plot_BCellCrossReactivity.n_records_max;
         } else {
             for ( let i = 1; i < object_data_remote_file.l_n_records_for_each_step.length; i ++ ) {
@@ -2100,7 +2297,7 @@
                 object_plot_BCellCrossReactivity.n_records_of_remote_file = object_data_remote_file.l_n_records_for_each_step[ i ];
             }
         }
-        if ( object_plot_TCellCrossReactivity.n_records_from_setting >= object_plot_TCellCrossReactivity.n_records_max ) {
+        if ( object_plot_TCellCrossReactivity.n_records_from_setting * float_thres_margin >= object_plot_TCellCrossReactivity.n_records_max ) {
             object_plot_TCellCrossReactivity.n_records_of_remote_file = object_plot_TCellCrossReactivity.n_records_max;
         } else {
             for ( let i = 1; i < object_data_remote_file.l_n_records_for_each_step.length; i ++ ) {
@@ -2161,10 +2358,12 @@
             let l = col in object_plot_BCellCrossReactivity.metrics ? object_plot_BCellCrossReactivity.metrics[ col ] : unpack( arr_data_BCellCrossReactivity, col );
             trace_BCellCrossReactivityMetrics.dimensions.push( { values: l, label: label } );
         }
+        trace_BCellCrossReactivityMetrics.line = { color: object_plot_BCellCrossReactivity.l_acc_human, colorscale : "Rainbow", cmin : 0, cmax : arr_data_acc_human.length - 1 }; // allow similar coloring of lines with the records in the main plots (pink colors are quite different, but other colors are similar)
         Plotly.newPlot( plotBCellCrossReactivityMetrics, [ lodash.cloneDeep( trace_BCellCrossReactivityMetrics ) ], layout_PredictionMetrics, config );
         // Add Plotly interactions // Selection event through a plot containing metrics (parallel coordinate plots) (BCellCrossReactivity prediction data)
         object_plot_BCellCrossReactivity.l_mask = [ ]; // initialize list of masks
         for ( let i = 0; i < trace_BCellCrossReactivityMetrics.dimensions.length; i ++ ) { object_plot_BCellCrossReactivity.l_mask.push( ArrayFull( object_plot_BCellCrossReactivity.n_records, true ) ); } // initialize masks used for retrieving selected entries
+        object_plot_BCellCrossReactivity.mask_selected_BCellCrossReactivityFilter = ArrayFull( object_plot_BCellCrossReactivity.n_records, true );
         plotBCellCrossReactivityMetrics.on( 'plotly_restyle', function( eventData ) { // update trace_MolecularMimicryMap_BCellCrossReactivity based on selection in trace_BCellCrossReactivityMetrics
             let str_name_key = Object.keys( eventData[ 0 ] )[ 0 ];
             if ( str_name_key.includes( "constraintrange" ) ) { // when entries are selected or deselected (ignore event where fields are rearranged and no selection or deselection occurred)
@@ -2181,22 +2380,8 @@
                     }
                     object_plot_BCellCrossReactivity.l_mask[ index_field ] = ArrayBoolOR( l_mask_for_each_selectedRange ); // update mask with the currently selected range
                 }
-                object_plot_BCellCrossReactivity.mask_selected = ArrayBoolAND( object_plot_BCellCrossReactivity.l_mask ); // retrieve a mask for the selected records
-                object_plot_BCellCrossReactivity.selection = { }; // object for storing data related to selected records
-                let mask_not_selected = ArrayBoolNOT( object_plot_BCellCrossReactivity.mask_selected );
-                object_plot_BCellCrossReactivity.selection.l_opacity = ArrayBroadCasting( object_plot_BCellCrossReactivity.l_opacity, mask_not_selected, 0 ); // retrieve modified opacity values of records
-                object_plot_BCellCrossReactivity.selection.l_error_x = ArrayBroadCasting( object_plot_BCellCrossReactivity.l_error_x, mask_not_selected, 0 ); // retrieve modified error_x values of records
-                if ( object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { // restyle plot according to the type of BcellCrossReactivity data
-                    l_index_traces_selected = [ ], l_index_traces_not_selected = [ ]; // retrieve trace indices that are newly selected or deselected
-                    for ( let i = object_plot_BCellCrossReactivity.index_trace_start; i < object_plot_BCellCrossReactivity.index_trace_end; i ++ ) { 
-                        if ( object_plot_BCellCrossReactivity.mask_selected[ i ] && plotMolecularMimicryMap.data[ i ].visible == false ) { l_index_traces_selected.push( i ); } // if previously not selected but currently selected 
-                        else if ( ! ( object_plot_BCellCrossReactivity.mask_selected[ i ] ) && plotMolecularMimicryMap.data[ i ].visible == true ) { l_index_traces_not_selected.push( i ); } // if previously selected but currently not selected 
-                    }
-                    if ( l_index_traces_selected.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: true }, l_index_traces_selected ); } // show selected records
-                    if ( l_index_traces_not_selected.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: false }, l_index_traces_not_selected ); } // hide non-selected records
-                } else {
-                    Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: 0 } }, error_x: { type: 'data', array: object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start ) // set opacity of markers not selected in the metric plot 0
-                }
+                object_plot_BCellCrossReactivity.mask_selected_BCellCrossReactivityFilter = ArrayBoolAND( object_plot_BCellCrossReactivity.l_mask ); // retrieve a mask for the selected records
+                Filter_BCellCrossReactivity( ); // apply the filter
             }
         });
     }
@@ -2222,10 +2407,12 @@
             let l = col in object_plot_TCellCrossReactivity.metrics ? object_plot_TCellCrossReactivity.metrics[ col ] : unpack( arr_data_TCellCrossReactivity, col );
             trace_TCellCrossReactivityMetrics.dimensions.push( { values: l, label: label } );
         }
+        trace_TCellCrossReactivityMetrics.line = { color: object_plot_TCellCrossReactivity.l_acc_human, colorscale : "Rainbow", cmin : 0, cmax : arr_data_acc_human.length - 1 };
         Plotly.newPlot( plotTCellCrossReactivityMetrics, [ lodash.cloneDeep( trace_TCellCrossReactivityMetrics ) ], layout_PredictionMetrics, config ); 
         // Add Plotly interactions // Selection event through a plot containing metrics (parallel coordinate plots) (TCellCrossReactivity prediction data)
         object_plot_TCellCrossReactivity.l_mask = [ ]; // initialize list of masks
         for ( let i = 0; i < trace_TCellCrossReactivityMetrics.dimensions.length; i ++ ) { object_plot_TCellCrossReactivity.l_mask.push( ArrayFull( object_plot_TCellCrossReactivity.n_records, true ) ); } // initialize masks used for retrieving selected entries
+        object_plot_TCellCrossReactivity.mask_selected_TCellCrossReactivityFilter = ArrayFull( object_plot_TCellCrossReactivity.n_records, true );
         plotTCellCrossReactivityMetrics.on( 'plotly_restyle', function( eventData ) { // update trace_MolecularMimicryMap_TCellCrossReactivity based on selection in trace_TCellCrossReactivityMetrics
             let str_name_key = Object.keys( eventData[ 0 ] )[ 0 ];
             if ( str_name_key.includes( "constraintrange" ) ) { // when entries are selected or deselected (ignore event where fields are rearranged and no selection or deselection occurred)
@@ -2242,15 +2429,41 @@
                     }
                     object_plot_TCellCrossReactivity.l_mask[ index_field ] = ArrayBoolOR( l_mask_for_each_selectedRange ); // update mask with the currently selected range
                 }
-                object_plot_TCellCrossReactivity.mask_selected = ArrayBoolAND( object_plot_TCellCrossReactivity.l_mask ); // retrieve a mask for the selected records
-                object_plot_TCellCrossReactivity.selection = { l_opacity: [ ] };
-                for ( let i = 0; i < object_plot_TCellCrossReactivity.mask_selected.length; i ++ ) { object_plot_TCellCrossReactivity.selection.l_opacity.push( object_plot_TCellCrossReactivity.mask_selected[ i ] ? float_opacity_MolecularMimicryMap_TCellCrossReactivity : 0 ); } // retrieve modified opacity values of records
-                object_plot_TCellCrossReactivity.selection.l_error_x = ArrayBroadCasting( object_plot_TCellCrossReactivity.l_error_x, ArrayBoolNOT( object_plot_TCellCrossReactivity.mask_selected ), 0 ); // retrieve modified error_x values of records
-                update_human = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, update_virus = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: 'data', array: object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } };
-                Plotly.restyle( plotMolecularMimicryMap, update_human, object_plot_BCellCrossReactivity.index_trace_end ); // T-cell crossreactivity trace is situated next to B-cell cross-reactivity trace
-                Plotly.restyle( plotMolecularMimicryMap, update_virus, object_plot_BCellCrossReactivity.index_trace_end + 1 );
+                object_plot_TCellCrossReactivity.mask_selected_TCellCrossReactivityFilter = ArrayBoolAND( object_plot_TCellCrossReactivity.l_mask ); // retrieve a mask for the selected records
+                Filter_TCellCrossReactivity( ); // apply the filter
             }
         });
+    }
+    function Filter_BCellCrossReactivity( ) { // filter BCellCrossReactivity records
+        // apply all filters
+        object_plot_BCellCrossReactivity.mask_selected = ArrayBoolAND( [ object_plot_BCellCrossReactivity.mask_selected_BCellCrossReactivityFilter, object_plot_BCellCrossReactivity.mask_selected_HumanProteinFilter ] );
+        
+        object_plot_BCellCrossReactivity.selection = { }; // object for storing data related to selected records
+        let mask_not_selected = ArrayBoolNOT( object_plot_BCellCrossReactivity.mask_selected );
+        object_plot_BCellCrossReactivity.selection.l_opacity = ArrayBroadCasting( object_plot_BCellCrossReactivity.l_opacity, mask_not_selected, 0 ); // retrieve modified opacity values of records
+        object_plot_BCellCrossReactivity.selection.l_error_x = ArrayBroadCasting( object_plot_BCellCrossReactivity.l_error_x, mask_not_selected, 0 ); // retrieve modified error_x values of records
+        if ( object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { // restyle plot according to the type of BcellCrossReactivity data
+            l_index_traces_selected = [ ], l_index_traces_not_selected = [ ]; // retrieve trace indices that are newly selected or deselected
+            for ( let i = object_plot_BCellCrossReactivity.index_trace_start; i < object_plot_BCellCrossReactivity.index_trace_end; i ++ ) { 
+                if ( object_plot_BCellCrossReactivity.mask_selected[ i ] && plotMolecularMimicryMap.data[ i ].visible == false ) { l_index_traces_selected.push( i ); } // if previously not selected but currently selected 
+                else if ( ! ( object_plot_BCellCrossReactivity.mask_selected[ i ] ) && plotMolecularMimicryMap.data[ i ].visible == true ) { l_index_traces_not_selected.push( i ); } // if previously selected but currently not selected 
+            }
+            if ( l_index_traces_selected.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: true }, l_index_traces_selected ); } // show selected records
+            if ( l_index_traces_not_selected.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: false }, l_index_traces_not_selected ); } // hide non-selected records
+        } else {
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: 0 } }, error_x: { type: 'data', array: object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start ) // set opacity of markers not selected in the metric plot 0
+        }
+    }
+    function Filter_TCellCrossReactivity( ) { // filter TCellCrossReactivity records
+        // apply all filters
+        object_plot_TCellCrossReactivity.mask_selected = ArrayBoolAND( [ object_plot_TCellCrossReactivity.mask_selected_TCellCrossReactivityFilter, object_plot_TCellCrossReactivity.mask_selected_HumanProteinFilter ] );
+        
+        object_plot_TCellCrossReactivity.selection = { l_opacity: [ ] };
+        for ( let i = 0; i < object_plot_TCellCrossReactivity.mask_selected.length; i ++ ) { object_plot_TCellCrossReactivity.selection.l_opacity.push( object_plot_TCellCrossReactivity.mask_selected[ i ] ? float_opacity_MolecularMimicryMap_TCellCrossReactivity : 0 ); } // retrieve modified opacity values of records
+        object_plot_TCellCrossReactivity.selection.l_error_x = ArrayBroadCasting( object_plot_TCellCrossReactivity.l_error_x, ArrayBoolNOT( object_plot_TCellCrossReactivity.mask_selected ), 0 ); // retrieve modified error_x values of records
+        update_human = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, update_virus = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: 'data', array: object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } };
+        Plotly.restyle( plotMolecularMimicryMap, update_human, object_plot_BCellCrossReactivity.index_trace_end ); // T-cell crossreactivity trace is situated next to B-cell cross-reactivity trace
+        Plotly.restyle( plotMolecularMimicryMap, update_virus, object_plot_BCellCrossReactivity.index_trace_end + 1 );
     }
     function Record_Details_Table( bool_create_table_div ) { // function to create and remove "record datails" table
         if ( ( ! bool_create_table_div ) && document.getElementById( "table_record_details" ) != null ) { // remove div for "record datails" table
@@ -2328,6 +2541,7 @@
         dictionary_acc_human_BCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of BCellCrossReactivity data with acc_human
         for ( let i = 0; i < l_acc_human.length; i ++ ) { l_colors.push( l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] ); }
         
+        object_plot_BCellCrossReactivity.l_acc_human = l_acc_human;
         object_plot_BCellCrossReactivity.l_opacity = unpack( arr_data_BCellCrossReactivity, 'correl_coeffi_acc' ); // retrieve opacity
         object_plot_BCellCrossReactivity.l_error_x = arr_end.subtract( arr_start ).divide( 2 ).tolist( ); // retrieve error_x data (representing alignment length)
         object_plot_BCellCrossReactivity.selection = { l_error_x: object_plot_BCellCrossReactivity.l_error_x, l_opacity: object_plot_BCellCrossReactivity.l_opacity }; // for highlighting specific records
@@ -2457,6 +2671,7 @@
         l_avg_score = arr_score.divide( arr_window_size ).tolist( ); // retrieve sum of blosum62 scores per residue
         l_colors = [ ];
         l_acc_human = unpack( arr_data_TCellCrossReactivity, 'query_accession' ); // retrieve colors for each alignment
+        object_plot_TCellCrossReactivity.l_acc_human = l_acc_human;
         dictionary_acc_human_TCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of TCellCrossReactivity data with acc_human
         for ( let i = 0; i < l_acc_human.length; i ++ ) { l_colors.push( l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] ); }
         let l_x = arr_start.add( arr_end ).divide( 2 ).tolist( ); // calculate the coordinate of the middle of each alignment;
@@ -2626,6 +2841,7 @@
             } else if ( flag_data_type == "T-Cell" ) {
                 Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
                 clicked_record = arr_data_TCellCrossReactivity[ index ];
+                PlotExpression( clicked_record.query_accession ); // Plot mRNA expression data
                 console.log( "[plotMolecularMimicryMap] clicked record belongs to TCellCrossReactivity data:", clicked_record );
                 arr_data_clicked = [ ]; // empty the array containing data of the clincked record
                 let representative_virus_protein = arr_data_acc_virus_representative[ clicked_record.representative_accession ];
@@ -2769,11 +2985,30 @@
         resolve( "[DrawMolecularMimicryMap] resolved" );
     });
     }
+    function SortBoxTrace( trace_a, trace_b ) { return - ( trace_a.q3 - trace_b.q3 ) } // Sort Plotly Boxplot traces based on parameter values
+    function PlotExpression( index_acc_human ) { // plot violin and boxplots showing mRNA expressions of the protein of interest
+        let l_trace = [ ];
+        for ( let tissue in object_data_gtex.dictdictarr ) {
+            let trace = { };
+            trace.lowerfence = [ object_data_gtex.dictdictarr[ tissue ][ 'MIN' ][ index_acc_human ] ];
+            trace.q1 = [ object_data_gtex.dictdictarr[ tissue ][ 'Q1' ][ index_acc_human ] ];
+            trace.median = [ object_data_gtex.dictdictarr[ tissue ][ 'Q2' ][ index_acc_human ] ];
+            trace.q3 = [ object_data_gtex.dictdictarr[ tissue ][ 'Q3' ][ index_acc_human ] ];
+            trace.upperfence = [ object_data_gtex.dictdictarr[ tissue ][ 'MAX' ][ index_acc_human ] ];
+            trace.name = tissue;
+            trace.type = 'box';
+            trace.x0 = tissue;
+            l_trace.push( trace );
+        }
+        l_trace = l_trace.sort( SortBoxTrace )
+        Plotly.newPlot( plotGTEx, l_trace, { margin: { l: 50, r: 65, b: 90, t: 50, pad: 4 }, yaxis: { title : "TPM" } }, { ... config } );
+        
+    }
     async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
         Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
         clicked_record = arr_data_BCellCrossReactivity[ index ];
+        PlotExpression( clicked_record.query_accession ); // Plot mRNA expression data
         console.log( "[plotMolecularMimicryMap] clicked record belongs to BCellCrossReactivity data:", clicked_record );
-
         arr_data_clicked = [ ]; // empty the array containing data of the clincked record
         let representative_virus_protein = arr_data_acc_virus_representative[ clicked_record.representative_accession ];
         arr_data_clicked.push( { "Data Name": "[virus] representative protein", Value: representative_virus_protein.name + " (" + representative_virus_protein.accession + ") from " + clicked_record.target_representative_start + " to " + clicked_record.target_representative_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + representative_virus_protein.accession } );
@@ -3342,7 +3577,7 @@
         pdbVirusProtein.render( pdbVirusProteinContainer, option_initialization_molstar );
         Promise.all( [ MolStarRenderCompletePromise( pdbHumanProtein ), MolStarRenderCompletePromise( pdbVirusProtein ) ] ).then( ( ) => { $( "#container_PDB" ).collapse( 'show' ); pdbHumanProtein.visual.setColor( { highlight: color_pdb_highlight } ); pdbVirusProtein.visual.setColor( { highlight: color_pdb_highlight } ); } ); // // hide Mol* viewers once initialization on both viewer instances are completed
     } ); }  
-    var l_exclusive_tab = [ "#plotly_graph_b_cell_cross_reactivity", "#plotly_graph_t_cell_cross_reactivity", "#container_datatable_panel_MolecularMimicryMap" ];
+    var l_exclusive_tab = [ "#plotly_graph_b_cell_cross_reactivity", "#plotly_graph_t_cell_cross_reactivity", "#plotly_graph_human_protein", "#container_datatable_panel_MolecularMimicryMap" ];
     function Toggle_Exclusive_Tabs( tab_target ) { 
         if ( tab_target == "hide_all" ) { for ( let tab of l_exclusive_tab ) { $( tab ).collapse( 'hide' ); } return; } // hide all tabs if tab_target == "hide_all"
         let l_bool_flag_need_change = [ ];
@@ -3356,6 +3591,11 @@
             }
         } else { $( tab_target ).collapse( 'hide' ); } // if tab_target is already opened, close the tab
          
+    }
+    function Toggle_Panel( tab ) { // toggle a collapsable panel containing Plotly plots
+        if ( ! ( $( tab ).hasClass( "show" ) ) ) {
+            BootstrapCollapseShownPromise( tab ).then( ( ) => { window.dispatchEvent( new Event( 'resize' ) ); } ); } // trigger resize events to allow Plotly plot to resize its plot
+        else { $( tab ).collapse( 'hide' ); } // if the tab is already opened, close the tab
     }
     function Toggle_div( id_div ) {
         var div = document.getElementById( id_div );
