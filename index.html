@@ -3005,7 +3005,7 @@
         Plotly.newPlot( plotGTEx, l_trace, { margin: { l: 50, r: 65, b: 90, t: 50, pad: 4 }, yaxis: { title : "TPM" } }, { ... config } ); // draw boxplot of expression of the gene using GTEx data
         let gene_symbol = arr_data_acc_human[ index_acc_human ].Gene_Symbol
         $( "#expression_panel__link_to_GTEx_portal" ).attr( "href", "https://gtexportal.org/home/gene/" + gene_symbol ); // set a link to GTEx portal
-        $( "#expression_panel__link_to_GTEx_portal" ).text( "GTEx Expression of " + gene_symbol + '<i class="material-icons icon-black" style="font-size:0.9em">launch</i>' ) // set label to the link to GTEx portal
+        $( "#expression_panel__link_to_GTEx_portal" ).html( "GTEx Expression of " + gene_symbol + '<i class="material-icons icon-black" style="font-size:0.9em">launch</i>' ) // set label to the link to GTEx portal
     }
     async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
         Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
