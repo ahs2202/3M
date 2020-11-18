@@ -642,13 +642,20 @@
                 <div class="btn-toolbar" role="toolbar">
                 </div>
                 <form class="form-inline">
-                    <input class="form-control" type="search" placeholder="Enter Gene Symbol" aria-label="Draw plot of a gene symbol" id="input_gene_symbol_expression">
-                    <button class="btn btn-light mx-2 my-0" type="button" onclick="Highlight_MolecularMimicryMap( )">Plot</button>
+                    <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_gtex' )" aria-expanded="false" aria-controls="container_plotly_gtex" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">GTEx Tissue</button>
+                    <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_scrnaseq' )" aria-expanded="false" aria-controls="container_plotly_scrnaseq" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">Single-cell Expression</button>
+<!--                     <input class="form-control" type="search" placeholder="Enter Gene Symbol" aria-label="Draw plot of a gene symbol" id="input_gene_symbol_expression">
+                    <button class="btn btn-light mx-2 my-0" type="button" onclick="Highlight_MolecularMimicryMap( )">Plot</button> -->
                 </form>
                 <button type="button" class="close" aria-label="Close container_expression_panel_MolecularMimicryMap" data-toggle="collapse" data-target="#container_expression_panel_MolecularMimicryMap"><span aria-hidden="true">&times;</span></button>
             </nav>
-            <div><a id="expression_panel__link_to_GTEx_portal" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>go to the GTEx portal</b> to explore the expression of the gene further">GTEx Expression<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
-            <div id="plotly_graph_gtex"></div>
+            <div id="container_plotly_gtex" class="collapse show">
+                <div><a id="expression_panel__link_to_GTEx_portal" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>go to the GTEx portal</b> to explore the expression of the gene further">GTEx Expression<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
+                <div id="plotly_graph_gtex"></div>
+            </div>
+            <div id="container_plotly_scrnaseq" class="collapse show">
+                <div id="plotly_graph_scrnaseq_expression"></div>
+            </div>
         </div>
         <div id="container_plotly_table_sequence" class="collapse">
             <nav class="navbar navbar-dark bg-custom-navbar" style="padding-top: 5px; padding-bottom: 5px">
@@ -820,6 +827,7 @@
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>a</kbd><b>(information on hover)</b> to toggle the click/hover events of the main graph.</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>h</kbd><b>(help messages)</b> to toggle tooltip messages that are shown when mouse pointers are on buttons.</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>u</kbd><b>(UP)</b> to move to the top of the page.</p>
+                <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>d</kbd><b>(Down)</b> to move to the bottom of the page.</p>
                 <br>
                 <h5 class="text-muted mb-2" style="font-size:20px">Peptide Vaccine Design</h5>
                 <p>Press <kbd>a</kbd><b>(add)</b> when clicking/selecting peptides to include peptides in the selection.</p>
@@ -830,7 +838,7 @@
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>b</kbd><b>(B-cell Cross Reactivity Pred.)</b> to show/hide the parallel coordinates plot showing B-cell cross reactivity prediction metrics</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>g</kbd><b>(T-cell Cross Reactivity Pred.)</b> to show/hide the parallel coordinates plot showing T-cell cross reactivity prediction metrics</p>
                 <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>p</kbd><b>(Human <i>P</i>rotein)</b> to show/hide the parallel coordinates plot for filtering human proteins</p>
-                <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>d</kbd><b>(DataTable)</b> to show/hide the DataTable panel</p>
+                <p>Press <kbd>Ctrl</kbd> or <kbd>Cmd</kbd> + <kbd>t</kbd><b>(Table)</b> to show/hide the DataTable panel</p>
                 <br>
             </div>
             <div class="modal-footer">
@@ -940,7 +948,7 @@
     window.addEventListener( "keypress", Record_KeyDown );
     window.addEventListener( "keydown", Record_KeyDown );
     
-    hotkeys( 'ctrl+a,ctrl+s,ctrl+r,ctrl+b,ctrl+g,ctrl+d,ctrl+h,ctrl+i,ctrl+u,ctrl+p,command+a,command+s,command+r,command+b,command+g,command+d,command+h,command+i,command+u,command+p', function ( event, handler ) {
+    hotkeys( 'ctrl+t,ctrl+a,ctrl+s,ctrl+r,ctrl+b,ctrl+g,ctrl+d,ctrl+h,ctrl+i,ctrl+u,ctrl+p,command+t,command+a,command+s,command+r,command+b,command+g,command+d,command+h,command+i,command+u,command+p', function ( event, handler ) {
         event.preventDefault( );
         switch ( handler.key ) {
             case 'ctrl+s': 
@@ -969,9 +977,13 @@
             case 'command+g': 
                 Toggle_Exclusive_Tabs( '#plotly_graph_t_cell_cross_reactivity' );
                 break;
-            case 'ctrl+d': 
-            case 'command+d': 
+            case 'ctrl+t': 
+            case 'command+t': 
                 Toggle_Exclusive_Tabs( '#container_datatable_panel_MolecularMimicryMap' );
+                break;
+            case 'ctrl+d': // scroll to the bottom of the page
+            case 'command+d': 
+                Scroll_to_the_Bottom( ); 
                 break;
             case 'ctrl+p': 
             case 'command+p': 
@@ -2353,20 +2365,36 @@
         }
         gtag( 'event', 'loading_remote_data', { t_cell_n_records : object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size : object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level : object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level : object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
         // retrieve file names appropriate for current setting
-        object_plot_BCellCrossReactivity.name_file = "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
-        object_plot_TCellCrossReactivity.name_file = "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv"
+        object_plot_BCellCrossReactivity.name_file = "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
+        object_plot_TCellCrossReactivity.name_file = "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
         
         let l_file = [ ]; // retrieve a list of files for downloading
-        if ( ! ( object_plot_BCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + object_plot_BCellCrossReactivity.name_file ); }
-        if ( ! ( object_plot_TCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + object_plot_TCellCrossReactivity.name_file ); }
+        if ( ! ( object_plot_BCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + "base64/" + object_plot_BCellCrossReactivity.name_file ); }
+        if ( ! ( object_plot_TCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + "base64/" + object_plot_TCellCrossReactivity.name_file ); }
 
         if ( l_file.length == 0 ) { console.log( "both file already exists" ); return; } // if both files already exists do not download any data
         
         return new Promise( async function( resolve, reject ) { // return a promis for downloading file
             console.log( "[LoadRemoteData_BasedOnSettings] parsing started:", dict_filename_to_parsed_data );
             let l_promise = l_file.map( function( file ) { 
-                return new Promise ( function( resolve, reject ) {
-                    Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } ); }); }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
+                if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
+                    return new Promise ( function( resolve, reject ) {
+                        Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                    });
+                } else if ( file.split( '.' ).slice( - 2 ).join( '.' ) == "base64.txt" ) { // if given remote file is base64-encoded binary file
+                    return new Promise ( function( resolve, reject ) {
+                        fetch( file )
+                            .then( ( response ) => {
+                              return response.text( );
+                           }).then( ( text_base64 ) => {
+                              return ParseBase64GzippedText( text_base64 );
+                           }).then( ( text ) => {
+                              Papa.parse( text, { download: false, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                           }).catch( err => { reject } );
+                    });
+                }
+            }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
+            
             let results = await Promise.all( l_promise ) // wait until all the files have been loaded
             l_parsed_data = [ ]; // empty a list
             l_parsed_data.push( ... results );
@@ -3700,6 +3728,9 @@
     function Scroll_to_the_Top() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    function Scroll_to_the_Bottom() {
+      $( document ).scrollTop( $( document ).height( ) ); // scroll to the bottom
     }
 
 </script>
