@@ -55,6 +55,8 @@
     <script src="https://cdn.jsdelivr.net/npm/filesaver.js@1.3.4/FileSaver.min.js" integrity="sha256-5IjlS/EkXaEXRrVOMusSOlmQsyFy3DvCD5QC5mJZubU=" crossorigin="anonymous"></script>
     <!-- Html2Canvas.js to save current view as a PNG file -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js" integrity="sha256-Ax1aqtvxWBY0xWND+tPZVva/VQZy9t1Ce17ZJO+NTRc=" crossorigin="anonymous"></script>
+    <!-- Pako.js to parse base64 gzipped text file downloaded from remote location -->
+    <script src="https://cdn.jsdelivr.net/npm/pako@1.0.11/dist/pako.min.js" integrity="sha256-Kc+gVCuYZLZkDP3MjxWxhNtkMbUy2ycCo86X5fKn/Bw=" crossorigin="anonymous"></script>
     <!--To use font-awesome icons -->
 <!--     <script src="https://kit.fontawesome.com/b773d81884.js" crossorigin="anonymous"></script> -->
     <!-- Fussy search package for alignment of given peptide sequences to consensus sequence -->
@@ -995,23 +997,23 @@
         document.getElementById( "modal_introduction" ).style[ "padding-right" ] = "0px";
     } // Toggle Modal for an Introduction 
     
-    var l_remote_file = [ "https://raw.githubusercontent.com/ahs2202/3M/master/current/TCellCrossReactivity.nonredundant_aligned_position.top_5000.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/structural_property_virus__compact__for_web_application.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/structural_property_human__compact__for_web_application.tsv",  
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/mhc_allele.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/interpro_virus.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/iedb_epitope_virus.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/blosum62.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/BCellCrossReactivity.nonredundant_position.windowSize_30.top_5000.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/alignment_virus_pdb__compact__for_web_application.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/alignment_human_virus__compact__for_web_application.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/alignment_human_pdb__compact__for_web_application.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/algorithms.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_virus_representative.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_virus.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_pdb.tsv", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/acc_human.tsv",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/gtex.tsv" ];
+    var l_remote_file = [ "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/TCellCrossReactivity.nonredundant_aligned_position.top_5000.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/structural_property_virus__compact__for_web_application.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/structural_property_human__compact__for_web_application.tsv.gz.base64.txt",  
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/mhc_allele.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/interpro_virus.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/iedb_epitope_virus.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/blosum62.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/BCellCrossReactivity.nonredundant_position.windowSize_30.top_5000.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/algorithms.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_virus_representative.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_virus.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_pdb.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_human.tsv.gz.base64.txt",
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt" ];
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
     object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
@@ -1027,11 +1029,41 @@
         Toggle_Tooltips( ); // set tooltips status
         object_plot_MolecularMimicryMap.hovermode = "closest"; // set initial status
         LoadRemoteData( l_remote_file ); // load remote data // uncomment to disable remote file loading
+//         console.log( ParseBase64GzippedText( LoadRemoteTextFile( "https://raw.githubusercontent.com/ahs2202/3M/master/current/data/BALF_VIB-UGent_processed_cleaned.histogram.tsv.gz.base64.txt" ) ) )
     });
     
+    function LoadRemoteTextFile( remoteFilePath ) { // load remote text file using xml_http_request (syncrhonous)
+        let result = null;
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", remoteFilePath, false );
+        xmlhttp.send( );
+        if ( xmlhttp.status == 200 ) {
+            result = xmlhttp.responseText;
+        }
+        return result;
+    }
+    function ParseBase64GzippedText( str_base64_gzipped ) {
+        let l_char = pako.inflate( new Uint8Array( atob( str_base64_gzipped ).split( '' ).map( function( x ) { return x.charCodeAt( 0 ); } ) ) ); // Decode base64 (convert ascii to binary) // Convert binary string to character-number array // Turn number array into byte-array // Convert gunzipped byteArray back to ascii string:
+        let str_content = ""; // convert ASCII value to character and concatenate the characters into a string
+        for ( let i = 0; i < l_char.length; i ++ ) {
+            str_content += String.fromCharCode( l_char[ i ] );
+        }
+        return str_content;
+    }
+//     async function LoadRemoteBase64GzippedText( remoteFilePath ) { // return promise of parsed base64-encoded gzipped text
+//         return new Promise ( function( resolve, reject ) {
+//             fetch( remoteFilePath )
+//                 .then( ( response ) => {
+//                   return response.text( );
+//                }).then( ( text ) => {
+//                   return ParseBase64GzippedText( text );
+//                }).catch( err => { reject } );
+//         });
+//     }
+
     var div_current_view = $("#molecularmimicrymap-current-view"); // global variable
     function DownloadCurrentView( ) {
-         html2canvas( div_current_view.get( 0 ) ).then ( function (canvas) {
+         html2canvas( div_current_view.get( 0 ) ).then ( function ( canvas ) {
                 var imgageData = canvas.toDataURL("image/png");
                 // Now browser starts downloading it instead of just showing it
                 var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
@@ -1491,9 +1523,6 @@
         return key_majority;
     }
     
-    var rawDataURL = "https://raw.githubusercontent.com/ahs2202/3M/master/example.2.tsv";
-    var BCellDataURL = "https://raw.githubusercontent.com/ahs2202/3M/master/example.2.tsv.gz";
-
     var plotMolecularMimicryMap = document.getElementById( 'plotly_graph_molecular_mimicry_map' );
     var plotBCellCrossReactivityMetrics = document.getElementById( 'plotly_graph_b_cell_cross_reactivity' );
     var plotTCellCrossReactivityMetrics = document.getElementById( 'plotly_graph_t_cell_cross_reactivity' );
@@ -1883,11 +1912,27 @@
     var dictdictarr_data_gtex = { };
     // dictionary-based indices for accessing data efficiently
     var dictionary_acc_human_BCellCrossReactivity = { }, dictionary_acc_human_TCellCrossReactivity = { }, dictionary_acc_human_to_integer_index = { };
+    
     async function LoadRemoteData( l_file ) {
         Loading_Screen( true ) // add loading screen
         let l_promise = l_file.map( function( file ) { 
-            return new Promise ( function( resolve, reject ) {
-                Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } ); }); }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
+            if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
+                return new Promise ( function( resolve, reject ) {
+                    Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                });
+            } else if ( file.split( '.' ).slice( - 2 ).join( '.' ) == "base64.txt" ) { // if given remote file is base64-encoded binary file
+                return new Promise ( function( resolve, reject ) {
+                    fetch( file )
+                        .then( ( response ) => {
+                          return response.text( );
+                       }).then( ( text_base64 ) => {
+                          return ParseBase64GzippedText( text_base64 );
+                       }).then( ( text ) => {
+                          Papa.parse( text, { download: false, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                       }).catch( err => { reject } );
+                });
+            }
+        }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
         let results = await Promise.all( l_promise ); // wait until all files have been parsed by Papa.parse
         l_parsed_data = [ ]; // empty a list
         l_parsed_data.push( ... results );
@@ -1966,21 +2011,21 @@
         }
     }
     async function ParseData( ) { // parse loaded data and prepare for plotting molecular mimicry map plots
-        arr_data_blosum62 = dict_filename_to_parsed_data[ "blosum62.tsv" ]; // blosum62 score matrix
-        arr_data_acc_virus = dict_filename_to_parsed_data[ "acc_virus.tsv" ];
-        arr_data_acc_human = dict_filename_to_parsed_data[ "acc_human.tsv" ];
-        arr_data_acc_pdb = dict_filename_to_parsed_data[ "acc_pdb.tsv" ];
-        arr_data_algorithms = dict_filename_to_parsed_data[ "algorithms.tsv" ];
-        arr_data_mhc_allele = dict_filename_to_parsed_data[ "mhc_allele.tsv" ];
-        arr_data_acc_virus_representative = dict_filename_to_parsed_data[ "acc_virus_representative.tsv" ];
-        arr_data_alignment_human_pdb = dict_filename_to_parsed_data[ "alignment_human_pdb__compact__for_web_application.tsv" ];
-        arr_data_alignment_human_virus = dict_filename_to_parsed_data[ "alignment_human_virus__compact__for_web_application.tsv" ];
-        arr_data_alignment_virus_pdb = dict_filename_to_parsed_data[ "alignment_virus_pdb__compact__for_web_application.tsv" ];
-        arr_data_structural_property_human = dict_filename_to_parsed_data[ "structural_property_human__compact__for_web_application.tsv" ];
-        arr_data_structural_property_virus = dict_filename_to_parsed_data[ "structural_property_virus__compact__for_web_application.tsv" ];
-        arr_data_iedb_epitope_virus = dict_filename_to_parsed_data[ "iedb_epitope_virus.tsv" ]; // IEDB records of virus proteins
-        arr_data_interpro_virus = dict_filename_to_parsed_data[ "interpro_virus.tsv" ]; // interpro annotation of virus proteins
-        dictdictarr_data_gtex = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ "gtex.tsv" ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of gtex data
+        arr_data_blosum62 = dict_filename_to_parsed_data[ "blosum62.tsv.gz.base64.txt" ]; // blosum62 score matrix
+        arr_data_acc_virus = dict_filename_to_parsed_data[ "acc_virus.tsv.gz.base64.txt" ];
+        arr_data_acc_human = dict_filename_to_parsed_data[ "acc_human.tsv.gz.base64.txt" ];
+        arr_data_acc_pdb = dict_filename_to_parsed_data[ "acc_pdb.tsv.gz.base64.txt" ];
+        arr_data_algorithms = dict_filename_to_parsed_data[ "algorithms.tsv.gz.base64.txt" ];
+        arr_data_mhc_allele = dict_filename_to_parsed_data[ "mhc_allele.tsv.gz.base64.txt" ];
+        arr_data_acc_virus_representative = dict_filename_to_parsed_data[ "acc_virus_representative.tsv.gz.base64.txt" ];
+        arr_data_alignment_human_pdb = dict_filename_to_parsed_data[ "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_alignment_human_virus = dict_filename_to_parsed_data[ "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_alignment_virus_pdb = dict_filename_to_parsed_data[ "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_structural_property_human = dict_filename_to_parsed_data[ "structural_property_human__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_structural_property_virus = dict_filename_to_parsed_data[ "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_iedb_epitope_virus = dict_filename_to_parsed_data[ "iedb_epitope_virus.tsv.gz.base64.txt" ]; // IEDB records of virus proteins
+        arr_data_interpro_virus = dict_filename_to_parsed_data[ "interpro_virus.tsv.gz.base64.txt" ]; // interpro annotation of virus proteins
+        dictdictarr_data_gtex = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ "gtex.tsv.gz.base64.txt" ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of gtex data
         object_data_gtex.dictdictarr = dictdictarr_data_gtex;
 //         object_data_gtex.MIN = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MIN' ) // parse data into individual parameters
 //         object_data_gtex.Q1 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q1' )
