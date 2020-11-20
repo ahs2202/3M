@@ -671,7 +671,7 @@
             </div>
             <div id="container_plotly_scrnaseq" class="collapse show">
                 <nav class="navbar navbar-dark bg-custom-navbar-secondary">
-                    <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold">Single Cell Expression</a>
+                    <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold" id="header_navbar_scrnaseq">Single Cell Expression</a>
                     <div class="btn-toolbar mr-auto ml-auto my-0" role="toolbar">
                         <div class="input-group">
                             <select id="select__name_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq( )">
@@ -688,7 +688,7 @@
                         </div>
                     </div>
                 </nav>
-                <div><a id="expression_panel__link_to_cellxgene" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution">Launch an interactive viewer<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
+                <div><a id="expression_panel__link_to_cellxgene" style="font-size: 1.1em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution">Launch an interactive viewer<i class="material-icons icon-black" style="font-size:0.7em">launch</i></a></div>
                 <div id="plotly_graph_scrnaseq_expression"></div>
             </div>
         </div>
@@ -3182,7 +3182,10 @@
             object_plot_scrnaseq.set_covid_status = set_covid_status;
             _ = SubsetDictDictArr( dictdictarr, object_plot_scrnaseq.l_covid_status, true, 0 ); // fill empty columns with zero values
             
-            
+            let metadata_dataset = object_plot_scrnaseq.dict_name_dataset_to_metadata[ object_plot_scrnaseq.option.name_dataset ];
+            document.getElementById( "header_navbar_scrnaseq" ).innerHTML = "Single Cell Expression of " + arr_data_acc_human[ index_acc_human ].Gene_Symbol; // update header label of the scrnaseq panel
+            document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = 'Launch an interactive viewer of "' + metadata_dataset.label + '" dataset<i class="material-icons icon-black" style="font-size:0.7em">launch</i>' // update the text and link to the interactive panel.
+            $( "#expression_panel__link_to_cellxgene" ).attr( "href", metadata_dataset.link_to_interactive_viewer );
             if ( ! ( name_file in object_plot_scrnaseq.dict_name_file_to_cached_data ) ) {
                 object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ] = { data: { }, metadata: { time: { } } };
             } // initialize dictionary for storing cached data
@@ -3283,8 +3286,7 @@
                 violinmode: "overlay",
             }
             let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
-            Plotly.newPlot( plotscrnaseq, ( object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace ), layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + object_plot_scrnaseq.dict_name_dataset_to_metadata[ object_plot_scrnaseq.option.name_dataset ].label + '__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } );
-            
+            Plotly.newPlot( plotscrnaseq, ( object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace ), layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.label + '__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } );
         }); 
     }
     async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
