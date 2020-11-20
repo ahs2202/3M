@@ -57,6 +57,9 @@
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js" integrity="sha256-Ax1aqtvxWBY0xWND+tPZVva/VQZy9t1Ce17ZJO+NTRc=" crossorigin="anonymous"></script>
     <!-- Pako.js to parse base64 gzipped text file downloaded from remote location -->
     <script src="https://cdn.jsdelivr.net/npm/pako@1.0.11/dist/pako.min.js" integrity="sha256-Kc+gVCuYZLZkDP3MjxWxhNtkMbUy2ycCo86X5fKn/Bw=" crossorigin="anonymous"></script>
+    <!-- Bootstrap-Toggle.js more more animated toggle button -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <!--To use font-awesome icons -->
 <!--     <script src="https://kit.fontawesome.com/b773d81884.js" crossorigin="anonymous"></script> -->
     <!-- Fussy search package for alignment of given peptide sequences to consensus sequence -->
@@ -125,6 +128,9 @@
         .bg-custom-navbar{  /* custom navbar color and gradient (color representing lupus awareness color) */
             background-image: linear-gradient( 15deg, #46137a 0%, #f08dee 100%);
         }
+        .bg-custom-navbar-secondary{  /* custom navbar color and gradient for secondary navbar (color representing lupus awareness color) */
+            background-image: linear-gradient( 20deg, #004d4d 0%, #00e0e0 100%);
+        }
         .bg-custom-navbar-hidden{  /* custom navbar color and gradient (color representing lupus awareness color) */
             border-left: 6px solid #ccc;
             border-bottom: 3px solid #ccc;
@@ -163,7 +169,10 @@
           border-radius: 10px; /* Rounded corners */
           font-size: 18px; /* Increase font size */
         }
-
+/*     for tidy organization of buttons     */
+        .btn { 
+            margin-bottom: 0px !important;
+        }
         #button_scroll_to_the_top:hover {
           background-color: #555 ; /* Indigo Add a dark-grey background on hover */
         }
@@ -255,8 +264,9 @@
           display: inline-block;
           vertical-align: top;
         } */
-
-    /* CSS for full-screen modal */
+/*  https://gitbrent.github.io/bootstrap4-toggle/ custom settings  */
+          .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20rem; }
+          .toggle.ios .toggle-handle { border-radius: 20rem; }
     </style>
     <!-- icon of the document -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%3E%3Ctext%20x='0'%20y='16'%20style='filter:%20invert(100%);'%3E⚕️%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
@@ -642,18 +652,43 @@
                 <div class="btn-toolbar" role="toolbar">
                 </div>
                 <form class="form-inline">
-                    <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_gtex' )" aria-expanded="false" aria-controls="container_plotly_gtex" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">GTEx Tissue</button>
-                    <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_scrnaseq' )" aria-expanded="false" aria-controls="container_plotly_scrnaseq" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">Single-cell Expression</button>
+                    <div class="form-check form-check-inline">
+                        <input id="checkbox__show__plotly_gtex" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="GTEx Tissue" data-off="GTEx Tissue" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="120" onchange="Toggle_Panel( '#container_plotly_gtex' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="checkbox__show__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Single-cell Expression" data-off="Single-cell Expression" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="200" onchange="Toggle_Panel( '#container_plotly_scrnaseq' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">
+                    </div>
+<!--                     <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_gtex' )" aria-expanded="false" aria-controls="container_plotly_gtex" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">GTEx Tissue</button>
+                    <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_scrnaseq' )" aria-expanded="false" aria-controls="container_plotly_scrnaseq" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">Single-cell Expression</button> -->
 <!--                     <input class="form-control" type="search" placeholder="Enter Gene Symbol" aria-label="Draw plot of a gene symbol" id="input_gene_symbol_expression">
                     <button class="btn btn-light mx-2 my-0" type="button" onclick="Highlight_MolecularMimicryMap( )">Plot</button> -->
                 </form>
                 <button type="button" class="close" aria-label="Close container_expression_panel_MolecularMimicryMap" data-toggle="collapse" data-target="#container_expression_panel_MolecularMimicryMap"><span aria-hidden="true">&times;</span></button>
             </nav>
             <div id="container_plotly_gtex" class="collapse show">
-                <div><a id="expression_panel__link_to_GTEx_portal" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>go to the GTEx portal</b> to explore the expression of the gene further">GTEx Expression<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
+                <div><a id="expression_panel__link_to_GTEx_portal" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open the GTEx portal</b> to explore the expression of the gene further">GTEx Expression<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
                 <div id="plotly_graph_gtex"></div>
             </div>
             <div id="container_plotly_scrnaseq" class="collapse show">
+                <nav class="navbar navbar-dark bg-custom-navbar-secondary">
+                    <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold">Single Cell Expression</a>
+                    <div class="btn-toolbar mr-auto ml-auto my-0" role="toolbar">
+                        <div class="input-group">
+                            <select id="select__name_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq( )">
+                                <option value="BALF_VIB-UGent_processed_cleaned">Bronchoalveolar lavage fluid</option>
+                                <option value="ucl-sanger_covid_airway.submit_to_czi.cellxgene">Covid Airway</option>
+                                <option value="20200804_NasalSwab_Broad_BCH_UMMC_to_CZI" selected>Nasal Epithelia</option>
+                            </select>
+                            <div class="form-check form-check-inline">
+                                <input id="checkbox__covid_status__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="All Cells" data-off="COVID-19 Status" data-onstyle="secondary" data-offstyle="danger" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input id="checkbox__proportion__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="Expression" data-off="Proportion" data-onstyle="success" data-offstyle="warning" data-size="sm" data-style="ios" data-width="100" onchange="PlotExpression_scRNA_Seq( )">
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div><a id="expression_panel__link_to_cellxgene" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution">Launch an interactive viewer<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
                 <div id="plotly_graph_scrnaseq_expression"></div>
             </div>
         </div>
@@ -1016,7 +1051,7 @@
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/interpro_virus.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/iedb_epitope_virus.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/blosum62.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/BCellCrossReactivity.nonredundant_position.windowSize_30.top_5000.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/BCellCrossReactivity.nonredundant_position.windowSize_20.top_5000.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt", 
@@ -1025,7 +1060,8 @@
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_virus.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_pdb.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_human.tsv.gz.base64.txt",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt" ];
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt", 
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.histogram.tsv.gz.base64.txt" ]; // for faster async loading, the supplementary data will be loaded together
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
     object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
@@ -1040,9 +1076,19 @@
         $( '#modal_introduction' ).modal( 'show' ); // show introduction modal
         Toggle_Tooltips( ); // set tooltips status
         object_plot_MolecularMimicryMap.hovermode = "closest"; // set initial status
-        LoadRemoteData( l_remote_file ); // load remote data // uncomment to disable remote file loading
+        Initialize( );
 //         console.log( ParseBase64GzippedText( LoadRemoteTextFile( "https://raw.githubusercontent.com/ahs2202/3M/master/current/data/BALF_VIB-UGent_processed_cleaned.histogram.tsv.gz.base64.txt" ) ) )
     });
+    async function Initialize( ) { // initialize the web application
+        await LoadRemoteData( l_remote_file ); // load remote core data 
+        console.log( "[Initialize] core data loaded", Object.keys( dict_filename_to_parsed_data ) );
+        await ParseData( );
+        console.log( "[Initialize] processing of parsed data completed:", Object.keys( dict_filename_to_parsed_data ) );
+        console.log( "[Initialize] now downloading and drawing peptide vaccine candidates" );
+        await LoadOptiVax( );
+        Loading_Screen( false );
+        ClickCallBack_BCellCrossReactivity( 127 ); // show an example potentially cross-reactive B-cell epitope after loading
+    }
     
     function LoadRemoteTextFile( remoteFilePath ) { // load remote text file using xml_http_request (syncrhonous)
         let result = null;
@@ -1284,8 +1330,15 @@
         }
         return l_l_t;
     }
+    function ArrayAsInt( l ) { 
+        let l_int = [ ];
+        for ( let i = 0; i < l.length; i ++ ) {
+            l_int.push( parseInt( l[ i ] ) ); // parse a string into an integer for each entry
+        }
+        return l_int
+    } // convert array of strings to array of integers
     
-    function unpack(rows, key) { 
+    function unpack( rows, key ) { 
         if ( Array.isArray( key ) ) { // if more than one key is given, return 2D-array of unpacked data
             let l_l_value = [ ];
             for ( let i = 0; i < rows.length; i ++ ) {
@@ -1540,6 +1593,7 @@
     var plotTCellCrossReactivityMetrics = document.getElementById( 'plotly_graph_t_cell_cross_reactivity' );
     var plotHumanProteinMetrics = document.getElementById( 'plotly_graph_human_protein' );
     var plotGTEx = document.getElementById( 'plotly_graph_gtex' );
+    var plotscrnaseq = document.getElementById( 'plotly_graph_scrnaseq_expression' );
     var tableMetrics = document.getElementById( 'd3_table_metrics' );
     var tableSequence = document.getElementById( 'plotly_table_sequence' );
     
@@ -1925,40 +1979,39 @@
     // dictionary-based indices for accessing data efficiently
     var dictionary_acc_human_BCellCrossReactivity = { }, dictionary_acc_human_TCellCrossReactivity = { }, dictionary_acc_human_to_integer_index = { };
     
-    async function LoadRemoteData( l_file ) {
-        Loading_Screen( true ) // add loading screen
-        let l_promise = l_file.map( function( file ) { 
-            if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
-                return new Promise ( function( resolve, reject ) {
-                    Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
-                });
-            } else if ( file.split( '.' ).slice( - 2 ).join( '.' ) == "base64.txt" ) { // if given remote file is base64-encoded binary file
-                return new Promise ( function( resolve, reject ) {
-                    fetch( file )
-                        .then( ( response ) => {
-                          return response.text( );
-                       }).then( ( text_base64 ) => {
-                          return ParseBase64GzippedText( text_base64 );
-                       }).then( ( text ) => {
-                          Papa.parse( text, { download: false, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
-                       }).catch( err => { reject } );
-                });
-            }
-        }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
-        let results = await Promise.all( l_promise ); // wait until all files have been parsed by Papa.parse
-        l_parsed_data = [ ]; // empty a list
-        l_parsed_data.push( ... results );
-        for ( let i = 0; i < l_file.length; i ++ ) { 
-            let url_file = l_file[ i ], name_file = url_file.slice( url_file.lastIndexOf( "/" ) + 1 )
-            dict_filename_to_parsed_data[ name_file ] = l_parsed_data[ i ];
-        } // put parsed data into a dictionary
-        console.log( "[LoadRemoteData] parsing completed:", Object.keys( dict_filename_to_parsed_data ) );
-        await ParseData( );
-        console.log( "[LoadRemoteData] processing of parsed data completed:", Object.keys( dict_filename_to_parsed_data ) );
-        console.log( "[LoadRemoteData] now downloading and drawing peptide vaccine candidates" );
-        await LoadOptiVax( );
-        Loading_Screen( false );
-        ClickCallBack_BCellCrossReactivity( 127 ); // show an example potentially cross-reactive B-cell epitope after loading
+    async function LoadRemoteData( l_file ) { // load list of given tsv files from remote locations through asynchrous operations
+        return new Promise( async function( resolve, reject ) { 
+            console.log( "[LoadRemoteData] remote data fetch started:", l_file );
+            Loading_Screen( true ) // add loading screen
+            let l_promise = l_file.map( function( file ) { 
+                if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
+                    return new Promise ( function( resolve, reject ) {
+                        Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                    });
+                } else if ( file.split( '.' ).slice( - 2 ).join( '.' ) == "base64.txt" ) { // if given remote file is base64-encoded binary file
+                    return new Promise ( function( resolve, reject ) {
+                        fetch( file )
+                            .then( ( response ) => {
+                              return response.text( );
+                           }).then( ( text_base64 ) => {
+                              return ParseBase64GzippedText( text_base64 );
+                           }).then( ( text ) => {
+                              Papa.parse( text, { download: false, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
+                           }).catch( err => { reject } );
+                    });
+                }
+            }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
+            let results = await Promise.all( l_promise ); // wait until all files have been parsed by Papa.parse
+            l_parsed_data = [ ]; // empty a list
+            l_parsed_data.push( ... results );
+            for ( let i = 0; i < l_file.length; i ++ ) { 
+                let url_file = l_file[ i ], name_file = url_file.slice( url_file.lastIndexOf( "/" ) + 1 )
+                dict_filename_to_parsed_data[ name_file ] = l_parsed_data[ i ];
+            } // put parsed data into a dictionary
+            console.log( "[LoadRemoteData] remote data loaded:", l_file );
+            resolve( "[LoadRemoteData] resolved" )
+            Loading_Screen( false ) // add loading screen
+        });
     }
     async function LoadOptiVax( ) { // load OptiVax peptide vaccine candidates
         return new Promise( async function( resolve, reject ) {
@@ -1994,13 +2047,18 @@
         }
         return dictdictarr;
     }
-    function SubsetDictDictArr( dictdictarr, l_col_inner ) { // subset a given dictdictarr with a given list of l_col_inner list containing column names of the inner layer. if only one column is given, return dictarray containing the inner column # 20201106
+    function SubsetDictDictArr( dictdictarr, l_col_inner, fill_empty_columm_if_not_exist = true, fill_value = 0 ) { // subset a given dictdictarr with a given list of l_col_inner list containing column names of the inner layer. if only one column is given, return dictarray containing the inner column # 20201106
+        // 'fill_empty_columm_if_not_exist' : if true, fill empty column with 'fill_value' value
         if ( Array.isArray( l_col_inner ) ) { // subset a given dictdictarr with a given list of l_col_inner list containing column names of the inner layer.
             let dictdictarr_subset = { };
-            let set_col_inner = new Set( l_col_inner );
             for ( let col_outer in dictdictarr ) {
-                for ( let col_inner in dictdictarr[ col_outer ] ) {
-                    if ( set_col_inner.has( col_inner ) ) {
+                for ( let i = 0; i < l_col_inner.length; i ++ ) {
+                    let col_inner = l_col_inner[ i ];
+                    if ( ! ( col_inner in dictdictarr[ col_outer ] ) ) {
+                        if ( fill_empty_columm_if_not_exist ) { // 'fill_empty_columm_if_not_exist' : if true, fill empty column with 'fill_value' value
+                            dictdictarr[ col_outer ][ col_inner ] = ArrayFull( dictdictarr[ col_outer ][ Object.keys( dictdictarr[ col_outer ] )[ 0 ] ].length, fill_value ); // assume that the length of array is same for all columns
+                        }
+                    } else {
                         if ( ! ( col_outer in dictdictarr_subset ) ) {
                             dictdictarr_subset[ col_outer ] = { };
                         }
@@ -2013,10 +2071,10 @@
             let col_inner_subset = l_col_inner;
             let dictarr = { };
             for ( let col_outer in dictdictarr ) {
-                for ( let col_inner in dictdictarr[ col_outer ] ) {
-                    if ( col_inner_subset == col_inner ) {
-                        dictarr[ col_outer ] = dictdictarr[ col_outer ][ col_inner ]
-                    }
+                if ( ! ( col_inner_subset in dictdictarr[ col_outer ] ) ) {
+                    dictarr[ col_outer ] = ArrayFull( dictdictarr[ col_outer ][ Object.keys( dictdictarr[ col_outer ] )[ 0 ] ].length, fill_value ); // assume that the length of array is same for all columns
+                } else {
+                    dictarr[ col_outer ] = dictdictarr[ col_outer ][ col_inner_subset ]
                 }
             }
             return dictarr;
@@ -2260,7 +2318,7 @@
     // variables for interactions
     var clicked_record = { }, clicked_record_parsed = { }, arr_data_clicked = [ ], trace_tableSequence = { };
     // general Plotly settings
-    var config = { responsive: true, displaylogo: false } // flexible plot width according to the window size  // do not display plotly logo
+    var config = { responsive: true, displaylogo: false, toImageButtonOptions: { hoverClosestCartesian: true, format: 'svg', filename: 'MolecularMimicryMap_of_SARS-CoV-2', height: 750, width: 1100, scale: 1 }, modeBarButtonsToRemove: [ 'autoScale2d', 'toggleSpikelines', 'hoverCompareCartesian', 'hoverClosestCartesian' ] } // flexible plot width according to the window size  // do not display plotly logo
     let config_MolecularMimicryMap = Object.assign( { toImageButtonOptions: { hoverClosestCartesian: true, format: 'svg', filename: 'MolecularMimicryMap_of_SARS-CoV-2', height: 750, width: 1100, scale: 1 }, modeBarButtonsToRemove: [ 'autoScale2d', 'toggleSpikelines', 'hoverCompareCartesian', 'hoverClosestCartesian' ] }, config ), layout_MolecularMimicryMap = { margin: { l: 40, r: 15, b: 10, t: 0, pad: 4 }, xaxis: { rangeslider: { borderwidth : 1, range : [ 0, object_data_vaccine_metric.accumulated_length ], thickness : 0.07 }, zeroline: false }, yaxis: { fixedrange: true, zeroline: false, tickmode: "array", tickvals: [ 0, 2, 4, 6, 8, 10 ], ticktext: ArrayApply( [ 0, 2, 4, 6, 8, 10 ], String ) }, hovermode: "closest", hoverlabel: { bgcolor: "#ffffff", bordercolor: "#521a87" }, legend: { itemclick: false, itemdoubleclick: false } }; // title: 'Molecular Mimicry Map of SARS-CoV-2', // disable toggling of traces when clickng legends // do hot show y-tickes below 0
     let layout_PredictionMetrics = { margin: { l: 50, r: 65, b: 50, t: 50, pad: 4 } }, layout_tableSequence = { margin: { l: 50, r: 65, b: 5, t: 5, pad: 4 } };
     // virus protein annotation
@@ -2374,38 +2432,9 @@
 
         if ( l_file.length == 0 ) { console.log( "both file already exists" ); return; } // if both files already exists do not download any data
         
-        return new Promise( async function( resolve, reject ) { // return a promis for downloading file
-            console.log( "[LoadRemoteData_BasedOnSettings] parsing started:", dict_filename_to_parsed_data );
-            let l_promise = l_file.map( function( file ) { 
-                if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
-                    return new Promise ( function( resolve, reject ) {
-                        Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
-                    });
-                } else if ( file.split( '.' ).slice( - 2 ).join( '.' ) == "base64.txt" ) { // if given remote file is base64-encoded binary file
-                    return new Promise ( function( resolve, reject ) {
-                        fetch( file )
-                            .then( ( response ) => {
-                              return response.text( );
-                           }).then( ( text_base64 ) => {
-                              return ParseBase64GzippedText( text_base64 );
-                           }).then( ( text ) => {
-                              Papa.parse( text, { download: false, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
-                           }).catch( err => { reject } );
-                    });
-                }
-            }); // 'skipEmptyLines' is set to false to allow reading empty lines in some input files // due to 'skipEmptyLines: false' option, the last line is empty, and should be discarded
-            
-            let results = await Promise.all( l_promise ) // wait until all the files have been loaded
-            l_parsed_data = [ ]; // empty a list
-            l_parsed_data.push( ... results );
-            for ( let i = 0; i < l_file.length; i ++ ) { 
-                let url_file = l_file[ i ], name_file = url_file.slice( url_file.lastIndexOf( "/" ) + 1 )
-                dict_filename_to_parsed_data[ name_file ] = l_parsed_data[ i ];
-            } 
-            console.log( "[LoadRemoteData_BasedOnSettings] parsing completed:", dict_filename_to_parsed_data );
-            resolve( "completed" );
-        });
+        return LoadRemoteData( l_file ); // load given list of files from remote locations
     }
+    
     function Open_and_Draw_BCellCrossReactivityPredMetricsPlot( ) {
         str_jquery_container = "#plotly_graph_b_cell_cross_reactivity";
         if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { DrawBCellCrossReactivityPredMetricsPlot( ); // draw Plotly plot synchronously if the container is currently shown
@@ -3060,6 +3089,41 @@
     });
     }
     function SortBoxTrace( trace_a, trace_b ) { return - ( trace_a.q3 - trace_b.q3 ) } // Sort Plotly Boxplot traces based on parameter values
+    var object_plot_gtex = { };
+    object_plot_gtex.dict_name_tissue_to_color = {
+        "Adipose Tissue (n=1204)" : "#FF4500",
+        "Muscle (n=803)" : "#9370DB",
+        "Blood Vessel (n=1335)" : "#B22222",
+        "Heart (n=861)" : "#4B0082",
+        "Uterus (n=142)" : "#FF69B4",
+        "Vagina (n=156)" : "#FF1493",
+        "Breast (n=459)" : "#00CED1",
+        "Skin (n=1809)" : "#0000FF",
+        "Salivary Gland (n=162)" : "#8FBC8F",
+        "Brain (n=2642)" : '#FFD700',
+        "Adrenal Gland (n=258)" : '#228B22',
+        "Thyroid (n=653)" : "#006400",
+        "Lung (n=578)" : "#7FFF00",
+        "Spleen (n=241)" : "#556B2F",
+        "Pancreas (n=328)" : "#8B0000",
+        "Esophagus (n=1445)" : "#800000",
+        "Stomach (n=359)" : "#F0E68C",
+        "Colon (n=779)" : "#CD853F",
+        "Small Intestine (n=187)" : "#2F4F4F",
+        "Prostate (n=245)" : "#D3D3D3",
+        "Testis (n=361)" : "#778899",
+        "Nerve (n=619)" : "#F0E68C",
+        "Blood (n=929)" : "#FF0000",
+        "Pituitary (n=283)" : "#98FB98",
+        "Ovary (n=180)" : "#FFC0CB",
+        "Liver (n=226)" : "#9ACD32",
+        "Kidney (n=89)" : "#00FFFF",
+        "Cervix Uteri (n=19)" : "#DDA0DD",
+        "Fallopian Tube (n=9)" : "#FFDAB9",
+        "Bladder (n=21)" : "#8B0000"
+    }; // define color for each tissue
+    var object_plot_scrnaseq = { option: { }, dictdictarr: { } } // object for saving settings for scrnaseq plot
+    object_plot_scrnaseq.setting = { histogram : { start: 0, step: 0.1 }, ignore_zero_count_cells: false, cache : { n_records: 5 } } // setting for compact histogram count data. // ignore zero_count_cells for efficient plotting // set maximum records for saving cache for rapid plotting
     function PlotExpression( index_acc_human ) { // plot violin and boxplots showing mRNA expressions of the protein of interest
         let l_trace = [ ];
         for ( let tissue in object_data_gtex.dictdictarr ) {
@@ -3070,15 +3134,158 @@
             trace.q3 = [ object_data_gtex.dictdictarr[ tissue ][ 'Q3' ][ index_acc_human ] ];
             trace.upperfence = [ object_data_gtex.dictdictarr[ tissue ][ 'MAX' ][ index_acc_human ] ];
             trace.name = tissue;
+            trace.line = { color: object_plot_gtex.dict_name_tissue_to_color[ tissue ] }; // use pre-defined color for each tissue
             trace.type = 'box';
             trace.x0 = tissue;
             l_trace.push( trace );
         }
         l_trace = l_trace.sort( SortBoxTrace )
-        Plotly.newPlot( plotGTEx, l_trace, { margin: { l: 50, r: 65, b: 90, t: 50, pad: 4 }, yaxis: { title : "TPM" } }, { ... config } ); // draw boxplot of expression of the gene using GTEx data
+        Plotly.newPlot( plotGTEx, l_trace, { margin: { l: 50, r: 65, b: 90, t: 50, pad: 4 }, yaxis: { title : "TPM" } }, { ... config, filename: '3M_of_SARS-CoV-2__GTEx__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } ); // draw boxplot of expression of the gene using GTEx data
         let gene_symbol = arr_data_acc_human[ index_acc_human ].Gene_Symbol
         $( "#expression_panel__link_to_GTEx_portal" ).attr( "href", "https://gtexportal.org/home/gene/" + gene_symbol ); // set a link to GTEx portal
         $( "#expression_panel__link_to_GTEx_portal" ).html( "GTEx Expression of " + gene_symbol + '<i class="material-icons icon-black" style="font-size:0.9em">launch</i>' ) // set label to the link to GTEx portal
+        object_plot_scrnaseq.index_acc_human = index_acc_human;
+        PlotExpression_scRNA_Seq( ); // update expression plot using scRNA-seq data
+    }
+    object_plot_scrnaseq.dict_name_dataset_to_metadata = { 
+        "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI" : { label: "Covid Airway", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/b154c5cb-a4f2-43b3-a970-42e0c66cce79.cxg/' },
+        "BALF_VIB-UGent_processed_cleaned" : { label: "Nasal Epithelia", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/ae466876-e313-45ca-9e12-88e41b0edf89.cxg/' },
+        "ucl-sanger_covid_airway.submit_to_czi.cellxgene" : { label: "Bronchoalveolar lavage fluid", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/ecf83c4b-0e01-4be0-ba60-4a4c298224a6.cxg/' }
+    }; // metadata of scRNA-seq data
+    object_plot_scrnaseq.dict_name_file_to_cached_data = { } // dictionary to save cached data
+    async function PlotExpression_scRNA_Seq( ) { // update expression plot using scRNA-seq data
+        return new Promise( async function( resolve, reject ) { 
+            // retrieve setting for the graph
+            object_plot_scrnaseq.option.name_dataset = document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value;
+            object_plot_scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
+            object_plot_scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
+            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_plot_scrnaseq.option.name_dataset + ".histogram.tsv.gz.base64.txt";
+            let name_file = object_plot_scrnaseq.option.name_file;
+            let dir_file = object_data_remote_file.base_url + 'base64/' + name_file;
+            if ( ! ( name_file in dict_filename_to_parsed_data ) ) {
+                await LoadRemoteData( [ dir_file ] );
+            }
+            if ( ! ( name_file in object_plot_scrnaseq.dictdictarr ) ) {
+                object_plot_scrnaseq.dictdictarr[ name_file ] = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ name_file ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of scrnaseq data
+            }
+            let dictdictarr = object_plot_scrnaseq.dictdictarr[ name_file ], index_acc_human = object_plot_scrnaseq.index_acc_human, set_covid_status = { };
+            console.log( dictdictarr, index_acc_human, set_covid_status )
+            // retrieve avaliable 'covid status' category values
+            object_plot_scrnaseq.l_name_clus = Object.keys( dictdictarr );
+            for ( let name_clus in dictdictarr ) {
+                for ( let name_covid_status in dictdictarr[ name_clus ] ) {
+                    set_covid_status[ name_covid_status ] = 1;
+                }
+            }
+            console.log( set_covid_status )
+            object_plot_scrnaseq.l_covid_status = Object.keys( set_covid_status );
+            object_plot_scrnaseq.set_covid_status = set_covid_status;
+            _ = SubsetDictDictArr( dictdictarr, object_plot_scrnaseq.l_covid_status, true, 0 ); // fill empty columns with zero values
+            
+            
+            if ( ! ( name_file in object_plot_scrnaseq.dict_name_file_to_cached_data ) ) {
+                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ] = { data: { }, metadata: { time: { } } };
+            } // initialize dictionary for storing cached data
+            let time_current = new Date( ).getTime( ); // get current time
+            // if cached data is not available, load data into the cache. if cached data is available, used the cached data.
+            if ( ! ( index_acc_human in object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data ) ) { 
+                console.log( "[PlotExpression_scRNA_Seq] cached data not available ... parsing scRNA-seq data" );
+                if ( Object.keys( object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data ).length >= object_plot_scrnaseq.setting.cache.n_records ) {
+                    let dict = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time, key_least_recently_used = -1, value_least_recently_used = -1;
+                    for ( let key in dict ) {
+                        if ( ( value_least_recently_used == -1 ) | ( dict[ key ] < value_least_recently_used ) ) {
+                            key_least_recently_used = key;
+                            dict[ key ] = value_least_recently_used;
+                        }
+                    } // identify the record that was least recently used.
+                    // evict least recently used data
+                    delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ key_least_recently_used ];
+                    delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ key_least_recently_used ];
+                } // if cache is full, evict least recently used data
+                // build list of traces for each category
+                let trace_template = { 
+                    type: 'violin',
+                    opacity: 0.6
+    //                 ,
+    //                 box: { visible: true },
+    //                 meanline: { visible: true }
+                };
+                let l_trace = [ ], l_trace_covid_status = [ ], dict_flag_legend_shown = { }; // two lists of traces for traces for all cells and traces for each covid_status
+                let start_histogram = object_plot_scrnaseq.setting.histogram.start, step_histogram = object_plot_scrnaseq.setting.histogram.step;
+                for ( let name_clus in dictdictarr ) {
+                    let n_cells_all = 0, l_expression_reconstructed_all = [ ], l_label = [ "", "" ];
+                    for ( let name_covid_status in set_covid_status ) {
+                        let entry = dictdictarr[ name_clus ][ name_covid_status ][ index_acc_human ];
+                        let l_count_histogram = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : [ entry ]; // parse the string into a list of counts for a histogram.
+                        let n_cells = ArraySum( l_count_histogram ); // retrieve number of cells for the current category
+                        let seed = xmur3( "molecular_mimicry_map_of_SARS-CoV-2__scRNA-Seq_expression" ), rand = mulberry32( seed( ) ); // retrieve seed for a PRNG // retrieve a function for PRNG
+                        // use [ 0 ] to avoid using empty list to draw plot
+                        let l_expression_reconstructed = object_plot_scrnaseq.setting.ignore_zero_count_cells ? [ 0 ] : ArrayFull( l_count_histogram[ 0 ], 0 ); // add 0 expression values to the reconstructed values if 'object_plot_scrnaseq.setting.ignore_zero_count_cells' is false. 
+                        for ( let i = 1; i < l_count_histogram.length; i ++ ) {
+                            let count = l_count_histogram[ i ], mean = start_histogram + step_histogram * ( i - 0.5 ) ;
+                            for ( let j = 0; j < count; j ++ ) {
+                                l_expression_reconstructed.push( mean + ( rand( ) - 0.5 ) * step_histogram )
+                            }
+                        }
+
+                        let color = "", side = "", index_label = 0;
+                        if ( name_covid_status.includes( "Symptomatic" ) | name_covid_status.includes( "Positive" ) ) {
+                            color = "#FF6347";
+                            side = "positive";
+                            index_label = 1;
+
+                        } else {
+                            color = "#00FA9A";
+                            side = "negative";
+                            index_label = 0;
+                        }
+                        l_label[ index_label ] = "n=" + n_cells;
+                        let trace = { ... trace_template,
+                                     x0: "",
+                                     y: l_expression_reconstructed,
+                                     legendgroup: name_covid_status,
+                                     scalegroup: name_clus + ' ' + name_covid_status, // each violin plot is scaled separately
+                                     name: name_covid_status,
+                                     side: side,
+                                     showlegend: ! ( name_covid_status in dict_flag_legend_shown ), // aggregate legends (show label for each 'name_covid_status' only once)
+                                     line: { color: color, width: 2 },
+                                     points: false // do not show outliers since this is reconstructed data and thus a bit inaccurate.
+                                    };
+                        dict_flag_legend_shown[ name_covid_status ] = 1; // set flag
+                        l_trace_covid_status.push( trace )
+                        l_expression_reconstructed_all = l_expression_reconstructed_all.concat( l_expression_reconstructed )
+                        n_cells_all = n_cells_all + n_cells
+                    }
+                    let label_overlay = name_clus + ' (' + l_label.join( '/' ) + ')'; // join two numbers of cells to create a label for two joined violin plots.
+                    l_trace_covid_status[ l_trace_covid_status.length - 1 ].x0 = label_overlay; // update x label
+                    l_trace_covid_status[ l_trace_covid_status.length - 2 ].x0 = label_overlay;
+                    let trace = { ... trace_template,
+                                 x0: name_clus + " (n=" + n_cells_all + ')',
+                                 y: l_expression_reconstructed_all,
+                                 name: name_clus,
+                                 line: { color: 'black', width: 2 },
+                                 fillcolor: "#48D1CC",
+                                 points: false // do not show outliers since this is reconstructed data and thus a bit inaccurate.
+                                };
+                    l_trace.push( trace );
+                }
+                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace, l_trace_covid_status: l_trace_covid_status }; // update data of the cache
+            } else { 
+                console.log( "[PlotExpression_scRNA_Seq] cached data is available ... using cached data" );
+            }
+            object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
+            let layout = {
+                margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
+                yaxis: { title : "Normalized Expression", rangemode: "nonnegative" },
+                legend: { tracegroupgap: 0 },
+                violingap: 0, // split violin plot for two covid statuses
+                violingroupgap: 0,
+                violinmode: "overlay",
+            }
+            let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
+            Plotly.newPlot( plotscrnaseq, ( object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace ), layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + object_plot_scrnaseq.dict_name_dataset_to_metadata[ object_plot_scrnaseq.option.name_dataset ].label + '__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } );
+            
+        }); 
     }
     async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
         Toggle_Exclusive_Tabs( "hide_all" ); // hide all supplementary tabs
