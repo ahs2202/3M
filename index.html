@@ -1061,7 +1061,8 @@
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_pdb.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_human.tsv.gz.base64.txt",
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.histogram.tsv.gz.base64.txt" ]; // for faster async loading, the supplementary data will be loaded together
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.h5ad.histogram.tsv.gz.base64.txt",
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.h5ad.proportion.tsv.gz.base64.txt" ]; // for faster async loading, the supplementary data will be loaded together
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
     object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
@@ -3159,7 +3160,7 @@
             object_plot_scrnaseq.option.name_dataset = document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value;
             object_plot_scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             object_plot_scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
-            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_plot_scrnaseq.option.name_dataset + ".histogram.tsv.gz.base64.txt";
+            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_plot_scrnaseq.option.name_dataset + ".h5ad.histogram.tsv.gz.base64.txt";
             let name_file = object_plot_scrnaseq.option.name_file;
             let dir_file = object_data_remote_file.base_url + 'base64/' + name_file;
             if ( ! ( name_file in dict_filename_to_parsed_data ) ) {
