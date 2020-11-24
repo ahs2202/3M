@@ -653,10 +653,10 @@
                 </div>
                 <form class="form-inline">
                     <div class="form-check form-check-inline">
-                        <input id="checkbox__show__plotly_gtex" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="GTEx Tissue" data-off="GTEx Tissue" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="120" onchange="Toggle_Panel( '#container_plotly_gtex' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">
+                        <input id="checkbox__show__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Single-cell Expression" data-off="Single-cell Expression" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="200" onchange="Toggle_Panel( '#container_plotly_scrnaseq' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">
                     </div>
                     <div class="form-check form-check-inline">
-                        <input id="checkbox__show__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Single-cell Expression" data-off="Single-cell Expression" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="200" onchange="Toggle_Panel( '#container_plotly_scrnaseq' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">
+                        <input id="checkbox__show__plotly_gtex" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="GTEx Tissue" data-off="GTEx Tissue" data-onstyle="secondary" data-offstyle="light" data-size="sm" data-style="ios" data-width="120" onchange="Toggle_Panel( '#container_plotly_gtex' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">
                     </div>
 <!--                     <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_gtex' )" aria-expanded="false" aria-controls="container_plotly_gtex" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>tissue-level expression</i> of a human protein" aria-label="">GTEx Tissue</button>
                     <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="button" onclick="Toggle_Panel( '#container_plotly_scrnaseq' )" aria-expanded="false" aria-controls="container_plotly_scrnaseq" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> graphs displaying <i>single-cell-level expression</i> of a human protein" aria-label="">Single-cell Expression</button> -->
@@ -665,31 +665,45 @@
                 </form>
                 <button type="button" class="close" aria-label="Close container_expression_panel_MolecularMimicryMap" data-toggle="collapse" data-target="#container_expression_panel_MolecularMimicryMap"><span aria-hidden="true">&times;</span></button>
             </nav>
-            <div id="container_plotly_gtex" class="collapse show">
-                <div><a id="expression_panel__link_to_GTEx_portal" style="font-size: 1.35em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open the GTEx portal</b> to explore the expression of the gene further">GTEx Expression<i class="material-icons icon-black" style="font-size:0.9em">launch</i></a></div>
-                <div id="plotly_graph_gtex"></div>
-            </div>
             <div id="container_plotly_scrnaseq" class="collapse show">
                 <nav class="navbar navbar-dark bg-custom-navbar-secondary">
-                    <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold" id="header_navbar_scrnaseq">Single Cell Expression</a>
+                    <div data-toggle="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution" style="margin-right: 15px">
+                        <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold; margin-right: 0px !important" id="expression_panel__link_to_cellxgene" href="" target="_blank" rel="noopener noreferrer">Single Cell Expression</a>
+                        <i class="material-icons icon-white" style="font-size:17px;cursor:pointer">launch</i>
+                    </div>
+                    <div data-toggle="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open a link</b> to the publication of the current <i>single cell RNA-Seq</i> study">
+                        <a class="navbar-brand my-0" style="font-size: 0.75em; font-weight: bold; margin-right: 0px !important" id="expression_panel__link_to_publication" href="" target="_blank" rel="noopener noreferrer" >Publication</a>
+                        <i class="material-icons icon-white" style="font-size:14px;cursor:pointer">launch</i>
+                    </div>
                     <div class="btn-toolbar mr-auto ml-auto my-0" role="toolbar">
                         <div class="input-group">
+                            <select id="select__category_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq_Update_Select_Options( )">
+                                <option value="patient_donors" selected>Patient Donors</option>
+                                <option value="cell_line">Lung Cell Line</option>
+                                <option value="healthy_donors" >Healthy Donors</option>
+                            </select>
                             <select id="select__name_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq( )">
-                                <option value="BALF_VIB-UGent_processed_cleaned">Bronchoalveolar lavage fluid</option>
-                                <option value="ucl-sanger_covid_airway.submit_to_czi.cellxgene">Covid Airway</option>
-                                <option value="20200804_NasalSwab_Broad_BCH_UMMC_to_CZI" selected>Nasal Epithelia</option>
+                                <option value="" selected>Select Category</option>
                             </select>
                             <div class="form-check form-check-inline">
-                                <input id="checkbox__covid_status__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="All Cells" data-off="COVID-19 Status" data-onstyle="secondary" data-offstyle="danger" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
+                                <input id="checkbox__covid_status__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Cell Type" data-off="COVID-19 Status" data-onstyle="secondary" data-offstyle="danger" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
                             </div>
                             <div class="form-check form-check-inline">
                                 <input id="checkbox__proportion__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="Expression" data-off="Proportion" data-onstyle="success" data-offstyle="warning" data-size="sm" data-style="ios" data-width="100" onchange="PlotExpression_scRNA_Seq( )">
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input id="checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="All Cells" data-off="Only Positive Cells" data-onstyle="primary" data-offstyle="info" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
+                            </div>
                         </div>
                     </div>
                 </nav>
-                <div><a id="expression_panel__link_to_cellxgene" style="font-size: 1.1em; font-weight: bold" href="" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution">Launch an interactive viewer<i class="material-icons icon-black" style="font-size:0.7em">launch</i></a></div>
                 <div id="plotly_graph_scrnaseq_expression"></div>
+            </div>
+            <div id="container_plotly_gtex" class="collapse show">
+                <nav class="navbar navbar-dark bg-custom-navbar-secondary">
+                    <div data-toggle="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open the GTEx portal</b> to explore the expression of the gene further"><a id="expression_panel__link_to_GTEx_portal" class="navbar-brand my-0" style="font-size: 1.1em; font-weight: bold; margin-right: 0px !important" href="" target="_blank" rel="noopener noreferrer">GTEx Expression</a><i class="material-icons icon-white" style="font-size:17px;cursor:pointer">launch</i></div>
+                </nav>
+                <div id="plotly_graph_gtex"></div>
             </div>
         </div>
         <div id="container_plotly_table_sequence" class="collapse">
@@ -1061,8 +1075,9 @@
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_pdb.tsv.gz.base64.txt", 
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_human.tsv.gz.base64.txt",
                           "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.h5ad.histogram.tsv.gz.base64.txt",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.BALF_VIB-UGent_processed_cleaned.h5ad.proportion.tsv.gz.base64.txt" ]; // for faster async loading, the supplementary data will be loaded together
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.metadata.tsv.gz.base64.txt",
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad.histogram.tsv.gz.base64.txt",
+                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad.proportion.tsv.gz.base64.txt", ]; // for faster async loading, the supplementary data will be loaded together
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
     object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
@@ -1109,16 +1124,6 @@
         }
         return str_content;
     }
-//     async function LoadRemoteBase64GzippedText( remoteFilePath ) { // return promise of parsed base64-encoded gzipped text
-//         return new Promise ( function( resolve, reject ) {
-//             fetch( remoteFilePath )
-//                 .then( ( response ) => {
-//                   return response.text( );
-//                }).then( ( text ) => {
-//                   return ParseBase64GzippedText( text );
-//                }).catch( err => { reject } );
-//         });
-//     }
 
     var div_current_view = $("#molecularmimicrymap-current-view"); // global variable
     function DownloadCurrentView( ) {
@@ -1338,7 +1343,18 @@
         }
         return l_int
     } // convert array of strings to array of integers
-    
+    function ArrayAverage( l ) { // calculate average of values in the array
+        let sum = l.reduce( ( a, b ) => a + b, 0 );
+        let avg = ( sum / l.length ) || 0;
+        return avg;
+    }
+    function ArrayMultiply( l, float_multiply_by ) { // return a list with values multiplied by 'float_multiply_by'
+        let l_multiplied = [ ];
+        for ( let i = 0; i < l.length; i ++ ) {
+            l_multiplied.push( l[ i ] * float_multiply_by );
+        }
+        return l_multiplied;
+    }
     function unpack( rows, key ) { 
         if ( Array.isArray( key ) ) { // if more than one key is given, return 2D-array of unpacked data
             let l_l_value = [ ];
@@ -1420,12 +1436,12 @@
     
     function hexToRgb(hex) { // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
       // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
       hex = hex.replace(shorthandRegex, function(m, r, g, b) {
         return r + r + g + g + b + b;
       });
 
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
       return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -1702,7 +1718,7 @@
         });
     }
     // object containing parsed data
-    var object_data_acc_virus_representative = { }, object_data_vaccine_metric = { dict_data: { }, data: [ ] }, object_data_interpro_virus = { }, object_data_iedb_epitope_virus = { }, object_data_consensus_sequence_virus = { }, object_data_gtex = { };
+    var object_data_acc_virus_representative = { }, object_data_vaccine_metric = { dict_data: { }, data: [ ] }, object_data_interpro_virus = { }, object_data_iedb_epitope_virus = { }, object_data_consensus_sequence_virus = { }, object_data_gtex = { }, object_data_scrnaseq = { };
     function AlignPeptide( ) { // align peptides to concatanated consensus protein sequence for the virus
         object_data_vaccine_design.arr_aligned_peptide = [ ]; // empty array containing records of aligned peptides
         let l_header = Object.keys( object_data_vaccine_design.dict_header_to_seq );
@@ -2104,6 +2120,8 @@
 //         object_data_gtex.Q3 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q3' )
 //         object_data_gtex.MAX = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MAX' )
         // parse data for displaying vaccine metrics
+        object_data_scrnaseq.metadata = ( new DataFrame( dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ] ) ).toDict( ); // load metadata of scRNA-seq datasets
+        PlotExpression_scRNA_Seq_Update_Select_Options( "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad" ); // update select option and select given dataset by default
         let l_col = Object.keys( arr_data_acc_virus_representative[ 0 ] ); // retrieve list of columns of 'arr_data_acc_virus_representative'
         for ( let i = 0; i < l_col.length; i ++ ) {
             let col = l_col[ i ], l_data = [ ];
@@ -3090,6 +3108,11 @@
     });
     }
     function SortBoxTrace( trace_a, trace_b ) { return - ( trace_a.q3 - trace_b.q3 ) } // Sort Plotly Boxplot traces based on parameter values
+    function SortViolineTrace_Expression( trace_a, trace_b ) { return - ( trace_a.mean_expression_for_sorting - trace_b.mean_expression_for_sorting ) } // Sort Plotly Violin traces displaying expression values based on parameter values
+//     function SortViolineTrace_Proportion( l_a, l_b ) { // Sort Plotly Violin traces displaying proportion data values based on parameter values
+//         let index_value_for_sorting = ( l_a.length == 4 ) ? 6 : 3 ; // set index_of_value_for_sorting based on whether the expresion of the gene of interest (ACE2) is available (number of counts = 4 (available) and 2 (unavailable))
+//         return - ( l_a[ index_value_for_sorting ] - l_b[ index_value_for_sorting ] )
+//     } 
     var object_plot_gtex = { };
     object_plot_gtex.dict_name_tissue_to_color = {
         "Adipose Tissue (n=1204)" : "#FF4500",
@@ -3124,7 +3147,7 @@
         "Bladder (n=21)" : "#8B0000"
     }; // define color for each tissue
     var object_plot_scrnaseq = { option: { }, dictdictarr: { } } // object for saving settings for scrnaseq plot
-    object_plot_scrnaseq.setting = { histogram : { start: 0, step: 0.1 }, ignore_zero_count_cells: false, cache : { n_records: 5 } } // setting for compact histogram count data. // ignore zero_count_cells for efficient plotting // set maximum records for saving cache for rapid plotting
+    object_plot_scrnaseq.setting = { histogram : { start: 0, step: 0.1 }, gene_of_interest: "ACE2", thres_n_clusters_for_label_newline: 22, cache : { n_records: 5 } } // setting for compact histogram count data. // set maximum records for saving cache for rapid plotting // 'thres_n_clusters_for_label_newline': a threshold number of cluster that removes line breaks in the labels.
     function PlotExpression( index_acc_human ) { // plot violin and boxplots showing mRNA expressions of the protein of interest
         let l_trace = [ ];
         for ( let tissue in object_data_gtex.dictdictarr ) {
@@ -3144,35 +3167,138 @@
         Plotly.newPlot( plotGTEx, l_trace, { margin: { l: 50, r: 65, b: 90, t: 50, pad: 4 }, yaxis: { title : "TPM" } }, { ... config, filename: '3M_of_SARS-CoV-2__GTEx__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } ); // draw boxplot of expression of the gene using GTEx data
         let gene_symbol = arr_data_acc_human[ index_acc_human ].Gene_Symbol
         $( "#expression_panel__link_to_GTEx_portal" ).attr( "href", "https://gtexportal.org/home/gene/" + gene_symbol ); // set a link to GTEx portal
-        $( "#expression_panel__link_to_GTEx_portal" ).html( "GTEx Expression of " + gene_symbol + '<i class="material-icons icon-black" style="font-size:0.9em">launch</i>' ) // set label to the link to GTEx portal
+        $( "#expression_panel__link_to_GTEx_portal" ).html( "GTEx Expression of " + gene_symbol ) // set label to the link to GTEx portal
         object_plot_scrnaseq.index_acc_human = index_acc_human;
         PlotExpression_scRNA_Seq( ); // update expression plot using scRNA-seq data
     }
-    object_plot_scrnaseq.dict_name_dataset_to_metadata = { 
-        "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI" : { label: "Covid Airway", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/b154c5cb-a4f2-43b3-a970-42e0c66cce79.cxg/' },
-        "BALF_VIB-UGent_processed_cleaned" : { label: "Nasal Epithelia", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/ae466876-e313-45ca-9e12-88e41b0edf89.cxg/' },
-        "ucl-sanger_covid_airway.submit_to_czi.cellxgene" : { label: "Bronchoalveolar lavage fluid", link_to_interactive_viewer: 'https://cellxgene.cziscience.com/e/ecf83c4b-0e01-4be0-ba60-4a4c298224a6.cxg/' }
-    }; // metadata of scRNA-seq data
+    function Select_RemoveOptions( selectElement ) { // remove all option in the select element
+       let length = selectElement.options.length - 1;
+       for( let i = length; i >= 0; i -- ) {
+          selectElement.remove( i );
+       }
+    }
+    function PlotExpression_scRNA_Seq_get_description( record ) { // get description of the dataset of the given record 
+        let text = "";
+        if ( record.category_dataset == "cell_line" ) {
+            text = record.label;
+        } else {
+            text = record.tissue;
+            if ( record.label != null ) {
+                text += ', ' + record.label;
+            }
+        }
+        if ( record.category_dataset == "healthy_donors" ) {
+            text += ' (' + record.publication_description.split( " (" )[ 0 ] + ')';
+        }
+        return text;
+    }
+    function PlotExpression_scRNA_Seq_Update_Select_Options( id_dataset = null ) { // update select options based on selected category_dataset and select 'id_dataset'
+        let select_name_dataset = document.getElementById( 'select__name_dataset__plotly_scrnaseq' );
+        Select_RemoveOptions( select_name_dataset ); // remove all option in the select element
+        let category_dataset = document.getElementById( "select__category_dataset__plotly_scrnaseq" ).value;
+        object_plot_scrnaseq.option.category_dataset = category_dataset;
+        
+        let objOption = document.createElement( "option" );
+        objOption.text = "Select Dataset"; // add a default select option
+        objOption.value = -1;
+        select_name_dataset.options.add( objOption );
+        let arr_metadata = dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ]; // add select options based on the selected 'category_dataset'
+        for ( let i = 0; i < arr_metadata.length; i ++ ) {
+            let record = arr_metadata[ i ];
+            if ( record.category_dataset == category_dataset ) {
+                let objOption = document.createElement( "option" );
+                objOption.text = PlotExpression_scRNA_Seq_get_description( record );
+                objOption.value = i;
+                select_name_dataset.options.add( objOption );
+            }
+        }
+        if ( category_dataset == "patient_donors" ) { // enable the toggle button if 'patient_donors' was chosen
+            document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).disabled = false;
+        } else { // if category_dataset is not patient_donors, disable the toggle button for plotting graphs based on covid_status
+            $( "#checkbox__covid_status__plotly_scrnaseq" ).bootstrapToggle( 'on' )
+            document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).disabled = true;
+        }
+        console.log( "[PlotExpression_scRNA_Seq_Update_Select_Options] selection options updated for " + category_dataset )
+        if ( id_dataset != null ) { // if id_dataset is given, select the dataset
+            for ( let opt, i = 0; opt = select_name_dataset.options[ i ]; i ++ ) {
+                if ( opt.value == -1 ) { select_name_dataset.selectedIndex = i; continue; } // ignore the default select option (select default select option by default)
+                if ( object_data_scrnaseq.metadata[ 'name_file' ][ parseInt( opt.value ) ] == id_dataset ) {
+                    select_name_dataset.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    }
     object_plot_scrnaseq.dict_name_file_to_cached_data = { } // dictionary to save cached data
+    function String_Check_Substring( string, l_substring ) {
+        let flag_contains_substring = false;
+        string = string.toLowerCase( );
+        for ( let i = 0; i < l_substring.length; i ++ ) {
+            let substring = l_substring[ i ].toLowerCase( );
+            if ( string.includes( substring ) ) {
+                flag_contains_substring = true;
+                break;
+            }
+        }
+        return flag_contains_substring;
+    }
+    function PlotExpression_scRNA_Seq_Get_Color_for_name_clus( str_name_clus ) { // return color for the given str_name_clus
+        str_name_clus = str_name_clus.toLowerCase( ); // convert name_clus to lower cases
+        let color = "#48D1CC"
+        if ( String_Check_Substring( str_name_clus, [ 'platelet' ] ) ) {
+            color = "#aec2c1";
+        } else if ( String_Check_Substring( str_name_clus, [ 'mast cell' ] ) ) {
+            color = "#ceb3fc";
+        } else if ( String_Check_Substring( str_name_clus, [ 'uninfected' ] ) ) {
+            color = "#9ef274";
+        } else if ( String_Check_Substring( str_name_clus, [ 'infected' ] ) ) {
+            color = "#ff6b6b";
+        } else if ( String_Check_Substring( str_name_clus, [ 'rbc' ] ) ) {
+            color = "#fc4970";
+        } else if ( String_Check_Substring( str_name_clus, [ 'lymphatic', 'endotheli', 'capillary', 'luminal' ] ) ) {
+            color = "#faf75f";
+        } else if ( String_Check_Substring( str_name_clus, [ 'dendritic', 'pdc', 'cdc', 'dc_', ' dcs' ] ) ) {
+            color = "#64b9fa";
+        } else if ( String_Check_Substring( str_name_clus, [ 'fibroblasts', 'fibs', 'mesenchyme', 'cartilage' ] ) ) {
+            color = "#fa5f5f";
+        } else if ( String_Check_Substring( str_name_clus, [ 'goblet', 'ciliated', 'secretory', 'ionocyte', 'club' ] ) ) {
+            color = "#fce6b6";
+        } else if ( String_Check_Substring( str_name_clus, [ 'alveolar', 'basal', 'squamous', 'epithelia' ] ) ) {
+            color = "#ffbad9";
+        } else if ( String_Check_Substring( str_name_clus, [ 'tcell', 't cell', 't_cell', 't_', 'gd t', 'cd8', 'cd4', 'treg' ] ) ) {
+            color = "#b89eff";
+        } else if ( String_Check_Substring( str_name_clus, [ 'lymphoid', 'hematopo', 'leukocyt', 'immuno', 'monocyte', 'neutrop', 'macro', 'b_cell', 'b cell', 'plasma cell', 'nk', 'eosinophil', 'naive' ] ) ) {
+            color = "#e79eff";
+        }
+        return color;
+    }
     async function PlotExpression_scRNA_Seq( ) { // update expression plot using scRNA-seq data
         return new Promise( async function( resolve, reject ) { 
+            let index_acc_human = object_plot_scrnaseq.index_acc_human, gene_symbol = arr_data_acc_human[ index_acc_human ].Gene_Symbol;
             // retrieve setting for the graph
-            object_plot_scrnaseq.option.name_dataset = document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value;
+            object_plot_scrnaseq.option.index_dataset = parseInt( document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value );
+            let index_dataset = object_plot_scrnaseq.option.index_dataset;
+            if ( index_dataset == -1 ) { return -1; } // skip if default select option is selected
+            let category_dataset = object_plot_scrnaseq.option.category_dataset;
+            let flag_patient_donor = category_dataset == 'patient_donors'
+            console.log( "[PlotExpression_scRNA_Seq] the index of the currently chosen dataset is " + index_dataset );
+            // retrieve settings
             object_plot_scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             object_plot_scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
-            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_plot_scrnaseq.option.name_dataset + ".h5ad.histogram.tsv.gz.base64.txt";
+            object_plot_scrnaseq.option.ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
+            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_data_scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( object_plot_scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
             let name_file = object_plot_scrnaseq.option.name_file;
             let dir_file = object_data_remote_file.base_url + 'base64/' + name_file;
-            if ( ! ( name_file in dict_filename_to_parsed_data ) ) {
+            if ( ! ( name_file in dict_filename_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
                 await LoadRemoteData( [ dir_file ] );
             }
-            if ( ! ( name_file in object_plot_scrnaseq.dictdictarr ) ) {
+            if ( ! ( name_file in object_plot_scrnaseq.dictdictarr ) ) { // if current file has not been preprocessed, perform preprocessing
                 object_plot_scrnaseq.dictdictarr[ name_file ] = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ name_file ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of scrnaseq data
             }
-            let dictdictarr = object_plot_scrnaseq.dictdictarr[ name_file ], index_acc_human = object_plot_scrnaseq.index_acc_human, set_covid_status = { };
-            console.log( dictdictarr, index_acc_human, set_covid_status )
+            let dictdictarr = object_plot_scrnaseq.dictdictarr[ name_file ], set_covid_status = { };
             // retrieve avaliable 'covid status' category values
             object_plot_scrnaseq.l_name_clus = Object.keys( dictdictarr );
+            let l_name_clus = object_plot_scrnaseq.l_name_clus, str_separation = ( l_name_clus.length > object_plot_scrnaseq.setting.thres_n_clusters_for_label_newline ) ? ' ' : '<br>'; // set 'str_separation' based on the number of cells clusters
             for ( let name_clus in dictdictarr ) {
                 for ( let name_covid_status in dictdictarr[ name_clus ] ) {
                     set_covid_status[ name_covid_status ] = 1;
@@ -3180,13 +3306,16 @@
             }
             console.log( set_covid_status )
             object_plot_scrnaseq.l_covid_status = Object.keys( set_covid_status );
+            let l_covid_status = object_plot_scrnaseq.l_covid_status;
             object_plot_scrnaseq.set_covid_status = set_covid_status;
             _ = SubsetDictDictArr( dictdictarr, object_plot_scrnaseq.l_covid_status, true, 0 ); // fill empty columns with zero values
             
-            let metadata_dataset = object_plot_scrnaseq.dict_name_dataset_to_metadata[ object_plot_scrnaseq.option.name_dataset ];
-            document.getElementById( "header_navbar_scrnaseq" ).innerHTML = "Single Cell Expression of " + arr_data_acc_human[ index_acc_human ].Gene_Symbol; // update header label of the scrnaseq panel
-            document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = 'Launch an interactive viewer of "' + metadata_dataset.label + '" dataset<i class="material-icons icon-black" style="font-size:0.7em">launch</i>' // update the text and link to the interactive panel.
-            $( "#expression_panel__link_to_cellxgene" ).attr( "href", metadata_dataset.link_to_interactive_viewer );
+            let metadata_dataset = dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ][ index_dataset ];
+            let description_dataset = PlotExpression_scRNA_Seq_get_description( metadata_dataset ); // retrieve description of the dataset
+            
+            document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = "Single Cell Expression of " + gene_symbol; // update header label of the scrnaseq panel
+            $( "#expression_panel__link_to_cellxgene" ).attr( "href", ( flag_patient_donor ? "https://www.covid19cellatlas.org/" : metadata_dataset.link_interactive_viewer ) ); // currently cellxgene for patient_donors are currently unavailable (the address keeps changing)
+            $( "#expression_panel__link_to_publication" ).attr( "href", metadata_dataset.publication_link );
             if ( ! ( name_file in object_plot_scrnaseq.dict_name_file_to_cached_data ) ) {
                 object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ] = { data: { }, metadata: { time: { } } };
             } // initialize dictionary for storing cached data
@@ -3206,88 +3335,195 @@
                     delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ key_least_recently_used ];
                     delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ key_least_recently_used ];
                 } // if cache is full, evict least recently used data
-                // build list of traces for each category
-                let trace_template = { 
-                    type: 'violin',
-                    opacity: 0.6
-    //                 ,
-    //                 box: { visible: true },
-    //                 meanline: { visible: true }
-                };
-                let l_trace = [ ], l_trace_covid_status = [ ], dict_flag_legend_shown = { }; // two lists of traces for traces for all cells and traces for each covid_status
-                let start_histogram = object_plot_scrnaseq.setting.histogram.start, step_histogram = object_plot_scrnaseq.setting.histogram.step;
-                for ( let name_clus in dictdictarr ) {
-                    let n_cells_all = 0, l_expression_reconstructed_all = [ ], l_label = [ "", "" ];
-                    for ( let name_covid_status in set_covid_status ) {
-                        let entry = dictdictarr[ name_clus ][ name_covid_status ][ index_acc_human ];
-                        let l_count_histogram = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : [ entry ]; // parse the string into a list of counts for a histogram.
-                        let n_cells = ArraySum( l_count_histogram ); // retrieve number of cells for the current category
-                        let seed = xmur3( "molecular_mimicry_map_of_SARS-CoV-2__scRNA-Seq_expression" ), rand = mulberry32( seed( ) ); // retrieve seed for a PRNG // retrieve a function for PRNG
-                        // use [ 0 ] to avoid using empty list to draw plot
-                        let l_expression_reconstructed = object_plot_scrnaseq.setting.ignore_zero_count_cells ? [ 0 ] : ArrayFull( l_count_histogram[ 0 ], 0 ); // add 0 expression values to the reconstructed values if 'object_plot_scrnaseq.setting.ignore_zero_count_cells' is false. 
-                        for ( let i = 1; i < l_count_histogram.length; i ++ ) {
-                            let count = l_count_histogram[ i ], mean = start_histogram + step_histogram * ( i - 0.5 ) ;
-                            for ( let j = 0; j < count; j ++ ) {
-                                l_expression_reconstructed.push( mean + ( rand( ) - 0.5 ) * step_histogram )
+                if ( ! object_plot_scrnaseq.option.proportion ) { // draw expression data
+                    // build list of traces for each category
+                    let trace_template = { 
+                        type: 'violin',
+                        opacity: 0.6,
+                        box: { visible: true, width: 0.075 },
+                        meanline: { visible: true }
+                    };
+                    let l_trace = [ ], l_trace_covid_status = [ ], dict_flag_legend_shown = { }; // two lists of traces for traces for all cells and traces for each covid_status 
+                    let start_histogram = object_plot_scrnaseq.setting.histogram.start, step_histogram = object_plot_scrnaseq.setting.histogram.step;
+                    for ( let name_clus in dictdictarr ) {
+                        let l_expression_reconstructed_all = [ ], l_float_mean_expression = [ 0, 0 ], l_n_cells = [ 0, 0 ], l_n_cells_with_zero_count = [ 0, 0 ];
+                        for ( let name_covid_status in set_covid_status ) {
+                            let entry = dictdictarr[ name_clus ][ name_covid_status ][ index_acc_human ];
+                            let l_count_histogram = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : [ entry ]; // parse the string into a list of counts for a histogram.
+                            let n_cells = ArraySum( l_count_histogram ), n_cells_with_zero_count = l_count_histogram[ 0 ]; // retrieve number of cells for the current category
+                            // retrieve a mean expression of cells for the current trace
+                            let sum_expression = 0;
+                            for ( let i = 0; i < l_count_histogram.length; i ++ ) {
+                                sum_expression += ( start_histogram + ( i == 0 ? 0 : step_histogram * ( i - 0.5 ) ) ) * l_count_histogram[ i ];
                             }
-                        }
+                            let float_mean_expression = sum_expression / n_cells || 0;
+                            let seed = xmur3( "molecular_mimicry_map_of_SARS-CoV-2__scRNA-Seq_expression" ), rand = mulberry32( seed( ) ); // retrieve seed for a PRNG // retrieve a function for PRNG
+                            // use [ 0 ] to avoid using empty list to draw plot
+                            
+                            let l_expression_reconstructed = [ 0 ];
+                            for ( let i = 1; i < l_count_histogram.length; i ++ ) {
+                                let count = l_count_histogram[ i ], mean = start_histogram + step_histogram * ( i - 0.5 ) ;
+                                for ( let j = 0; j < count; j ++ ) {
+                                    l_expression_reconstructed.push( mean + ( rand( ) - 0.5 ) * step_histogram )
+                                }
+                            }
+                           let color = "", side = "", index_label = 0;
+                            if ( name_covid_status.includes( "Symptomatic" ) | name_covid_status.includes( "Positive" ) ) {
+                                color = "#FF6347";
+                                side = "positive";
+                                index_label = 1;
 
-                        let color = "", side = "", index_label = 0;
-                        if ( name_covid_status.includes( "Symptomatic" ) | name_covid_status.includes( "Positive" ) ) {
-                            color = "#FF6347";
-                            side = "positive";
-                            index_label = 1;
-
-                        } else {
-                            color = "#00FA9A";
-                            side = "negative";
-                            index_label = 0;
+                            } else {
+                                color = "#00FA9A";
+                                side = "negative";
+                                index_label = 0;
+                            }
+                            l_float_mean_expression[ index_label ] = float_mean_expression;
+                            l_n_cells[ index_label ] = n_cells;
+                            l_n_cells_with_zero_count[ index_label ] = n_cells_with_zero_count;
+                            if ( flag_patient_donor ) {
+                                let trace = { ... trace_template,
+                                             x0: "",
+                                             y: [ ],
+                                             legendgroup: name_covid_status,
+                                             scalegroup: name_clus + ' ' + name_covid_status, // each violin plot is scaled separately
+                                             name: name_covid_status,
+                                             side: side,
+                                             showlegend: ! ( name_covid_status in dict_flag_legend_shown ), // aggregate legends (show label for each 'name_covid_status' only once)
+                                             line: { color: color, width: 2 },
+                                             points: false, // do not show outliers since this is reconstructed data and thus a bit inaccurate.
+                                             y_ignore_cells_with_zero_counts__true: l_expression_reconstructed,
+                                             y_ignore_cells_with_zero_counts__false: ArrayFull( n_cells_with_zero_count, 0 ).concat( l_expression_reconstructed ), // add 0 expression values to the reconstructed values if 'object_plot_scrnaseq.option.ignore_cells_with_zero_counts' is false. 
+                                             n_cells: n_cells,
+                                             n_cells_with_zero_count: n_cells_with_zero_count,
+                                             name_clus: name_clus,
+                                             mean_expression_for_sorting: float_mean_expression
+                                            };
+                                dict_flag_legend_shown[ name_covid_status ] = 1; // set flag
+                                l_trace_covid_status.push( trace );
+                            }
+                            l_expression_reconstructed_all = l_expression_reconstructed_all.concat( l_expression_reconstructed );
                         }
-                        l_label[ index_label ] = "n=" + n_cells;
+                        if ( flag_patient_donor ) {
+                            // join two numbers of cells to create a label for two joined violin plots.
+                            let label_overlay = name_clus + str_separation + '(n=' + l_n_cells[ 0 ] + '/n=' + l_n_cells[ 1 ] + ')'; 
+                            l_trace_covid_status[ l_trace_covid_status.length - 1 ].x0_ignore_cells_with_zero_counts__false = label_overlay;
+                            l_trace_covid_status[ l_trace_covid_status.length - 2 ].x0_ignore_cells_with_zero_counts__false = label_overlay;
+                            let label_overlay_ignore_cells_with_zero_counts = name_clus + str_separation + '(n=' + ( l_n_cells[ 0 ] - l_n_cells_with_zero_count[ 0 ] ) + ' of ' + l_n_cells[ 0 ] + '/n=' + ( l_n_cells[ 1 ] - l_n_cells_with_zero_count[ 1 ] ) + ' of ' + l_n_cells[ 1 ] + ')'; 
+                            l_trace_covid_status[ l_trace_covid_status.length - 1 ].x0_ignore_cells_with_zero_counts__true = label_overlay_ignore_cells_with_zero_counts;
+                            l_trace_covid_status[ l_trace_covid_status.length - 2 ].x0_ignore_cells_with_zero_counts__true = label_overlay_ignore_cells_with_zero_counts;
+                        }
+                        let n_cells_all = ArraySum( l_n_cells ), n_cells_with_zero_count_all = ArraySum( l_n_cells_with_zero_count );
                         let trace = { ... trace_template,
-                                     x0: "",
-                                     y: l_expression_reconstructed,
-                                     legendgroup: name_covid_status,
-                                     scalegroup: name_clus + ' ' + name_covid_status, // each violin plot is scaled separately
-                                     name: name_covid_status,
-                                     side: side,
-                                     showlegend: ! ( name_covid_status in dict_flag_legend_shown ), // aggregate legends (show label for each 'name_covid_status' only once)
-                                     line: { color: color, width: 2 },
-                                     points: false // do not show outliers since this is reconstructed data and thus a bit inaccurate.
+                                     x0: "", 
+                                     y: [ ],
+                                     name: name_clus,
+                                     line: { color: 'black', width: 2 },
+                                     fillcolor: PlotExpression_scRNA_Seq_Get_Color_for_name_clus( name_clus ),
+                                     points: false, // do not show outliers since this is reconstructed data and thus a bit inaccurate.
+                                     y_ignore_cells_with_zero_counts__true: l_expression_reconstructed_all,
+                                     y_ignore_cells_with_zero_counts__false: ArrayFull( n_cells_with_zero_count_all, 0 ).concat( l_expression_reconstructed_all ),
+                                     x0_ignore_cells_with_zero_counts__true: name_clus + str_separation + "(n=" + ( n_cells_all - n_cells_with_zero_count_all ) + ' of ' + n_cells_all + ')',
+                                     x0_ignore_cells_with_zero_counts__false: name_clus + str_separation + "(n=" + n_cells_all + ')',
+                                     mean_expression_for_sorting: ( flag_patient_donor ? ( l_float_mean_expression[ 0 ] * l_n_cells[ 0 ] + l_float_mean_expression[ 1 ] * l_n_cells[ 1 ] ) / n_cells_all : ArraySum( l_float_mean_expression ) )
                                     };
-                        dict_flag_legend_shown[ name_covid_status ] = 1; // set flag
-                        l_trace_covid_status.push( trace )
-                        l_expression_reconstructed_all = l_expression_reconstructed_all.concat( l_expression_reconstructed )
-                        n_cells_all = n_cells_all + n_cells
+                        l_trace.push( trace );
                     }
-                    let label_overlay = name_clus + ' (' + l_label.join( '/' ) + ')'; // join two numbers of cells to create a label for two joined violin plots.
-                    l_trace_covid_status[ l_trace_covid_status.length - 1 ].x0 = label_overlay; // update x label
-                    l_trace_covid_status[ l_trace_covid_status.length - 2 ].x0 = label_overlay;
-                    let trace = { ... trace_template,
-                                 x0: name_clus + " (n=" + n_cells_all + ')',
-                                 y: l_expression_reconstructed_all,
-                                 name: name_clus,
-                                 line: { color: 'black', width: 2 },
-                                 fillcolor: "#48D1CC",
-                                 points: false // do not show outliers since this is reconstructed data and thus a bit inaccurate.
-                                };
-                    l_trace.push( trace );
+                    object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace.sort( SortViolineTrace_Expression ), l_trace_covid_status: l_trace_covid_status.sort( SortViolineTrace_Expression ) }; // update data of the cache
+                } else { // plot proportion graph using bar graph
+                    let l_l_l_data = [ [ ], [ ] ], flag_gene_of_interestion_is_available = dictdictarr[ l_name_clus[ 0 ] ][ l_covid_status[ 0 ] ][ index_acc_human ].split( ',' ).length == 4; // retrieve flag indicating the number of counts are 4 or 2. Also, l_l_l_data contains index in the following order: covid_status > name_clus > [ n_cells ] + [ count data ] + [ proportion data ]
+                    for ( let i = 0; i < l_covid_status.length; i ++ ) {
+                        let name_covid_status = l_covid_status[ i ], index_covid_status = ( name_covid_status.includes( "Symptomatic" ) | name_covid_status.includes( "Positive" ) ) ? 1 : 0; // negative = index 0, positive = index 1.
+                        for ( let j = 0; j < l_name_clus.length; j ++ ) {
+                            let name_clus = l_name_clus[ j ], entry = dictdictarr[ name_clus ][ name_covid_status ][ index_acc_human ];
+                            let l_count = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : ( flag_gene_of_interestion_is_available ? [ 0, 0, 0, 0 ] : [ 0, 0 ] ); // parse the string, and put an empty data based on 'flag_gene_of_interestion_is_available'
+                            
+                            let n_cells = ArraySum( l_count );
+                            l_l_l_data[ index_covid_status ].push( [ n_cells ].concat( l_count ).concat( ArrayMultiply( l_count, 1 / n_cells ) ) ); // each row contains [ n_cells ] + [ count data ] + [ proportion data ] of a 'name_clus'
+                        }
+                    }
+                    console.log( l_l_l_data );
+                    let l_l_data = [ ], l_trace = [ ];
+                    if ( flag_patient_donor ) {
+                        l_l_data = nj.array( l_l_l_data[ 1 ] ).add( l_l_l_data[ 0 ] ).tolist( ); // sum n_cells for two covid_status
+                        let l_l = [ ];
+                        for ( let i = 0; i < l_l_data.length; i ++ ) {
+                            let l_count = l_l_data[ i ].slice( 1, 5 ), n_cells = l_l_data[ i ][ 0 ];
+                            l_l.push( [ n_cells ].concat( l_count ).concat( ArrayMultiply( l_count, 1 / n_cells ) ) ) // recalculate proportions
+                        }
+                        l_l_data = l_l;
+                    } else {
+                        l_l_data = l_l_l_data[ 0 ];
+                    }
+                    l_l_data = ArrayTranspose( l_l_data );
+                    let l_name_trace = [ ]; // assign names of traces
+                    for ( let i = 0; i < l_l_data[ 0 ].length; i ++ ) {
+                        l_name_trace.push( l_name_clus[ i ] + str_separation + '(n=' + l_l_data[ 0 ][ i ] + ')' )
+                    }
+                    l_l_data.push( l_name_trace );
+                    console.log( l_l_data );
+                    let gene_of_interest = object_plot_scrnaseq.setting.gene_of_interest;
+                    if ( flag_gene_of_interestion_is_available ) {
+                        let l_name_trace = [ 'cells positive for ' + gene_symbol + ' and ' + gene_of_interest, 'cells positive for ' + gene_symbol + ' but negative for ' + gene_of_interest, 'cells negative for ' + gene_symbol + ' but positive for ' + gene_of_interest, 'cells negative for ' + gene_symbol + ' and ' + gene_of_interest ], l_color_face = [ "#ff5736", "#ffcc5e", "#a592b0", "#bababa" ], l_color_line = [ "#a14432", "#9e8857", "#84768c", "#757575" ];
+                        let arr_data = ArrayTranspose( ArrayTranspose( l_l_data ).sort( ( a, b ) => { return b[ 6 ] - a[ 6 ]; } ) ); // sort by second proportion
+                        for ( let i = 0; i < 4; i ++ ) {
+                            l_trace.push( { 
+                                x: arr_data[ 9 ], // l_name_trace
+                                y: arr_data[ i + 5 ],
+                                name: l_name_trace[ i ],
+                                type: 'bar',
+                                marker: {
+                                    color: l_color_face[ i ],
+                                    opacity: 0.6,
+                                    line: { color: l_color_line[ i ], width: 1.5 } }
+                            } );
+                        }
+                    } else {
+                        let l_name_trace = [ 'cells positive for ' + gene_symbol, 'cells negative for ' + gene_symbol ], l_color_face = [ "#ffcc5e", "#bababa" ], l_color_line = [ "#9e8857", "#757575" ];
+                        let arr_data = ArrayTranspose( ArrayTranspose( l_l_data ).sort( ( a, b ) => { return b[ 3 ] - a[ 3 ]; } ) ); // sort by second proportion
+                        for ( let i = 0; i < 2; i ++ ) {
+                            l_trace.push( { 
+                                x: arr_data[ 5 ], // l_name_trace
+                                y: arr_data[ i + 3 ],
+                                name: l_name_trace[ i ],
+                                type: 'bar',
+                                marker: {
+                                    color: l_color_face[ i ],
+                                    opacity: 0.6,
+                                    line: { color: l_color_line[ i ], width: 1.5 } }
+                            } );
+                        }
+                    }
+                    object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace }; // update data of the cache
                 }
-                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace, l_trace_covid_status: l_trace_covid_status }; // update data of the cache
             } else { 
                 console.log( "[PlotExpression_scRNA_Seq] cached data is available ... using cached data" );
             }
-            object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
-            let layout = {
-                margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
-                yaxis: { title : "Normalized Expression", rangemode: "nonnegative" },
-                legend: { tracegroupgap: 0 },
-                violingap: 0, // split violin plot for two covid statuses
-                violingroupgap: 0,
-                violinmode: "overlay",
+            if ( ! object_plot_scrnaseq.option.proportion ) { // plot expression data
+                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
+                let layout = {
+                    margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
+                    yaxis: { title : "Normalized Expression", rangemode: "nonnegative" },
+                    legend: { tracegroupgap: 0 },
+                    violingap: 0, // split violin plot for two covid statuses
+                    violingroupgap: 0,
+                    violinmode: "overlay",
+                }
+                let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
+                let l_trace = object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace;
+                for ( let i = 0; i < l_trace.length; i ++ ) { // swap y and x0 values based on the 'object_plot_scrnaseq.option.ignore_cells_with_zero_counts' setting
+                    l_trace[ i ].x0 = object_plot_scrnaseq.option.ignore_cells_with_zero_counts ? l_trace[ i ].x0_ignore_cells_with_zero_counts__true : l_trace[ i ].x0_ignore_cells_with_zero_counts__false ;
+                    l_trace[ i ].y = object_plot_scrnaseq.option.ignore_cells_with_zero_counts ? l_trace[ i ].y_ignore_cells_with_zero_counts__true : l_trace[ i ].y_ignore_cells_with_zero_counts__false ;
+                }
+                Plotly.newPlot( plotscrnaseq, l_trace, layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.tissue + '__Expression_of_' + gene_symbol, height: 750, width: 1100 } );
+            } else { // plot proportion data
+                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
+                let layout = { barmode: 'stack',
+                               margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
+                               yaxis: { title : "Proportion of cells in each cluster", range: [ 0, 1 ] }, };
+                let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
+                Plotly.newPlot( plotscrnaseq, data.l_trace, layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.tissue + '__Proportion_of_' + gene_symbol, height: 750, width: 1100 } );
             }
-            let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
-            Plotly.newPlot( plotscrnaseq, ( object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace ), layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.label + '__Expression_of_' + arr_data_acc_human[ index_acc_human ].Gene_Symbol, height: 750, width: 1100 } );
         }); 
     }
     async function ClickCallBack_BCellCrossReactivity( index ) { // a click callback function for a B-cell cross reactivity prediction result
