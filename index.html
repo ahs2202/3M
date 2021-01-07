@@ -3,16 +3,18 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-427H1D2L7D"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-427H1D2L7D');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-427H1D2L7D');
 </script>
-<head>	   
+<head>
     <!-- Required meta tags (add the responsive viewport meta tag) -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Molecular Mimicry Map of SARS-CoV-2 web application">
+    <title>Molecular Mimicry Map of SARS-CoV-2</title>
     
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://www.ebi.ac.uk/pdbe/pdb-component-library/css/pdbe-molstar-light-1.1.0-dev.4.css">
@@ -60,6 +62,10 @@
     <!-- Bootstrap-Toggle.js more more animated toggle button -->
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<!--   Tagify for search bar interaction   -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.21.5/dist/tagify.css" integrity="sha256-JQCBuvZzuXrKFdHRTVW23P/DqnFsfvbI3kraGJhPyNA=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.21.5/dist/tagify.min.js" integrity="sha256-6QmUlbXKkm+RVqvqtIzhhDQ3cqRkuREeUhNJDnL2ujM=" crossorigin="anonymous"></script>
+    
     <!--To use font-awesome icons -->
 <!--     <script src="https://kit.fontawesome.com/b773d81884.js" crossorigin="anonymous"></script> -->
     <!-- Fussy search package for alignment of given peptide sequences to consensus sequence -->
@@ -289,11 +295,17 @@
 <!--             <li class="nav-item active">
                 <a class="nav-link" type="button" data-toggle="collapse" data-target="#container_fileLoader" aria-controls="container_fileLoader" aria-expanded="false" aria-label="Toggle container_fileLoader">Files</a>
             </li> -->
-            <li class="nav-item">
+<!--             <li class="nav-item">
                 <a class="nav-link">Citation</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Feedback</a>
+            </li> -->
+            <li class="nav-item">
+                <select class="custom-select w-auto mx-2 my-0" id="select_dataset_sars_cov_2_genomes" title="select dataset" onchange="Load_Dataset_SARS_CoV_2_Genomes( )">
+                    <option selected value="NCBI_Virus_human_host_SARS_CoV_2">8,138 SARS-CoV-2 Genomes (NCBI-Virus, 06/26/2020)</option>
+                    <option value="gisaid.allprot1114.valid.nonredundant">196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
+                </select>
             </li>
         </ul>
         <button type="button" class="btn btn-light bth-sm ml-auto mr-1 my-0" aria-label="capture current view and download it as a PNG file" data-tooltip="tooltip" data-placement="left" data-html="true" title="Capture <b>current view</b> and download it as a PNG file" onclick="DownloadCurrentView( )"><i class="material-icons icon-black" style="font-size:25px">camera_alt</i></button>
@@ -321,9 +333,9 @@
                         <div class="btn-group-toggle ml-1 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> B-cell cross-reactivity prediction data" aria-label="Press to toggle B-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_BCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">B-Cell Cross-Reactivity</label></div>
                         <div class="btn-group-toggle ml-0 mr-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> T-cell cross-reactivity prediction data" aria-label="Press to toggle T-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" checked onclick="Toggle_TCellCrossReactivityPrediction_MolecularMimicryMap( )" autocomplete="off">T-Cell Cross-Reactivity</label></div>
                         <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> SARS-CoV-2 virus protein annotations and InterPro protein domain annotations" aria-label="Press to toggle SARS-CoV-2 virus protein annotations and InterPro protein domain annotations"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_VirusProteinAnnotation_MolecularMimicryMap" checked onclick="Toggle_VirusProteinAnnotation_MolecularMimicryMap( )" autocomplete="off">Virus Protein Annotations</label></div>
-                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> immuno prediction data" aria-label="Press to toggle visibility of B-cell cross-reactivity prediction data and T-cell cross-reactivity prediction data"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_vaccine_metrics_MolecularMimicryMap" checked onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Vaccine Metrics</label></div>
-                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> <i>immunogenicity prediction data</i> (MHC binding prediction) and <i>number of mutated proteins</i> for each mutation" aria-label="Press to toggle immunogenicity prediction data (MHC binding prediction) and number of mutated proteins for each mutation"><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_iedb_epitope_virus_MolecularMimicryMap" checked onclick="Toggle_IEDB_Epitope_Virus_MolecularMimicryMap( )" autocomplete="off">IEDB Epitopes</label></div>
-                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> potential (peptide) <b>vaccine candidates</b>." aria-label="Press to toggle potential (peptide) vaccine candidates."><label class="btn btn-light btn-sm active"><input type="checkbox" id="checkbox_toggle_vaccine_design_MolecularMimicryMap" checked onclick="Toggle_VaccineDesign_MolecularMimicryMap( )" autocomplete="off">Vaccine Candidates</label></div>
+                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> immuno prediction data" aria-label="Press to toggle visibility of immunogenicity prediction of reference SARS-CoV-2 proteins"><label class="btn btn-light btn-sm" id="btn_toggle_vaccine_metrics"><input type="checkbox" id="checkbox_toggle_vaccine_metrics_MolecularMimicryMap" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Vaccine Metrics</label></div>
+                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> <i>immunogenicity prediction data</i> (MHC binding prediction) and <i>number of mutated proteins</i> for each mutation" aria-label="Press to toggle immunogenicity prediction data (MHC binding prediction) and number of mutated proteins for each mutation"><label class="btn btn-light btn-sm" id="btn_toggle_iedb_epitopes"><input type="checkbox" id="checkbox_toggle_iedb_epitope_virus_MolecularMimicryMap" onclick="Toggle_IEDB_Epitope_Virus_MolecularMimicryMap( )" autocomplete="off">IEDB Epitopes</label></div>
+                        <div class="btn-group-toggle mx-1 my-0" data-toggle="buttons" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> potential (peptide) <b>vaccine candidates</b>." aria-label="Press to toggle potential (peptide) vaccine candidates."><label class="btn btn-light btn-sm" id="btn_toggle_vaccine_design"><input type="checkbox" id="checkbox_toggle_vaccine_design_MolecularMimicryMap" onclick="Toggle_VaccineDesign_MolecularMimicryMap( )" autocomplete="off">Vaccine Candidates</label></div>
                         <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="collapse" data-toggle="button" data-target="#navbar_vaccine_design" aria-expanded="false" aria-controls="navbar_vaccine_design" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a panel for <i>designing (peptide) vaccine candidates</i> against SARS-CoV-2 virus, considering <b>both</b> <i>immunogenicity</i> <b>and</b> <i>potential molecular mimicry</i> between the virus and human. (could be important for people predisposed to autoimmune diseases)" aria-label="Press to toggle a panel for designing a (peptide) vaccine candidate against SARS-CoV-2 virus, considering both immunogenicity and potential molecular mimicry between the virus and human.">Vaccine Design Panel</button>
                     </form>
                 </nav>
@@ -345,7 +357,7 @@
                             <div class="btn-toolbar" role="toolbar">
                                 <div class="input-group mx-2 my-2">
                                     <div class="input-group-prepend"><span class="input-group-text">Plot top</span></div>
-                                    <input type="text" class="form-control" aria-label="the number of alignments for plotting" id="input_n_alignments_for_plotting_BCellCrossReactivity" title="input field for setting the number of alignments for plotting B Cell Cross-Reactivity prediciton data" value="5000">
+                                    <input type="text" class="form-control" aria-label="the number of alignments for plotting" id="input_n_alignments_for_plotting_BCellCrossReactivity" title="input field for setting the number of alignments for plotting B Cell Cross-Reactivity prediciton data" value="1000">
                                     <div class="input-group-append"><span class="input-group-text">most significant</span></div>
                                     <select class="custom-select w-auto" id="select_redundancy_level_BCellCrossReactivity" title="select redundancy level of B cell cross-reactivity prediction data">
                                         <option value="nonredundant_position">select redundancy level</option>
@@ -397,7 +409,7 @@
                             <div class="btn-toolbar" role="toolbar">
                                 <div class="input-group mx-2 my-2">
                                     <div class="input-group-prepend"><span class="input-group-text">Plot top</span></div>
-                                    <input type="text" class="form-control" aria-label="the number of alignments for plotting" id="input_n_alignments_for_plotting_TCellCrossReactivity" title="input field for setting the number of alignments for plotting T Cell Cross-Reactivity prediciton data" value="5000">
+                                    <input type="text" class="form-control" aria-label="the number of alignments for plotting" id="input_n_alignments_for_plotting_TCellCrossReactivity" title="input field for setting the number of alignments for plotting T Cell Cross-Reactivity prediciton data" value="1000">
                                     <div class="input-group-append"><span class="input-group-text">most significant</span></div>
                                     <select class="custom-select w-auto" id="select_redundancy_level_TCellCrossReactivity" title="select redundancy level of T cell cross-reactivity prediction data">
                                         <option value="nonredundant_aligned_position">select redundancy level</option>
@@ -498,6 +510,9 @@
                 </form>
                 <button type="button" class="close" aria-label="Close navbar_vaccine_design" data-toggle="collapse" data-target="#navbar_vaccine_design"><span aria-hidden="true">&times;</span></button>
             </nav>
+        </div>
+        <div id="container_searchbox_main">
+            <input name='tags' id='searchbox_main' placeholder='Enter Gene Symbol' value='' data-blacklist='.NET,PHP'>
         </div>
         <div id="container_graph_molecular_mimicry_map">
             <div id="plotly_graph_molecular_mimicry_map"></div>
@@ -637,11 +652,12 @@
                     <button type="button" class="btn btn-light mx-0 my-0" id="button_display_datatable" aria-pressed="false" onclick="Display_DataTable( )" autocomplete="off">Show</button>
                     <button class="btn btn-light ml-1 mr-2 my-0" type="button" onclick="Download_DataTable( )" data-tooltip="tooltip" data-placement="bottom" title="Press to download current datatable as a CSV file"><i class="material-icons icon-black" style="font-size:20px;cursor:pointer">get_app</i></button> 
                 </div>
-                <form class="form-inline">
+<!--        currently searching using the search box above the datatable is not supported       -->
+<!--                 <form class="form-inline">
                     <input class="form-control" type="search" placeholder="Highlight Value" aria-label="Highlight Value" id="input_highlight_value">
                     <button class="btn btn-light mx-2 my-0" type="button" onclick="Highlight_MolecularMimicryMap( )">Highlight</button>
                     <button class="btn btn-light mx-2 my-0" type="button" onclick="Clear_Highlight_MolecularMimicryMap( )">Clear Highlight</button>
-                </form>
+                </form> --> 
                 <button type="button" class="close" aria-label="Close container_datatable_panel_MolecularMimicryMap" data-toggle="collapse" data-target="#container_datatable_panel_MolecularMimicryMap"><span aria-hidden="true">&times;</span></button>
             </nav>
             <div id="container_datatable_MolecularMimicryMap"><table id="datatable_MolecularMimicryMap" class="display" width="100%"></table></div>
@@ -667,11 +683,11 @@
             </nav>
             <div id="container_plotly_scrnaseq" class="collapse show">
                 <nav class="navbar navbar-dark bg-custom-navbar-secondary">
-                    <div data-toggle="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution" style="margin-right: 15px">
+                    <div data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open an interactive single-cell expression viewer</b> to further explore the expression of the gene at a single cell resolution" style="margin-right: 15px">
                         <a class="navbar-brand my-0" style="font-size: 1em; font-weight: bold; margin-right: 0px !important" id="expression_panel__link_to_cellxgene" href="" target="_blank" rel="noopener noreferrer">Single Cell Expression</a>
                         <i class="material-icons icon-white" style="font-size:17px;cursor:pointer">launch</i>
                     </div>
-                    <div data-toggle="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open a link</b> to the publication of the current <i>single cell RNA-Seq</i> study">
+                    <div data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>open a link</b> to the publication of the current <i>single cell RNA-Seq</i> study">
                         <a class="navbar-brand my-0" style="font-size: 0.75em; font-weight: bold; margin-right: 0px !important" id="expression_panel__link_to_publication" href="" target="_blank" rel="noopener noreferrer" >Publication</a>
                         <i class="material-icons icon-white" style="font-size:14px;cursor:pointer">launch</i>
                     </div>
@@ -905,12 +921,12 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav_top" aria-controls="navbarNav_top" aria-expanded="false" aria-label="Toggle top navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav_top">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+<!--                     <li class="nav-item">
                         <a class="nav-link">Citation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Feedback</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -988,6 +1004,9 @@
 </div>
 <div id="loading_screen"></div>
 <script>
+// packages
+var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||window.WebKitMutationObserver,function(t,i){t&&1===t.nodeType&&(e?new e((function(t,e){i(t)})).observe(t,{childList:!0,subtree:!1}):window.addEventListener&&t.addEventListener("DOMNodeInserted",i,!1))});function n(t,e){if(!t)return this;e=e||{},this.parentElm=t,this.uid=e.uid,this.settings={selector:"*",callbacks:{}},Object.assign(this.settings,e),this.setup(),a(this.parentElm,this.setup.bind(this)),this.bindEvents()}return n.prototype={namespace:"dragsort",setup(){[...this.parentElm.childNodes].forEach(t=>{if(1!=t.nodeType)return t.parentNode.removeChild(t);t.matches(this.settings.selector)&&(t.draggable=!0)}),this.gap=this.getItemsGap(this.parentElm.firstElementChild)},throttle(t,e){var i=!1,s=this;return function(r){i||(t.call(s,r),i=!0,setTimeout(()=>i=!1,e))}},getDraggableElm(t){var e=t.closest('[draggable="true"]');return this.uid==s.uid?e:null},dragstart(t,e){s=this;var i,r=this.getDraggableElm(e);r?(this.source=this.getInitialState(),this.target=this.getInitialState(),i=r.getBoundingClientRect(),this.source.elm=r,this.source.idx=this.getNodeIndex(r),this.source.size.width=i.width,this.source.size.height=i.height,t.dataTransfer.effectAllowed="move",setTimeout(this.afterDragStart.bind(this))):s={}},afterDragStart(){var t="vertical"==this.settings.mode?"height":"width";this.parentElm.classList.add(this.namespace+"--dragStart"),this.source.elm.style[t]=this.source.size[t]+"px",this.source.elm.classList.add(this.namespace+"--dragElem")},dragover(t){t.preventDefault(),t.stopPropagation();var e=t.target;if((e=this.getDraggableElm(e))&&this.target){var i=this.target.elm,s=this.target.hoverDirection;t.dataTransfer.dropEffect="move",this.target.hoverDirection=this.getTargetDirection(t),i==e&&s==this.target.hoverDirection||this.directionAwareDragEnter(t,e)}},dragenter(t,e){(e=this.getDraggableElm(e))&&this.target&&this.isValidElm(e)&&this.source.elm!=e&&this.source.elm&&(this.target.bounding=e.getBoundingClientRect())},directionAwareDragEnter(t,e){var i;t.preventDefault(),t.stopPropagation(),t.dataTransfer.dropEffect="none",this.isValidElm(e)&&this.source.elm!=e&&this.source.elm&&(t.dataTransfer.dropEffect="move",this.cleanupLastTarget(),this.target.elm=e,this.target.idx=this.getNodeIndex(e),e.classList.add("over"),i=Math.abs(this.target.idx-this.source.idx),this.source.elm.classList.toggle(this.namespace+"--hide",i>0),"vertical"==this.settings.mode?this.target.elm.style[this.target.hoverDirection?"marginBottom":"marginTop"]=this.source.size.height+this.gap+"px":this.target.elm.style[this.target.hoverDirection?"marginRight":"marginLeft"]=this.source.size.width+this.gap+"px")},dragend(t){if(clearTimeout(this.dragoverTimeout),this.dragoverTimeout=null,this.parentElm.classList.remove(this.namespace+"--dragStart"),!this.isValidElm(this.target.elm))return this.cleanup();var e=this.target.hoverDirection?this.target.elm.nextElementSibling:this.target.elm;return this.source.elm!=this.target.elm&&this.target.elm&&(this.target.elm.classList.add(this.namespace+"--noAnim"),this.cleanup(),this.parentElm.insertBefore(this.source.elm,e)),this.source.elm&&this.source.elm.classList.remove(this.namespace+"--dragElem",this.namespace+"--hide"),this.settings.callbacks.dragEnd(this.source.elm),this},isTargetLastChild(){return this.parentElm.lastElementChild==this.target.elm},getTargetDirection(t){if(this.target.bounding)return"vertical"==this.settings.mode?t.pageY>this.target.bounding.top+this.target.bounding.height/2?1:0:t.pageX>this.target.bounding.left+this.target.bounding.width/2?1:0},getNodeIndex(t){for(var e=0;t=t.previousSibling;)3==t.nodeType&&/^\s*$/.test(t.data)||e++;return e},isValidElm(t){return t&&t.nodeType&&t.parentNode==this.parentElm},cleanup(){s={},[...this.parentElm.children].forEach(t=>{t.removeAttribute("style"),setTimeout(()=>{t.classList.remove(this.namespace+"--over",this.namespace+"--noAnim",this.namespace+"--dragElem")},50)})},cleanupLastTarget(){this.target.elm&&(this.target.elm.classList.remove(this.namespace+"--hide",this.namespace+"--over"),this.target.elm.removeAttribute("style"))},getInitialState:()=>({elm:null,size:{}}),getItemsGap(t){var e=getComputedStyle(t);return"vertical"==this.settings.mode?parseInt(e.marginTop)+parseInt(e.marginBottom):parseInt(e.marginLeft)+parseInt(e.marginRight)},bindEvents(t){for(var e in this.listeners=this.listeners||{dragstart:t=>this.dragstart(t,t.target),dragenter:t=>this.dragenter(t,t.target),dragend:t=>this.dragend(t,t.target),dragover:this.throttle(this.dragover,350)},this.listeners)this.parentElm[t?"removeEventListener":"addEventListener"](e,this.listeners[e])},destroy(){this.cleanup(),this.bindEvents(!0),delete r[this.uid]}},function(t,e){return r[++i]=t._DragSort?r[t._DragSort]:new n(t,{...e,uid:i}),t._DragSort=i,r[i]}}();
+
     // define shortcuts 
     object_data_keydown = { dict_status: { } };
     function Record_KeyDown( event ) { // Record pressed keyborad keys, and trigger appropriate function when key is pressed.
@@ -1058,32 +1077,29 @@
         document.getElementById( "modal_introduction" ).style[ "padding-right" ] = "0px";
     } // Toggle Modal for an Introduction 
     
-    var l_remote_file = [ "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/TCellCrossReactivity.nonredundant_aligned_position.top_5000.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/structural_property_virus__compact__for_web_application.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/structural_property_human__compact__for_web_application.tsv.gz.base64.txt",  
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/mhc_allele.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/interpro_virus.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/iedb_epitope_virus.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/blosum62.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/BCellCrossReactivity.nonredundant_position.windowSize_20.top_5000.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/algorithms.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_virus_representative.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_virus.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_pdb.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/acc_human.tsv.gz.base64.txt",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/gtex.tsv.gz.base64.txt", 
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.metadata.tsv.gz.base64.txt",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad.histogram.tsv.gz.base64.txt",
-                          "https://raw.githubusercontent.com/ahs2202/3M/master/current/base64/scrnaseq.20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad.proportion.tsv.gz.base64.txt", ]; // for faster async loading, the supplementary data will be loaded together
+    var object_data = { }; // an object containing data
+    object_data.file = { };
+    object_data.file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/";
+    object_data.file.dict_dir_file_to_parsed_data = { };
+    object_data.data = { };
+    object_data.data.dict_dir_file_to_dictarr = { };
+    object_data.main = { };
+    object_data.main.gene = { };
+    object_data.setting = { };
+    object_data.setting.plot = { };
+    object_data.flag = { };
     var object_data_remote_file = { }; // define values for downloading files in remote locations
-    object_data_remote_file.base_url = "https://raw.githubusercontent.com/ahs2202/3M/master/current/";
-    object_data_remote_file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
-    object_data_remote_file.dict_bcell_crossreactivity_data_to_n_records = {'nonredundant_position': {'100': 2106, '11': 19871, '125': 1170, '14': 19531, '150': 568, '17': 18843, '20': 17697, '25': 15612, '30': 13858, '35': 12405, '45': 9906, '5': 19136, '55': 7656, '70': 5069, '8': 19931, '85': 3372},
-                                                                            'nonredundant_sequence': {'100': 9864, '11': 28607, '125': 6402, '14': 30387, '150': 3241, '17': 31615, '20': 31979, '25': 31344, '30': 30205, '35': 29313, '45': 27691, '5': 22636, '55': 24883, '70': 20278, '8': 26133, '85': 15168}};
-    object_data_remote_file.dict_tcell_crossreactivity_data_to_n_records = {'all': 41014, 'nonredundant_aligned_position': 23868, 'nonredundant_aligned_sequence': 38824};
+    object_data.file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
+    object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records = { 
+        'gisaid.allprot1114.valid.nonredundant': { 'nonredundant_sequence': { '5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 20000, '150': 28706 },
+                                             'nonredundant_position': { '5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 20000, '55': 38588, '70': 26000, '85': 16064, '100': 9917, '125': 4222, '150': 2052 } },
+        'NCBI_Virus_human_host_SARS_CoV_2': { 'nonredundant_sequence': { '5': 22636, '8': 26133, '11': 28607, '14': 30387, '17': 31615, '20': 31979, '25': 31344, '30': 30205, '35': 29313, '45': 27691, '55': 24883, '70': 20278, '85': 15168, '100': 9864, '125': 6402, '150': 3241 },
+                                        'nonredundant_position': { '5': 19136, '8': 19931, '11': 19871, '14': 19531, '17': 18843, '20': 17697, '25': 15612, '30': 13858, '35': 12405, '45': 9906, '55': 7656, '70': 5069, '85': 3372, '100': 2106, '125': 1170, '150': 568 } } };
+    object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records = {
+        'NCBI_Virus_human_host_SARS_CoV_2': {'all': 41014, 'nonredundant_aligned_sequence': 38824, 'nonredundant_aligned_position': 23868},
+        'gisaid.allprot1114.valid.nonredundant': {'all': 40000, 'nonredundant_aligned_sequence': 40000, 'nonredundant_aligned_position': 20000}};
+    
+    // when document is ready for interaction
     $(document).ready( function( ) {
         $('[data-toggle="tooltip"]').tooltip( ); // enable tooltips
         $('[data-tooltip="tooltip"]').tooltip( );
@@ -1093,18 +1109,125 @@
         Toggle_Tooltips( ); // set tooltips status
         object_plot_MolecularMimicryMap.hovermode = "closest"; // set initial status
         Initialize( );
-//         console.log( ParseBase64GzippedText( LoadRemoteTextFile( "https://raw.githubusercontent.com/ahs2202/3M/master/current/data/BALF_VIB-UGent_processed_cleaned.histogram.tsv.gz.base64.txt" ) ) )
     });
     async function Initialize( ) { // initialize the web application
-        await LoadRemoteData( l_remote_file ); // load remote core data 
-        console.log( "[Initialize] core data loaded", Object.keys( dict_filename_to_parsed_data ) );
-        await ParseData( );
-        console.log( "[Initialize] processing of parsed data completed:", Object.keys( dict_filename_to_parsed_data ) );
-        console.log( "[Initialize] now downloading and drawing peptide vaccine candidates" );
-        await LoadOptiVax( );
+        object_data.flag.vaccine_design_optivax_loaded = false;
+        await Load_Dataset_SARS_CoV_2_Genomes( );
+//         await LoadOptiVax( ); // load optivax during initializing
+        console.log( "[Initialize] processing of parsed data completed:", Object.keys( object_data.file.dict_dir_file_to_parsed_data ) );
+//         Initialize_SearchBox_Main( ); // initialize main search box
         Loading_Screen( false );
         ClickCallBack_BCellCrossReactivity( 127 ); // show an example potentially cross-reactive B-cell epitope after loading
     }
+    
+//     <input name='tags' id='searchbox_main' placeholder='Enter Gene Symbol' value='PARP14' data-blacklist='.NET,PHP'>
+    var searchbox_main = document.getElementById( 'searchbox_main' ), tagify_searchbox_main = { };
+    object_data.flag.flag_tagify_searchbox_main_mutationobserver_attached = false;
+    function Initialize_SearchBox_Main( ) {
+        let whitelist = object_data.data.dict_dir_file_to_dictarr[ object_data.file.dir_folder + "acc_human.tsv.gz.base64.txt" ][ "Gene_Symbol" ]; // retrieve whitelist
+        tagify_searchbox_main = new Tagify( searchbox_main, {
+            dropdown: { 
+                maxItems: 5,
+                enabled: 0,
+            },
+            enforceWhitelist: true, whitelist: whitelist
+        });
+        // Chainable event listeners
+        tagify_searchbox_main
+              .on( 'add', e => { 
+            console.log( "onAddTag: ", e.detail.data.value );
+            object_data.main.gene.gene_symbol_lower_case_highlighted_previous = object_data.main.gene.gene_symbol_lower_case_highlighted; 
+            object_data.main.gene.gene_symbol_lower_case_highlighted = e.detail.data.value.toLowerCase( ); // retrieve gene_symbol in lower_case of new gene to highlight
+            if ( object_data.flag.gene_highlighted & ( object_data.main.gene.gene_symbol_lower_case_highlighted_previous == object_data.main.gene.gene_symbol_lower_case_highlighted ) ) { return "the gene is being already highlighted"; } // when current gene is already being highlighted
+            if ( object_data.flag.gene_highlighted & ( object_data.main.gene.gene_symbol_lower_case_highlighted_previous != object_data.main.gene.gene_symbol_lower_case_highlighted ) ) { Clear_Highlight_MolecularMimicryMap( ); } // clear previous highlights if a gene is currently being highlighted is new
+            object_data.main.gene.l_index_gene = object_data.data.dictionary_gene_symbol_lower_case_to_list_of_integer_index[ e.detail.data.value.toLowerCase( ) ];
+            Highlight_Gene_MolecularMimicryMap( );
+        } )
+              .on( 'click', e => { 
+            console.log( "onClickTag: ", e.detail.data.value );
+            object_data.main.gene.gene_symbol_lower_case_highlighted_previous = object_data.main.gene.gene_symbol_lower_case_highlighted; 
+            object_data.main.gene.gene_symbol_lower_case_highlighted = e.detail.data.value.toLowerCase( ); // retrieve gene_symbol in lower_case of new gene to highlight
+            object_data.main.gene.l_index_gene = object_data.data.dictionary_gene_symbol_lower_case_to_list_of_integer_index[ e.detail.data.value.toLowerCase( ) ];
+            if ( object_data.flag.gene_highlighted & ( object_data.main.gene.gene_symbol_lower_case_highlighted_previous != object_data.main.gene.gene_symbol_lower_case_highlighted ) ) { Clear_Highlight_MolecularMimicryMap( ); } // clear previous highlights if a gene is currently being highlighted is new
+            Highlight_Gene_MolecularMimicryMap( );
+        } )
+              .on( 'remove', e => { 
+            console.log( "onRemoveTag: ", e.detail );
+            let gene_symbol_lower_case_removed = e.detail.data.value.toLowerCase( );
+            if ( object_data.flag.gene_highlighted & ( object_data.main.gene.gene_symbol_lower_case_highlighted == gene_symbol_lower_case_removed ) ) { Clear_Highlight_MolecularMimicryMap( ); } // clear highlights if a gene is currently being highlighted is removed
+        } )
+              .on('input', e => { // preview during typing
+            console.log( e );
+//             if ( ! isString( e.detail.value ) ) { return -1; }
+//             let gene_symbol_lowercase = e.detail.value.toLowerCase( ); // retrieve current input
+//             if ( gene_symbol_lowercase in object_data.main.gene.dict_gene_symbol_lowercase_to_index_gene ) { // show preview of the gene if it exists in the data
+//                 let index_gene = object_data.main.gene.dict_gene_symbol_lowercase_to_index_gene[ gene_symbol_lowercase ];
+//                 PreviewGene( index_gene );
+//             }
+        } )
+              .on( "dropdown:hide", ( e ) => { console.log( "dropdown:hide" ); $( "#container_plotly_searchbox_main_preview" ).collapse( 'hide' ); } )
+              .on( "dropdown:show", ( e ) => { // preview during exploring dropdown options
+            $( "#container_plotly_searchbox_main_preview" ).collapse( 'show' );
+            console.log( "dropdown:show" );
+            if ( ! object_data.flag.flag_tagify_searchbox_main_mutationobserver_attached ) {
+//                 let dropdown = document.querySelector( '.tagify__dropdown' ); // retrieve DOM of active dropdown
+//                 let options = {
+//                     subtree: true,
+//                     attributes: true
+//                 };
+//                 let observer = new MutationObserver( function( mutations ) {
+//                     mutations.forEach( function( e ) {
+//                         if ( ( e.attributeName == 'class' ) & ( e.target.className == "tagify__dropdown__item tagify__dropdown__item--active" ) ) { // detect the innerHTML of the active element using MutationObserver
+//                             console.log( "dropdown active element:", e.target.innerHTML );
+//                             let index_gene = object_data.main.gene.dict_gene_symbol_lowercase_to_index_gene[ e.target.innerHTML.toLowerCase( ) ];
+//                             PreviewGene( index_gene );
+//                         }
+//                     });
+//                 });
+//                 observer.observe( dropdown, options );
+                let dragsort = new DragSort( tagify_searchbox_main.DOM.scope, {
+                    selector: '.' + tagify_searchbox_main.settings.classNames.tag,
+                    callbacks: {
+                        dragEnd: ( elm ) => { tagify_searchbox_main.updateValueByDOMTags( ); }
+                    }
+                });
+//                 object_data.flag.flag_tagify_searchbox_main_mutationobserver_attached = true; // set the flag to true after attaching mutationobserver to the dropdown list so that another observer is not attached.
+            }
+        })
+    }
+    
+    async function Load_Dataset_SARS_CoV_2_Genomes( ) {
+        Loading_Screen( true );
+        object_data.main.name_dataset = document.getElementById( 'select_dataset_sars_cov_2_genomes' ).value; // retrieve selected name_dataset
+        console.log( "[Load_Dataset_SARS_CoV_2_Genomes] " + object_data.main.name_dataset + " dataset selected" );
+        let l_name_file =   [ "TCellCrossReactivity.nonredundant_aligned_position.top_1000.tsv.gz.base64.txt", 
+                              "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt", 
+                              "structural_property_human__compact__for_web_application.tsv.gz.base64.txt",  
+                              "mhc_allele.tsv.gz.base64.txt", 
+                              "interpro_virus.tsv.gz.base64.txt", 
+                              "iedb_epitope_virus.tsv.gz.base64.txt", 
+                              "blosum62.tsv.gz.base64.txt", 
+                              "BCellCrossReactivity.nonredundant_position.windowSize_20.top_1000.tsv.gz.base64.txt", 
+                              "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt", 
+                              "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt", 
+                              "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt", 
+                              "algorithms.tsv.gz.base64.txt", 
+                              "acc_virus_representative.tsv.gz.base64.txt", 
+                              "acc_virus.tsv.gz.base64.txt", 
+                              "acc_pdb.tsv.gz.base64.txt", 
+                              "acc_human.tsv.gz.base64.txt",
+                              "gtex.tsv.gz.base64.txt", 
+                              "scrnaseq.metadata.tsv.gz.base64.txt" ]; // for faster async loading, the supplementary data will be loaded together
+        let l_dir_file = l_name_file.map( ( name_file ) => { return object_data.file.base_url + "data/base64/" + object_data.main.name_dataset + '/' + name_file; } ); // retrieve remote directory for the core data files 
+        object_data.file.dir_folder = object_data.file.base_url + "data/base64/" + object_data.main.name_dataset + "/" // retrieve directory of the current folder of the current dataset
+        await LoadRemoteData( l_dir_file ); // load files for the selected dataset 
+        console.log( "[Load_Dataset_SARS_CoV_2_Genomes] loading data completed" );
+        await ParseData( ); // parse loaded data
+        console.log( "[Load_Dataset_SARS_CoV_2_Genomes] parsing data completed" );
+        Initialize_SearchBox_Main( ); // initialize main search box
+        Loading_Screen( false );
+        
+    } // load selected dataset
     
     function LoadRemoteTextFile( remoteFilePath ) { // load remote text file using xml_http_request (syncrhonous)
         let result = null;
@@ -1124,7 +1247,6 @@
         }
         return str_content;
     }
-
     var div_current_view = $("#molecularmimicrymap-current-view"); // global variable
     function DownloadCurrentView( ) {
          html2canvas( div_current_view.get( 0 ) ).then ( function ( canvas ) {
@@ -1989,18 +2111,25 @@
         saveAs( blob, name_file ); // save file 
     }
     
-    var l_parsed_data = [ ], dict_filename_to_parsed_data = { };
+    var l_parsed_data = [ ];
     var l_colormap_rainbow_acc_human = [ ], l_colormap_rainbow_acc_human_hex = [ ], dict_blosum62 = { }, function_colormap_rsa = chroma.scale( [ 'black', 'white' ] ), function_colormap_score_blosum = chroma.scale( [ '#f00','white', '#0f0' ] ), function_colormap_torsion_angle = chroma.scale( [ '#52f9ff', '#972ff7', 'yellow', '#52f9ff' ] ), function_colormap_score_iedb_epitope = chroma.scale( [ '#ff00f2', '#1500ff' ] ); // define functions for colormaps
     var arr_data_blosum62 = [ ], arr_data_acc_virus = [ ], arr_data_acc_human = [ ], arr_data_acc_pdb = [ ], arr_data_algorithms = [ ], arr_data_mhc_allele = [ ], arr_data_alignment_human_pdb = [ ], arr_data_alignment_human_virus = [ ], arr_data_alignment_virus_pdb = [ ], arr_data_structural_property_human = [ ], arr_data_structural_property_virus = [ ], arr_data_BCellCrossReactivity = [ ], arr_data_TCellCrossReactivity = [ ];
     var dictdictarr_data_gtex = { };
     // dictionary-based indices for accessing data efficiently
-    var dictionary_acc_human_BCellCrossReactivity = { }, dictionary_acc_human_TCellCrossReactivity = { }, dictionary_acc_human_to_integer_index = { };
+    var dictionary_acc_human_to_integer_index = { };
     
-    async function LoadRemoteData( l_file ) { // load list of given tsv files from remote locations through asynchrous operations
+    async function LoadRemoteData( l_dir_file ) { // load list of given tsv files from remote locations through asynchrous operations
         return new Promise( async function( resolve, reject ) { 
-            console.log( "[LoadRemoteData] remote data fetch started:", l_file );
+            console.log( "[LoadRemoteData] remote data fetch started:", l_dir_file );
             Loading_Screen( true ) // add loading screen
-            let l_promise = l_file.map( function( file ) { 
+            let l_dir_file_not_downloaded = [ ];
+            for ( let i = 0; i < l_dir_file.length; i ++ ) { // ignore that were not pownleaded and already downloaded files
+                if ( ! ( l_dir_file[ i ] in object_data.file.dict_dir_file_to_parsed_data ) ) { 
+                    l_dir_file_not_downloaded.push( l_dir_file[ i ] );
+                } // if current file has not been downloaded, download the file 
+            }
+            l_dir_file = l_dir_file_not_downloaded;
+            let l_promise = l_dir_file.map( function( file ) { 
                 if( file.split( '.' ).slice( - 1 )[ 0 ] == "tsv" ) { // if given remote file is a tsv file
                     return new Promise ( function( resolve, reject ) {
                         Papa.parse( file, { download: true, header: true, skipEmptyLines: false, delimiter: '\t', dynamicTyping: true, complete: function( results ) { resolve( results.data.slice( 0, results.data.length - 1 ) ) }, error: reject } );
@@ -2021,11 +2150,10 @@
             let results = await Promise.all( l_promise ); // wait until all files have been parsed by Papa.parse
             l_parsed_data = [ ]; // empty a list
             l_parsed_data.push( ... results );
-            for ( let i = 0; i < l_file.length; i ++ ) { 
-                let url_file = l_file[ i ], name_file = url_file.slice( url_file.lastIndexOf( "/" ) + 1 )
-                dict_filename_to_parsed_data[ name_file ] = l_parsed_data[ i ];
+            for ( let i = 0; i < l_dir_file.length; i ++ ) { 
+                object_data.file.dict_dir_file_to_parsed_data[ l_dir_file[ i ] ] = l_parsed_data[ i ];
             } // put parsed data into a dictionary
-            console.log( "[LoadRemoteData] remote data loaded:", l_file );
+            console.log( "[LoadRemoteData] remote data loaded:", l_dir_file );
             resolve( "[LoadRemoteData] resolved" )
             Loading_Screen( false ) // add loading screen
         });
@@ -2037,6 +2165,7 @@
             await LoadRemoteFasta( "https://raw.githubusercontent.com/ahs2202/3M/master/current/peptides/Optivax/Optivax.Supplementary_Materials.fa" ); // load a fasta file at a time
             ProcessVaccineCandidate( );
             console.log( "[LoadOptiVax] OptiVac peptide vaccine candidates loaded" );
+            object_data.flag.vaccine_design_optivax_loaded = true; // update flag indicating the Optivax file has been loaded
             resolve( "" );
         });
     }
@@ -2048,8 +2177,8 @@
         let results = await Promise.all( l_promise ) // wait until all files have been parsed by Papa.parse
         l_parsed_data = [ ]; // empty a list
         l_parsed_data.push( ... results ); 
-        for ( let i = 0; i < l_file.length; i ++ ) { dict_filename_to_parsed_data[ l_file[ i ].name ] = l_parsed_data[ i ]; } // put parsed data into a dictionary
-        console.log( "[LoadLocalData] parsing completed:", dict_filename_to_parsed_data );
+        for ( let i = 0; i < l_file.length; i ++ ) { object_data.file.dict_dir_file_to_parsed_data[ l_file[ i ].name ] = l_parsed_data[ i ]; } // put parsed data into a dictionary
+        console.log( "[LoadLocalData] parsing completed:", object_data.file.dict_dir_file_to_parsed_data );
         await ParseData( );
         Loading_Screen( false );
     }
@@ -2098,21 +2227,22 @@
         }
     }
     async function ParseData( ) { // parse loaded data and prepare for plotting molecular mimicry map plots
-        arr_data_blosum62 = dict_filename_to_parsed_data[ "blosum62.tsv.gz.base64.txt" ]; // blosum62 score matrix
-        arr_data_acc_virus = dict_filename_to_parsed_data[ "acc_virus.tsv.gz.base64.txt" ];
-        arr_data_acc_human = dict_filename_to_parsed_data[ "acc_human.tsv.gz.base64.txt" ];
-        arr_data_acc_pdb = dict_filename_to_parsed_data[ "acc_pdb.tsv.gz.base64.txt" ];
-        arr_data_algorithms = dict_filename_to_parsed_data[ "algorithms.tsv.gz.base64.txt" ];
-        arr_data_mhc_allele = dict_filename_to_parsed_data[ "mhc_allele.tsv.gz.base64.txt" ];
-        arr_data_acc_virus_representative = dict_filename_to_parsed_data[ "acc_virus_representative.tsv.gz.base64.txt" ];
-        arr_data_alignment_human_pdb = dict_filename_to_parsed_data[ "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
-        arr_data_alignment_human_virus = dict_filename_to_parsed_data[ "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt" ];
-        arr_data_alignment_virus_pdb = dict_filename_to_parsed_data[ "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
-        arr_data_structural_property_human = dict_filename_to_parsed_data[ "structural_property_human__compact__for_web_application.tsv.gz.base64.txt" ];
-        arr_data_structural_property_virus = dict_filename_to_parsed_data[ "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt" ];
-        arr_data_iedb_epitope_virus = dict_filename_to_parsed_data[ "iedb_epitope_virus.tsv.gz.base64.txt" ]; // IEDB records of virus proteins
-        arr_data_interpro_virus = dict_filename_to_parsed_data[ "interpro_virus.tsv.gz.base64.txt" ]; // interpro annotation of virus proteins
-        dictdictarr_data_gtex = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ "gtex.tsv.gz.base64.txt" ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of gtex data
+        arr_data_blosum62 = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "blosum62.tsv.gz.base64.txt" ]; // blosum62 score matrix
+        arr_data_acc_virus = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "acc_virus.tsv.gz.base64.txt" ];
+        arr_data_acc_human = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "acc_human.tsv.gz.base64.txt" ];
+        arr_data_acc_pdb = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "acc_pdb.tsv.gz.base64.txt" ];
+        arr_data_algorithms = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "algorithms.tsv.gz.base64.txt" ];
+        arr_data_mhc_allele = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "mhc_allele.tsv.gz.base64.txt" ];
+        arr_data_acc_virus_representative = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "acc_virus_representative.tsv.gz.base64.txt" ];
+        arr_data_alignment_human_pdb = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_alignment_human_virus = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_alignment_virus_pdb = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_structural_property_human = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "structural_property_human__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_structural_property_virus = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt" ];
+        arr_data_iedb_epitope_virus = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "iedb_epitope_virus.tsv.gz.base64.txt" ]; // IEDB records of virus proteins
+        arr_data_interpro_virus = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "interpro_virus.tsv.gz.base64.txt" ]; // interpro annotation of virus proteins
+        object_data.data.dict_dir_file_to_dictarr[ object_data.file.dir_folder + "acc_human.tsv.gz.base64.txt" ] = new DataFrame( arr_data_acc_human ).toDict( );
+        dictdictarr_data_gtex = SplitColumn( ( new DataFrame( object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "gtex.tsv.gz.base64.txt" ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of gtex data
         object_data_gtex.dictdictarr = dictdictarr_data_gtex;
 //         object_data_gtex.MIN = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MIN' ) // parse data into individual parameters
 //         object_data_gtex.Q1 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q1' )
@@ -2120,8 +2250,8 @@
 //         object_data_gtex.Q3 = SubsetDictDictArr( object_data_gtex.dictdictarr, 'Q3' )
 //         object_data_gtex.MAX = SubsetDictDictArr( object_data_gtex.dictdictarr, 'MAX' )
         // parse data for displaying vaccine metrics
-        object_data_scrnaseq.metadata = ( new DataFrame( dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ] ) ).toDict( ); // load metadata of scRNA-seq datasets
-        PlotExpression_scRNA_Seq_Update_Select_Options( "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad" ); // update select option and select given dataset by default
+        object_data_scrnaseq.metadata = ( new DataFrame( object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "scrnaseq.metadata.tsv.gz.base64.txt" ] ) ).toDict( ); // load metadata of scRNA-seq datasets
+        PlotExpression_scRNA_Seq_Update_Select_Options( "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad" ); // update select option and select given dataset by default (update selection label)
         let l_col = Object.keys( arr_data_acc_virus_representative[ 0 ] ); // retrieve list of columns of 'arr_data_acc_virus_representative'
         for ( let i = 0; i < l_col.length; i ++ ) {
             let col = l_col[ i ], l_data = [ ];
@@ -2275,6 +2405,7 @@
         }
         for ( let i = 0; i < arr_data_blosum62.length; i ++ ) { dict_blosum62[ arr_data_blosum62[ i ].pair_of_amino_acids ] = arr_data_blosum62[ i ].score_blosum62; } // parse 'arr_data_blosum62' and build blosum62 matrix
         dictionary_acc_human_to_integer_index = Index_list_with_dictionary( unpack( arr_data_acc_human, 'value' ) ); // build indices for datatables
+        object_data.data.dictionary_gene_symbol_lower_case_to_list_of_integer_index = Index_list_with_dictionary( object_data.data.dict_dir_file_to_dictarr[ object_data.file.dir_folder + "acc_human.tsv.gz.base64.txt" ].Gene_Symbol.map( ( e ) => { return e.toLowerCase( ); } ) ) // build dictionary-based index
         return new Promise( async function( resolve, reject ) { 
             await DrawMolecularMimicryMap( );
             Display_DataTable( );
@@ -2348,7 +2479,7 @@
     var l_selectSections_PDB_Virus_Protein = [ ], flag_select_PDB_Virus_Protein = true, flag_focus_PDB_Virus_Protein = false, l_selectSections_PDB_Human_Protein = [ ], flag_select_PDB_Human_Protein = true, flag_focus_PDB_Human_Protein = false; // flags for interaction with Mol* viewer
     // for highlighting specific entries
     // object for saving layout data
-    var object_plot_MolecularMimicryMap = { hovermode: "closest", layout: {} };
+    var object_plot_MolecularMimicryMap = { hovermode: "closest", layout: { } };
     // for loading data from remote location
     // "Record Details" table styles settings
     var style_font_table_record_details = "font-family:Arial", int_n_residues_per_window_table_sequence = 20; // 'int_n_residues_per_window_table_sequence' number of residues per sequence in the table_sequence plot
@@ -2417,8 +2548,8 @@
         object_plot_BCellCrossReactivity.window_size = document.getElementById( "select_windowSize_BCellCrossReactivity" ).value;
         object_plot_BCellCrossReactivity.redundancy_level = document.getElementById( "select_redundancy_level_BCellCrossReactivity" ).value;
         object_plot_TCellCrossReactivity.redundancy_level = document.getElementById( "select_redundancy_level_TCellCrossReactivity" ).value;
-        object_plot_BCellCrossReactivity.n_records_max = object_data_remote_file.dict_bcell_crossreactivity_data_to_n_records[ object_plot_BCellCrossReactivity.redundancy_level ][ object_plot_BCellCrossReactivity.window_size ];
-        object_plot_TCellCrossReactivity.n_records_max = object_data_remote_file.dict_tcell_crossreactivity_data_to_n_records[ object_plot_TCellCrossReactivity.redundancy_level ];
+        object_plot_BCellCrossReactivity.n_records_max = object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records[ object_data.main.name_dataset ][ object_plot_BCellCrossReactivity.redundancy_level ][ object_plot_BCellCrossReactivity.window_size ];
+        object_plot_TCellCrossReactivity.n_records_max = object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records[ object_data.main.name_dataset ][ object_plot_TCellCrossReactivity.redundancy_level ];
         object_plot_BCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
         object_plot_TCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
         
@@ -2427,31 +2558,31 @@
         if ( object_plot_BCellCrossReactivity.n_records_from_setting * float_thres_margin >= object_plot_BCellCrossReactivity.n_records_max ) {
             object_plot_BCellCrossReactivity.n_records_of_remote_file = object_plot_BCellCrossReactivity.n_records_max;
         } else {
-            for ( let i = 1; i < object_data_remote_file.l_n_records_for_each_step.length; i ++ ) {
-                if ( object_plot_BCellCrossReactivity.n_records_from_setting < object_data_remote_file.l_n_records_for_each_step[ i ] ) { break; }
-                object_plot_BCellCrossReactivity.n_records_of_remote_file = object_data_remote_file.l_n_records_for_each_step[ i ];
+            for ( let i = 1; i < object_data.file.l_n_records_for_each_step.length; i ++ ) {
+                if ( object_plot_BCellCrossReactivity.n_records_from_setting < object_data.file.l_n_records_for_each_step[ i ] ) { break; }
+                object_plot_BCellCrossReactivity.n_records_of_remote_file = object_data.file.l_n_records_for_each_step[ i ];
             }
         }
         if ( object_plot_TCellCrossReactivity.n_records_from_setting * float_thres_margin >= object_plot_TCellCrossReactivity.n_records_max ) {
             object_plot_TCellCrossReactivity.n_records_of_remote_file = object_plot_TCellCrossReactivity.n_records_max;
         } else {
-            for ( let i = 1; i < object_data_remote_file.l_n_records_for_each_step.length; i ++ ) {
-                if ( object_plot_TCellCrossReactivity.n_records_from_setting < object_data_remote_file.l_n_records_for_each_step[ i ] ) { break; }
-                object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data_remote_file.l_n_records_for_each_step[ i ];
+            for ( let i = 1; i < object_data.file.l_n_records_for_each_step.length; i ++ ) {
+                if ( object_plot_TCellCrossReactivity.n_records_from_setting < object_data.file.l_n_records_for_each_step[ i ] ) { break; }
+                object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data.file.l_n_records_for_each_step[ i ];
             }
         }
         gtag( 'event', 'loading_remote_data', { t_cell_n_records : object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size : object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level : object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level : object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
         // retrieve file names appropriate for current setting
-        object_plot_BCellCrossReactivity.name_file = "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
-        object_plot_TCellCrossReactivity.name_file = "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
+        object_plot_BCellCrossReactivity.dir_file = object_data.file.dir_folder + "BCellCrossReactivity." + object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + object_plot_BCellCrossReactivity.window_size + ".top_" + String( object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
+        object_plot_TCellCrossReactivity.dir_file = object_data.file.dir_folder + "TCellCrossReactivity." + object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt"
         
-        let l_file = [ ]; // retrieve a list of files for downloading
-        if ( ! ( object_plot_BCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + "base64/" + object_plot_BCellCrossReactivity.name_file ); }
-        if ( ! ( object_plot_TCellCrossReactivity.name_file in dict_filename_to_parsed_data ) ) { l_file.push( object_data_remote_file.base_url + "base64/" + object_plot_TCellCrossReactivity.name_file ); }
+        let l_dir_file = [ ]; // retrieve a list of files for downloading
+        if ( ! ( object_plot_BCellCrossReactivity.dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { l_file.push( object_plot_BCellCrossReactivity.dir_file ); }
+        if ( ! ( object_plot_TCellCrossReactivity.dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { l_file.push( object_plot_TCellCrossReactivity.dir_file ); }
 
-        if ( l_file.length == 0 ) { console.log( "both file already exists" ); return; } // if both files already exists do not download any data
+        if ( l_dir_file.length == 0 ) { console.log( "both file already exists" ); return; } // if both files already exists do not download any data
         
-        return LoadRemoteData( l_file ); // load given list of files from remote locations
+        return LoadRemoteData( l_dir_file ); // load given list of files from remote locations
     }
     
     function Open_and_Draw_BCellCrossReactivityPredMetricsPlot( ) {
@@ -2628,7 +2759,7 @@
         Loading_Screen( true );
         let l = [], n_digits = 2;
         await LoadRemoteData_BasedOnSettings( ); // download necessary data based on settings
-        console.log( "[DrawMolecularMimicryMap] Drawing graphs using following files:", object_plot_BCellCrossReactivity.name_file, object_plot_TCellCrossReactivity.name_file )
+        console.log( "[DrawMolecularMimicryMap] Drawing graphs using following files:", object_plot_BCellCrossReactivity.dir_file, object_plot_TCellCrossReactivity.dir_file )
         console.log( "[DrawMolecularMimicryMap] setting hovermode to ", object_plot_MolecularMimicryMap.hovermode )
         layout_MolecularMimicryMap.hovermode = object_plot_MolecularMimicryMap.hovermode; // update hovermode
         object_plot_MolecularMimicryMap.showlegend = false // flag for showing name of certain traces (a legend of the graph)
@@ -2639,7 +2770,7 @@
         plotMolecularMimicryMap.style.height = String( Math.max( 200, Math.min( 1000, document.getElementById( "input_plot_height_MolecularMimicryMap" ).value ) ) ) + 'px' // set height of the MolecularMimicryMap plot // max height is 1000 // min height is 200
         object_plot_BCellCrossReactivity.flag_bool_mode_is_lines = document.getElementById( "select_representation_of_an_alignment_BCellCrossReactivity" ).value == 1? true : false; 
         
-        arr_data_BCellCrossReactivity = dict_filename_to_parsed_data[ object_plot_BCellCrossReactivity.name_file ];
+        arr_data_BCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ object_plot_BCellCrossReactivity.dir_file ];
         object_plot_BCellCrossReactivity.n_records = Math.min( arr_data_BCellCrossReactivity.length, object_plot_BCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
         arr_data_BCellCrossReactivity = arr_data_BCellCrossReactivity.slice( 0, object_plot_BCellCrossReactivity.n_records ); // retrieve "object_plot_BCellCrossReactivity.n_records" number of records
         object_plot_BCellCrossReactivity.dict_data = Unpack_array_to_dict_data( arr_data_BCellCrossReactivity, Object.keys( arr_data_BCellCrossReactivity[ 0 ] ) ) // unpack data to dict_data format
@@ -2660,7 +2791,7 @@
         let arr_start = nj.array( unpack( arr_data_BCellCrossReactivity, 'target_representative_accumulated_start__for_web_application' ) ), arr_end = nj.array( unpack( arr_data_BCellCrossReactivity, 'target_representative_accumulated_end__for_web_application' ) );
         let l_avg_score = unpack( arr_data_BCellCrossReactivity, 'avg_score_blosum_weighted' ), l_score = unpack( arr_data_BCellCrossReactivity, 'score_blosum_weighted' );
         let l_colors = [ ], l_acc_human = unpack( arr_data_BCellCrossReactivity, 'query_accession' ); // retrieve colors for each alignment
-        dictionary_acc_human_BCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of BCellCrossReactivity data with acc_human
+        object_data.data.dictionary_index_gene_to_l_index_BCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of BCellCrossReactivity data with acc_human
         for ( let i = 0; i < l_acc_human.length; i ++ ) { l_colors.push( l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] ); }
         
         object_plot_BCellCrossReactivity.l_acc_human = l_acc_human;
@@ -2772,7 +2903,7 @@
         int_index_representation_TCellCrossReactivity = document.getElementById( "select_representation_of_an_alignment_TCellCrossReactivity" ).value; // retrieve plot setting from the setting panel
         plotly_type_TCellCrossReactivity = document.getElementById( "select_graphic_format_TCellCrossReactivity" ).value == 0? "scattergl" : "scatter"; 
         
-        arr_data_TCellCrossReactivity = dict_filename_to_parsed_data[ object_plot_TCellCrossReactivity.name_file ];
+        arr_data_TCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ object_plot_TCellCrossReactivity.dir_file ];
         object_plot_TCellCrossReactivity.n_records = Math.min( arr_data_TCellCrossReactivity.length, object_plot_TCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
         arr_data_TCellCrossReactivity = arr_data_TCellCrossReactivity.slice( 0, object_plot_TCellCrossReactivity.n_records ); // retrieve "object_plot_TCellCrossReactivity.n_records" number of records from 'arr_data_TCellCrossReactivity'
         object_plot_TCellCrossReactivity.dict_data = Unpack_array_to_dict_data( arr_data_TCellCrossReactivity, Object.keys( arr_data_TCellCrossReactivity[ 0 ] ) ) // unpack data to dict_data format
@@ -2794,7 +2925,7 @@
         l_colors = [ ];
         l_acc_human = unpack( arr_data_TCellCrossReactivity, 'query_accession' ); // retrieve colors for each alignment
         object_plot_TCellCrossReactivity.l_acc_human = l_acc_human;
-        dictionary_acc_human_TCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of TCellCrossReactivity data with acc_human
+        object_data.data.dictionary_index_gene_to_l_index_TCellCrossReactivity = Index_list_with_dictionary( l_acc_human ); // build indices of TCellCrossReactivity data with acc_human
         for ( let i = 0; i < l_acc_human.length; i ++ ) { l_colors.push( l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] ); }
         let l_x = arr_start.add( arr_end ).divide( 2 ).tolist( ); // calculate the coordinate of the middle of each alignment;
 
@@ -2915,24 +3046,29 @@
         Set_Visibility_of_Consensus_Protein_Sequence_Virus( ); // set visibility of protein sequences
         
         // Add metrics for vaccine design
-        console.log( '[DrawMolecularMimicryMap] plotting vaccine metric traces...' )
-        VaccineMetrics_Update_Visibility( ); // update visibility of vaccine metric traces
-        l = object_data_vaccine_metric.visibility_for_each_trace;
-        for ( let i = 0; i < l.length; i ++ ) { object_data_vaccine_metric.data[ i + 2 ].visible = l[ i ]; } // first two traces are lower and upper boundary of vaccine metric traces
-        object_data_vaccine_metric.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
-        Plotly.addTraces( plotMolecularMimicryMap, lodash.cloneDeep( object_data_vaccine_metric.data ) );
-        object_data_vaccine_metric.index_trace_end = plotMolecularMimicryMap.data.length;
+        object_data.flag.vaccine_metric_drawn = false; // set flag indicating whether the plot has been drawn or not
+        object_data_vaccine_metric.show = document.getElementById( "checkbox_toggle_vaccine_metrics_MolecularMimicryMap" ).checked; // set general visibility of all vaccine metric traces
+        if ( object_data_vaccine_metric.show ) {
+            VaccineMetrics_Apply_Visibility( );
+        }
         
         // Add IEDB epitopes with positive assays
-        console.log( '[DrawMolecularMimicryMap] plotting "IEDB epitopes of SARS-CoV-2 virus" traces...' )
-        object_data_iedb_epitope_virus.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
-        Plotly.addTraces( plotMolecularMimicryMap, lodash.cloneDeep( object_data_iedb_epitope_virus.data ) );
-        object_data_iedb_epitope_virus.index_trace_end = plotMolecularMimicryMap.data.length;
+        object_data.flag.iedb_epitope_virus_drawn = false; // set flag indicating whether the plot has been drawn or not
+        object_data_iedb_epitope_virus.show = document.getElementById( "checkbox_toggle_iedb_epitope_virus_MolecularMimicryMap" ).checked;
+        if ( object_data_iedb_epitope_virus.show ) {
+            Toggle_IEDB_Epitope_Virus_MolecularMimicryMap( );
+        }
         
         // retrieve mapping of name of each trace to trace index
         dict_name_plot_to_trace_index__MolecularMimicryMap = { }; // initialize the mapping
         for( let i = 0; i < plotMolecularMimicryMap.data.length; i ++ ) { dict_name_plot_to_trace_index__MolecularMimicryMap[ plotMolecularMimicryMap.data[ i ].name ] = i; }
-        Draw_DesignedVaccineTrace( "new_trace" ); // draw DesignedVaccineTrace if the file has been loaded after trace index has been updated
+        
+        // draw vaccine candidates // draw DesignedVaccineTrace if the file has been loaded after trace index has been updated
+        object_data.flag.vaccine_design_drawn = false; // set flag indicating whether the plot has been drawn or not
+        object_data_vaccine_design.show = document.getElementById( "checkbox_toggle_vaccine_design_MolecularMimicryMap" ).checked;
+        if ( object_data_vaccine_design.show ) {
+            Toggle_VaccineDesign_MolecularMimicryMap( );
+        }
         
         Loading_Screen( false ); // remove loading screen once plot is drawn
         console.log( '[DrawMolecularMimicryMap] adding interaction callbacks...' )
@@ -3108,7 +3244,7 @@
     });
     }
     function SortBoxTrace( trace_a, trace_b ) { return - ( trace_a.q3 - trace_b.q3 ) } // Sort Plotly Boxplot traces based on parameter values
-    function SortViolineTrace_Expression( trace_a, trace_b ) { return - ( trace_a.mean_expression_for_sorting - trace_b.mean_expression_for_sorting ) } // Sort Plotly Violin traces displaying expression values based on parameter values
+    function SortViolinTrace_Expression( trace_a, trace_b ) { return - ( trace_a.mean_expression_for_sorting - trace_b.mean_expression_for_sorting ) } // Sort Plotly Violin traces displaying expression values based on parameter values
 //     function SortViolineTrace_Proportion( l_a, l_b ) { // Sort Plotly Violin traces displaying proportion data values based on parameter values
 //         let index_value_for_sorting = ( l_a.length == 4 ) ? 6 : 3 ; // set index_of_value_for_sorting based on whether the expresion of the gene of interest (ACE2) is available (number of counts = 4 (available) and 2 (unavailable))
 //         return - ( l_a[ index_value_for_sorting ] - l_b[ index_value_for_sorting ] )
@@ -3202,7 +3338,7 @@
         objOption.text = "Select Dataset"; // add a default select option
         objOption.value = -1;
         select_name_dataset.options.add( objOption );
-        let arr_metadata = dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ]; // add select options based on the selected 'category_dataset'
+        let arr_metadata = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "scrnaseq.metadata.tsv.gz.base64.txt" ]; // add select options based on the selected 'category_dataset'
         for ( let i = 0; i < arr_metadata.length; i ++ ) {
             let record = arr_metadata[ i ];
             if ( record.category_dataset == category_dataset ) {
@@ -3229,7 +3365,7 @@
             }
         }
     }
-    object_plot_scrnaseq.dict_name_file_to_cached_data = { } // dictionary to save cached data
+    object_plot_scrnaseq.dict_dir_file_to_cached_data = { } // dictionary to save cached data
     function String_Check_Substring( string, l_substring ) {
         let flag_contains_substring = false;
         string = string.toLowerCase( );
@@ -3286,16 +3422,15 @@
             object_plot_scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             object_plot_scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
             object_plot_scrnaseq.option.ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
-            object_plot_scrnaseq.option.name_file = "scrnaseq." + object_data_scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( object_plot_scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
-            let name_file = object_plot_scrnaseq.option.name_file;
-            let dir_file = object_data_remote_file.base_url + 'base64/' + name_file;
-            if ( ! ( name_file in dict_filename_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
+            object_plot_scrnaseq.option.dir_file = object_data.file.dir_folder + "scrnaseq." + object_data_scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( object_plot_scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
+            let dir_file = object_plot_scrnaseq.option.dir_file;
+            if ( ! ( dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
                 await LoadRemoteData( [ dir_file ] );
             }
-            if ( ! ( name_file in object_plot_scrnaseq.dictdictarr ) ) { // if current file has not been preprocessed, perform preprocessing
-                object_plot_scrnaseq.dictdictarr[ name_file ] = SplitColumn( ( new DataFrame( dict_filename_to_parsed_data[ name_file ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of scrnaseq data
+            if ( ! ( dir_file in object_plot_scrnaseq.dictdictarr ) ) { // if current file has not been preprocessed, perform preprocessing
+                object_plot_scrnaseq.dictdictarr[ dir_file ] = SplitColumn( ( new DataFrame( object_data.file.dict_dir_file_to_parsed_data[ dir_file ] ) ).toDict( ) ) // retrieve dictionary-dictionary-array of scrnaseq data
             }
-            let dictdictarr = object_plot_scrnaseq.dictdictarr[ name_file ], set_covid_status = { };
+            let dictdictarr = object_plot_scrnaseq.dictdictarr[ dir_file ], set_covid_status = { };
             // retrieve avaliable 'covid status' category values
             object_plot_scrnaseq.l_name_clus = Object.keys( dictdictarr );
             let l_name_clus = object_plot_scrnaseq.l_name_clus, str_separation = ( l_name_clus.length > object_plot_scrnaseq.setting.thres_n_clusters_for_label_newline ) ? ' ' : '<br>'; // set 'str_separation' based on the number of cells clusters
@@ -3310,21 +3445,21 @@
             object_plot_scrnaseq.set_covid_status = set_covid_status;
             _ = SubsetDictDictArr( dictdictarr, object_plot_scrnaseq.l_covid_status, true, 0 ); // fill empty columns with zero values
             
-            let metadata_dataset = dict_filename_to_parsed_data[ "scrnaseq.metadata.tsv.gz.base64.txt" ][ index_dataset ];
+            let metadata_dataset = object_data.file.dict_dir_file_to_parsed_data[ object_data.file.dir_folder + "scrnaseq.metadata.tsv.gz.base64.txt" ][ index_dataset ];
             let description_dataset = PlotExpression_scRNA_Seq_get_description( metadata_dataset ); // retrieve description of the dataset
             
             document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = "Single Cell Expression of " + gene_symbol; // update header label of the scrnaseq panel
             $( "#expression_panel__link_to_cellxgene" ).attr( "href", ( flag_patient_donor ? "https://www.covid19cellatlas.org/" : metadata_dataset.link_interactive_viewer ) ); // currently cellxgene for patient_donors are currently unavailable (the address keeps changing)
             $( "#expression_panel__link_to_publication" ).attr( "href", metadata_dataset.publication_link );
-            if ( ! ( name_file in object_plot_scrnaseq.dict_name_file_to_cached_data ) ) {
-                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ] = { data: { }, metadata: { time: { } } };
+            if ( ! ( dir_file in object_plot_scrnaseq.dict_dir_file_to_cached_data ) ) {
+                object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ] = { data: { }, metadata: { time: { } } };
             } // initialize dictionary for storing cached data
             let time_current = new Date( ).getTime( ); // get current time
             // if cached data is not available, load data into the cache. if cached data is available, used the cached data.
-            if ( ! ( index_acc_human in object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data ) ) { 
+            if ( ! ( index_acc_human in object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data ) ) { 
                 console.log( "[PlotExpression_scRNA_Seq] cached data not available ... parsing scRNA-seq data" );
-                if ( Object.keys( object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data ).length >= object_plot_scrnaseq.setting.cache.n_records ) {
-                    let dict = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time, key_least_recently_used = -1, value_least_recently_used = -1;
+                if ( Object.keys( object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data ).length >= object_plot_scrnaseq.setting.cache.n_records ) {
+                    let dict = object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].metadata.time, key_least_recently_used = -1, value_least_recently_used = -1;
                     for ( let key in dict ) {
                         if ( ( value_least_recently_used == -1 ) | ( dict[ key ] < value_least_recently_used ) ) {
                             key_least_recently_used = key;
@@ -3332,8 +3467,8 @@
                         }
                     } // identify the record that was least recently used.
                     // evict least recently used data
-                    delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ key_least_recently_used ];
-                    delete object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ key_least_recently_used ];
+                    delete object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ key_least_recently_used ];
+                    delete object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].metadata.time[ key_least_recently_used ];
                 } // if cache is full, evict least recently used data
                 if ( ! object_plot_scrnaseq.option.proportion ) { // draw expression data
                     // build list of traces for each category
@@ -3429,7 +3564,7 @@
                                     };
                         l_trace.push( trace );
                     }
-                    object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace.sort( SortViolineTrace_Expression ), l_trace_covid_status: l_trace_covid_status.sort( SortViolineTrace_Expression ) }; // update data of the cache
+                    object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ index_acc_human ] = { l_trace: l_trace.sort( SortViolinTrace_Expression ), l_trace_covid_status: l_trace_covid_status.sort( SortViolinTrace_Expression ) }; // update data of the cache
                 } else { // plot proportion graph using bar graph
                     let l_l_l_data = [ [ ], [ ] ], flag_gene_of_interestion_is_available = dictdictarr[ l_name_clus[ 0 ] ][ l_covid_status[ 0 ] ][ index_acc_human ].split( ',' ).length == 4; // retrieve flag indicating the number of counts are 4 or 2. Also, l_l_l_data contains index in the following order: covid_status > name_clus > [ n_cells ] + [ count data ] + [ proportion data ]
                     for ( let i = 0; i < l_covid_status.length; i ++ ) {
@@ -3494,13 +3629,13 @@
                             } );
                         }
                     }
-                    object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ] = { l_trace: l_trace }; // update data of the cache
+                    object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ index_acc_human ] = { l_trace: l_trace }; // update data of the cache
                 }
             } else { 
                 console.log( "[PlotExpression_scRNA_Seq] cached data is available ... using cached data" );
             }
             if ( ! object_plot_scrnaseq.option.proportion ) { // plot expression data
-                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
+                object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
                 let layout = {
                     margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
                     yaxis: { title : "Normalized Expression", rangemode: "nonnegative" },
@@ -3509,7 +3644,7 @@
                     violingroupgap: 0,
                     violinmode: "overlay",
                 }
-                let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
+                let data = object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ index_acc_human ];
                 let l_trace = object_plot_scrnaseq.option.covid_status ? data.l_trace_covid_status : data.l_trace;
                 for ( let i = 0; i < l_trace.length; i ++ ) { // swap y and x0 values based on the 'object_plot_scrnaseq.option.ignore_cells_with_zero_counts' setting
                     l_trace[ i ].x0 = object_plot_scrnaseq.option.ignore_cells_with_zero_counts ? l_trace[ i ].x0_ignore_cells_with_zero_counts__true : l_trace[ i ].x0_ignore_cells_with_zero_counts__false ;
@@ -3517,11 +3652,11 @@
                 }
                 Plotly.newPlot( plotscrnaseq, l_trace, layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.tissue + '__Expression_of_' + gene_symbol, height: 750, width: 1100 } );
             } else { // plot proportion data
-                object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
+                object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].metadata.time[ index_acc_human ] = time_current; // update metadata of the cache
                 let layout = { barmode: 'stack',
                                margin: { l: 50, r: 65, b: 120, t: 50, pad: 4 },
                                yaxis: { title : "Proportion of cells in each cluster", range: [ 0, 1 ] }, };
-                let data = object_plot_scrnaseq.dict_name_file_to_cached_data[ name_file ].data[ index_acc_human ];
+                let data = object_plot_scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ index_acc_human ];
                 Plotly.newPlot( plotscrnaseq, data.l_trace, layout, { ... config, filename: '3M_of_SARS-CoV-2__scRNA_seq__' + metadata_dataset.tissue + '__Proportion_of_' + gene_symbol, height: 750, width: 1100 } );
             }
         }); 
@@ -3881,20 +4016,45 @@
         Set_Visibility_of_Consensus_Protein_Sequence_Virus( ); // set visibility of consensus protein sequence
     }
     function Toggle_IEDB_Epitope_Virus_MolecularMimicryMap( ) {
+        if ( ! object_data.flag.iedb_epitope_virus_drawn ) {
+            // draw IEDB epitopes of virus with positive assays
+            console.log( '[Toggle_IEDB_Epitope_Virus_MolecularMimicryMap] plotting "IEDB epitopes of SARS-CoV-2 virus" traces...' )
+            object_data_iedb_epitope_virus.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
+            Plotly.addTraces( plotMolecularMimicryMap, lodash.cloneDeep( object_data_iedb_epitope_virus.data ) );
+            object_data_iedb_epitope_virus.index_trace_end = plotMolecularMimicryMap.data.length;
+            for( let i = 0; i < plotMolecularMimicryMap.data.length; i ++ ) { dict_name_plot_to_trace_index__MolecularMimicryMap[ plotMolecularMimicryMap.data[ i ].name ] = i; } // update trace_name - index mapping
+            object_data.flag.iedb_epitope_virus_drawn = true; // update the flag
+        }
         object_data_iedb_epitope_virus.show = document.getElementById( "checkbox_toggle_iedb_epitope_virus_MolecularMimicryMap" ).checked; // set visibility of IEDB epitopes of SARS-CoV-2
-        if ( object_data_iedb_epitope_virus.data.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: object_data_iedb_epitope_virus.show }, nj.arange( object_data_iedb_epitope_virus.index_trace_start, object_data_iedb_epitope_virus.index_trace_end ).tolist( ) ); } // set visibility based on the toggled flag for the visibiligy of the track
+        if ( object_data_iedb_epitope_virus.data.length > 0 ) { 
+            Plotly.restyle( plotMolecularMimicryMap, { visible: object_data_iedb_epitope_virus.show }, nj.arange( object_data_iedb_epitope_virus.index_trace_start, object_data_iedb_epitope_virus.index_trace_end ).tolist( ) );
+        } // set visibility based on the toggled flag for the visibiligy of the track
     }
-    function Toggle_VaccineDesign_MolecularMimicryMap( ) {
+    async function Toggle_VaccineDesign_MolecularMimicryMap( ) {
+        if ( ! object_data.flag.vaccine_design_optivax_loaded ) {
+            console.log( "[Toggle_VaccineDesign_MolecularMimicryMap] downloading and drawing peptide vaccine candidates" );
+            await LoadOptiVax( );
+            object_data.flag.vaccine_design_drawn = true;
+        } else if ( ! object_data.flag.vaccine_design_drawn ) {
+            Draw_DesignedVaccineTrace( "new_trace" );
+            object_data.flag.vaccine_design_drawn = true;
+        }
         object_data_vaccine_design.show = document.getElementById( "checkbox_toggle_vaccine_design_MolecularMimicryMap" ).checked; // set visibility of the vaccine design trace
-        if ( object_data_vaccine_design.data.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: object_data_vaccine_design.show }, nj.arange( object_data_vaccine_design.index_trace_start, object_data_vaccine_design.index_trace_end ).tolist( ) ); } // set visibility based on the toggled flag for the visibiligy of the track
+        if ( object_data_vaccine_design.data.length > 0 ) { 
+            Plotly.restyle( plotMolecularMimicryMap, { visible: object_data_vaccine_design.show }, nj.arange( object_data_vaccine_design.index_trace_start, object_data_vaccine_design.index_trace_end ).tolist( ) );
+        } // set visibility based on the toggled flag for the visibiligy of the track
     }
     function Toggle_Legend_MolecularMimicryMap( ) { // toggle the legend of the molecular mimicry map graph
-        let l_name_trace = [ "B Cell Cross-Reactivity Prediction",
-                             "IEDB_Epitopes__Positive_B_Cell_Assays",
-                             "IEDB_Epitopes__Positive_T_Cell_Assays",
-                             "T Cell Cross-Reactivity Prediction (Human)",
-                             "T Cell Cross-Reactivity Prediction (Virus)",
-                             "vaccine_design" ];
+        let l_name_trace = [ ];
+        if ( ! object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) {
+            l_name_trace.push( "B Cell Cross-Reactivity Prediction" ); // add legend of B Cell Cross-reactivity prediction data only when drawing mode is not line
+        }
+        l_name_trace = l_name_trace.concat( [
+            "IEDB_Epitopes__Positive_B_Cell_Assays",
+            "IEDB_Epitopes__Positive_T_Cell_Assays",
+            "T Cell Cross-Reactivity Prediction (Human)",
+            "T Cell Cross-Reactivity Prediction (Virus)",
+            "vaccine_design" ] );
         l_name_trace.push( ... object_data_vaccine_metric.l_name_data )
         let l_index_trace = [ ]; // list of indices for toggling legend labels
         for ( let i = 0; i < l_name_trace.length; i ++ ) {
@@ -3921,45 +4081,63 @@
         if ( object_plot_TCellCrossReactivity.l_error_x.length > 0 ) { Plotly.restyle( plotMolecularMimicryMap, { visible: object_plot_TCellCrossReactivity.show }, l_index_trace_TCellCrossReactivity ); } // set visibility 
     }
     
-    var str_value_to_highlight = "A1Z1Q3";
+    object_data.flag.gene_highlighted = false; // flag indicating whether a gene is being highlighted on the plot or not
     // setting for highlight
     var float_line_width_when_highlighting = 2, float_line_width_when_not_highlighting = 0, color_when_highlighting = 'black';
-    function Highlight_MolecularMimicryMap( ) { // Highlight specific records in MolecularMimicryMap data 
-        let input = document.getElementById( "input_highlight_value" ).value;
-        if ( input.length > 0 ) { // if input is value
-            str_value_to_highlight = input;
-            // currently only supports acc_human
-            if ( str_value_to_highlight in dictionary_acc_human_to_integer_index ) {
-//                 console.log( dictionary_acc_human_BCellCrossReactivity[ dictionary_acc_human_to_integer_index[ str_value_to_highlight ][ 0 ] ] );
-                let int_acc_human = dictionary_acc_human_to_integer_index[ str_value_to_highlight ][ 0 ], l_opacity = [ ], l_opacity_modified = [ ], l_error_x = [ ], l_error_x_modified = [ ];
-                if ( int_acc_human in dictionary_acc_human_BCellCrossReactivity ) { // highlight BCellCrossReactivity
-                    let l_indices_to_highlight_BCellCrossReactivity = dictionary_acc_human_BCellCrossReactivity[ int_acc_human ];
-                    l_opacity = object_plot_BCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( object_plot_BCellCrossReactivity.n_records, 0 ), l_error_x = object_plot_BCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( object_plot_BCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
-                    for ( let i = 0; i < l_indices_to_highlight_BCellCrossReactivity.length; i ++ ) { l_opacity_modified[ l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_opacity[ l_indices_to_highlight_BCellCrossReactivity[ i ] ]; l_error_x_modified[ l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_error_x[ l_indices_to_highlight_BCellCrossReactivity[ i ] ]; } // modify linewidth to highlight records
-                    if ( object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { // temp
-                        let l_index_traces_selected = [ ], l_index_traces_not_selected = [ ];
-    //                     for ( let i = 0; i < object_plot_BCellCrossReactivity.n_records; i ++ ) { if ( mask_selected[ i ] ) { l_index_traces_selected.push( i ); } else { l_index_traces_not_selected.push( i ); } }
-    //                     Plotly.restyle( plotMolecularMimicryMap, { opacity: 0 }, l_index_traces_not_selected ); // hide non-selected records
-    //                     Plotly.restyle( plotMolecularMimicryMap, { opacity: float_line_type_opacity_MolecularMimicryMap_BCellCrossReactivity }, l_index_traces_selected ); // show selected records
-                    } else {
-                        Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: 0 } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start ) // set opacity of markers not selected in the metric plot to 0
-                    }
+    function Highlight_Gene_MolecularMimicryMap( ) { // Toggle Highlights of specific records of a gene in MolecularMimicryMap data 
+        // clear highlight if a gene is being already highlighted.
+        if ( object_data.flag.gene_highlighted ) { 
+            // reset plots
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.line.width } }, error_x: { type: "data", array: object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start );
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, object_plot_TCellCrossReactivity.index_trace_start );
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_TCellCrossReactivity.index_trace_start + 1 );
+            object_data.flag.gene_highlighted = false;
+        } else { // show records of a given gene
+            // currently only supports gene_symbols
+// highlight BCellCrossReactivity and TCellCrossReactivity with current 'object_data.main.gene.l_integer_index_gene'
+            let l_opacity = [ ], l_opacity_modified = [ ], l_error_x = [ ], l_error_x_modified = [ ];
+            object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity = [ ];
+            object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity = [ ];
+            for ( let i = 0; i < object_data.main.gene.l_index_gene.length; i ++ ) {
+                let integer_index_gene = object_data.main.gene.l_index_gene[ i ];
+                if ( integer_index_gene in object_data.data.dictionary_index_gene_to_l_index_BCellCrossReactivity ) {
+                    object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity.push( ... object_data.data.dictionary_index_gene_to_l_index_BCellCrossReactivity[ integer_index_gene ] );
                 }
-                if ( int_acc_human in dictionary_acc_human_TCellCrossReactivity ) { // highlight TCellCrossReactivity
-                    let l_indices_to_highlight_TCellCrossReactivity = dictionary_acc_human_TCellCrossReactivity[ int_acc_human ];
-                    l_opacity = object_plot_TCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( object_plot_TCellCrossReactivity.n_records, 0 ), l_error_x = object_plot_TCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( object_plot_TCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
-                    for ( let i = 0; i < l_indices_to_highlight_TCellCrossReactivity.length; i ++ ) { l_opacity_modified[ l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_opacity[ l_indices_to_highlight_TCellCrossReactivity[ i ] ]; l_error_x_modified[ l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_error_x[ l_indices_to_highlight_TCellCrossReactivity[ i ] ]; } // modify linewidth to highlight records
-                    Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, object_plot_TCellCrossReactivity.index_trace_start );
-                    Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, object_plot_TCellCrossReactivity.index_trace_start + 1 );
+                if ( integer_index_gene in object_data.data.dictionary_index_gene_to_l_index_TCellCrossReactivity ) {
+                    object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity.push( ... object_data.data.dictionary_index_gene_to_l_index_TCellCrossReactivity[ integer_index_gene ] );
                 }
             }
+            l_opacity = object_plot_BCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( object_plot_BCellCrossReactivity.n_records, 0 ), l_error_x = object_plot_BCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( object_plot_BCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
+            for ( let i = 0; i < object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity.length; i ++ ) { 
+                l_opacity_modified[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_opacity[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ]; 
+                l_error_x_modified[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_error_x[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ]; 
+            } // modify linewidth to highlight records
+            if ( object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { // temp (currently line-plotting-mode is not supported)
+                let l_index_traces_selected = [ ], l_index_traces_not_selected = [ ];
+//                     for ( let i = 0; i < object_plot_BCellCrossReactivity.n_records; i ++ ) { if ( mask_selected[ i ] ) { l_index_traces_selected.push( i ); } else { l_index_traces_not_selected.push( i ); } }
+//                     Plotly.restyle( plotMolecularMimicryMap, { opacity: 0 }, l_index_traces_not_selected ); // hide non-selected records
+//                     Plotly.restyle( plotMolecularMimicryMap, { opacity: float_line_type_opacity_MolecularMimicryMap_BCellCrossReactivity }, l_index_traces_selected ); // show selected records
+            } else { // point-plotting mode
+                Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: 0 } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start ) // set opacity of markers not selected in the metric plot to 0
+            }
+// highlight TCellCrossReactivity with current 'object_data.main.gene.l_integer_index_gene'
+            
+            l_opacity = object_plot_TCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( object_plot_TCellCrossReactivity.n_records, 0 ), l_error_x = object_plot_TCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( object_plot_TCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
+            for ( let i = 0; i < object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity.length; i ++ ) { 
+                l_opacity_modified[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_opacity[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ]; 
+                l_error_x_modified[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_error_x[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ];
+            } // modify linewidth to highlight records
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, object_plot_TCellCrossReactivity.index_trace_start );
+            Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, object_plot_TCellCrossReactivity.index_trace_start + 1 );
+            object_data.flag.gene_highlighted = true;
         }
     }
 
-    function Clear_Highlight_MolecularMimicryMap( ) { // remove highlights from the plot
+    function Clear_Highlight_MolecularMimicryMap( ) { // remove highlights from the plot 
         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.line.width } }, error_x: { type: "data", array: object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_BCellCrossReactivity.index_trace_start );
         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, object_plot_TCellCrossReactivity.index_trace_start );
         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, object_plot_TCellCrossReactivity.index_trace_start + 1 );
+        object_data.flag.gene_highlighted = false;
     }
     
     function VaccineMetrics_Update_Visibility( ) { // update visibility_for_each_trace and general visibility for current setting
@@ -3976,6 +4154,17 @@
         object_data_vaccine_metric.visibility_for_each_trace = visibility_for_each_trace;
     }
     function VaccineMetrics_Apply_Visibility( ) { // apply updated visibility for each trace
+        if ( ! object_data.flag.vaccine_metric_drawn ) { // draw metrics for vaccine design
+            console.log( '[VaccineMetrics_Apply_Visibility] plotting vaccine metric traces...' )
+            VaccineMetrics_Update_Visibility( ); // update visibility of vaccine metric traces
+            l = object_data_vaccine_metric.visibility_for_each_trace;
+            for ( let i = 0; i < l.length; i ++ ) { object_data_vaccine_metric.data[ i + 2 ].visible = l[ i ]; } // first two traces are lower and upper boundary of vaccine metric traces
+            object_data_vaccine_metric.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
+            Plotly.addTraces( plotMolecularMimicryMap, lodash.cloneDeep( object_data_vaccine_metric.data ) );
+            object_data_vaccine_metric.index_trace_end = plotMolecularMimicryMap.data.length;
+            object_data.flag.vaccine_metric_drawn = true; // update the flag
+            for( let i = 0; i < plotMolecularMimicryMap.data.length; i ++ ) { dict_name_plot_to_trace_index__MolecularMimicryMap[ plotMolecularMimicryMap.data[ i ].name ] = i; } // update trace_name - index mapping
+        }
         VaccineMetrics_Update_Visibility( ) // update visiblity for current settings
         let l_name_data = lodash.cloneDeep( object_data_vaccine_metric.l_name_data );
         l_name_data.push( ... [ 'vaccine_metric__lower_bound', 'vaccine_metric__upper_bound' ] );
