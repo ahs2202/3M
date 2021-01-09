@@ -307,6 +307,11 @@
                     <option value="gisaid.allprot1114.valid.nonredundant">196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                 </select>
             </li>
+            <li class="nav-item">
+                <div class="form-check form-check-inline" id="toggle_alignment_mode_container">
+                    <input id="toggle_alignment_mode" type="checkbox" checked data-toggle="toggle" data-on="Alignment to Virus" data-off="Alignment to Human" data-onstyle="secondary" data-offstyle="light" data-style="ios" data-width="14rem" data-height="calc(1.5em + .75rem + 2px)" onchange="">
+                </div>
+            </li>
         </ul>
         <button type="button" class="btn btn-light bth-sm ml-auto mr-1 my-0" aria-label="capture current view and download it as a PNG file" data-tooltip="tooltip" data-placement="left" data-html="true" title="Capture <b>current view</b> and download it as a PNG file" onclick="DownloadCurrentView( )"><i class="material-icons icon-black" style="font-size:25px">camera_alt</i></button>
         <button type="button" class="btn btn-light bth-sm ml-1 mr-1 my-0" aria-label="show keyboard shortcuts" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to show <b>keyboard shortcuts</b>" onclick="$( '#modal_keyboard_shortcuts' ).modal( 'show' )"><i class="material-icons icon-black" style="font-size:25px">keyboard</i></button>
@@ -2174,11 +2179,11 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         return new Promise( async function( resolve, reject ) {
             object_data_vaccine_design = Object.assign( { }, object_data_vaccine_design_empty ); // initialize the object
             object_data_vaccine_design.l_file_fasta = [ { name: "Optivax.Supplementary_Materials.fa" } ];
-            await LoadRemoteFasta( "https://raw.githubusercontent.com/ahs2202/3M/master/current/peptides/Optivax/Optivax.Supplementary_Materials.fa" ); // load a fasta file at a time
+            await LoadRemoteFasta( object_data.file.base_url + "data/peptides/Optivax/Optivax.Supplementary_Materials.fa" ); // load a fasta file at a time
             ProcessVaccineCandidate( );
             console.log( "[LoadOptiVax] OptiVac peptide vaccine candidates loaded" );
             object_data.flag.vaccine_design_optivax_loaded = true; // update flag indicating the Optivax file has been loaded
-            resolve( "" );
+            resolve( "[LoadOptiVax] resolved" );
         });
     }
     async function LoadLocalData( l_file ) {
@@ -2500,7 +2505,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     var object_annotation_representative_virus_protein = { show: true, data: [ ] }, n_representative_virus_proteins = 11; // number of representative virus proteins
     // for visualizing protein structures
     var object_pdb_human = { }, object_pdb_virus = { }, object_data_tableSequence = { };
-    var option_initialization_molstar = { customData: { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/dummy.cif", format: 'cif', binary: false }, landscape: true, bgColor: {r:0,g:0,b:0}, hideControls: true }; // default option for Mol* when not displaying molecules
+    var option_initialization_molstar = { customData: { url: object_data.file.base_url + "data/custom_cif/dummy.cif", format: 'cif', binary: false }, landscape: true, bgColor: {r:0,g:0,b:0}, hideControls: true }; // default option for Mol* when not displaying molecules
     var l_selectSections_PDB_Virus_Protein = [ ], flag_select_PDB_Virus_Protein = true, flag_focus_PDB_Virus_Protein = false, l_selectSections_PDB_Human_Protein = [ ], flag_select_PDB_Human_Protein = true, flag_focus_PDB_Human_Protein = false; // flags for interaction with Mol* viewer
     // for highlighting specific entries
     // object for saving layout data
@@ -3883,7 +3888,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_pdb_human.dict_index_alignment_to_pos_pdb_human[ i ] = object_pdb_human.dict_pos_human_to_pos_pdb_human[ object_pdb_human.dict_index_alignment_to_pos_human[ i ] ];
             }
             object_pdb_human.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
-            if ( object_pdb_human.value.includes( "_source_" ) ) { object_pdb_human.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_human.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
+            if ( object_pdb_human.value.includes( "_source_" ) ) { object_pdb_human.option_update.customData = { url: object_data.file.base_url + "data/custom_cif/" + object_pdb_human.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
             else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
                 object_pdb_human.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_human.id_pdb + "/chains?entityId=" + object_pdb_human.id_entity + "&authAsymId=" + object_pdb_human.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
                 if ( object_pdb_human.id_model != null ) { object_pdb_human.option_update.customData.url += "&modelId=" + object_pdb_human.id_model; } // use id_model to retrieve specific coordinates if it is available
@@ -3938,7 +3943,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_pdb_virus.dict_index_alignment_to_pos_pdb_virus[ i ] = object_pdb_virus.dict_pos_virus_to_pos_pdb_virus[ object_pdb_virus.dict_index_alignment_to_pos_virus[ i ] ];
             }
             object_pdb_virus.option_update = { landscape: true, bgColor: {r:255,g:255,b:255}, hideControls: true, hideStructure: [ 'water', 'carbs' ] };
-            if ( object_pdb_virus.value.includes( "_source_" ) ) { object_pdb_virus.option_update.customData = { url: "https://raw.githubusercontent.com/ahs2202/3M/master/current/custom_cif/" + object_pdb_virus.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
+            if ( object_pdb_virus.value.includes( "_source_" ) ) { object_pdb_virus.option_update.customData = { url: object_data.file.base_url + "data/custom_cif/" + object_pdb_virus.value + ".cif", format: 'cif', binary: false }; } // if structure is structural model, retrieve data from github
             else { // use coordinate server to retrieve coordinates of a specific chain if the structure belongs to RCSB PDB db
                 object_pdb_virus.option_update.customData = { url: "https://www.ebi.ac.uk/pdbe/coordinates/" + object_pdb_virus.id_pdb + "/chains?entityId=" + object_pdb_virus.id_entity + "&authAsymId=" + object_pdb_virus.id_chain + "&encoding=bcif", binary: true, format: 'cif' }; 
                 if ( object_pdb_virus.id_model != null ) { object_pdb_virus.option_update.customData.url += "&modelId=" + object_pdb_virus.id_model; } // use id_model to retrieve specific coordinates if it is available
