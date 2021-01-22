@@ -2709,7 +2709,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             dataset.dict_virus_species_to_float_rainbow_color = { };
             for ( let i = 0; i < dataset.l_virus_species.length; i ++ ) {
                 let str_virus_species = dataset.l_virus_species[ i ],
-                    float_for_colormap = ( Math.abs( str_virus_species.hashCode( ) ) % 73 ) / 73, // assign float using string-based hashing
+                    float_for_colormap = ( Math.abs( str_virus_species.hashCode( ) ) % 51 ) / 51, // assign float using string-based hashing
                     str_color = function_colormap_rainbow( float_for_colormap ).toString( );
                 dataset.dict_virus_species_to_float_rainbow_color[ str_virus_species ] = float_for_colormap;
                 dataset.dict_virus_species_to_rainbow_color[ str_virus_species ] = str_color; // assign color to gene_symbol using a 32-bit hashing function
