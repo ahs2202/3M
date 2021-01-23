@@ -1274,7 +1274,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         let str_entry = tag.innerText
         if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
             if ( object_data.flag.alignment_to_virus ) {
-                tag.style = `--tag-bg: ${object_data.main.dictionary_human_gene_symbol_lower_case_to_color[ str_entry.toLowerCase( ) ]}; --tag-hover: ${object_data.main.dictionary_human_gene_symbol_lower_case_to_color[ str_entry.toLowerCase( ) ]}`
+                let color_hex_bg = object_data.main.dictionary_human_gene_symbol_lower_case_to_color[ str_entry.toLowerCase( ) ];
+                tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
             } else {
 
             }
@@ -1283,7 +1284,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             if ( object_data.flag.alignment_to_virus ) {
 
             } else {
-                tag.style = `--tag-bg: ${object_data.main.dictionary_virus_species_to_color[ str_entry ]}; --tag-hover: ${object_data.main.dictionary_virus_species_to_color[ str_entry ]}`
+                let color_hex_bg = object_data.main.dictionary_virus_species_to_color[ str_entry ];
+                tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
             }
         }
     }
@@ -1966,6 +1968,15 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     }
     function rgbToHex(r, g, b) {
       return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+    function ColorGetDarkness( hex ) { // get darkness of color (hex)
+        let c = hex.substring(1);      // strip #
+        let rgb = parseInt(c, 16);   // convert rrggbb to decimal
+        let r = (rgb >> 16) & 0xff;  // extract red
+        let g = (rgb >>  8) & 0xff;  // extract green
+        let b = (rgb >>  0) & 0xff;  // extract blue
+        let luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709 // get brightness
+        return luma
     }
     
     function RetrieveDiscardedLength( str_discarded_regions, alignment_start ) { // retrieve length of discarded sequence from 'str_discarded_regions' for the given alignment start position
@@ -2731,7 +2742,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         $( "#btn_toggle_human_protein_metrics" ).prop( "disabled", false ); // enable human metrics plot
         $( "#toggle_vaccine_metrics_MolecularMimicryMap" ).prop( "disabled", false ); 
         $( "#toggle_vaccine_design_MolecularMimicryMap" ).prop( "disabled", false ); 
-        $( "#toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" ).prop( "disabled", false ); 
         
         // initialize dataset specific for alignment to virus reference proteome
         if ( ! ( 'iedb_epitope_virus' in dataset ) ) { 
@@ -2813,9 +2823,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         $( "#btn_toggle_human_protein_metrics" ).prop( "disabled", true ); // enable human metrics plot
         $( "#toggle_vaccine_metrics_MolecularMimicryMap" ).prop( "disabled", true ); 
         $( "#toggle_vaccine_design_MolecularMimicryMap" ).prop( "disabled", true ); 
-        // For unknown reasons, toggleing B-cell in AlignmentToVirus mode records will trigger an annoying error with no apparent direct solution (setting visibility of point-type B-cell record to false at AlignmentToHuman mode only trigger the error)
-        // currently only roundabout is not toggling B-Cell cross-reactivity trace in AlignmentToVirus mode
-        $( "#toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" ).prop( "disabled", true ); 
         
         dataset.arr_data_iedb_epitope_human = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "iedb_epitope_human.tsv.gz.base64.txt" ];
         
@@ -4947,9 +4954,19 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             l_index_trace_BCellCrossReactivity.push( index_trace );
         } 
         if ( object_plot_BCellCrossReactivity.dict_data[ "error_x" ].length > 0 ) { 
-            // will trigger an annoying error with no apparent direct solution (setting visibility of point-type B-cell record to false at AlignmentToHuman mode only trigger the error)
-            // currently only roundabout is not toggling B-Cell cross-reactivity trace in AlignmentToVirus mode
-            Plotly.restyle( plotMolecularMimicryMap, { visible: object_plot_BCellCrossReactivity.show }, l_index_trace_BCellCrossReactivity );
+            if ( ( ! object_plot_BCellCrossReactivity.show ) & object_plot_TCellCrossReactivity.show & ( l_index_trace_BCellCrossReactivity.length == 1 ) ) {
+                // will trigger an annoying error with no apparent direct solution (setting visibility of point-type B-cell record to false at AlignmentToHuman mode only trigger the error)
+                // one roundabout is turning off Tcell record prior to Bcell records (somehow works)
+                let l_index_trace_TCellCrossReactivity = [ ];
+                for ( let index_trace = object_plot_TCellCrossReactivity.index_trace_start; index_trace < object_plot_TCellCrossReactivity.index_trace_end; index_trace ++ ) { 
+                    l_index_trace_TCellCrossReactivity.push( index_trace );
+                } 
+                Plotly.restyle( plotMolecularMimicryMap, { visible: false }, l_index_trace_TCellCrossReactivity );
+                Plotly.restyle( plotMolecularMimicryMap, { visible: false }, l_index_trace_BCellCrossReactivity );
+                Plotly.restyle( plotMolecularMimicryMap, { visible: true }, l_index_trace_TCellCrossReactivity );
+            } else {
+                Plotly.restyle( plotMolecularMimicryMap, { visible: object_plot_BCellCrossReactivity.show }, l_index_trace_BCellCrossReactivity );
+            }
         } // set visibility 
     }
     function Toggle_TCellCrossReactivityPrediction_MolecularMimicryMap( ) { // toggle BCellCrossReactivityPrediction data
