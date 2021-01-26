@@ -2887,7 +2887,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         console.log( "Loading datatable", name_data );
         if ( name_data == "acc_human.tsv" ) { // retrieve appropriate dataframe for each setting
             df = new DataFrame( dataset.arr_data_acc_human );
-            df = df.select( "value", "n_counts", "seq_length", "description", "IEDB___n_unique_epitopes", "AAgAtlas___n_PubMed_ID" );
+            df = df.select( "Gene_Symbol", "value", "n_counts", "seq_length", "description", "IEDB___n_unique_epitopes", "AAgAtlas___n_PubMed_ID" );
         } else if ( name_data == "acc_virus_representative.tsv" ) {
             df = new DataFrame( dataset.arr_data_acc_virus_representative );
             df = df.select( "name", "accession", "uniprot_acc", "length", "n_non_redundant_proteins" );
@@ -3257,9 +3257,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
 
             // preprocess B cell cross reactivity prediction data 
             dataset.arr_data_BCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ dataset.object_plot_BCellCrossReactivity.dir_file ];
-            dict_l.BCellCrossReactivity_arr_data.push( dataset.arr_data_BCellCrossReactivity ); // add array to the list 
             dataset.object_plot_BCellCrossReactivity.n_records = Math.min( dataset.arr_data_BCellCrossReactivity.length, dataset.object_plot_BCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
             dataset.arr_data_BCellCrossReactivity = dataset.arr_data_BCellCrossReactivity.slice( 0, dataset.object_plot_BCellCrossReactivity.n_records ); // retrieve "dataset.object_plot_BCellCrossReactivity.n_records" number of records
+			dict_l.BCellCrossReactivity_arr_data.push( dataset.arr_data_BCellCrossReactivity ); // add array to the list 
             dataset.object_plot_BCellCrossReactivity.dict_data = Unpack_array_to_dict_data( dataset.arr_data_BCellCrossReactivity ); // unpack data to dict_data format
             if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
                 dataset.object_plot_BCellCrossReactivity.dict_data[ "name_protein_virus" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "representative_accession" ], function( acc_rep ) { return dataset.arr_data_acc_virus_representative[ acc_rep ].name; } ); 
@@ -3345,9 +3345,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             // preprocess T cell cross reactivity prediction data
 
             dataset.arr_data_TCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ dataset.object_plot_TCellCrossReactivity.dir_file ];
-            dict_l.TCellCrossReactivity_arr_data.push( dataset.arr_data_TCellCrossReactivity ); // add array to the list 
             dataset.object_plot_TCellCrossReactivity.n_records = Math.min( dataset.arr_data_TCellCrossReactivity.length, dataset.object_plot_TCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
             dataset.arr_data_TCellCrossReactivity = dataset.arr_data_TCellCrossReactivity.slice( 0, dataset.object_plot_TCellCrossReactivity.n_records ); // retrieve "dataset.object_plot_TCellCrossReactivity.n_records" number of records from 'dataset.arr_data_TCellCrossReactivity'
+			dict_l.TCellCrossReactivity_arr_data.push( dataset.arr_data_TCellCrossReactivity ); // add array to the list 
             // retrieve protein and mhc_allele related data for hover info. 
             dataset.object_plot_TCellCrossReactivity.dict_data = Unpack_array_to_dict_data( dataset.arr_data_TCellCrossReactivity ); // unpack data to dict_data format
             dataset.object_plot_TCellCrossReactivity.dict_data[ "name_dataset" ] =  ArrayFull( dataset.arr_data_TCellCrossReactivity.length, name_dataset ); // put name_dataset
@@ -4473,23 +4473,31 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         arr_data_clicked.push( { "Data Name": "[human] protein name", Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].name, URL: "https://www.google.com/search?q=" + dataset.arr_data_acc_human[ clicked_record.query_accession ].description.split( "OS=" )[ 0 ] } ); // add human protein description with a link to a google search
         arr_data_clicked.push( { "Data Name": "[virus] protein accession", Value: dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_start + " to " + clicked_record.target_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value } );
         arr_data_clicked.push( { "Data Name": "[human] protein accession", Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_start + " to " + clicked_record.query_end, URL: "https://www.uniprot.org/uniprot/" + dataset.arr_data_acc_human[ clicked_record.query_accession ].value } );
-        let flag_structure_exist_for_human_sequence = clicked_record.structure_id_query != -1, flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1; // retrieve flag for structure property data availability for human and virus sequence
+        let flag_structure_exist_for_human_sequence = clicked_record.structure_id_query != -1, 
+		    flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1, // retrieve flag for structure property data availability for human and virus sequence
+			str_label_human = "Human Protein ----", // default labels
+			str_label_virus = "Virus Protein ----";
+			
         if ( flag_structure_exist_for_virus_sequence ) { 
             let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].id_pdb.toUpperCase( );
             arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].value + " (" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_structure_start + " to " + clicked_record.target_structure_end + ")", URL: "https://www.rcsb.org/structure/" + str_id_pdb, style: "font-family:Arial" } );
-            document.getElementById( "text_protein_structure_virus" ).innerText = `Virus Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
+			str_label_virus = `Virus Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
         } else {
             arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: "unavailable", URL: null, style: "font-family:Arial" } );
-            document.getElementById( "text_protein_structure_virus" ).innerText = `Virus Protein ----`; // update protein id label
         }
         if ( flag_structure_exist_for_human_sequence ) { 
             let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].id_pdb.toUpperCase( );
             arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].value + " (" + dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_structure_start + " to " + clicked_record.query_structure_end + ")", URL: "https://www.rcsb.org/structure/" + str_id_pdb, style: "font-family:Arial" } );
-            document.getElementById( "text_protein_structure_human" ).innerText = `Human Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
+			str_label_human = `Human Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
         } else {
             arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: "unavailable", URL: null, style: "font-family:Arial" } );
-            document.getElementById( "text_protein_structure_human" ).innerText = `Human Protein ----`; // update protein id label
         }
+		// update flags indicating whether the structure in the Molstar viewer should be updated or not.
+		let flag_new_structure_human = document.getElementById( "text_protein_structure_human" ).innerText != str_label_human,
+		    flag_new_structure_virus = document.getElementById( "text_protein_structure_virus" ).innerText != str_label_virus;
+		document.getElementById( "text_protein_structure_human" ).innerText = str_label_human;
+		document.getElementById( "text_protein_structure_virus" ).innerText = str_label_virus;
+		
         arr_data_clicked.push( { "Data Name": "E-value (significance) of full-length alignment", Value: clicked_record.e_value, URL: null, style: "font-family:Arial" } );
         arr_data_clicked.push( { "Data Name": "identity (similarity) of full-length alignment", Value: clicked_record.identity, URL: null, style: "font-family:Arial" } );
         arr_data_clicked.push( { "Data Name": "number of redundant alignments", Value: clicked_record.duplicate_counts, URL: null, style: "font-family:Arial" } );
@@ -4668,11 +4676,19 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_pdb_human.selection.push( { auth_asym_id: object_pdb_human.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
             }
             object_pdb_human.bool_flag_selected = false, object_pdb_human.bool_flag_focused = false; // set viewer setting
-            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
-            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( object_pdb_human.option_update ); MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
+			    pdbHumanProtein.visual.update( object_pdb_human.option_update );
+			    MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
+			    pdbHumanProtein.visual.update( object_pdb_human.option_update );
+				MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein );
+			} ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
         } else {  // show dummy if coordinates are not available
-            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbHumanProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
-            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbHumanProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { // render coordinates synchronously if the container is currently shown
+			    pdbHumanProtein.visual.update( option_initialization_molstar );
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
+			    pdbHumanProtein.visual.update( option_initialization_molstar );
+			} ); } // render coordinates once the container is shown if the container is currently hidden
         }
         if ( flag_structure_exist_for_virus_sequence ) { 
             object_pdb_virus = Object.assign( object_pdb_virus, dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ] );
@@ -4723,11 +4739,21 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_pdb_virus.selection.push( { auth_asym_id: object_pdb_virus.id_chain, start_residue_number: pos, end_residue_number: pos, color: color } );
             }
             object_pdb_virus.bool_flag_selected = false, object_pdb_virus.bool_flag_focused = false; // set viewer setting
-            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
-            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( object_pdb_virus.option_update ); MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
+			    pdbVirusProtein.visual.update( object_pdb_virus.option_update );
+			    MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+            } else { 
+			    BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
+			        pdbVirusProtein.visual.update( object_pdb_virus.option_update );
+				    MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein );
+			    } );
+			} // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
         } else {  // show dummy if coordinates are not available
-            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
-            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
+            if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
+			    pdbVirusProtein.visual.update( option_initialization_molstar ); // render coordinates synchronously if the container is currently shown
+            } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
+			    pdbVirusProtein.visual.update( option_initialization_molstar );
+			} ); } // render coordinates once the container is shown if the container is currently hidden
         }
         document.getElementById( "description_clicked_position__table_sequence" ).innerHTML = "";
     }
