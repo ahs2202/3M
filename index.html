@@ -306,7 +306,7 @@
                 <select class="custom-select w-auto mx-2 my-0" id="select_dataset" title="select dataset" onchange="Load_Dataset( )">
                     <option selected value="NCBI_Virus_human_host_SARS_CoV_2">8,138 SARS-CoV-2 Genomes (NCBI-Virus, 06/26/2020)</option>
                     <option value="gisaid.allprot1114.valid.nonredundant">196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
-                    <option value="common_cold_coronavirus_20201214.valid.nonredundant">184 Common Cold Coronavirus Genomes (NCBI-Virus)</option>
+                    <option value="non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant">184 Common Cold Coronavirus Genomes (NCBI-Virus)</option>
                 </select>
             </li>
             <li class="nav-item">
@@ -1162,16 +1162,16 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data.file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
     object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records = {
+        'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 20000, '35': 20000, '45': 39054, '55': 30920, '70': 22061, '85': 15532, '100': 10931, '125': 6509, '150': 3761},
+        'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 34737, '100': 24446, '125': 13576, '150': 7066}},
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 20000, '55': 38588, '70': 26000, '85': 16064, '100': 9917, '125': 4222, '150': 2052},
         'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 20000, '150': 28706}},
-        'common_cold_coronavirus_20201214.valid.nonredundant': {'nonredundant_position': {'5': 38243, '8': 20000, '11': 20000, '14': 39788, '17': 38239, '20': 36789, '25': 33826, '30': 30865, '35': 27834, '45': 22681, '55': 18123, '70': 13093, '85': 9343, '100': 6654, '125': 3931, '150': 2302},
-        'nonredundant_sequence': {'5': 20000, '8': 20000, '11': 20000, '14': 20000, '17': 20000, '20': 20000, '25': 20000, '30': 20000, '35': 20000, '45': 20000, '55': 36120, '70': 27263, '85': 19466, '100': 13810, '125': 7875, '150': 3831}},
         'NCBI_Virus_human_host_SARS_CoV_2': {'nonredundant_sequence': {'5': 22636, '8': 26133, '11': 28607, '14': 30387, '17': 31615, '20': 31979, '25': 31344, '30': 30205, '35': 29313, '45': 27691, '55': 24883, '70': 20278, '85': 15168, '100': 9864, '125': 6402, '150': 3241},
         'nonredundant_position': {'5': 19136, '8': 19931, '11': 19871, '14': 19531, '17': 18843, '20': 17697, '25': 15612, '30': 13858, '35': 12405, '45': 9906, '55': 7656, '70': 5069, '85': 3372, '100': 2106, '125': 1170, '150': 568}}};
     object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records = {
+        'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_aligned_position': 35259, 'nonredundant_aligned_sequence': 20000, 'all': 20000},
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_aligned_sequence': 40000, 'all': 40000, 'nonredundant_aligned_position': 20000},
-        'NCBI_Virus_human_host_SARS_CoV_2': {'nonredundant_aligned_sequence': 38824, 'nonredundant_aligned_position': 23868, 'all': 20000},
-        'common_cold_coronavirus_20201214.valid.nonredundant': {'all': 33805, 'nonredundant_aligned_sequence': 31245, 'nonredundant_aligned_position': 23094}};
+        'NCBI_Virus_human_host_SARS_CoV_2': {'nonredundant_aligned_sequence': 38824, 'nonredundant_aligned_position': 23868, 'all': 20000}};
     
     // when document is ready for interaction
     $(document).ready( function( ) {
@@ -1235,7 +1235,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             let dir_folder = object_data.file.base_url + "data/base64/" + object_data.main.name_dataset + "/" // retrieve directory of the current folder of the current dataset
             l_dir_file = l_name_file.map( ( name_file ) => { return dir_folder + name_file; } ); // retrieve remote directory for the core data files for the visualization of records aligned to virus
         } else { // show alignment to human proteins
-            object_data.main.l_name_dataset = object_data.main.name_dataset.includes( "common_cold_coronavirus" ) ? [ object_data.main.name_dataset ] : [ object_data.main.name_dataset, 'common_cold_coronavirus_20201214.valid.nonredundant' ]; // number of datasets can be either one (common cold coronavirus only) or two (comparison) // add common cold dataset as a second dataset (supplementary data) for comparison if SARS-CoV-2 virus is chosen
+            object_data.main.l_name_dataset = object_data.main.name_dataset.includes( "common_cold_coronavirus" ) ? [ object_data.main.name_dataset ] : [ object_data.main.name_dataset, 'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant' ]; // number of datasets can be either one (common cold coronavirus only) or two (comparison) // add common cold dataset as a second dataset (supplementary data) for comparison if SARS-CoV-2 virus is chosen
             for ( let i = 0; i < object_data.main.l_name_dataset.length; i ++ ) {
                 let l_name_file = [ "TCellCrossReactivity.nonredundant_aligned_position.top_1000.tsv.gz.base64.txt", 
                                     "BCellCrossReactivity.nonredundant_position.windowSize_30.top_1000.tsv.gz.base64.txt", 
@@ -2699,7 +2699,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         if ( "Species" in dataset.dictarr_data_acc_virus ) { // retrieve list of virus species 
             dataset.l_virus_species = Unique( dataset.dictarr_data_acc_virus.Species );
         } else {
-            dataset.l_virus_species = [ "Severe acute respiratory syndrome-related coronavirus" ]; // virus species is SARS-CoV-2 by default 
+            dataset.l_virus_species = [ "Severe acute respiratory syndrome coronavirus 2" ]; // virus species is SARS-CoV-2 by default 
         }
         //  assign color to human proteins // build a colormap for representing accessions of human proteins
         if ( ! ( 'l_colormap_rainbow_acc_human' in dataset ) ) {
@@ -2716,11 +2716,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
         //  assign color to human proteins and virus species // build a colormap for representing accessions of human proteins
         if ( ! ( 'dict_virus_species_to_rainbow_color' in dataset ) ) {
+            let int_hash = 4217 // integer used for retrieving float from the hash
             dataset.dict_virus_species_to_rainbow_color = { }; // initialize the list of mapped colors
             dataset.dict_virus_species_to_float_rainbow_color = { };
             for ( let i = 0; i < dataset.l_virus_species.length; i ++ ) {
                 let str_virus_species = dataset.l_virus_species[ i ],
-                    float_for_colormap = ( Math.abs( str_virus_species.hashCode( ) ) % 51 ) / 51, // assign float using string-based hashing
+                    float_for_colormap = ( Math.abs( str_virus_species.hashCode( ) ) % int_hash ) / int_hash, // assign float using string-based hashing
                     str_color = function_colormap_rainbow( float_for_colormap ).toString( );
                 dataset.dict_virus_species_to_float_rainbow_color[ str_virus_species ] = float_for_colormap;
                 dataset.dict_virus_species_to_rainbow_color[ str_virus_species ] = str_color; // assign color to gene_symbol using a 32-bit hashing function
@@ -3316,12 +3317,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     l_colors.push( dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
                     l_float_colors.push( dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
                 }
-                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome-related coronavirus" ); // default virus is SARS-CoV-2
+                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
             } else {
                 if ( ! ( "Species" in dataset.dictarr_data_acc_virus ) ) { // if Species column does not exist, SARS-CoV-2 is the default virus species 
-                    l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome-related coronavirus" ); // default virus is SARS-CoV-2
-                    l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome-related coronavirus" ] );
-                    l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome-related coronavirus" ] );
+                    l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
+                    l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
+                    l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
                 } else {   
                     for ( let i = 0; i < l_acc_virus.length; i ++ ) { 
                         let int_acc_virus = l_acc_virus[ i ];
@@ -3389,12 +3390,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     l_colors.push( dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
                     l_float_colors.push( dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
                 }
-                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome-related coronavirus" ); // default virus is SARS-CoV-2
+                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
             } else {
                 if ( ! ( "Species" in dataset.dictarr_data_acc_virus ) ) { // if Species column does not exist, SARS-CoV-2 is the default virus species 
-                    l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome-related coronavirus" ); // default virus is SARS-CoV-2
-                    l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome-related coronavirus" ] );
-                    l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome-related coronavirus" ] );
+                    l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
+                    l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
+                    l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
                 } else {   
                     for ( let i = 0; i < l_acc_virus.length; i ++ ) { 
                         let int_acc_virus = l_acc_virus[ i ];
