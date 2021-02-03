@@ -631,7 +631,7 @@
                         </select>
                     </div>
                 </p>
-                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="Open_and_Draw_BCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
+                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="UpdateBCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
                 <p>
                     <h5 class="text-muted">T Cell Cross-Reactivity Prediction Metrics</h5>
                     <div class="form-group">
@@ -648,7 +648,7 @@
                         </select>
                     </div>
                 </p>
-                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="Open_and_Draw_TCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
+                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="UpdateTCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
                 <p>
                     <h5 class="text-muted">Human Protein Metrics</h5>
                     <div class="form-group">
@@ -692,7 +692,7 @@
                         </select>
                     </div>
                 </p>
-                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="Open_and_Draw_TCellCrossReactivityPredMetricsPlot( )">Load and Draw</button></p>
+                <p><button type="button" class="btn btn-secondary btn-block mx-2 my-2" onclick="UpdateHumanProteinMetricsPlot( )" id="button_update_human_protein_metrics_plot">Load and Draw</button></p>
             </div>
         </div>
         <div id="plotly_graph_b_cell_cross_reactivity" class="collapse graph_for_selection"></div>
@@ -2716,12 +2716,24 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
         //  assign color to human proteins and virus species // build a colormap for representing accessions of human proteins
         if ( ! ( 'dict_virus_species_to_rainbow_color' in dataset ) ) {
-            let int_hash = 4217 // integer used for retrieving float from the hash
+            let int_hash = 4217, // integer used for retrieving float from the hash
+                dict_virus_species_to_float_rainbow_color_preset = { "Severe acute respiratory syndrome coronavirus 2" : 0.84,
+                    "Severe acute respiratory syndrome-related coronavirus" : 0.04,
+                    "Middle East respiratory syndrome-related coronavirus" : 0.12,
+                    "Betacoronavirus 1" : 0.18,
+                    "Human coronavirus 229E" : 0.26,
+                    "Human coronavirus NL63" : 0.42,
+                    "Human coronavirus HKU1" : 0.5,
+                    "Coronavirus cya-BetaCoV/2019" : 0.54,
+                    "Coronavirus cyb-BetaCoV/2019" : 0.58,
+                    "Coronavirus cyc-BetaCoV/2019" : 0.76 }; // manually selected colors for virus species (for more intuitive visualization )
             dataset.dict_virus_species_to_rainbow_color = { }; // initialize the list of mapped colors
             dataset.dict_virus_species_to_float_rainbow_color = { };
+
+            
             for ( let i = 0; i < dataset.l_virus_species.length; i ++ ) {
                 let str_virus_species = dataset.l_virus_species[ i ],
-                    float_for_colormap = ( Math.abs( str_virus_species.hashCode( ) ) % int_hash ) / int_hash, // assign float using string-based hashing
+                    float_for_colormap = ( str_virus_species in dict_virus_species_to_float_rainbow_color_preset ) ? dict_virus_species_to_float_rainbow_color_preset[ str_virus_species ] : ( Math.abs( str_virus_species.hashCode( ) ) % int_hash ) / int_hash, // assign float using string-based hashing
                     str_color = function_colormap_rainbow( float_for_colormap ).toString( );
                 dataset.dict_virus_species_to_float_rainbow_color[ str_virus_species ] = float_for_colormap;
                 dataset.dict_virus_species_to_rainbow_color[ str_virus_species ] = str_color; // assign color to gene_symbol using a 32-bit hashing function
@@ -2741,6 +2753,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         // modify HTML elements
         $( "#btn_for_opening_navbar_vaccine_design" ).prop( "disabled", false );
         $( "#btn_toggle_human_protein_metrics" ).prop( "disabled", false ); // enable human metrics plot
+        $( "#button_update_human_protein_metrics_plot" ).prop( "disabled", false ); 
         $( "#toggle_vaccine_metrics_MolecularMimicryMap" ).prop( "disabled", false ); 
         $( "#toggle_vaccine_design_MolecularMimicryMap" ).prop( "disabled", false ); 
         
@@ -2821,7 +2834,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         $( "#navbar_vaccine_design" ).collapse( 'hide' ); // hide vaccine design panel
         $( "#btn_for_opening_navbar_vaccine_design" ).prop( "disabled", true ); // disable vaccine design panel toggle button
         $( "#plotly_graph_human_protein" ).collapse( 'hide' ); // hide vaccine design panel
-        $( "#btn_toggle_human_protein_metrics" ).prop( "disabled", true ); // enable human metrics plot
+        $( "#btn_toggle_human_protein_metrics" ).prop( "disabled", true ); // disable human metrics plot
+        $( "#button_update_human_protein_metrics_plot" ).prop( "disabled", true ); 
         $( "#toggle_vaccine_metrics_MolecularMimicryMap" ).prop( "disabled", true ); 
         $( "#toggle_vaccine_design_MolecularMimicryMap" ).prop( "disabled", true ); 
         
@@ -3205,6 +3219,30 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         update_human = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, update_virus = { marker: { opacity: object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: 'data', array: object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } };
         Plotly.restyle( plotMolecularMimicryMap, update_human, object_plot_BCellCrossReactivity.index_trace_end ); // T-cell crossreactivity trace is situated next to B-cell cross-reactivity trace
         Plotly.restyle( plotMolecularMimicryMap, update_virus, object_plot_BCellCrossReactivity.index_trace_end + 1 );
+    }
+    function UpdateBCellCrossReactivityPredMetricsPlot( ) {
+        if( $( "#plotly_graph_b_cell_cross_reactivity" ).hasClass( "show" ) ) {
+            DrawBCellCrossReactivityPredMetricsPlot( );
+            object_data.flag.bcellmetrics_plot_is_drawn = true;
+        } else {
+            object_data.flag.bcellmetrics_plot_is_drawn = false;
+        }
+    }
+    function UpdateTCellCrossReactivityPredMetricsPlot( ) {
+        if( $( "#plotly_graph_t_cell_cross_reactivity" ).hasClass( "show" ) ) {
+            DrawTCellCrossReactivityPredMetricsPlot( );
+            object_data.flag.tcellmetrics_plot_is_drawn = true;
+        } else {
+            object_data.flag.tcellmetrics_plot_is_drawn = false;
+        }
+    }
+    function UpdateHumanProteinMetricsPlot( ) {
+        if( $( "#plotly_graph_human_protein" ).hasClass( "show" ) ) {
+            DrawHumanProteinMetricsPlot( );
+            object_data.flag.humanproteinmetrics_plot_is_drawn = true;
+        } else {
+            object_data.flag.humanproteinmetrics_plot_is_drawn = false;
+        }
     }
     function Record_Details_Table( bool_create_table_div ) { // function to create and remove "record datails" table
         if ( ( ! bool_create_table_div ) && document.getElementById( "table_record_details" ) != null ) { // remove div for "record datails" table
@@ -3773,24 +3811,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         Plotly.addTraces( plotMolecularMimicryMap, [ lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human ), lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus ) ] );
         object_plot_TCellCrossReactivity.index_trace_end = plotMolecularMimicryMap.data.length;
         // update metrics plot
-        if( $( "#plotly_graph_b_cell_cross_reactivity" ).hasClass( "show" ) ) {
-            DrawBCellCrossReactivityPredMetricsPlot( );
-            object_data.flag.bcellmetrics_plot_is_drawn = true;
-        } else {
-            object_data.flag.bcellmetrics_plot_is_drawn = false;
-        }
-        if( $( "#plotly_graph_t_cell_cross_reactivity" ).hasClass( "show" ) ) {
-            DrawTCellCrossReactivityPredMetricsPlot( );
-            object_data.flag.tcellmetrics_plot_is_drawn = true;
-        } else {
-            object_data.flag.tcellmetrics_plot_is_drawn = false;
-        }
-        if( $( "#plotly_graph_human_protein" ).hasClass( "show" ) ) {
-            DrawHumanProteinMetricsPlot( );
-            object_data.flag.humanproteinmetrics_plot_is_drawn = true;
-        } else {
-            object_data.flag.humanproteinmetrics_plot_is_drawn = false;
-        }
+        UpdateBCellCrossReactivityPredMetricsPlot( );
+        UpdateTCellCrossReactivityPredMetricsPlot( );
+        UpdateHumanProteinMetricsPlot( );
         
         // Add protein annotations 
         console.log( '[DrawMolecularMimicryMap] plotting virus protein annotation traces...' )
