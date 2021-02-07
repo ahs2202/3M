@@ -1198,7 +1198,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     async function Load_Dataset( ) { // function triggered when setting for loading dataset is altered.
         // retrieve updated setting
         object_data.main.name_dataset = document.getElementById( 'select_dataset' ).value; // retrieve selected name_dataset
-        if ( object_data.main.name_dataset.includes( "common_cold_coronavirus" ) ) {
+        if ( object_data.main.name_dataset.includes( "coronavirus" ) ) {
             if ( $('#toggle_alignment_mode').prop( 'checked' ) ) {
                 $( "#toggle_alignment_mode" ).bootstrapToggle( 'off' ); // only 'Alignment to human' mode is available for common cold coronavirus dataset
                 return -1; // exit (turning the toggle off will trigger another function call with different setting)
@@ -1235,7 +1235,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             let dir_folder = object_data.file.base_url + "data/base64/" + object_data.main.name_dataset + "/" // retrieve directory of the current folder of the current dataset
             l_dir_file = l_name_file.map( ( name_file ) => { return dir_folder + name_file; } ); // retrieve remote directory for the core data files for the visualization of records aligned to virus
         } else { // show alignment to human proteins
-            object_data.main.l_name_dataset = object_data.main.name_dataset.includes( "common_cold_coronavirus" ) ? [ object_data.main.name_dataset ] : [ object_data.main.name_dataset, 'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant' ]; // number of datasets can be either one (common cold coronavirus only) or two (comparison) // add common cold dataset as a second dataset (supplementary data) for comparison if SARS-CoV-2 virus is chosen
+            object_data.main.l_name_dataset = object_data.main.name_dataset.includes( "coronavirus" ) ? [ object_data.main.name_dataset ] : [ object_data.main.name_dataset, 'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant' ]; // number of datasets can be either one (common cold coronavirus only) or two (comparison) // add common cold dataset as a second dataset (supplementary data) for comparison if SARS-CoV-2 virus is chosen
             for ( let i = 0; i < object_data.main.l_name_dataset.length; i ++ ) {
                 let l_name_file = [ "TCellCrossReactivity.nonredundant_aligned_position.top_1000.tsv.gz.base64.txt", 
                                     "BCellCrossReactivity.nonredundant_position.windowSize_30.top_1000.tsv.gz.base64.txt", 
