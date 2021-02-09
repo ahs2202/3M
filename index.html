@@ -4215,12 +4215,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             gene_symbol = dataset.arr_data_acc_human[ index_acc_human ].Gene_Symbol,
             str_title_nav = "Single Cell Expression of " + gene_symbol;
         
-        if ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) { // if plot of the current gene of interest has been already drawn, exit the function call
-            console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
-            return -1;
-        }
-        document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = str_title_nav; // update header label of the scrnaseq panel
-        
         return new Promise( async function( resolve, reject ) { 
             // retrieve setting for the graph
             dataset.scrnaseq.option.index_dataset = parseInt( document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value );
@@ -4229,12 +4223,21 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             let category_dataset = dataset.scrnaseq.option.category_dataset;
             let flag_patient_donor = category_dataset == 'patient_donors'
             console.log( "[PlotExpression_scRNA_Seq] the index of the currently chosen dataset is " + index_dataset );
+			
             // retrieve settings
             dataset.scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             dataset.scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
-            dataset.scrnaseq.option.ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
-            dataset.scrnaseq.option.dir_file = dataset.dir_folder + "scrnaseq." + dataset.scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( dataset.scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
-            let dir_file = dataset.scrnaseq.option.dir_file;
+            let ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
+            let dir_file = dataset.dir_folder + "scrnaseq." + dataset.scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( dataset.scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
+			
+            if ( ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) & ( dataset.scrnaseq.option.dir_file == dir_file ) & ( dataset.scrnaseq.option.ignore_cells_with_zero_counts == ignore_cells_with_zero_counts ) ) { // if plot of the current gene of interest for the current dataset has been already drawn, exit the function call
+                console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
+                return -1;
+            }
+            document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = str_title_nav; // update header label of the scrnaseq panel
+			dataset.scrnaseq.option.dir_file = dir_file;
+			dataset.scrnaseq.option.ignore_cells_with_zero_counts = ignore_cells_with_zero_counts;
+			
             if ( ! ( dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
                 await LoadRemoteData( [ dir_file ] );
             }
