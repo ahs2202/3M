@@ -4221,22 +4221,23 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             let index_dataset = dataset.scrnaseq.option.index_dataset;
             if ( index_dataset == -1 ) { return -1; } // skip if default select option is selected
             let category_dataset = dataset.scrnaseq.option.category_dataset;
-            let flag_patient_donor = category_dataset == 'patient_donors'
+            let flag_patient_donor = category_dataset == 'patient_donors';
             console.log( "[PlotExpression_scRNA_Seq] the index of the currently chosen dataset is " + index_dataset );
 			
             // retrieve settings
-            dataset.scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
+            let covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             dataset.scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
             let ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
             let dir_file = dataset.dir_folder + "scrnaseq." + dataset.scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( dataset.scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
 			
-            if ( ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) & ( dataset.scrnaseq.option.dir_file == dir_file ) & ( dataset.scrnaseq.option.ignore_cells_with_zero_counts == ignore_cells_with_zero_counts ) ) { // if plot of the current gene of interest for the current dataset has been already drawn, exit the function call
+            if ( ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) & ( dataset.scrnaseq.option.dir_file == dir_file ) & ( dataset.scrnaseq.option.ignore_cells_with_zero_counts == ignore_cells_with_zero_counts ) & ( dataset.scrnaseq.option.covid_status == covid_status ) ) { // if plot of the current gene of interest for the current dataset has been already drawn, exit the function call
                 console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
                 return -1;
             }
             document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = str_title_nav; // update header label of the scrnaseq panel
 			dataset.scrnaseq.option.dir_file = dir_file;
 			dataset.scrnaseq.option.ignore_cells_with_zero_counts = ignore_cells_with_zero_counts;
+			dataset.scrnaseq.option.covid_status = covid_status;
 			
             if ( ! ( dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
                 await LoadRemoteData( [ dir_file ] );
@@ -4396,7 +4397,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             l_l_l_data[ index_covid_status ].push( l ); // each row contains [ n_cells ] + [ count data ] + [ proportion data ] of a 'name_clus'
                         }
                     }
-                    console.log( l_l_l_data );
                     let l_l_data = [ ], l_trace = [ ];
                     if ( flag_patient_donor ) {
                         l_l_data = nj.array( l_l_l_data[ 1 ] ).add( l_l_l_data[ 0 ] ).tolist( ); // sum n_cells for two covid_status
@@ -4406,8 +4406,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             let l = [ n_cells ];
                             l.push( ... l_count );
                             l.push( ... ArrayMultiply( l_count, 1 / n_cells ) );
-
-                            l_l.push(  ) // recalculate proportions
+                            l_l.push( l ) // recalculate proportions
                         }
                         l_l_data = l_l;
                     } else {
