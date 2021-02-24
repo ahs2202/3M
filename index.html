@@ -307,6 +307,7 @@
                     <option selected value="NCBI_Virus_human_host_SARS_CoV_2">8,138 SARS-CoV-2 Genomes (NCBI-Virus, 06/26/2020)</option>
                     <option value="gisaid.allprot1114.valid.nonredundant">196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                     <option value="non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant">184 Common Cold Coronavirus Genomes (NCBI-Virus)</option>
+                    <option value="cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214">Cross-Reactivity Between SARS-CoV-2 and Other Viruses</option>
                 </select>
             </li>
             <li class="nav-item">
@@ -593,7 +594,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent_supplementary_graph_setting_panel" aria-controls="navbarToggleExternalContent_supplementary_graph_setting_panel" aria-expanded="false" aria-label="Toggle supplementary plot setting panel" data-tooltip="tooltip" data-placement="right" data-html="true" title="Press to <b>select or remove columns</b> in for <i>parallel coordinate graphs</i> for filtering cross-reactivity prediction data"><i class="material-icons icon-white" style="font-size:20px;cursor:pointer">settings</i></button>
             <form class="form-inline">
                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_b_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_b_cell_cross_reactivity' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> B-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering B-cell cross-reactivity prediction data">B-Cell Cross-Reactivity Filter</button>
-                <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_t_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_t_cell_cross_reactivity' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> T-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering T-cell cross-reactivity prediction data">T-Cell Cross-Reactivity Filter</button>
+                <button id="btn_toggle_mhc_cross_reactivity_metrics" class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_t_cell_cross_reactivity" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_t_cell_cross_reactivity' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> T-cell cross-reactivity prediction data" aria-label="Press to toggle a parallel coordinate graph for filtering T-cell cross-reactivity prediction data">T-Cell Cross-Reactivity Filter</button>
                 <button id="btn_toggle_human_protein_metrics" class="btn btn-light btn-sm mx-1 my-0" type="button" aria-expanded="false" aria-controls="plotly_graph_human_protein" onclick="Toggle_Exclusive_Tabs( '#plotly_graph_human_protein' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a parallel coordinate graph for <i>filtering</i> human proteins" aria-label="Press to toggle a parallel coordinate graph for filtering human proteins">Human Protein Filter</button>
                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" aria-controls="#container_datatable_panel_MolecularMimicryMap" aria-expanded="false" onclick="Toggle_Exclusive_Tabs( '#container_datatable_panel_MolecularMimicryMap' )" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Press to <b>toggle</b> a panel for exploring associated data using a <i>data table</i>. Data records associated with <b>a specific human protein can be highlighted</b> by entering the <i>UniProt accession</i> of the protein" aria-label="Press to toggle a panel for exploring associated data using a data table. Data records associated with a specific human protein can be highlighted by entering the UniProt accession of the protein">Data Tables</button>
 <!--                 <button class="btn btn-light btn-sm mx-1 my-0" type="button" data-toggle="collapse" data-toggle="button" data-target="#container_d3_table_metrics" aria-expanded="false" aria-controls="container_d3_table_metrics">Record Details</button> -->
@@ -803,13 +804,13 @@
             <nav class="navbar navbar-dark bg-custom-navbar" style="padding-top: 5px; padding-bottom: 5px">
                 <a class="navbar-brand mb-0 h5">Aligned Structures</a>
                 <form class="form-inline">
-                    <div class="input-group-prepend mx-2 my-0" style="height:30px"><span id="text_protein_structure_virus" class="input-group-text">Virus Protein Structure</span></div>
+                    <div class="input-group-prepend mx-2 my-0" style="height:30px"><a id="text_protein_structure_virus" class="input-group-text" target="_blank" rel="noopener noreferrer" href="">Virus Protein Structure</a></div>
                     <select class="form-control my-0" id="select_PDB_virus_protein_structure" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Select how to visualize the alignment result on the SARS-CoV-2 virus protein" onchange="Select_View_of_PDB_Virus_Protein( )">
                         <option value="Clear">Clear</option>
                         <option selected value="BLOSUM62 Score">BLOSUM62 Score</option>
                         <option value="BLOSUM62 Score with Side Chains">BLOSUM62 Score with Side Chains</option>
                     </select>
-                    <div class="input-group-prepend mx-2 my-0" style="height:30px"><span id="text_protein_structure_human" class="input-group-text">Human Protein Structure</span></div>
+                    <div class="input-group-prepend mx-2 my-0" style="height:30px"><a id="text_protein_structure_human" class="input-group-text" target="_blank" rel="noopener noreferrer" href="">Human Protein Structure</a></div>
                     <select class="form-control my-0" id="select_PDB_human_protein_structure" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Select how to visualize the alignment result on the human protein" onchange="Select_View_of_PDB_Human_Protein( )">
                         <option value="Clear">Clear</option>
                         <option selected value="BLOSUM62 Score">BLOSUM62 Score</option>
@@ -1162,6 +1163,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     var object_data_remote_file = { }; // define values for downloading files in remote locations
     object_data.file.l_n_records_for_each_step = [ 1000, 2000, 5000, 10000, 20000, 40000, 80000, 160000 ];
     object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records = {
+        'cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214': {'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000 },
+        'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000}},
         'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 20000, '35': 20000, '45': 39054, '55': 30920, '70': 22061, '85': 15532, '100': 10931, '125': 6509, '150': 3761},
         'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 34737, '100': 24446, '125': 13576, '150': 7066}},
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 20000, '55': 38588, '70': 26000, '85': 16064, '100': 9917, '125': 4222, '150': 2052},
@@ -1198,7 +1201,18 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     async function Load_Dataset( ) { // function triggered when setting for loading dataset is altered.
         // retrieve updated setting
         object_data.main.name_dataset = document.getElementById( 'select_dataset' ).value; // retrieve selected name_dataset
-        if ( object_data.main.name_dataset.includes( "coronavirus" ) ) {
+        object_data.flag.human_label_represents_virus = object_data.main.name_dataset.slice( 0, 3 ) == "cr." // set flag indicating whether 'human' label represent another virus proteins
+        object_data.flag.cross_reactive_mhc_ligand_data_exist = object_data.main.name_dataset.slice( 0, 3 ) != "cr." // set the flag indicating whether prediction of cross-reactive MHC-ligands has been included in the dataset
+        object_data.setting.name_acc_human = ( object_data.flag.human_label_represents_virus ) ? "value" : "Gene_Symbol"; // set column name contianing names of acc_human records
+        if ( object_data.main.name_dataset.slice( 0, 3 ) == "cr." ) { // if a dataset of cross-reactivity between viruses has been selected
+            document.getElementById( "toggle_alignment_mode" ).disabled = false; // enable the toggle button
+            if ( ! $('#toggle_alignment_mode').prop( 'checked' ) ) {
+                $( "#toggle_alignment_mode" ).bootstrapToggle( 'on' ); // only 'Alignment to virus' mode is available for coronavirus cross-reactivity dataset
+                return -1; // exit (turning the toggle off will trigger another function call with different setting)
+            }
+            document.getElementById( "toggle_alignment_mode" ).disabled = true; // disable the toggle button
+        } else if ( object_data.main.name_dataset.includes( "coronavirus" ) ) {
+            document.getElementById( "toggle_alignment_mode" ).disabled = false; // enable the toggle button
             if ( $('#toggle_alignment_mode').prop( 'checked' ) ) {
                 $( "#toggle_alignment_mode" ).bootstrapToggle( 'off' ); // only 'Alignment to human' mode is available for common cold coronavirus dataset
                 return -1; // exit (turning the toggle off will trigger another function call with different setting)
@@ -1214,24 +1228,27 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             Loading_Screen( true );
             object_data.main.l_name_dataset = [ object_data.main.name_dataset ]; // number of used dataset is 1
             console.log( "[Load_Dataset] " + object_data.main.name_dataset + " dataset selected" );
-            let l_name_file = [ "TCellCrossReactivity.nonredundant_aligned_position.top_1000.tsv.gz.base64.txt", 
-                                "BCellCrossReactivity.nonredundant_position.windowSize_30.top_1000.tsv.gz.base64.txt", 
+            let l_name_file = [ "BCellCrossReactivity.nonredundant_position.windowSize_30.top_1000.tsv.gz.base64.txt", 
                                 "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt", 
                                 "structural_property_human__compact__for_web_application.tsv.gz.base64.txt",  
                                 "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt", 
                                 "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt", 
                                 "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt", 
-                                "mhc_allele.tsv.gz.base64.txt", 
                                 "blosum62.tsv.gz.base64.txt", 
-                                "algorithms.tsv.gz.base64.txt", 
                                 "acc_virus.tsv.gz.base64.txt", 
                                 "acc_pdb.tsv.gz.base64.txt", 
                                 "acc_human.tsv.gz.base64.txt",
                                 "acc_virus_representative.tsv.gz.base64.txt", 
                                 "interpro_virus.tsv.gz.base64.txt", 
-                                "iedb_epitope_virus.tsv.gz.base64.txt", 
-                                "gtex.tsv.gz.base64.txt", 
-                                "scrnaseq.metadata.tsv.gz.base64.txt" ]; 
+                                "iedb_epitope_virus.tsv.gz.base64.txt" ]; 
+            if ( ! object_data.flag.human_label_represents_virus ) { // if 'human' label represents actuall human proteins, add several files
+                l_name_file.push( ... [ 
+                    "TCellCrossReactivity.nonredundant_aligned_position.top_1000.tsv.gz.base64.txt", 
+                    "algorithms.tsv.gz.base64.txt", 
+                    "mhc_allele.tsv.gz.base64.txt", 
+                    "gtex.tsv.gz.base64.txt", 
+                    "scrnaseq.metadata.tsv.gz.base64.txt" ] );
+            }
             let dir_folder = object_data.file.base_url + "data/base64/" + object_data.main.name_dataset + "/" // retrieve directory of the current folder of the current dataset
             l_dir_file = l_name_file.map( ( name_file ) => { return dir_folder + name_file; } ); // retrieve remote directory for the core data files for the visualization of records aligned to virus
         } else { // show alignment to human proteins
@@ -1261,10 +1278,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         console.log( "[Load_Dataset] loading remote data completed" );
         await ParseData( ); // parse loaded data
         console.log( "[Load_Dataset] parsing data completed" );
-        if ( ! object_data.flag.searchbox_main_has_been_initialized ) {
-            object_data.flag.searchbox_main_has_been_initialized = false;
-        }
-        Initialize_SearchBox_Main( ); // initialize main search box
         Loading_Screen( false );
     } // load selected dataset
 //     <input name='tags' id='searchbox_main' placeholder='Enter Gene Symbol' value='PARP14' data-blacklist='.NET,PHP'>
@@ -1272,17 +1285,26 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     object_data.flag.flag_tagify_searchbox_main_mutationobserver_attached = false;
     function Tagify_color_tag( tag ) { // change colors of Tagify.js tag 
         let str_entry = tag.innerText
-        if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
+        if ( object_data.main.set_human_gene_symbol.has( str_entry ) ) { // if entry is human_gene_symbol (case insensitive)
             if ( object_data.flag.alignment_to_virus ) {
-                let color_hex_bg = object_data.main.dictionary_human_gene_symbol_lower_case_to_color[ str_entry.toLowerCase( ) ];
-                tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
+                if ( object_data.flag.human_label_represents_virus ) {
+                    
+                } else {
+                    let color_hex_bg = object_data.main.dictionary_human_gene_symbol_lower_case_to_color[ str_entry.toLowerCase( ) ];
+                    tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
+                }
             } else {
 
             }
         }
         else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
             if ( object_data.flag.alignment_to_virus ) {
-
+                if ( object_data.flag.human_label_represents_virus ) {
+                    let color_hex_bg = object_data.main.dictionary_virus_species_to_color[ str_entry ];
+                    tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
+                } else {
+                    
+                }
             } else {
                 let color_hex_bg = object_data.main.dictionary_virus_species_to_color[ str_entry ];
                 tag.style = ( ColorGetDarkness( color_hex_bg ) < 40 ) ? `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg} --tag-text-color white` : `--tag-bg: ${color_hex_bg}; --tag-hover: ${color_hex_bg}`;
@@ -1293,26 +1315,24 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         // show preview of the number of record
         let dict_BCell = { },
             dict_TCell = { }; // initialize dictionary-based indices
-        if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
+        if ( object_data.main.set_human_gene_symbol.has( str_entry ) ) { // if entry is human_gene_symbol (case insensitive)
             str_entry = str_entry.toUpperCase( );
-            dict_BCell = object_plot_BCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index,
-            dict_TCell = object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index;
-            if ( object_data.flag.alignment_to_virus ) {
-
-            } else {
-
+            dict_BCell = object_plot_BCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index;
+            if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) {
+                dict_TCell = object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index;
+            }
+        } else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
+            dict_BCell = object_plot_BCellCrossReactivity.dictionary_virus_species_to_l_index;
+            if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) {
+                dict_TCell = object_plot_TCellCrossReactivity.dictionary_virus_species_to_l_index;
             }
         }
-        else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
-            dict_BCell = object_plot_BCellCrossReactivity.dictionary_virus_species_to_l_index,
-            dict_TCell = object_plot_TCellCrossReactivity.dictionary_virus_species_to_l_index;
-            if ( object_data.flag.alignment_to_virus ) {
-
-            } else {
-
-            }
+        // compose a string showing preview of the current input 
+        let str_preview = `${( str_entry in dict_BCell ) ? dict_BCell[ str_entry ].length : 0}/${object_plot_BCellCrossReactivity.arr_data_all.length} B-cell records`;
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) {
+            str_preview = str_preview + `, ${( str_entry in dict_TCell ) ? dict_TCell[ str_entry ].length : 0}/${object_plot_TCellCrossReactivity.arr_data_all.length} T-cell records`;
         }
-        document.getElementById( "text_number_of_records" ).innerText = `${( str_entry in dict_BCell ) ? dict_BCell[ str_entry ].length : 0}/${object_plot_BCellCrossReactivity.arr_data_all.length} B-cell records, ${( str_entry in dict_TCell ) ? dict_TCell[ str_entry ].length : 0}/${object_plot_TCellCrossReactivity.arr_data_all.length} T-cell records`;
+        document.getElementById( "text_number_of_records" ).innerText = str_preview;
     }
     function Initialize_SearchBox_Main( ) {
         if ( 'destroy' in tagify_searchbox_main ) {
@@ -1328,7 +1348,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
         // collect unique elements using set // human proteins
         Object.keys( object_plot_BCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index ).forEach( item => set_human_gene_symbol.add( item ) ); 
-        Object.keys( object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index ).forEach( item => set_human_gene_symbol.add( item ) ); 
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) {
+            Object.keys( object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index ).forEach( item => set_human_gene_symbol.add( item ) ); 
+        }
+        // makes set of virus and human gene symbol available to external functions
+        object_data.main.set_human_gene_symbol = set_human_gene_symbol;
+        object_data.main.set_virus_species = set_virus_species;
         
         // convert sets to a list 
         l_whitelist.push( ... set_human_gene_symbol ); 
@@ -1365,7 +1390,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             // color newly added elements
             Tagify_color_tag( tag );
             // highlight record and draw plots for a human protein
-            if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
+            if ( set_human_gene_symbol.has( str_entry ) ) { // if entry is human_gene_symbol (case insensitive)
                 let human_gene_symbol_upper_case = str_entry.toUpperCase( );
                 if ( object_data.flag.alignment_to_virus ) {
                     Highlight_Records_MolecularMimicryMap( human_gene_symbol_upper_case, "dictionary_human_gene_symbol_upper_case_to_l_index" ); // highlight a human gene
@@ -1375,7 +1400,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
             else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
                 if ( object_data.flag.alignment_to_virus ) {
-                    
+                    Highlight_Records_MolecularMimicryMap( str_entry, "dictionary_virus_species_to_l_index" ); // highlight a virus species
                 } else {
                     Highlight_Records_MolecularMimicryMap( str_entry, "dictionary_virus_species_to_l_index" ); // highlight a virus species
                 }
@@ -1389,7 +1414,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             // color newly added elements
             Tagify_color_tag( tag );
             // highlight record and draw plots for a human protein
-            if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
+            if ( set_human_gene_symbol.has( str_entry ) ) { // if entry is human_gene_symbol (case insensitive)
                 let human_gene_symbol_upper_case = str_entry.toUpperCase( );
                 if ( object_data.flag.alignment_to_virus ) {
                     Highlight_Records_MolecularMimicryMap( human_gene_symbol_upper_case, "dictionary_human_gene_symbol_upper_case_to_l_index" ); // highlight a human gene
@@ -1399,7 +1424,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
             else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
                 if ( object_data.flag.alignment_to_virus ) {
-                    
+                    Highlight_Records_MolecularMimicryMap( str_entry, "dictionary_virus_species_to_l_index" ); // highlight a virus species
                 } else {
                     Highlight_Records_MolecularMimicryMap( str_entry, "dictionary_virus_species_to_l_index" ); // highlight a virus species
                 }
@@ -1409,7 +1434,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             console.log( "onRemoveTag: ", e.detail );
             let str_entry = e.detail.data.value;
             if ( object_data.main.highlight.str_entry == str_entry ) { // if the entry of the tag being removed is currently being highlighted, undo the highlighting
-                if ( str_entry.toLowerCase( ) in object_data.main.dictionary_human_gene_symbol_lower_case_to_color ) { // if entry is human_gene_symbol (case insensitive)
+                if ( set_human_gene_symbol.has( str_entry ) ) { // if entry is human_gene_symbol (case insensitive)
                     let human_gene_symbol_upper_case = str_entry.toUpperCase( );
                     if ( object_data.flag.alignment_to_virus ) {
                         Highlight_Records_MolecularMimicryMap( human_gene_symbol_upper_case, "dictionary_human_gene_symbol_upper_case_to_l_index" ); // highlight a human gene
@@ -1419,7 +1444,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 }
                 else if ( str_entry in object_data.main.dictionary_virus_species_to_color ) { // if entry is virus_species (case sensitive)
                     if ( object_data.flag.alignment_to_virus ) {
-
+                        
                     } else {
                         Highlight_Records_MolecularMimicryMap( str_entry, "dictionary_virus_species_to_l_index" ); // highlight a virus species
                     }
@@ -2611,50 +2636,73 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         console.log( "[ParseData_DatasetCore] Core dataset initialization started for " + name_dataset );
         let dir_folder = object_data.file.base_url + "data/base64/" + name_dataset + "/", // retrieve directory of the current folder of the current dataset
             dataset = object_data.main.dataset[ name_dataset ];
-        // initialize 
-        if ( ! ( 'gtex' in dataset ) ) { 
-            dataset.gtex = { };
-            dataset.gtex.dict_name_tissue_to_color = {
-                "Adipose Tissue (n=1204)" : "#FF4500",
-                "Muscle (n=803)" : "#9370DB",
-                "Blood Vessel (n=1335)" : "#B22222",
-                "Heart (n=861)" : "#4B0082",
-                "Uterus (n=142)" : "#FF69B4",
-                "Vagina (n=156)" : "#FF1493",
-                "Breast (n=459)" : "#00CED1",
-                "Skin (n=1809)" : "#0000FF",
-                "Salivary Gland (n=162)" : "#8FBC8F",
-                "Brain (n=2642)" : '#FFD700',
-                "Adrenal Gland (n=258)" : '#228B22',
-                "Thyroid (n=653)" : "#006400",
-                "Lung (n=578)" : "#7FFF00",
-                "Spleen (n=241)" : "#556B2F",
-                "Pancreas (n=328)" : "#8B0000",
-                "Esophagus (n=1445)" : "#800000",
-                "Stomach (n=359)" : "#F0E68C",
-                "Colon (n=779)" : "#CD853F",
-                "Small Intestine (n=187)" : "#2F4F4F",
-                "Prostate (n=245)" : "#D3D3D3",
-                "Testis (n=361)" : "#778899",
-                "Nerve (n=619)" : "#F0E68C",
-                "Blood (n=929)" : "#FF0000",
-                "Pituitary (n=283)" : "#98FB98",
-                "Ovary (n=180)" : "#FFC0CB",
-                "Liver (n=226)" : "#9ACD32",
-                "Kidney (n=89)" : "#00FFFF",
-                "Cervix Uteri (n=19)" : "#DDA0DD",
-                "Fallopian Tube (n=9)" : "#FFDAB9",
-                "Bladder (n=21)" : "#8B0000"
-            }; // define color for each tissue
+        
+        // modify HTML elements
+        if ( ! object_data.flag.cross_reactive_mhc_ligand_data_exist ) { // when MHC ligand prediction data does not exist
+            $( "#plotly_graph_t_cell_cross_reactivity" ).collapse( 'hide' ); // hide T-cell cross-reactivity panel
+            $( "#toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" ).prop( "disabled", true ); 
+            $( "#btn_toggle_mhc_cross_reactivity_metrics" ).prop( "disabled", true ); 
+        } else { // activate buttons
+            $( "#toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" ).prop( "disabled", false ); 
+            $( "#btn_toggle_mhc_cross_reactivity_metrics" ).prop( "disabled", false ); 
+        }
+        
+        if ( ! object_data.flag.human_label_represents_virus ) {
+            // initialize 
+            if ( ! ( 'gtex' in dataset ) ) { 
+                dataset.gtex = { };
+                dataset.gtex.dict_name_tissue_to_color = {
+                    "Adipose Tissue (n=1204)" : "#FF4500",
+                    "Muscle (n=803)" : "#9370DB",
+                    "Blood Vessel (n=1335)" : "#B22222",
+                    "Heart (n=861)" : "#4B0082",
+                    "Uterus (n=142)" : "#FF69B4",
+                    "Vagina (n=156)" : "#FF1493",
+                    "Breast (n=459)" : "#00CED1",
+                    "Skin (n=1809)" : "#0000FF",
+                    "Salivary Gland (n=162)" : "#8FBC8F",
+                    "Brain (n=2642)" : '#FFD700',
+                    "Adrenal Gland (n=258)" : '#228B22',
+                    "Thyroid (n=653)" : "#006400",
+                    "Lung (n=578)" : "#7FFF00",
+                    "Spleen (n=241)" : "#556B2F",
+                    "Pancreas (n=328)" : "#8B0000",
+                    "Esophagus (n=1445)" : "#800000",
+                    "Stomach (n=359)" : "#F0E68C",
+                    "Colon (n=779)" : "#CD853F",
+                    "Small Intestine (n=187)" : "#2F4F4F",
+                    "Prostate (n=245)" : "#D3D3D3",
+                    "Testis (n=361)" : "#778899",
+                    "Nerve (n=619)" : "#F0E68C",
+                    "Blood (n=929)" : "#FF0000",
+                    "Pituitary (n=283)" : "#98FB98",
+                    "Ovary (n=180)" : "#FFC0CB",
+                    "Liver (n=226)" : "#9ACD32",
+                    "Kidney (n=89)" : "#00FFFF",
+                    "Cervix Uteri (n=19)" : "#DDA0DD",
+                    "Fallopian Tube (n=9)" : "#FFDAB9",
+                    "Bladder (n=21)" : "#8B0000"
+                }; // define color for each tissue
+            }
+            if ( ! ( 'scrnaseq' in dataset ) ) { 
+                dataset.scrnaseq = { option: { }, dictdictarr: { }, dict_dir_file_to_cached_data: { } }; // object for saving settings for scrnaseq plot // dictionary to save cached data
+                dataset.scrnaseq.metadata = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dataset.dir_folder + "scrnaseq.metadata.tsv.gz.base64.txt" ] ); // load metadata of scRNA-seq datasets
+                dataset.scrnaseq.setting = { histogram : { start: 0, step: 0.1 }, gene_of_interest: "ACE2", thres_n_clusters_for_label_newline: 22, cache : { n_records: 5 } } // setting for compact histogram count data. // set maximum records for saving cache for rapid plotting // 'thres_n_clusters_for_label_newline': a threshold number of cluster that removes line breaks in the labels.
 
-        }
-        if ( ! ( 'scrnaseq' in dataset ) ) { 
-            dataset.scrnaseq = { option: { }, dictdictarr: { }, dict_dir_file_to_cached_data: { } }; // object for saving settings for scrnaseq plot // dictionary to save cached data
-            dataset.scrnaseq.metadata = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dataset.dir_folder + "scrnaseq.metadata.tsv.gz.base64.txt" ] ); // load metadata of scRNA-seq datasets
-            dataset.scrnaseq.setting = { histogram : { start: 0, step: 0.1 }, gene_of_interest: "ACE2", thres_n_clusters_for_label_newline: 22, cache : { n_records: 5 } } // setting for compact histogram count data. // set maximum records for saving cache for rapid plotting // 'thres_n_clusters_for_label_newline': a threshold number of cluster that removes line breaks in the labels.
+                PlotExpression_scRNA_Seq_Update_Select_Options( "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad" ); // update select option and select given dataset by default (update selection label)
+            }
+            if ( ! ( 'l_algorithm' in dataset ) ) {
+                dataset.l_algorithm = unpack( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "algorithms.tsv.gz.base64.txt" ], 'value' ); } // list of algorithms
+            if ( ! ( 'dictarr_data_mhc_allele' in dataset ) ) {
+                dataset.dictarr_data_mhc_allele = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "mhc_allele.tsv.gz.base64.txt" ] ); }
+            if ( ! ( 'dictdictarr' in dataset.gtex ) ) {
+                dataset.gtex.dictdictarr = SplitColumn( Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "gtex.tsv.gz.base64.txt" ] ) ); } // retrieve dictionary-dictionary-array of gtex data
+            // simply put arrays in the name space of the dataset
+            dataset.arr_data_mhc_allele = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "mhc_allele.tsv.gz.base64.txt" ];
+        } else {
             
-            PlotExpression_scRNA_Seq_Update_Select_Options( "20200804_NasalSwab_Broad_BCH_UMMC_to_CZI.h5ad" ); // update select option and select given dataset by default (update selection label)
         }
+
         // load dict_blosum62 score dictionary if it has not been loaded
         if ( ! ( 'dict_blosum62' in object_data.main ) ) { 
             let arr_data_blosum62 = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "blosum62.tsv.gz.base64.txt" ]; // blosum62 score matrix
@@ -2663,47 +2711,48 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_data.main.dict_blosum62[ arr_data_blosum62[ i ].pair_of_amino_acids ] = arr_data_blosum62[ i ].score_blosum62;
             }
         }
-        if ( ! ( 'l_algorithm' in dataset ) ) {
-            dataset.l_algorithm = unpack( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "algorithms.tsv.gz.base64.txt" ], 'value' ); } // list of algorithms
         if ( ! ( 'dictarr_data_acc_virus' in dataset ) ) {
             dataset.dictarr_data_acc_virus = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_virus.tsv.gz.base64.txt" ] ); }
+        if ( ! ( 'dictarr_data_acc_pdb' in dataset ) ) {
+            dataset.dictarr_data_acc_pdb = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_pdb.tsv.gz.base64.txt" ] ); }
+
+            
         if ( ! ( 'acc_human' in dataset ) ) {
             dataset.acc_human = { };
             dataset.acc_human.dict_data_all = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_human.tsv.gz.base64.txt" ] );
-            dataset.acc_human.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( dataset.acc_human.dict_data_all[ "Gene_Symbol" ].map( ( e ) => { return e.toUpperCase( ); } ) );
+            dataset.dictarr_data_acc_human = dataset.acc_human.dict_data_all;
+            dataset.acc_human.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( dataset.acc_human.dict_data_all[ object_data.setting.name_acc_human ].map( ( e ) => { return e.toUpperCase( ); } ) ); // index records according to datatype of records with the 'human' labels
         }
-        if ( ! ( 'dictarr_data_acc_pdb' in dataset ) ) {
-            dataset.dictarr_data_acc_pdb = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_pdb.tsv.gz.base64.txt" ] ); }
-        if ( ! ( 'dictarr_data_mhc_allele' in dataset ) ) {
-            dataset.dictarr_data_mhc_allele = Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "mhc_allele.tsv.gz.base64.txt" ] ); }
-        if ( ! ( 'dictdictarr' in dataset.gtex ) ) {
-            dataset.gtex.dictdictarr = SplitColumn( Unpack_array_to_dict_data( object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "gtex.tsv.gz.base64.txt" ] ) ); } // retrieve dictionary-dictionary-array of gtex data
+        // build dictionary-based index of human genes (gene_symbol)
+        if ( ! ( 'dictionary_gene_symbol_lower_case_to_list_of_integer_index' in dataset ) ) {
+            dataset.dictionary_gene_symbol_lower_case_to_list_of_integer_index = Index_list_with_dictionary( dataset.acc_human.dict_data_all[ object_data.setting.name_acc_human ].map( ( e ) => { return e.toLowerCase( ); } ) );
+        } 
         
         // simply put arrays in the name space of the dataset
         dataset.arr_data_acc_virus = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_virus.tsv.gz.base64.txt" ];
         dataset.arr_data_acc_pdb = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_pdb.tsv.gz.base64.txt" ];
-        dataset.arr_data_mhc_allele = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "mhc_allele.tsv.gz.base64.txt" ];
         dataset.arr_data_acc_human = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "acc_human.tsv.gz.base64.txt" ];
         dataset.arr_data_alignment_human_pdb = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "alignment_human_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
         dataset.arr_data_alignment_human_virus = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "alignment_human_virus__compact__for_web_application.tsv.gz.base64.txt" ];
         dataset.arr_data_alignment_virus_pdb = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "alignment_virus_pdb__compact__for_web_application.tsv.gz.base64.txt" ];
         dataset.arr_data_structural_property_human = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "structural_property_human__compact__for_web_application.tsv.gz.base64.txt" ];
         dataset.arr_data_structural_property_virus = object_data.file.dict_dir_file_to_parsed_data[ dir_folder + "structural_property_virus__compact__for_web_application.tsv.gz.base64.txt" ];
-        
-        // build dictionary-based index of human genes (gene_symbol)
-        if ( ! ( 'dictionary_gene_symbol_lower_case_to_list_of_integer_index' in dataset ) ) {
-            dataset.dictionary_gene_symbol_lower_case_to_list_of_integer_index = Index_list_with_dictionary( dataset.acc_human.dict_data_all.Gene_Symbol.map( ( e ) => { return e.toLowerCase( ); } ) );
-        } 
-        
+
         // retrieve list of virus species
-        if ( "Species" in dataset.dictarr_data_acc_virus ) { // retrieve list of virus species 
+        if ( object_data.flag.human_label_represents_virus ) { // retrieve list of virus species when the dataset of cross-reactivity between viruses has been loaded.
+            if ( "Species" in dataset.dictarr_data_acc_human ) {
+                dataset.l_virus_species = Unique( dataset.dictarr_data_acc_human.Species );
+            } else {
+                
+            }
+        } else if ( "Species" in dataset.dictarr_data_acc_virus ) { 
             dataset.l_virus_species = Unique( dataset.dictarr_data_acc_virus.Species );
         } else {
             dataset.l_virus_species = [ "Severe acute respiratory syndrome coronavirus 2" ]; // virus species is SARS-CoV-2 by default 
         }
         //  assign color to human proteins // build a colormap for representing accessions of human proteins
         if ( ! ( 'l_colormap_rainbow_acc_human' in dataset ) ) {
-            let l_gene_symbol = dataset.acc_human.dict_data_all[ "Gene_Symbol" ];
+            let l_gene_symbol = dataset.acc_human.dict_data_all[ object_data.setting.name_acc_human ];
             dataset.l_colormap_rainbow_acc_human = [ ]; // initialize the list of mapped colors
             dataset.l_float_for_colormap_rainbow_acc_human = [ ];
             for ( let i = 0; i < l_gene_symbol.length; i ++ ) {
@@ -2741,7 +2790,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 object_data.main.dictionary_virus_species_to_color[ str_virus_species ] = str_color; // update global colormap
             }
         }
-        
         console.log( "[ParseData_DatasetCore] Core dataset initialized for " + name_dataset );
     }
     function ParseData_AlignmentToVirus( name_dataset ) {
@@ -2787,7 +2835,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     dataset.consensus_sequence_virus.dict_accumulated_coord_to_acc_rep[ accumulated_start + j ] = i;
                 }
             }
-            
             dataset.consensus_sequence_virus.data = [ { type: 'scattergl', mode: "text", x: dataset.consensus_sequence_virus.l_x, y: ArrayFull( dataset.consensus_sequence_virus.accumulated_length, - 0.75 ), text: dataset.consensus_sequence_virus.seq_consensus_concatenated.split( "" ), textfont: { size: 15 }, hoverinfo: "x", hovertemplate: "<br><extra></extra>", showlegend: false, name: "concatanated_consensus_protein_sequence" } ]; // display only x position of residues // no hover info
         }
         layout_MolecularMimicryMap.xaxis.rangeslider.range = [ 0, dataset.consensus_sequence_virus.accumulated_length ]; // update layout of MolecularMimicryMap
@@ -2821,10 +2868,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 dataset.interpro_virus.data.push( trace );
             }
         }
- 
         console.log( "[ParseData_AlignmentToVirus] dataset initialized for " + name_dataset + " visualized with 'AlignmentToVirus' mode" );
     }
     function ParseData_AlignmentToHuman( name_dataset ) {
+        if ( object_data.flag.human_label_represents_virus ) { // when virus proteins are not used, AlignmentToHuman option is not available
+            return -1
+        }
         // parse dataset for visualization with AlignmentToHuman alignment mode
         let dir_folder = object_data.file.base_url + "data/base64/" + name_dataset + "/", // retrieve directory of the current folder of the current dataset
             dataset = object_data.main.dataset[ name_dataset ];
@@ -2856,7 +2905,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             dataset.interpro_human.dict_data_all[ "humen_gene_symbol" ] = ArrayApply( dataset.interpro_human.dict_data_all[ "accession_human" ], function( i ) { return dataset.acc_human.dict_data_all[ "Gene_Symbol" ][ i ].toUpperCase( ); } ); // retrieve gene_symbol of human proteins // used for indexing (use upper case to make search case-insensitive)
             dataset.interpro_human.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( dataset.interpro_human.dict_data_all[ "humen_gene_symbol" ] ); // index with human_gene_symbol
         }
-
         console.log( "[ParseData_AlignmentToHuman] dataset initialized for " + name_dataset + " visualized with 'AlignmentToVirus' mode" );
     }
     async function ParseData( ) { // parse loaded data and prepare for plotting molecular mimicry map plots
@@ -2875,15 +2923,14 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
             let dir_folder = object_data.file.base_url + "data/base64/" + name_dataset + "/", // retrieve directory of the current folder of the current dataset
                 dataset = object_data.main.dataset[ name_dataset ];
-
+            
             ParseData_DatasetCore( name_dataset ); // parse core data
-
+            
             if ( object_data.flag.alignment_to_virus ) {
                 ParseData_AlignmentToVirus( name_dataset );
             } else {
                 ParseData_AlignmentToHuman( name_dataset );
             }
-
         }
         
         return new Promise( async function( resolve, reject ) { 
@@ -2901,6 +2948,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         let name_data = document.getElementById( "select_datatable" ).value, columns = [ ], dataSet = [ ], df = null, l_col = [ ];
         console.log( "Loading datatable", name_data );
         if ( name_data == "acc_human.tsv" ) { // retrieve appropriate dataframe for each setting
+            if( object_data.flag.human_label_represents_virus ) { // do not show datatable of acc_human when human label represent virus proteins
+                return - 1
+            }
             df = new DataFrame( dataset.arr_data_acc_human );
             df = df.select( "Gene_Symbol", "value", "n_counts", "seq_length", "description", "IEDB___n_unique_epitopes", "AAgAtlas___n_PubMed_ID" );
         } else if ( name_data == "acc_virus_representative.tsv" ) {
@@ -3030,19 +3080,15 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             l_dir_file = [ ];
         for ( let index_dataset = 0; index_dataset < l_name_dataset.length; index_dataset ++ ) {
             let name_dataset = l_name_dataset[ index_dataset ]; // name_dataset 
-            let dataset = object_data.main.dataset[ name_dataset ]; // retrieve dataset
+            let dataset = object_data.main.dataset[ name_dataset ], // retrieve dataset
+                float_thres_margin = 1.5; // a threshold for skipping writing a file if the number of records for subset is too close to the maximum number
+            
+            // retrieve file names appropriate for current setting
             dataset.object_plot_BCellCrossReactivity.n_records_from_setting = parseInt( document.getElementById( "input_n_alignments_for_plotting_BCellCrossReactivity" ).value );
-            dataset.object_plot_TCellCrossReactivity.n_records_from_setting = parseInt( document.getElementById( "input_n_alignments_for_plotting_TCellCrossReactivity" ).value );
             dataset.object_plot_BCellCrossReactivity.window_size = document.getElementById( "select_windowSize_BCellCrossReactivity" ).value;
             dataset.object_plot_BCellCrossReactivity.redundancy_level = document.getElementById( "select_redundancy_level_BCellCrossReactivity" ).value;
-            dataset.object_plot_TCellCrossReactivity.redundancy_level = document.getElementById( "select_redundancy_level_TCellCrossReactivity" ).value;
             dataset.object_plot_BCellCrossReactivity.n_records_max = object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records[ name_dataset ][ dataset.object_plot_BCellCrossReactivity.redundancy_level ][ dataset.object_plot_BCellCrossReactivity.window_size ];
-            dataset.object_plot_TCellCrossReactivity.n_records_max = object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records[ name_dataset ][ dataset.object_plot_TCellCrossReactivity.redundancy_level ];
             dataset.object_plot_BCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
-            dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
-
-            let float_thres_margin = 1.5 // a threshold for skipping writing a file if the number of records for subset is too close to the maximum number
-
             if ( dataset.object_plot_BCellCrossReactivity.n_records_from_setting * float_thres_margin >= dataset.object_plot_BCellCrossReactivity.n_records_max ) {
                 dataset.object_plot_BCellCrossReactivity.n_records_of_remote_file = dataset.object_plot_BCellCrossReactivity.n_records_max;
             } else {
@@ -3051,19 +3097,25 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     dataset.object_plot_BCellCrossReactivity.n_records_of_remote_file = object_data.file.l_n_records_for_each_step[ i ];
                 }
             }
-            if ( dataset.object_plot_TCellCrossReactivity.n_records_from_setting * float_thres_margin >= dataset.object_plot_TCellCrossReactivity.n_records_max ) {
-                dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = dataset.object_plot_TCellCrossReactivity.n_records_max;
-            } else {
-                for ( let i = 1; i < object_data.file.l_n_records_for_each_step.length; i ++ ) {
-                    if ( dataset.object_plot_TCellCrossReactivity.n_records_from_setting < object_data.file.l_n_records_for_each_step[ i ] ) { break; }
-                    dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data.file.l_n_records_for_each_step[ i ];
-                }
-            }
-            gtag( 'event', 'loading_remote_data', { name_dataset: name_dataset, t_cell_n_records : dataset.object_plot_TCellCrossReactivity.n_records_from_setting, b_cell_n_records : dataset.object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size : dataset.object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level : dataset.object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level : dataset.object_plot_TCellCrossReactivity.redundancy_level } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
-            // retrieve file names appropriate for current setting
             dataset.object_plot_BCellCrossReactivity.dir_file = dataset.dir_folder + "BCellCrossReactivity." + dataset.object_plot_BCellCrossReactivity.redundancy_level + ".windowSize_" + dataset.object_plot_BCellCrossReactivity.window_size + ".top_" + String( dataset.object_plot_BCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt";
-            dataset.object_plot_TCellCrossReactivity.dir_file = dataset.dir_folder + "TCellCrossReactivity." + dataset.object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt";
-            l_dir_file.push( ... [ dataset.object_plot_BCellCrossReactivity.dir_file, dataset.object_plot_TCellCrossReactivity.dir_file ] ); // retrieve files for current dataset
+            l_dir_file.push( dataset.object_plot_BCellCrossReactivity.dir_file );
+            if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { // when mhc_ligand prediction data exists
+                dataset.object_plot_TCellCrossReactivity.n_records_from_setting = parseInt( document.getElementById( "input_n_alignments_for_plotting_TCellCrossReactivity" ).value );
+                dataset.object_plot_TCellCrossReactivity.redundancy_level = document.getElementById( "select_redundancy_level_TCellCrossReactivity" ).value;
+                dataset.object_plot_TCellCrossReactivity.n_records_max = object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records[ name_dataset ][ dataset.object_plot_TCellCrossReactivity.redundancy_level ];
+                dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = 1000; // default is the smallest n_records
+                if ( dataset.object_plot_TCellCrossReactivity.n_records_from_setting * float_thres_margin >= dataset.object_plot_TCellCrossReactivity.n_records_max ) {
+                    dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = dataset.object_plot_TCellCrossReactivity.n_records_max;
+                } else {
+                    for ( let i = 1; i < object_data.file.l_n_records_for_each_step.length; i ++ ) {
+                        if ( dataset.object_plot_TCellCrossReactivity.n_records_from_setting < object_data.file.l_n_records_for_each_step[ i ] ) { break; }
+                        dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file = object_data.file.l_n_records_for_each_step[ i ];
+                    }
+                }
+                dataset.object_plot_TCellCrossReactivity.dir_file = dataset.dir_folder + "TCellCrossReactivity." + dataset.object_plot_TCellCrossReactivity.redundancy_level + ".top_" + String( dataset.object_plot_TCellCrossReactivity.n_records_of_remote_file ) + ".tsv.gz.base64.txt";
+                l_dir_file.push( dataset.object_plot_TCellCrossReactivity.dir_file ); 
+            }
+            gtag( 'event', 'loading_remote_data', { name_dataset: name_dataset, t_cell_n_records : ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) ? dataset.object_plot_TCellCrossReactivity.n_records_from_setting : 0, b_cell_n_records : dataset.object_plot_BCellCrossReactivity.n_records_from_setting, b_cell_window_size : dataset.object_plot_BCellCrossReactivity.window_size, t_cell_redundancy_level : dataset.object_plot_BCellCrossReactivity.redundancy_level, t_cell_redundancy_level : ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) ? dataset.object_plot_TCellCrossReactivity.redundancy_level : "nan" } ); // [Google Analytics] record which remote data is being downloaded to improve statistics
         }
         return LoadRemoteData( l_dir_file ); // load given list of files from remote locations
     }
@@ -3200,6 +3252,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
     }
     function Filter_TCellCrossReactivity( ) { // filter TCellCrossReactivity records
+        if ( ( ! object_data.flag.cross_reactive_mhc_ligand_data_exist ) ) { // exit when mhc_ligand data does not exist
+            return -1;
+        }
         // collect all filters
         let l_filter = [ ];
         if ( 'mask_selected_TCellCrossReactivityFilter' in object_plot_TCellCrossReactivity ) { // if metric plot has been drawn, add metric-based filter to the list of filters
@@ -3298,16 +3353,18 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             dataset.arr_data_BCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ dataset.object_plot_BCellCrossReactivity.dir_file ];
             dataset.object_plot_BCellCrossReactivity.n_records = Math.min( dataset.arr_data_BCellCrossReactivity.length, dataset.object_plot_BCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
             dataset.arr_data_BCellCrossReactivity = dataset.arr_data_BCellCrossReactivity.slice( 0, dataset.object_plot_BCellCrossReactivity.n_records ); // retrieve "dataset.object_plot_BCellCrossReactivity.n_records" number of records
-			dict_l.BCellCrossReactivity_arr_data.push( dataset.arr_data_BCellCrossReactivity ); // add array to the list 
+            dict_l.BCellCrossReactivity_arr_data.push( dataset.arr_data_BCellCrossReactivity ); // add array to the list 
             dataset.object_plot_BCellCrossReactivity.dict_data = Unpack_array_to_dict_data( dataset.arr_data_BCellCrossReactivity ); // unpack data to dict_data format
             if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
                 dataset.object_plot_BCellCrossReactivity.dict_data[ "name_protein_virus" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "representative_accession" ], function( acc_rep ) { return dataset.arr_data_acc_virus_representative[ acc_rep ].name; } ); 
             } 
+            
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "e_value" ] =  dataset.object_plot_BCellCrossReactivity.dict_data[ "e_value" ].map( val => { return ( ( val == 0 ) ? 1e-230 : val ); } ); // replace 0 value with lowest e-value possible
             dataset.object_plot_BCellCrossReactivity.dict_data[ "name_dataset" ] =  ArrayFull( dataset.arr_data_BCellCrossReactivity.length, name_dataset ); // put name_dataset
-            dataset.object_plot_BCellCrossReactivity.dict_data[ "name_protein_human" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].name; } );
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "name_protein_human" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return ( object_data.flag.human_label_represents_virus ) ? `${dataset.arr_data_acc_human[ acc ].Species} (${dataset.arr_data_acc_human[ acc ].Genus})` : dataset.arr_data_acc_human[ acc ].name; } ); // name_protein_human is the virus species of virus proteins labeled as 'human' proteins in this application
             dataset.object_plot_BCellCrossReactivity.dict_data[ "virus_accession" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "target_accession" ], function( acc ) { return dataset.arr_data_acc_virus[ acc ].value; } );
             dataset.object_plot_BCellCrossReactivity.dict_data[ "human_accession" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].value; } );
-            dataset.object_plot_BCellCrossReactivity.dict_data[ "humen_gene_symbol" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "query_accession" ], function( i ) { return dataset.acc_human.dict_data_all[ "Gene_Symbol" ][ i ].toUpperCase( ); } ); // retrieve gene_symbol of human proteins // used for indexing (use upper case to make search case-insensitive)
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "humen_gene_symbol" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "query_accession" ], function( i ) { return dataset.acc_human.dict_data_all[ object_data.setting.name_acc_human ][ i ].toUpperCase( ); } ); // retrieve gene_symbol of human proteins // used for indexing (use upper case to make search case-insensitive)
             dataset.object_plot_BCellCrossReactivity.dict_data[ "name_structure_human" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "structure_id_query" ], function( acc ) { if( acc == - 1 ) { return "not available" } else { return dataset.arr_data_acc_pdb[ acc ].value; } } );
             dataset.object_plot_BCellCrossReactivity.dict_data[ "name_structure_virus" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "structure_id_target" ], function( acc ) { if( acc == - 1 ) { return "not available" } else { return dataset.arr_data_acc_pdb[ acc ].value; } } );
             dataset.object_plot_BCellCrossReactivity.dict_data[ "string_correl_coeffi_acc" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "correl_coeffi_acc" ], function( num ) { if( num == null ) { return "not available" } else { return String( num.toFixed( n_digits ) ); } } );
@@ -3350,13 +3407,27 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             
             let l_colors = [ ], l_float_colors = [ ], l_virus_species = [ ], l_acc_human = dataset.object_plot_BCellCrossReactivity.dict_data[ 'query_accession' ], l_acc_virus = dataset.object_plot_BCellCrossReactivity.dict_data[ "target_accession" ]; // retrieve colors for each alignment
             
-            if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
+            if ( object_data.flag.alignment_to_virus ) { 
                 for ( let i = 0; i < l_acc_human.length; i ++ ) { 
-                    l_colors.push( dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
-                    l_float_colors.push( dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
+                    let color = "", 
+                        float_color = 0;
+                    // color with human_gene_symbol or virus_species (cross-reactivity between virus species)
+                    if ( object_data.flag.human_label_represents_virus ) {
+                        let virus_species = dataset.dictarr_data_acc_human.Species[ l_acc_human[ i ] ];
+                        float_color = dataset.dict_virus_species_to_float_rainbow_color[ virus_species ];
+                        color = dataset.dict_virus_species_to_rainbow_color[ virus_species ];
+                        l_virus_species.push( virus_species ) // use virus_species of 'query' dataset
+                    } else {
+                        float_color = dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ];
+                        color = dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ];
+                    }
+                    l_colors.push( color );
+                    l_float_colors.push( float_color );
                 }
-                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
-            } else {
+                if ( ( ! object_data.flag.human_label_represents_virus ) ) {
+                    l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2 // virus_species of 'target' dataset
+                }
+            } else { 
                 if ( ! ( "Species" in dataset.dictarr_data_acc_virus ) ) { // if Species column does not exist, SARS-CoV-2 is the default virus species 
                     l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
                     l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
@@ -3372,7 +3443,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 }
             }
             // retrieve virus species
-            dataset.object_plot_BCellCrossReactivity.dict_data[ "virus_species" ] = l_virus_species;
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "virus_species" ] = l_virus_species; // virus_species of query dataset
             // retrieve colors for each alignment
             dataset.object_plot_BCellCrossReactivity.dict_data[ "color" ] = l_colors;
             dataset.object_plot_BCellCrossReactivity.dict_data[ "float_color" ] = l_float_colors;
@@ -3380,119 +3451,121 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             dataset.object_plot_BCellCrossReactivity.dict_data[ "minus_log10_e_value" ] = nj.array( dataset.object_plot_BCellCrossReactivity.dict_data[ 'e_value' ] ).log( ).divide( 2.302585 ).multiply( -1 ).tolist( ); // -log10 of e-values
             
             dict_l.BCellCrossReactivity_dict_data.push( dataset.object_plot_BCellCrossReactivity.dict_data ); // add dictionary-array to the list 
-            
-            // preprocess T cell cross reactivity prediction data
-
-            dataset.arr_data_TCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ dataset.object_plot_TCellCrossReactivity.dir_file ];
-            dataset.object_plot_TCellCrossReactivity.n_records = Math.min( dataset.arr_data_TCellCrossReactivity.length, dataset.object_plot_TCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
-            dataset.arr_data_TCellCrossReactivity = dataset.arr_data_TCellCrossReactivity.slice( 0, dataset.object_plot_TCellCrossReactivity.n_records ); // retrieve "dataset.object_plot_TCellCrossReactivity.n_records" number of records from 'dataset.arr_data_TCellCrossReactivity'
-			dict_l.TCellCrossReactivity_arr_data.push( dataset.arr_data_TCellCrossReactivity ); // add array to the list 
-            // retrieve protein and mhc_allele related data for hover info. 
-            dataset.object_plot_TCellCrossReactivity.dict_data = Unpack_array_to_dict_data( dataset.arr_data_TCellCrossReactivity ); // unpack data to dict_data format
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "name_dataset" ] =  ArrayFull( dataset.arr_data_TCellCrossReactivity.length, name_dataset ); // put name_dataset
-            if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
-                dataset.object_plot_TCellCrossReactivity.dict_data[ "name_protein_virus" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "representative_accession" ], function( acc_rep ) { return dataset.arr_data_acc_virus_representative[ acc_rep ].name; } ); 
-            }
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "name_protein_human" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].name; } );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "virus_accession" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "target_accession" ], function( acc ) { return dataset.arr_data_acc_virus[ acc ].value; } );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "human_accession" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].value; } );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "humen_gene_symbol" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( i ) { return dataset.acc_human.dict_data_all[ "Gene_Symbol" ][ i ].toUpperCase( ); } ); // retrieve gene_symbol of human proteins // used for indexing (use upper case to make search case-insensitive)
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "name_mhc_allele" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].value; } );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "name_disease" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].disease_name; } );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "pubmed_id" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].pubmed_id; } );
-            
-            // retrieve x coordinates of records
-            if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
-                arr_start = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'target_representative_accumulated_start__for_web_application' ] );
-                arr_end = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'target_representative_accumulated_end__for_web_application' ] );
-            } else {
-                arr_start = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_start' ] );
-                arr_end = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_end' ] );
-            }
-            // retrieve x coordinates of records
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "start" ] = arr_start.tolist( );
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "end" ] = arr_end.tolist( );
-            
-            let arr_score = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_blosum' ] ), arr_window_size = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'window_size' ] );
-            l_avg_score = arr_score.divide( arr_window_size ).tolist( ); // retrieve sum of blosum62 scores per residue
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "avg_score" ] = l_avg_score; // retrieve sum of blosum62 scores per residue
-            l_colors = [ ];
-            l_float_colors = [ ];
-            
-            l_acc_human = dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_accession' ];
-            l_acc_virus = dataset.object_plot_TCellCrossReactivity.dict_data[ "target_accession" ]; // retrieve colors for each alignment
-            l_virus_species = [ ]; // initialize l_virus_species
-            
-            if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
-                for ( let i = 0; i < l_acc_human.length; i ++ ) { 
-                    l_colors.push( dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
-                    l_float_colors.push( dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
-                }
-                l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
-            } else {
-                if ( ! ( "Species" in dataset.dictarr_data_acc_virus ) ) { // if Species column does not exist, SARS-CoV-2 is the default virus species 
-                    l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
-                    l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
-                    l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
-                } else {   
-                    for ( let i = 0; i < l_acc_virus.length; i ++ ) { 
-                        let int_acc_virus = l_acc_virus[ i ];
-                        let str_virus_species = dataset.dictarr_data_acc_virus.Species[ l_acc_virus[ i ] ];
-                        l_virus_species.push( str_virus_species );
-                        l_colors.push( dataset.dict_virus_species_to_rainbow_color[ str_virus_species ] );
-                        l_float_colors.push( dataset.dict_virus_species_to_float_rainbow_color[ str_virus_species ] );
-                    }
-                }
-            }
-            // retrieve virus species
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "virus_species" ] = l_virus_species;
-            // retrieve colors for each alignment
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "color" ] = l_colors;
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "float_color" ] = l_float_colors;
-            
-            let l_x = arr_start.add( arr_end ).divide( 2 ).tolist( ); // calculate the coordinate of the middle of each alignment;
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "x" ] = l_x; // calculate the coordinate of the middle of each alignment;
-            let arr_score_geometric_mean_query = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_geometric_mean_query' ] ), arr_score_geometric_mean_target = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_geometric_mean_target' ] );  
-
-            // retrieve l_y (YAxis values) values
-            selOpt = Select_Get_Selected_Option_Using_ID( "select_YAxis_TCellCrossReactivity" );
-            dataset.object_plot_TCellCrossReactivity.y_axis = { label : selOpt.text, name_value : selOpt.value };
-
-            switch ( dataset.object_plot_TCellCrossReactivity.y_axis.name_value ) {
-                case "score_blosum":
-                l_y = dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_blosum' ]; 
-                break;    
-                case "average_score_blosum":
-                l_y = l_avg_score; 
-                break;
-                case "score_geometric_mean":
-                l_y = nj.ones( l_avg_score.length ).multiply( 1.5 ).divide( nj.sqrt( arr_score_geometric_mean_query.multiply( arr_score_geometric_mean_target ) ).log( ).divide( 2.302585 ) ).tolist( );
-                break;
-                case "duplicate_counts":
-                l_y = dataset.object_plot_TCellCrossReactivity.dict_data[ dataset.object_plot_TCellCrossReactivity.y_axis.name_value ];
-                break;
-            }
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "y" ] = l_y; // retrieve l_y (YAxis values) values
-            dataset.object_plot_TCellCrossReactivity.float_max_of_l_y = ArrayFindMinMax( l_y )[ 1 ]; // retrieve max value of Y-axis
-            
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "error_x" ] = arr_end.subtract( arr_start ).divide( 2 ).tolist( ); // retrieve error_x data (representing alignment length)
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "opacity" ] = ArrayFull( dataset.object_plot_TCellCrossReactivity.n_records, float_opacity_MolecularMimicryMap_TCellCrossReactivity ); // set opacity
-            
-            let arr_score_geometric_mean_query_log10 = arr_score_geometric_mean_query.log( ).divide( 2.302585 ), // calculate log10 of predicted binding values (IC50)
-                arr_score_geometric_mean_target_log10 = arr_score_geometric_mean_target.log( ).divide( 2.302585 ), // calculate log10 of predicted binding values (IC50)
-                arr_scale = nj.ones( dataset.object_plot_TCellCrossReactivity.n_records ).multiply( 20 ); // for scaling marker size
-            
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "size_human" ] = ArrayCap( arr_scale.divide( arr_score_geometric_mean_query_log10 ).tolist( ), 30 ); // set size of markers for human peptides
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "size_virus" ] = ArrayCap( arr_scale.divide( arr_score_geometric_mean_target_log10 ).tolist( ), 30 ); // set size of markers for virus peptides
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_query_log10" ] = arr_score_geometric_mean_query_log10.tolist( ); // retrieve list of log10 values of predicted IC50 values
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_target_log10" ] = arr_score_geometric_mean_target_log10.tolist( ); // retrieve list of log10 values of predicted IC50 values
-            dataset.object_plot_TCellCrossReactivity.dict_data[ "minus_log10_e_value" ] = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'e_value' ] ).log( ).divide( 2.302585 ).multiply( -1 ).tolist( ); // -log10 of e-values
-            
-            dict_l.TCellCrossReactivity_dict_data.push( dataset.object_plot_TCellCrossReactivity.dict_data ); // add dictionary-array to the list 
 
             // index data with acc_human (integer index)
             dataset.object_plot_BCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index = Index_list_with_dictionary( dataset.object_plot_BCellCrossReactivity.dict_data[ 'query_accession' ] ); // build indices of BCellCrossReactivity data with acc_human (integer index)
-            dataset.object_plot_TCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index = Index_list_with_dictionary( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_accession' ] ); // build indices of TCellCrossReactivity data with acc_human (integer index)
+
+            // preprocess T cell cross reactivity prediction data when mhc_ligand prediction data exists
+            if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { // when mhc_ligand prediction data exists
+                dataset.arr_data_TCellCrossReactivity = object_data.file.dict_dir_file_to_parsed_data[ dataset.object_plot_TCellCrossReactivity.dir_file ];
+                dataset.object_plot_TCellCrossReactivity.n_records = Math.min( dataset.arr_data_TCellCrossReactivity.length, dataset.object_plot_TCellCrossReactivity.n_records_from_setting ); // retrieve the number of BCellCrossReactivity records to plot
+                dataset.arr_data_TCellCrossReactivity = dataset.arr_data_TCellCrossReactivity.slice( 0, dataset.object_plot_TCellCrossReactivity.n_records ); // retrieve "dataset.object_plot_TCellCrossReactivity.n_records" number of records from 'dataset.arr_data_TCellCrossReactivity'
+                dict_l.TCellCrossReactivity_arr_data.push( dataset.arr_data_TCellCrossReactivity ); // add array to the list 
+                // retrieve protein and mhc_allele related data for hover info. 
+                dataset.object_plot_TCellCrossReactivity.dict_data = Unpack_array_to_dict_data( dataset.arr_data_TCellCrossReactivity ); // unpack data to dict_data format
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "name_dataset" ] =  ArrayFull( dataset.arr_data_TCellCrossReactivity.length, name_dataset ); // put name_dataset
+                if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
+                    dataset.object_plot_TCellCrossReactivity.dict_data[ "name_protein_virus" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "representative_accession" ], function( acc_rep ) { return dataset.arr_data_acc_virus_representative[ acc_rep ].name; } ); 
+                }
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "name_protein_human" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].name; } );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "virus_accession" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "target_accession" ], function( acc ) { return dataset.arr_data_acc_virus[ acc ].value; } );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "human_accession" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( acc ) { return dataset.arr_data_acc_human[ acc ].value; } );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "humen_gene_symbol" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "query_accession" ], function( i ) { return dataset.acc_human.dict_data_all[ object_data.setting.name_acc_human ][ i ].toUpperCase( ); } ); // retrieve gene_symbol of human proteins // used for indexing (use upper case to make search case-insensitive)
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "name_mhc_allele" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].value; } );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "name_disease" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].disease_name; } );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "pubmed_id" ] = ArrayApply( dataset.object_plot_TCellCrossReactivity.dict_data[ "mhc_allele" ], function( acc ) { return dataset.arr_data_mhc_allele[ acc ].pubmed_id; } );
+
+                // retrieve x coordinates of records
+                if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
+                    arr_start = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'target_representative_accumulated_start__for_web_application' ] );
+                    arr_end = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'target_representative_accumulated_end__for_web_application' ] );
+                } else {
+                    arr_start = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_start' ] );
+                    arr_end = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_end' ] );
+                }
+                // retrieve x coordinates of records
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "start" ] = arr_start.tolist( );
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "end" ] = arr_end.tolist( );
+
+                let arr_score = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_blosum' ] ), arr_window_size = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'window_size' ] );
+                l_avg_score = arr_score.divide( arr_window_size ).tolist( ); // retrieve sum of blosum62 scores per residue
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "avg_score" ] = l_avg_score; // retrieve sum of blosum62 scores per residue
+                l_colors = [ ];
+                l_float_colors = [ ];
+
+                l_acc_human = dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_accession' ];
+                l_acc_virus = dataset.object_plot_TCellCrossReactivity.dict_data[ "target_accession" ]; // retrieve colors for each alignment
+                l_virus_species = [ ]; // initialize l_virus_species
+
+                if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
+                    for ( let i = 0; i < l_acc_human.length; i ++ ) { 
+                        l_colors.push( dataset.l_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
+                        l_float_colors.push( dataset.l_float_for_colormap_rainbow_acc_human[ l_acc_human[ i ] ] );
+                    }
+                    l_virus_species = ArrayFull( l_acc_human.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
+                } else {
+                    if ( ! ( "Species" in dataset.dictarr_data_acc_virus ) ) { // if Species column does not exist, SARS-CoV-2 is the default virus species 
+                        l_virus_species = ArrayFull( l_acc_virus.length, "Severe acute respiratory syndrome coronavirus 2" ); // default virus is SARS-CoV-2
+                        l_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
+                        l_float_colors = ArrayFull( l_acc_virus.length, dataset.dict_virus_species_to_float_rainbow_color[ "Severe acute respiratory syndrome coronavirus 2" ] );
+                    } else {   
+                        for ( let i = 0; i < l_acc_virus.length; i ++ ) { 
+                            let int_acc_virus = l_acc_virus[ i ];
+                            let str_virus_species = dataset.dictarr_data_acc_virus.Species[ l_acc_virus[ i ] ];
+                            l_virus_species.push( str_virus_species );
+                            l_colors.push( dataset.dict_virus_species_to_rainbow_color[ str_virus_species ] );
+                            l_float_colors.push( dataset.dict_virus_species_to_float_rainbow_color[ str_virus_species ] );
+                        }
+                    }
+                }
+                // retrieve virus species
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "virus_species" ] = l_virus_species;
+                // retrieve colors for each alignment
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "color" ] = l_colors;
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "float_color" ] = l_float_colors;
+
+                let l_x = arr_start.add( arr_end ).divide( 2 ).tolist( ); // calculate the coordinate of the middle of each alignment;
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "x" ] = l_x; // calculate the coordinate of the middle of each alignment;
+                let arr_score_geometric_mean_query = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_geometric_mean_query' ] ), arr_score_geometric_mean_target = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_geometric_mean_target' ] );  
+
+                // retrieve l_y (YAxis values) values
+                selOpt = Select_Get_Selected_Option_Using_ID( "select_YAxis_TCellCrossReactivity" );
+                dataset.object_plot_TCellCrossReactivity.y_axis = { label : selOpt.text, name_value : selOpt.value };
+
+                switch ( dataset.object_plot_TCellCrossReactivity.y_axis.name_value ) {
+                    case "score_blosum":
+                    l_y = dataset.object_plot_TCellCrossReactivity.dict_data[ 'score_blosum' ]; 
+                    break;    
+                    case "average_score_blosum":
+                    l_y = l_avg_score; 
+                    break;
+                    case "score_geometric_mean":
+                    l_y = nj.ones( l_avg_score.length ).multiply( 1.5 ).divide( nj.sqrt( arr_score_geometric_mean_query.multiply( arr_score_geometric_mean_target ) ).log( ).divide( 2.302585 ) ).tolist( );
+                    break;
+                    case "duplicate_counts":
+                    l_y = dataset.object_plot_TCellCrossReactivity.dict_data[ dataset.object_plot_TCellCrossReactivity.y_axis.name_value ];
+                    break;
+                }
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "y" ] = l_y; // retrieve l_y (YAxis values) values
+                dataset.object_plot_TCellCrossReactivity.float_max_of_l_y = ArrayFindMinMax( l_y )[ 1 ]; // retrieve max value of Y-axis
+
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "error_x" ] = arr_end.subtract( arr_start ).divide( 2 ).tolist( ); // retrieve error_x data (representing alignment length)
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "opacity" ] = ArrayFull( dataset.object_plot_TCellCrossReactivity.n_records, float_opacity_MolecularMimicryMap_TCellCrossReactivity ); // set opacity
+
+                let arr_score_geometric_mean_query_log10 = arr_score_geometric_mean_query.log( ).divide( 2.302585 ), // calculate log10 of predicted binding values (IC50)
+                    arr_score_geometric_mean_target_log10 = arr_score_geometric_mean_target.log( ).divide( 2.302585 ), // calculate log10 of predicted binding values (IC50)
+                    arr_scale = nj.ones( dataset.object_plot_TCellCrossReactivity.n_records ).multiply( 20 ); // for scaling marker size
+
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "size_human" ] = ArrayCap( arr_scale.divide( arr_score_geometric_mean_query_log10 ).tolist( ), 30 ); // set size of markers for human peptides
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "size_virus" ] = ArrayCap( arr_scale.divide( arr_score_geometric_mean_target_log10 ).tolist( ), 30 ); // set size of markers for virus peptides
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_query_log10" ] = arr_score_geometric_mean_query_log10.tolist( ); // retrieve list of log10 values of predicted IC50 values
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_target_log10" ] = arr_score_geometric_mean_target_log10.tolist( ); // retrieve list of log10 values of predicted IC50 values
+                dataset.object_plot_TCellCrossReactivity.dict_data[ "minus_log10_e_value" ] = nj.array( dataset.object_plot_TCellCrossReactivity.dict_data[ 'e_value' ] ).log( ).divide( 2.302585 ).multiply( -1 ).tolist( ); // -log10 of e-values
+
+                dict_l.TCellCrossReactivity_dict_data.push( dataset.object_plot_TCellCrossReactivity.dict_data ); // add dictionary-array to the list 
+                // index data with acc_human (integer index)
+                dataset.object_plot_TCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index = Index_list_with_dictionary( dataset.object_plot_TCellCrossReactivity.dict_data[ 'query_accession' ] ); // build indices of TCellCrossReactivity data with acc_human (integer index)
+            }
         }
         console.log( "[DrawMolecularMimicryMap] proprocessing of data for each dataset is completed" )
             
@@ -3507,7 +3580,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         
         // index data with human_gene_symbol
         object_plot_BCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( object_plot_BCellCrossReactivity.dict_data_all[ "humen_gene_symbol" ] );
-        object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( object_plot_TCellCrossReactivity.dict_data_all[ "humen_gene_symbol" ] );
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { // when mhc_ligand prediction data exists
+            object_plot_TCellCrossReactivity.dictionary_human_gene_symbol_upper_case_to_l_index = Index_list_with_dictionary( object_plot_TCellCrossReactivity.dict_data_all[ "humen_gene_symbol" ] );
+        }
             
         console.log( "[DrawMolecularMimicryMap] records of all datasets were combined and indexed with human_gene_symbol" )
         
@@ -3526,7 +3601,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
         }
         console.log( "[DrawMolecularMimicryMap] plots were drawn" )
-
+        Initialize_SearchBox_Main( ); // initialize main search box
+        console.log( "[DrawMolecularMimicryMap] searchbox initialized" )
         resolve( "[DrawMolecularMimicryMap] resolved" );
     });
     }
@@ -3599,7 +3675,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     let annotation = { data: [ ] }, // initialize annotation object
                         pos_y = ( 0.5 - 1 ) / 4 - 0.15;
                     annotation.show = $( "#toggle_ProteinAnnotation_MolecularMimicryMap" ).hasClass( "active" ); // set visibility of SARS-CoV-2 proteins
-                    annotation.data.push( { x: [ 0, protein.seq_length ], y: [ pos_y, pos_y ], name: protein.Gene_Symbol + "_Anno_Base", mode: "lines", type: "scatter", opacity: 1, showlegend: false, line: { width: 10, color: "#a3a3a3" }, visible: annotation.show } ); // 0-based coordinates
+                    annotation.data.push( { x: [ 0, protein.seq_length ], y: [ pos_y, pos_y ], name: protein[ object_data.setting.name_acc_human ] + "_Anno_Base", mode: "lines", type: "scatter", opacity: 1, showlegend: false, line: { width: 10, color: "#a3a3a3" }, visible: annotation.show } ); // 0-based coordinates
                     object_data.plot.annotation_protein = annotation; // initialize protein annotation object
                     
                     // compose interpro annotation traces for the current human_gene_symbol
@@ -3615,7 +3691,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                         let step = 10, // anchor every 10 residues
                             domain = interpro.arr_data[ i ], 
                             pos_y = ( 0.5 - 1 ) / 4 - 0.15, 
-                            customdata = [ protein.Gene_Symbol, protein.seq_length, domain.interpro_name, domain.interpro_acc, domain.annotation_acc, domain.start, domain.end ], // 1-based coodinates
+                            customdata = [ protein[ object_data.setting.name_acc_human ], protein.seq_length, domain.interpro_name, domain.interpro_acc, domain.annotation_acc, domain.start, domain.end ], // 1-based coodinates
                             len_domain = domain.end - domain.start + 1,  
                             trace = { name: domain.interpro_name + "__InterPro", mode: "lines", type: "scatter", opacity: 0.2, showlegend: false, line: { width: 15, color: interpro.dict_color[ domain.annotation_acc.slice( 0, 1 ) ] }, visible: interpro.show, 
                                      hovertemplate: "InterPro Domain: <b>%{customdata[2]}</b> (%{customdata[3]})<br>Protein: <b>%{customdata[0]}</b> (from %{customdata[5]:.0f} to %{customdata[6]:.0f})<br>Database accession: %{customdata[4]}<br><extra></extra>", customdata: [ ], x: [ ], y: [ ] };
@@ -3632,15 +3708,14 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 }
             }
         }
-        // index data with virus_species
-        object_plot_BCellCrossReactivity.dictionary_virus_species_to_l_index = Index_list_with_dictionary( object_plot_BCellCrossReactivity.dict_data[ "virus_species" ] );
-        object_plot_TCellCrossReactivity.dictionary_virus_species_to_l_index = Index_list_with_dictionary( object_plot_TCellCrossReactivity.dict_data[ "virus_species" ] );
+        // index data with virus_species of interest
+        object_plot_BCellCrossReactivity.dictionary_virus_species_to_l_index = Index_list_with_dictionary( ( object_data.flag.human_label_represents_virus ) ? object_plot_BCellCrossReactivity.dict_data[ "virus_species" ] : object_plot_BCellCrossReactivity.dict_data[ "virus_species" ] );
 
         // compose customdata array and hovertemplate            
         object_plot_BCellCrossReactivity.hovertemplate = ["[ B-cell cross reactivity prediction ]",
                                                           ( object_data.flag.alignment_to_virus ) ? "%{customdata[23]}:<br>          <b>%{customdata[25]}</b> from <b>%{customdata[26]:.0f}</b> to <b>%{customdata[27]:.0f}</b> (<b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>)" : "%{customdata[23]}:<br>          <b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>", // display coordinates on the representative virus protein
                                                           "        structure: <b>%{customdata[6]}</b>",
-                                                          "Human: <b>%{customdata[3]}</b> (<b>%{customdata[24]}</b>) from <b>%{customdata[4]:.0f}</b> to <b>%{customdata[5]:.0f}</b>",
+                                                          ( object_data.flag.human_label_represents_virus ) ? "%{customdata[3]}:<br>          <b>%{customdata[24]}</b> from <b>%{customdata[4]:.0f}</b> to <b>%{customdata[5]:.0f}</b>" : "Human: <b>%{customdata[3]}</b> (<b>%{customdata[24]}</b>) from <b>%{customdata[4]:.0f}</b> to <b>%{customdata[5]:.0f}</b>",
                                                           "        structure: <b>%{customdata[7]}</b>",
                                                           "",
                                                           "Structure Similarity:",
@@ -3663,38 +3738,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             object_plot_BCellCrossReactivity.customdata = ArrayCombine( object_plot_BCellCrossReactivity.customdata, DictArrayToArray( object_plot_BCellCrossReactivity.dict_data, [ "name_protein_virus", "target_representative_start", "target_representative_end" ] ) );
         }
         object_plot_BCellCrossReactivity.customdata = ArrayTranspose( object_plot_BCellCrossReactivity.customdata );
-            
-        object_plot_TCellCrossReactivity.hovertemplate = ["[ T-cell cross reactivity prediction ]",
-                                                          "MHC allele (class): <b>%{customdata[12]}</b> (<b>%{customdata[15]}</b>)",
-                                                          "        associated diseases: <b>%{customdata[13]}</b>",
-                                                          "        PubMed ID: %{customdata[14]}",
-                                                          "",
-                                                          ( object_data.flag.alignment_to_virus )? "%{customdata[21]}:<br>          <b>%{customdata[23]}</b> from <b>%{customdata[24]:.0f}</b> to <b>%{customdata[25]:.0f}</b> (<b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>)" : "%{customdata[21]}:<br>          <b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>",
-                                                          "        sequence: <b>%{customdata[6]}</b>",
-                                                          "        predicted binding affinity (IC50): <b>%{customdata[8]} nM</b>",
-//                                                           "        list of used algorithms: %{customdata[10]}",
-                                                          "",
-                                                          "Human: <b>%{customdata[3]}</b> (<b>%{customdata[22]}</b>) from <b>%{customdata[4]:.0f}</b> to <b>%{customdata[5]:.0f}</b>",
-                                                          "        sequence: <b>%{customdata[7]}</b>",
-                                                          "        predicted binding affinity (IC50): <b>%{customdata[9]} nM</b>",
-//                                                           "        list of used algorithms: %{customdata[11]}",
-                                                          "",
-                                                          "Epitope Similarity:",
-                                                          "        linear similarity (sum of BLOSUM62 scores): <b>%{customdata[16]:.1f}</b>",
-                                                          "        linear similarity normalized by window length (%{customdata[19]:.0f} a.a.): <b>%{customdata[17]:.2f}</b>",
-//                                                           "    Global alignment significance (e-value): <b>%{customdata[20]:.2f}</b>",
-                                                          "(this epitope represent <i>%{customdata[18]:.0f} epitopes</i> before redundancy reduction)",
-                                                          "<br><extra></extra>" ].join( "<br>" );
-            
-        object_plot_TCellCrossReactivity.customdata = DictArrayToArray( object_plot_TCellCrossReactivity.dict_data, [ "virus_accession", "target_start", "target_end", "name_protein_human", "query_start", "query_end", "target_subsequence", "query_subsequence", "score_geometric_mean_target", "score_geometric_mean_query", "algorithms_target", "algorithms_query", "name_mhc_allele", "name_disease", "pubmed_id", "mhc_class", "score_blosum", "avg_score", "duplicate_counts", "window_size", "e_value", "virus_species", "humen_gene_symbol" ] );
-        if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
-            object_plot_TCellCrossReactivity.customdata = ArrayCombine( object_plot_TCellCrossReactivity.customdata, DictArrayToArray( object_plot_TCellCrossReactivity.dict_data, [ "name_protein_virus", "target_representative_start", "target_representative_end" ] ) );
-        }
-        object_plot_TCellCrossReactivity.customdata = ArrayTranspose( object_plot_TCellCrossReactivity.customdata );
-            
+                        
         object_plot_BCellCrossReactivity.selection = { l_error_x: object_plot_BCellCrossReactivity.dict_data[ 'error_x' ], l_opacity: object_plot_BCellCrossReactivity.dict_data[ 'opacity' ] }; // for highlighting specific records
-        object_plot_TCellCrossReactivity.selection = { l_error_x: object_plot_TCellCrossReactivity.dict_data[ 'error_x' ], l_opacity: object_plot_TCellCrossReactivity.dict_data[ 'opacity' ] }; // for highlighting specific records
-            
+        
         data_line_type_MolecularMimicryMap_BCellCrossReactivity = [ ]; // empty data for line-type MolecularMimicryMap_BCellCrossReactivity plot
 
         // retrieve general setting            
@@ -3704,13 +3750,10 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             
         object_plot_BCellCrossReactivity.flag_bool_mode_is_lines = document.getElementById( "select_representation_of_an_alignment_BCellCrossReactivity" ).value == 1? true : false; 
         plotly_type_BCellCrossReactivity = document.getElementById( "select_graphic_format_BCellCrossReactivity" ).value == 0? "scattergl" : "scatter"; // retrieve plot setting from the setting panel
-        int_index_representation_TCellCrossReactivity = document.getElementById( "select_representation_of_an_alignment_TCellCrossReactivity" ).value; // retrieve plot setting from the setting panel
-        plotly_type_TCellCrossReactivity = document.getElementById( "select_graphic_format_TCellCrossReactivity" ).value == 0? "scattergl" : "scatter"; 
-            
+
         object_plot_BCellCrossReactivity.show = $( "#toggle_BCellCrossReactivityPrediction_MolecularMimicryMap" ).hasClass( "active" ); // retrieve visibility
         console.log( "[DrawMolecularMimicryMap] BCellCrossReactivity visibility:", object_plot_BCellCrossReactivity.show );
-        object_plot_TCellCrossReactivity.show = $( "#toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" ).hasClass( "active" ); // retrieve visibility
-        console.log( "[DrawMolecularMimicryMap] TCellCrossReactivity visibility:", object_plot_TCellCrossReactivity.show );
+
         
         // compose traces
         if ( object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { 
@@ -3750,50 +3793,97 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         object_plot_BCellCrossReactivity.metrics[ '-log10( e-value )' ] = object_plot_BCellCrossReactivity.dict_data[ "minus_log10_e_value" ];
         object_plot_BCellCrossReactivity.mask_selected = ArrayFull( object_plot_BCellCrossReactivity.arr_data.length, true ); // initialize mask for selection 
             
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.x = object_plot_TCellCrossReactivity.dict_data[ 'x' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.x = object_plot_TCellCrossReactivity.dict_data[ 'x' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.y = object_plot_TCellCrossReactivity.dict_data[ 'y' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.y = object_plot_TCellCrossReactivity.dict_data[ 'y' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol = [ "y-down-open", "star-triangle-down-dot", "bowtie" ][ int_index_representation_TCellCrossReactivity ]; // retrieve representation based on the given "int_index_representation_TCellCrossReactivity"
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol = [ "y-up-open", "star-triangle-up-dot", "hourglass" ][ int_index_representation_TCellCrossReactivity ];
-        
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size = object_plot_TCellCrossReactivity.dict_data[ 'size_human' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size = object_plot_TCellCrossReactivity.dict_data[ 'size_virus' ];
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { // when mhc_ligand prediction data exists
+            // index data with virus_species
+            object_plot_TCellCrossReactivity.dictionary_virus_species_to_l_index = Index_list_with_dictionary( object_plot_TCellCrossReactivity.dict_data[ "virus_species" ] );
+            
+            // compose customdata array and hovertemplate   
+            object_plot_TCellCrossReactivity.hovertemplate = ["[ T-cell cross reactivity prediction ]",
+                                                              "MHC allele (class): <b>%{customdata[12]}</b> (<b>%{customdata[15]}</b>)",
+                                                              "        associated diseases: <b>%{customdata[13]}</b>",
+                                                              "        PubMed ID: %{customdata[14]}",
+                                                              "",
+                                                              ( object_data.flag.alignment_to_virus )? "%{customdata[21]}:<br>          <b>%{customdata[23]}</b> from <b>%{customdata[24]:.0f}</b> to <b>%{customdata[25]:.0f}</b> (<b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>)" : "%{customdata[21]}:<br>          <b>%{customdata[0]}</b> from <b>%{customdata[1]:.0f}</b> to <b>%{customdata[2]:.0f}</b>",
+                                                              "        sequence: <b>%{customdata[6]}</b>",
+                                                              "        predicted binding affinity (IC50): <b>%{customdata[8]} nM</b>",
+    //                                                           "        list of used algorithms: %{customdata[10]}",
+                                                              "",
+                                                              "Human: <b>%{customdata[3]}</b> (<b>%{customdata[22]}</b>) from <b>%{customdata[4]:.0f}</b> to <b>%{customdata[5]:.0f}</b>",
+                                                              "        sequence: <b>%{customdata[7]}</b>",
+                                                              "        predicted binding affinity (IC50): <b>%{customdata[9]} nM</b>",
+    //                                                           "        list of used algorithms: %{customdata[11]}",
+                                                              "",
+                                                              "Epitope Similarity:",
+                                                              "        linear similarity (sum of BLOSUM62 scores): <b>%{customdata[16]:.1f}</b>",
+                                                              "        linear similarity normalized by window length (%{customdata[19]:.0f} a.a.): <b>%{customdata[17]:.2f}</b>",
+    //                                                           "    Global alignment significance (e-value): <b>%{customdata[20]:.2f}</b>",
+                                                              "(this epitope represent <i>%{customdata[18]:.0f} epitopes</i> before redundancy reduction)",
+                                                              "<br><extra></extra>" ].join( "<br>" );
 
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width = int_index_representation_TCellCrossReactivity == 0 ? 2 : 0; // if symbol is "y-down-open", set line width to 3
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width = int_index_representation_TCellCrossReactivity == 0 ? 2 : 0; // if symbol is "y-down-open", set line width to 3
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color = object_plot_TCellCrossReactivity.dict_data[ 'color' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color = object_plot_TCellCrossReactivity.dict_data[ 'color' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.opacity = object_plot_TCellCrossReactivity.dict_data[ 'opacity' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.opacity = object_plot_TCellCrossReactivity.dict_data[ 'opacity' ];
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.type = plotly_type_TCellCrossReactivity;
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.type = plotly_type_TCellCrossReactivity;
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.name = "T Cell Cross-Reactivity Prediction (Human)";
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.name = "T Cell Cross-Reactivity Prediction (Virus)";
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.visible = object_plot_TCellCrossReactivity.show;
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.visible = object_plot_TCellCrossReactivity.show;
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.error_x = { type: 'data', array: ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, 0 ), visible: true, width: 0, thickness: 1 }
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.error_x = { type: 'data', array: object_plot_TCellCrossReactivity.dict_data[ 'error_x' ], visible: true, width: 0, thickness: 1 }; // represent alignment by using errorbar of the trace containing data of virus
+            object_plot_TCellCrossReactivity.customdata = DictArrayToArray( object_plot_TCellCrossReactivity.dict_data, [ "virus_accession", "target_start", "target_end", "name_protein_human", "query_start", "query_end", "target_subsequence", "query_subsequence", "score_geometric_mean_target", "score_geometric_mean_query", "algorithms_target", "algorithms_query", "name_mhc_allele", "name_disease", "pubmed_id", "mhc_class", "score_blosum", "avg_score", "duplicate_counts", "window_size", "e_value", "virus_species", "humen_gene_symbol" ] );
+            if ( object_data.flag.alignment_to_virus ) { // when reference virus proteins are used for visualization
+                object_plot_TCellCrossReactivity.customdata = ArrayCombine( object_plot_TCellCrossReactivity.customdata, DictArrayToArray( object_plot_TCellCrossReactivity.dict_data, [ "name_protein_virus", "target_representative_start", "target_representative_end" ] ) );
+            }
+            object_plot_TCellCrossReactivity.customdata = ArrayTranspose( object_plot_TCellCrossReactivity.customdata );
             
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.hoverinfo = 'skip'; // skip hoverinfo for the other trace
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.hovertemplate = object_plot_TCellCrossReactivity.hovertemplate;
-        trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.customdata = object_plot_TCellCrossReactivity.customdata;
             
-        object_plot_TCellCrossReactivity.metrics = { }; // initialize metrics
-        object_plot_TCellCrossReactivity.metrics[ '-log10( e-value )' ] = object_plot_TCellCrossReactivity.dict_data[ "minus_log10_e_value" ];
-        object_plot_TCellCrossReactivity.metrics[ "log10( score_geometric_mean_query )" ] = object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_query_log10" ];
-        object_plot_TCellCrossReactivity.metrics[ "log10( score_geometric_mean_target )" ] = object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_target_log10" ];
-        object_plot_TCellCrossReactivity.mask_selected = ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, true ); // initialize mask for selection
+            object_plot_TCellCrossReactivity.selection = { l_error_x: object_plot_TCellCrossReactivity.dict_data[ 'error_x' ], l_opacity: object_plot_TCellCrossReactivity.dict_data[ 'opacity' ] }; // for highlighting specific records
+            
+            // retrieve general setting  
+            int_index_representation_TCellCrossReactivity = document.getElementById( "select_representation_of_an_alignment_TCellCrossReactivity" ).value; // retrieve plot setting from the setting panel
+            plotly_type_TCellCrossReactivity = document.getElementById( "select_graphic_format_TCellCrossReactivity" ).value == 0? "scattergl" : "scatter"; 
+            object_plot_TCellCrossReactivity.show = $( "#toggle_TCellCrossReactivityPrediction_MolecularMimicryMap" ).hasClass( "active" ); // retrieve visibility
+            console.log( "[DrawMolecularMimicryMap] TCellCrossReactivity visibility:", object_plot_TCellCrossReactivity.show );
+            
+            // compose traces
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.x = object_plot_TCellCrossReactivity.dict_data[ 'x' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.x = object_plot_TCellCrossReactivity.dict_data[ 'x' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.y = object_plot_TCellCrossReactivity.dict_data[ 'y' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.y = object_plot_TCellCrossReactivity.dict_data[ 'y' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol = [ "y-down-open", "star-triangle-down-dot", "bowtie" ][ int_index_representation_TCellCrossReactivity ]; // retrieve representation based on the given "int_index_representation_TCellCrossReactivity"
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol = [ "y-up-open", "star-triangle-up-dot", "hourglass" ][ int_index_representation_TCellCrossReactivity ];
+
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size = object_plot_TCellCrossReactivity.dict_data[ 'size_human' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size = object_plot_TCellCrossReactivity.dict_data[ 'size_virus' ];
+
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width = int_index_representation_TCellCrossReactivity == 0 ? 2 : 0; // if symbol is "y-down-open", set line width to 3
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width = int_index_representation_TCellCrossReactivity == 0 ? 2 : 0; // if symbol is "y-down-open", set line width to 3
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color = object_plot_TCellCrossReactivity.dict_data[ 'color' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color = object_plot_TCellCrossReactivity.dict_data[ 'color' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.opacity = object_plot_TCellCrossReactivity.dict_data[ 'opacity' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.opacity = object_plot_TCellCrossReactivity.dict_data[ 'opacity' ];
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.type = plotly_type_TCellCrossReactivity;
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.type = plotly_type_TCellCrossReactivity;
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.name = "T Cell Cross-Reactivity Prediction (Human)";
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.name = "T Cell Cross-Reactivity Prediction (Virus)";
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.visible = object_plot_TCellCrossReactivity.show;
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.visible = object_plot_TCellCrossReactivity.show;
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.error_x = { type: 'data', array: ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, 0 ), visible: true, width: 0, thickness: 1 }
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.error_x = { type: 'data', array: object_plot_TCellCrossReactivity.dict_data[ 'error_x' ], visible: true, width: 0, thickness: 1 }; // represent alignment by using errorbar of the trace containing data of virus
+
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.hoverinfo = 'skip'; // skip hoverinfo for the other trace
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.hovertemplate = object_plot_TCellCrossReactivity.hovertemplate;
+            trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.customdata = object_plot_TCellCrossReactivity.customdata;
+
+            object_plot_TCellCrossReactivity.metrics = { }; // initialize metrics
+            object_plot_TCellCrossReactivity.metrics[ '-log10( e-value )' ] = object_plot_TCellCrossReactivity.dict_data[ "minus_log10_e_value" ];
+            object_plot_TCellCrossReactivity.metrics[ "log10( score_geometric_mean_query )" ] = object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_query_log10" ];
+            object_plot_TCellCrossReactivity.metrics[ "log10( score_geometric_mean_target )" ] = object_plot_TCellCrossReactivity.dict_data[ "score_geometric_mean_target_log10" ];
+            object_plot_TCellCrossReactivity.mask_selected = ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, true ); // initialize mask for selection
+        }
             
         // adjust layouts
-        object_plot_MolecularMimicryMap.float_max_of_l_y = ArrayFindMinMax( ArrayCombine( object_plot_BCellCrossReactivity.dict_data[ 'y' ], object_plot_TCellCrossReactivity.dict_data[ 'y' ] ) )[ 1 ]; // retrieve the max value on the Y-axis for both T and B CellCrossReactivity prediction data
+        object_plot_MolecularMimicryMap.float_max_of_l_y = ArrayFindMinMax( ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) ? ArrayCombine( object_plot_BCellCrossReactivity.dict_data[ 'y' ], object_plot_TCellCrossReactivity.dict_data[ 'y' ] ) : object_plot_BCellCrossReactivity.dict_data[ 'y' ] )[ 1 ]; // retrieve the max value on the Y-axis for both T and B CellCrossReactivity prediction data
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { 
+            console.log( "[DrawMolecularMimicryMap] number of TCellCrossReactivity prediction records for plotting:", object_plot_TCellCrossReactivity.arr_data.length );
+        }
         let y_ticks = TickFindOptimal( object_plot_MolecularMimicryMap.float_max_of_l_y ); // generate and assign appropriate y_ticks
         layout_MolecularMimicryMap.yaxis.tickvals = y_ticks;
         layout_MolecularMimicryMap.yaxis.ticktext = ArrayApply( y_ticks, String );
         layout_MolecularMimicryMap.margin.l = 13 + 20 * 2 + layout_MolecularMimicryMap.yaxis.ticktext[ y_ticks.length - 1 ].length * 7; // adjust margins // one digit of y_tick label is about 7 pixels
         console.log( "[DrawMolecularMimicryMap] setting margins of the main graph with following settings:", layout_MolecularMimicryMap.margin );
         console.log( "[DrawMolecularMimicryMap] number of BCellCrossReactivity prediction records for plotting:", object_plot_BCellCrossReactivity.arr_data.length );
-        console.log( "[DrawMolecularMimicryMap] number of TCellCrossReactivity prediction records for plotting:", object_plot_TCellCrossReactivity.arr_data.length );
+        
         // set range of rangeslider according to Alignment mode
         layout_MolecularMimicryMap.xaxis.rangeslider.range = [ 0, object_data.plot.consensus_sequence.accumulated_length ]; // set range using accumulated length of consensus virus sequences
         
@@ -3806,13 +3896,20 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             Plotly.newPlot( plotMolecularMimicryMap, [ lodash.cloneDeep( trace_point_type_MolecularMimicryMap_BCellCrossReactivity ) ], lodash.cloneDeep( layout_MolecularMimicryMap ), config_MolecularMimicryMap );
         }
         object_plot_BCellCrossReactivity.index_trace_end = plotMolecularMimicryMap.data.length; // record index_end of traces
-        // draw T cell cross reactivity prediction data
-        object_plot_TCellCrossReactivity.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
-        Plotly.addTraces( plotMolecularMimicryMap, [ lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human ), lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus ) ] );
-        object_plot_TCellCrossReactivity.index_trace_end = plotMolecularMimicryMap.data.length;
         // update metrics plot
         UpdateBCellCrossReactivityPredMetricsPlot( );
-        UpdateTCellCrossReactivityPredMetricsPlot( );
+            
+
+        // draw T cell cross reactivity prediction data
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) { 
+            // draw T cell cross reactivity prediction data
+            object_plot_TCellCrossReactivity.index_trace_start = plotMolecularMimicryMap.data.length; // record index_start and index_end of traces
+            Plotly.addTraces( plotMolecularMimicryMap, [ lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human ), lodash.cloneDeep( trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus ) ] );
+            object_plot_TCellCrossReactivity.index_trace_end = plotMolecularMimicryMap.data.length;
+            // update metrics plot
+            UpdateTCellCrossReactivityPredMetricsPlot( );
+        }
+        // compose traces
         UpdateHumanProteinMetricsPlot( );
         
         // Add protein annotations 
@@ -3961,8 +4058,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { pdbVirusProtein.visual.update( option_initialization_molstar );; // render coordinates synchronously if the container is currently shown
                 } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { pdbVirusProtein.visual.update( option_initialization_molstar ); } ); } // render coordinates once the container is shown if the container is currently hidden
                 // update protein id label (to increse interactivity)
-                document.getElementById( "text_protein_structure_virus" ).innerText = `Virus Protein ----`; 
-                document.getElementById( "text_protein_structure_human" ).innerText = `Human Protein ----`; 
+                document.getElementById( "text_protein_structure_virus" ).innerText = ( object_data.flag.human_label_represents_virus ) ? `SARS-CoV-2 (----)` : `Virus (----)`;
+                document.getElementById( "text_protein_structure_human" ).innerText = ( object_data.flag.human_label_represents_virus ) ? `Coronavirus (----)` : `Human (----)`;
             } else if ( flag_data_type == "IEDB" ) {
                 let customdata = clicked_point.customdata; // retrieve custom data of clicked point
                 console.log( "[plotMolecularMimicryMap] clicked record is IEDB epitope:", clicked_point );
@@ -4072,6 +4169,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
     }
     function PlotExpression_GTEX( ) { // plot violin and boxplots showing mRNA expressions of the protein of interest
+        if ( object_data.flag.human_label_represents_virus ) { // when virus proteins are not used, do not draw GTEx expression plot
+            return -1
+        }
         let expression = object_data.main.expression,
             name_dataset = expression.name_dataset,
             index_acc_human = expression.int_index_acc_human,
@@ -4208,6 +4308,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         return color;
     }
     async function PlotExpression_scRNA_Seq( ) { // update expression plot using scRNA-seq data
+        if ( object_data.flag.human_label_represents_virus ) { // when virus proteins are not used, do not draw GTEx expression plot
+            return -1
+        }
         let expression = object_data.main.expression,
             name_dataset = expression.name_dataset,
             index_acc_human = expression.int_index_acc_human,
@@ -4215,30 +4318,26 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             gene_symbol = dataset.arr_data_acc_human[ index_acc_human ].Gene_Symbol,
             str_title_nav = "Single Cell Expression of " + gene_symbol;
         
+        if ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) { // if plot of the current gene of interest has been already drawn, exit the function call
+            console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
+            return -1;
+        }
+        document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = str_title_nav; // update header label of the scrnaseq panel
+        
         return new Promise( async function( resolve, reject ) { 
             // retrieve setting for the graph
             dataset.scrnaseq.option.index_dataset = parseInt( document.getElementById( "select__name_dataset__plotly_scrnaseq" ).value );
             let index_dataset = dataset.scrnaseq.option.index_dataset;
             if ( index_dataset == -1 ) { return -1; } // skip if default select option is selected
             let category_dataset = dataset.scrnaseq.option.category_dataset;
-            let flag_patient_donor = category_dataset == 'patient_donors';
+            let flag_patient_donor = category_dataset == 'patient_donors'
             console.log( "[PlotExpression_scRNA_Seq] the index of the currently chosen dataset is " + index_dataset );
-			
             // retrieve settings
-            let covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
+            dataset.scrnaseq.option.covid_status = ! document.getElementById( "checkbox__covid_status__plotly_scrnaseq" ).checked;
             dataset.scrnaseq.option.proportion = ! document.getElementById( "checkbox__proportion__plotly_scrnaseq" ).checked;
-            let ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
-            let dir_file = dataset.dir_folder + "scrnaseq." + dataset.scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( dataset.scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
-			
-            if ( ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) & ( dataset.scrnaseq.option.dir_file == dir_file ) & ( dataset.scrnaseq.option.ignore_cells_with_zero_counts == ignore_cells_with_zero_counts ) & ( dataset.scrnaseq.option.covid_status == covid_status ) ) { // if plot of the current gene of interest for the current dataset has been already drawn, exit the function call
-                console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
-                return -1;
-            }
-            document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML = str_title_nav; // update header label of the scrnaseq panel
-			dataset.scrnaseq.option.dir_file = dir_file;
-			dataset.scrnaseq.option.ignore_cells_with_zero_counts = ignore_cells_with_zero_counts;
-			dataset.scrnaseq.option.covid_status = covid_status;
-			
+            dataset.scrnaseq.option.ignore_cells_with_zero_counts = ! document.getElementById( "checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" ).checked; // ignore zero_count_cells for efficient plotting
+            dataset.scrnaseq.option.dir_file = dataset.dir_folder + "scrnaseq." + dataset.scrnaseq.metadata[ 'name_file' ][ index_dataset ] + ( dataset.scrnaseq.option.proportion ? ".proportion" : ".histogram" ) + ".tsv.gz.base64.txt";
+            let dir_file = dataset.scrnaseq.option.dir_file;
             if ( ! ( dir_file in object_data.file.dict_dir_file_to_parsed_data ) ) { // download the current file of the dataset if it has not been already downloaded
                 await LoadRemoteData( [ dir_file ] );
             }
@@ -4397,6 +4496,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             l_l_l_data[ index_covid_status ].push( l ); // each row contains [ n_cells ] + [ count data ] + [ proportion data ] of a 'name_clus'
                         }
                     }
+                    console.log( l_l_l_data );
                     let l_l_data = [ ], l_trace = [ ];
                     if ( flag_patient_donor ) {
                         l_l_data = nj.array( l_l_l_data[ 1 ] ).add( l_l_l_data[ 0 ] ).tolist( ); // sum n_cells for two covid_status
@@ -4406,7 +4506,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             let l = [ n_cells ];
                             l.push( ... l_count );
                             l.push( ... ArrayMultiply( l_count, 1 / n_cells ) );
-                            l_l.push( l ) // recalculate proportions
+
+                            l_l.push(  ) // recalculate proportions
                         }
                         l_l_data = l_l;
                     } else {
@@ -4492,38 +4593,50 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         UpdatePlotExpression( ); // Plot mRNA expression data
         console.log( "[plotMolecularMimicryMap] clicked record belongs to BCellCrossReactivity data:", clicked_record );
         arr_data_clicked = [ ]; // empty the array containing data of the clincked record
+        // define tag of datatypes
+        let str_tag_human = ( object_data.flag.human_label_represents_virus ) ? "Coronavirus" : "Human",
+            str_tag_virus = ( object_data.flag.human_label_represents_virus ) ? "SARS-CoV-2" : "Virus";
         if ( object_data.flag.alignment_to_virus ) { // add information of representative virus protein
             let representative_virus_protein = dataset.arr_data_acc_virus_representative[ clicked_record.representative_accession ];
-            arr_data_clicked.push( { "Data Name": "[virus] representative protein", Value: representative_virus_protein.name + " (" + representative_virus_protein.accession + ") from " + clicked_record.target_representative_start + " to " + clicked_record.target_representative_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + representative_virus_protein.accession } );
+            arr_data_clicked.push( { "Data Name": `[${str_tag_virus}] representative protein`, Value: representative_virus_protein.name + " (" + representative_virus_protein.accession + ") from " + clicked_record.target_representative_start + " to " + clicked_record.target_representative_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + representative_virus_protein.accession } );
         }
-        arr_data_clicked.push( { "Data Name": "[human] protein name", Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].name, URL: "https://www.google.com/search?q=" + dataset.arr_data_acc_human[ clicked_record.query_accession ].description.split( "OS=" )[ 0 ] } ); // add human protein description with a link to a google search
-        arr_data_clicked.push( { "Data Name": "[virus] protein accession", Value: dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_start + " to " + clicked_record.target_end, URL: "https://www.ncbi.nlm.nih.gov/protein/" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value } );
-        arr_data_clicked.push( { "Data Name": "[human] protein accession", Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_start + " to " + clicked_record.query_end, URL: "https://www.uniprot.org/uniprot/" + dataset.arr_data_acc_human[ clicked_record.query_accession ].value } );
+        if ( ! object_data.flag.human_label_represents_virus ) {
+            arr_data_clicked.push( { "Data Name": `[${str_tag_human}] protein name`, Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].name, URL: "https://www.google.com/search?q=" + dataset.arr_data_acc_human[ clicked_record.query_accession ].description.split( "OS=" )[ 0 ] } ); // add human protein description with a link to a google search
+        }
+        arr_data_clicked.push( { "Data Name": `[${str_tag_virus}] protein accession`, Value: dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_start + " to " + clicked_record.target_end, URL: ( ( name_dataset.includes( "gisaid" ) ) ? "https://www.gisaid.org/" : "https://www.ncbi.nlm.nih.gov/protein/" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value ) } ); 
+        arr_data_clicked.push( { "Data Name": `[${str_tag_human}] protein accession`, Value: dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_start + " to " + clicked_record.query_end, URL: ( ( object_data.flag.human_label_represents_virus ) ? "https://www.ncbi.nlm.nih.gov/protein/" : "https://www.uniprot.org/uniprot/" ) + dataset.arr_data_acc_human[ clicked_record.query_accession ].value } );
         let flag_structure_exist_for_human_sequence = clicked_record.structure_id_query != -1, 
-		    flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1, // retrieve flag for structure property data availability for human and virus sequence
-			str_label_human = "Human Protein ----", // default labels
-			str_label_virus = "Virus Protein ----";
-			
+            flag_structure_exist_for_virus_sequence = clicked_record.structure_id_target != -1, // retrieve flag for structure property data availability for human and virus sequence
+            str_label_human = `${str_tag_human} (----)`, // default labels
+            str_label_virus = `${str_tag_virus} (----)`,
+            tag_pdb_human = document.getElementById( "text_protein_structure_human" ),
+            tag_pdb_virus = document.getElementById( "text_protein_structure_virus" );
+
         if ( flag_structure_exist_for_virus_sequence ) { 
-            let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].id_pdb.toUpperCase( );
-            arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].value + " (" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_structure_start + " to " + clicked_record.target_structure_end + ")", URL: "https://www.rcsb.org/structure/" + str_id_pdb, style: "font-family:Arial" } );
-			str_label_virus = `Virus Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
+            let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].id_pdb.toUpperCase( ),
+                url_pdb = ( str_id_pdb.includes( "_SOURCE_" ) ) ? `${object_data.file.base_url}data/custom_cif/${str_id_pdb}.cif` : "https://www.rcsb.org/structure/" + str_id_pdb; // update link to protein structure (for both modeling results and pdb structures)
+            
+            arr_data_clicked.push( { "Data Name": `[${str_tag_virus}] PDB structure`, Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ].value + " (" + dataset.arr_data_acc_virus[ clicked_record.target_accession ].value + " from " + clicked_record.target_structure_start + " to " + clicked_record.target_structure_end + ")", URL: url_pdb, style: "font-family:Arial" } );
+            str_label_virus = `${str_tag_virus} (${str_id_pdb})`; // update protein id label (to increse interactivity)
+            tag_pdb_virus.href = url_pdb;
         } else {
-            arr_data_clicked.push( { "Data Name": "[virus] PDB structure of protein", Value: "unavailable", URL: null, style: "font-family:Arial" } );
+            arr_data_clicked.push( { "Data Name": `[${str_tag_virus}] PDB structure`, Value: "unavailable", URL: null, style: "font-family:Arial" } );
+            tag_pdb_virus.removeAttribute( 'href' );
         }
         if ( flag_structure_exist_for_human_sequence ) { 
-            let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].id_pdb.toUpperCase( );
-            arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].value + " (" + dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_structure_start + " to " + clicked_record.query_structure_end + ")", URL: "https://www.rcsb.org/structure/" + str_id_pdb, style: "font-family:Arial" } );
-			str_label_human = `Human Protein ${str_id_pdb}`; // update protein id label (to increse interactivity)
+            let str_id_pdb = dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].id_pdb.toUpperCase( ),
+                url_pdb = ( str_id_pdb.includes( "_SOURCE_" ) ) ? `${object_data.file.base_url}data/custom_cif/${str_id_pdb}.cif` : "https://www.rcsb.org/structure/" + str_id_pdb; // update link to protein structure (for both modeling results and pdb structures)
+            
+            arr_data_clicked.push( { "Data Name": `[${str_tag_human}] PDB structure`, Value: dataset.arr_data_acc_pdb[ clicked_record.structure_id_query ].value + " (" + dataset.arr_data_acc_human[ clicked_record.query_accession ].value + " from " + clicked_record.query_structure_start + " to " + clicked_record.query_structure_end + ")", URL: url_pdb, style: "font-family:Arial" } );
+            str_label_human = `${str_tag_human} (${str_id_pdb})`; // update protein id label (to increse interactivity)
+            tag_pdb_human.href = url_pdb;
         } else {
-            arr_data_clicked.push( { "Data Name": "[human] PDB structure", Value: "unavailable", URL: null, style: "font-family:Arial" } );
+            arr_data_clicked.push( { "Data Name": `[${str_tag_human}] PDB structure`, Value: "unavailable", URL: null, style: "font-family:Arial" } );
+            tag_pdb_human.removeAttribute( 'href' );
         }
-		// update flags indicating whether the structure in the Molstar viewer should be updated or not.
-		let flag_new_structure_human = document.getElementById( "text_protein_structure_human" ).innerText != str_label_human,
-		    flag_new_structure_virus = document.getElementById( "text_protein_structure_virus" ).innerText != str_label_virus;
-		document.getElementById( "text_protein_structure_human" ).innerText = str_label_human;
-		document.getElementById( "text_protein_structure_virus" ).innerText = str_label_virus;
-		
+        tag_pdb_human.innerText = str_label_human
+        tag_pdb_virus.innerText = str_label_virus
+
         arr_data_clicked.push( { "Data Name": "E-value (significance) of full-length alignment", Value: clicked_record.e_value, URL: null, style: "font-family:Arial" } );
         arr_data_clicked.push( { "Data Name": "identity (similarity) of full-length alignment", Value: clicked_record.identity, URL: null, style: "font-family:Arial" } );
         arr_data_clicked.push( { "Data Name": "number of redundant alignments", Value: clicked_record.duplicate_counts, URL: null, style: "font-family:Arial" } );
@@ -4553,8 +4666,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         structure_property_human_sequence.ss8 = Unpack_String_ss8( structure_property_human_protein[ "ss8_combined___ascii_encoding_1_character_from_33_to_41__states_G_H_I_E_B_T_S_C__compact__for_web_application" ].slice( query_start, query_end ) )
         structure_property_human_sequence.datatype = Unpack_String_datatype( structure_property_human_protein[ "rsa_datatype_combined___ascii_encoding_1_character_from_33_to_36__states_Pred_Model_PDB__compact__for_web_application" ].slice( query_start, query_end ) )
         if ( flag_structure_exist_for_human_sequence ) { 
-            structure_property_human_sequence.phi = Unpack_String_torsion_angle( structure_property_human_protein[ "phi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
-            structure_property_human_sequence.psi = Unpack_String_torsion_angle( structure_property_human_protein[ "psi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
+            structure_property_human_sequence.phi = Unpack_String_torsion_angle( structure_property_human_protein[ ( object_data.flag.human_label_represents_virus ) ? "phi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" : "phi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
+            structure_property_human_sequence.psi = Unpack_String_torsion_angle( structure_property_human_protein[ ( object_data.flag.human_label_represents_virus ) ? "psi_combined___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" : "psi___ascii_encoding_1_character_from_33_to_126__from_-180_to_180__for_web_application__compact__for_web_application" ].slice( query_start, query_end ) );
             structure_property_human_sequence.structure_id = Unpack_String_structure_id( structure_property_human_protein[ "structure_id__compact__for_web_application" ] ).slice( query_start, query_end );
         }
         structure_property_virus_sequence.rsa = Unpack_String_rsa( structure_property_virus_protein[ "rsa_combined___ascii_encoding_1_character_from_33_to_126__from_0_to_1__for_web_application__compact__for_web_application" ].slice( target_start, target_end ) )
@@ -4619,21 +4732,21 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         object_data_tableSequence.flag_data_type = "B-Cell";
         let colors = [ ], values = [ ], header = [ ], l_col = [ ];
         if ( flag_structure_exist_for_virus_sequence ) { 
-            l_col.push( ... [ 'virus_structure_id', 'virus_psi', 'virus_phi' ] );
+            l_col.push( ... [ `${str_tag_virus}<br>structure_id`, `${str_tag_virus}<br>psi`, `${str_tag_virus}<br>phi` ] );
             values.push( ... [ structure_property_virus_sequence.structure_id, structure_property_virus_sequence.psi, structure_property_virus_sequence.phi ] );
             colors.push( ... [ structure_property_virus_sequence.color_structure_id, structure_property_virus_sequence.color_psi, structure_property_virus_sequence.color_phi ] );
         }
-        l_col.push( ... [ 'virus_datatype', 'virus_ss8', 'virus_rsa', 'virus_seq' ] );
+        l_col.push( ... [ `${str_tag_virus}<br>datatype`, `${str_tag_virus}<br>ss8`, `${str_tag_virus}<br>rsa`, `${str_tag_virus}<br>seq` ] );
         values.push( ... [ structure_property_virus_sequence.datatype, structure_property_virus_sequence.ss8, structure_property_virus_sequence.rsa, structure_property_virus_sequence.seq ] );
         colors.push( ... [ structure_property_virus_sequence.color_datatype, structure_property_virus_sequence.color_ss8, structure_property_virus_sequence.color_rsa, ArrayFull( len_alignment, "#ffffff" ) ] );
-        l_col.push( 'score_blosum62' );
+        l_col.push( 'BLOSUM62' );
         values.push( l_score_blosum );
         colors.push( l_color_score_blosum );
-        l_col.push( ... [ 'human_seq', 'human_rsa', 'human_ss8', 'human_datatype' ] );
+        l_col.push( ... [ `${str_tag_human}<br>seq`, `${str_tag_human}<br>rsa`, `${str_tag_human}<br>ss8`, `${str_tag_human}<br>datatype` ] );
         values.push( ... [ structure_property_human_sequence.seq, structure_property_human_sequence.rsa, structure_property_human_sequence.ss8, structure_property_human_sequence.datatype ] );
         colors.push( ... [ ArrayFull( len_alignment, "#ffffff" ), structure_property_human_sequence.color_rsa, structure_property_human_sequence.color_ss8, structure_property_human_sequence.color_datatype ] );
         if ( flag_structure_exist_for_human_sequence ) { 
-            l_col.push( ... [ 'human_phi', 'human_psi', 'human_structure_id' ] );
+            l_col.push( ... [ `${str_tag_human}<br>phi`, `${str_tag_human}<br>psi`, `${str_tag_human}<br>structure_id` ] );
             values.push( ... [ structure_property_human_sequence.phi, structure_property_human_sequence.psi, structure_property_human_sequence.structure_id ] );
             colors.push( ... [ structure_property_human_sequence.color_phi, structure_property_human_sequence.color_psi, structure_property_human_sequence.color_structure_id ] );
         }
@@ -4703,18 +4816,18 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
             object_pdb_human.bool_flag_selected = false, object_pdb_human.bool_flag_focused = false; // set viewer setting
             if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
-			    pdbHumanProtein.visual.update( object_pdb_human.option_update );
-			    MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+                pdbHumanProtein.visual.update( object_pdb_human.option_update );
+                MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
             } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
-			    pdbHumanProtein.visual.update( object_pdb_human.option_update );
-				MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein );
-			} ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+                pdbHumanProtein.visual.update( object_pdb_human.option_update );
+                MolStarRenderCompletePromise( pdbHumanProtein ).then( Select_View_of_PDB_Human_Protein );
+            } ); } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
         } else {  // show dummy if coordinates are not available
             if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { // render coordinates synchronously if the container is currently shown
-			    pdbHumanProtein.visual.update( option_initialization_molstar );
+                pdbHumanProtein.visual.update( option_initialization_molstar );
             } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
-			    pdbHumanProtein.visual.update( option_initialization_molstar );
-			} ); } // render coordinates once the container is shown if the container is currently hidden
+                pdbHumanProtein.visual.update( option_initialization_molstar );
+            } ); } // render coordinates once the container is shown if the container is currently hidden
         }
         if ( flag_structure_exist_for_virus_sequence ) { 
             object_pdb_virus = Object.assign( object_pdb_virus, dataset.arr_data_acc_pdb[ clicked_record.structure_id_target ] );
@@ -4766,27 +4879,27 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             }
             object_pdb_virus.bool_flag_selected = false, object_pdb_virus.bool_flag_focused = false; // set viewer setting
             if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
-			    pdbVirusProtein.visual.update( object_pdb_virus.option_update );
-			    MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
+                pdbVirusProtein.visual.update( object_pdb_virus.option_update );
+                MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein ); // render coordinates synchronously if the container is currently shown // then select the subsequence once loading is completed
             } else { 
-			    BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
-			        pdbVirusProtein.visual.update( object_pdb_virus.option_update );
-				    MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein );
-			    } );
-			} // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
+                BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
+                    pdbVirusProtein.visual.update( object_pdb_virus.option_update );
+                    MolStarRenderCompletePromise( pdbVirusProtein ).then( Select_View_of_PDB_Virus_Protein );
+                } );
+            } // render coordinates once the container is shown if the container is currently hidden // then select the subsequence once loading is completed
         } else {  // show dummy if coordinates are not available
             if ( $( str_jquery_container ).hasClass( "collapse" ) && $( str_jquery_container ).hasClass( "show" ) ) { 
-			    pdbVirusProtein.visual.update( option_initialization_molstar ); // render coordinates synchronously if the container is currently shown
+                pdbVirusProtein.visual.update( option_initialization_molstar ); // render coordinates synchronously if the container is currently shown
             } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { 
-			    pdbVirusProtein.visual.update( option_initialization_molstar );
-			} ); } // render coordinates once the container is shown if the container is currently hidden
+                pdbVirusProtein.visual.update( option_initialization_molstar );
+            } ); } // render coordinates once the container is shown if the container is currently hidden
         }
         document.getElementById( "description_clicked_position__table_sequence" ).innerHTML = "";
     }
     
     var color_pdb_highlight = {r:255,g:255,b:0};
     function Highlight_PDB_Residue__Click_Callback__Aligned_Sequence_Table( event ) {
-        let height_cell_value = 20, height_cell_header = 30, n_extra_pixels = 4; // it seems a couple of extra pixels added to the top of the slider. To account this, the silder height will be expanded by 2 * this_value
+        let height_cell_value = 20, height_cell_header = 47, n_extra_pixels = 4; // it seems a couple of extra pixels added to the top of the slider. To account this, the silder height will be expanded by 2 * this_value // height cell header (1 line = 30px, 2 line = 47px)
         let str_description = "";
         let object_slider_boundary = object_data_tableSequence.object_slider.getBoundingClientRect( );
         let object_table_boundary = tableSequence.getBoundingClientRect( );
@@ -5031,66 +5144,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     object_data.flag.gene_highlighted = false; // flag indicating whether a gene is being highlighted on the plot or not
     // setting for highlight
     var float_line_width_when_highlighting = 2, float_line_width_when_not_highlighting = 0, color_when_highlighting = 'black'; // settings for highlighting
-//     function Highlight_Gene_MolecularMimicryMap( ) { // Toggle Highlights of specific records of a gene in MolecularMimicryMap data 
-//         // clear highlight if a gene is being already highlighted.
-//         if ( object_data.flag.gene_highlighted ) { 
-//             // reset plots
-//             Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.line.width } }, error_x: { type: "data", array: dataset.object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_BCellCrossReactivity.index_trace_start );
-//             Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, dataset.object_plot_TCellCrossReactivity.index_trace_start );
-//             Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: dataset.object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_TCellCrossReactivity.index_trace_start + 1 );
-//             object_data.flag.gene_highlighted = false;
-//         } else { // show records of a given gene
-//             // currently only supports gene_symbols
-// // highlight BCellCrossReactivity and TCellCrossReactivity with current 'object_data.main.gene.l_integer_index_gene'
-//             let l_opacity = [ ], l_opacity_modified = [ ], l_error_x = [ ], l_error_x_modified = [ ];
-//             object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity = [ ];
-//             object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity = [ ];
-//             for ( let i = 0; i < object_data.main.gene.l_index_gene.length; i ++ ) {
-//                 let integer_index_gene = object_data.main.gene.l_index_gene[ i ];
-//                 if ( integer_index_gene in object_plot_BCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index ) {
-//                     object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity.push( ... object_plot_BCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index[ integer_index_gene ] );
-//                 }
-//                 if ( integer_index_gene in object_plot_TCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index ) {
-//                     object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity.push( ... object_plot_TCellCrossReactivity.dictionary_int_index_acc_human_to_l_int_index[ integer_index_gene ] );
-//                 }
-//             }
-//             l_opacity = dataset.object_plot_BCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( dataset.object_plot_BCellCrossReactivity.n_records, 0 ), l_error_x = dataset.object_plot_BCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( dataset.object_plot_BCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
-//             for ( let i = 0; i < object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity.length; i ++ ) { 
-//                 l_opacity_modified[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_opacity[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ]; 
-//                 l_error_x_modified[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ] = l_error_x[ object_data.main.gene.l_indices_to_highlight_BCellCrossReactivity[ i ] ]; 
-//             } // modify linewidth to highlight records
-//             if ( dataset.object_plot_BCellCrossReactivity.flag_bool_mode_is_lines ) { // temp (currently line-plotting-mode is not supported)
-//                 let l_index_traces_selected = [ ], l_index_traces_not_selected = [ ];
-// //                     for ( let i = 0; i < dataset.object_plot_BCellCrossReactivity.n_records; i ++ ) { if ( mask_selected[ i ] ) { l_index_traces_selected.push( i ); } else { l_index_traces_not_selected.push( i ); } }
-// //                     Plotly.restyle( plotMolecularMimicryMap, { opacity: 0 }, l_index_traces_not_selected ); // hide non-selected records
-// //                     Plotly.restyle( plotMolecularMimicryMap, { opacity: float_line_type_opacity_MolecularMimicryMap_BCellCrossReactivity }, l_index_traces_selected ); // show selected records
-//             } else { // point-plotting mode
-//                 Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: 0 } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_BCellCrossReactivity.index_trace_start ) // set opacity of markers not selected in the metric plot to 0
-//             }
-// // highlight TCellCrossReactivity with current 'object_data.main.gene.l_integer_index_gene'
-            
-//             l_opacity = dataset.object_plot_TCellCrossReactivity.selection.l_opacity, l_opacity_modified = ArrayFull( dataset.object_plot_TCellCrossReactivity.n_records, 0 ), l_error_x = dataset.object_plot_TCellCrossReactivity.selection.l_error_x, l_error_x_modified = ArrayFull( dataset.object_plot_TCellCrossReactivity.n_records, 0 ); // initialize array of opacities and l_error_x 
-//             for ( let i = 0; i < object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity.length; i ++ ) { 
-//                 l_opacity_modified[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_opacity[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ]; 
-//                 l_error_x_modified[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ] = l_error_x[ object_data.main.gene.l_indices_to_highlight_TCellCrossReactivity[ i ] ];
-//             } // modify linewidth to highlight records
-//             Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, dataset.object_plot_TCellCrossReactivity.index_trace_start );
-//             Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: l_opacity_modified, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: l_error_x_modified, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_TCellCrossReactivity.index_trace_start + 1 );
-//             object_data.flag.gene_highlighted = true;
-//         }
-//     }
-//     function Clear_Highlight_MolecularMimicryMap( ) { // remove highlights from the plot 
-//         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_BCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.size, color: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.color, line: { width: trace_point_type_MolecularMimicryMap_BCellCrossReactivity.marker.line.width } }, error_x: { type: "data", array: dataset.object_plot_BCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_BCellCrossReactivity.index_trace_start );
-//         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_human.marker.line.width } } }, dataset.object_plot_TCellCrossReactivity.index_trace_start );
-//         Plotly.restyle( plotMolecularMimicryMap, { marker: { opacity: dataset.object_plot_TCellCrossReactivity.selection.l_opacity, size: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.size, color: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.color, symbol: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.symbol, line: { width: trace_point_type_MolecularMimicryMap_TCellCrossReactivity_virus.marker.line.width } }, error_x: { type: "data", array: dataset.object_plot_TCellCrossReactivity.selection.l_error_x, visible: true, width: 0, thickness: 1 } }, dataset.object_plot_TCellCrossReactivity.index_trace_start + 1 );
-//         object_data.flag.gene_highlighted = false;
-//     }
     
     object_data.main.highlight = { str_entry: "" }; // storing variables for highlighting records
     function Highlight_Records_MolecularMimicryMap( str_entry, name_dict_str_entry_to_l_index ) { // highlight records according to the given 'l_index', which can be retrieved using 'str_entry' and 'dict_str_entry_to_l_index' with a given 'name_dict_str_entry_to_l_index' at 'object_plot_BCellCrossReactivity' and 'object_plot_TCellCrossReactivity'
         if ( str_entry == object_data.main.highlight.str_entry ) {
             object_data.main.highlight.str_entry = ""; // clear current highlighting
-            delete object_plot_BCellCrossReactivity.mask_selected_highlighting;
+            delete object_plot_BCellCrossReactivity.mask_selected_highlighting; // remove filters
             delete object_plot_TCellCrossReactivity.mask_selected_highlighting;
             Filter_BCellCrossReactivity( ); // update graph
             Filter_TCellCrossReactivity( );
@@ -5103,7 +5162,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         // update filter for highlighting
         // if str_entry does not exists, use an empty array to build a boolean index
         object_plot_BCellCrossReactivity.mask_selected_highlighting = ArrayBroadCasting( ArrayFull( object_plot_BCellCrossReactivity.arr_data.length, false ), ( str_entry in object_plot_BCellCrossReactivity[ name_dict_str_entry_to_l_index ] ) ? object_plot_BCellCrossReactivity[ name_dict_str_entry_to_l_index ][ str_entry ] : [ ], true ); 
-        object_plot_TCellCrossReactivity.mask_selected_highlighting = ArrayBroadCasting( ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, false ), ( str_entry in object_plot_TCellCrossReactivity[ name_dict_str_entry_to_l_index ] ) ? object_plot_TCellCrossReactivity[ name_dict_str_entry_to_l_index ][ str_entry ] : [ ], true ); 
+        if ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) {
+            object_plot_TCellCrossReactivity.mask_selected_highlighting = ArrayBroadCasting( ArrayFull( object_plot_TCellCrossReactivity.arr_data.length, false ), ( str_entry in object_plot_TCellCrossReactivity[ name_dict_str_entry_to_l_index ] ) ? object_plot_TCellCrossReactivity[ name_dict_str_entry_to_l_index ][ str_entry ] : [ ], true ); 
+        }
         Filter_BCellCrossReactivity( ); // update graph
         Filter_TCellCrossReactivity( );
     }
@@ -5266,7 +5327,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                         yref: 'paper', y: ( 1 + ( - y_floor ) / y_axis_size ) / 2,
                         textangle: - 90,
                         xshift: - layout_MolecularMimicryMap.margin.l - 5,
-                        text: `(B Cell) ${dataset.object_plot_BCellCrossReactivity.y_axis.label}<br>(T Cell) ${dataset.object_plot_TCellCrossReactivity.y_axis.label}`,
+                        text: ( object_data.flag.cross_reactive_mhc_ligand_data_exist ) ? `(B Cell) ${dataset.object_plot_BCellCrossReactivity.y_axis.label}<br>(T Cell) ${dataset.object_plot_TCellCrossReactivity.y_axis.label}` : `(B Cell) ${dataset.object_plot_BCellCrossReactivity.y_axis.label}`,
                         showarrow: false
                       } ); // update y-axis labal annotation
             }
@@ -5396,9 +5457,9 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             case "#container_datatable_panel_MolecularMimicryMap" :
                                 break;
                         }
-                        window.dispatchEvent( new Event( 'resize' ) );
+                        window.dispatchEvent( new Event( 'resize' ) ); // trigger resize events to allow Plotly plot to resize its plot
                     } );
-                } // trigger resize events to allow Plotly plot to resize its plot
+                } 
                 else { $( tab ).collapse( 'hide' ); }
             }
         } else { $( tab_target ).collapse( 'hide' ); } // if tab_target is already opened, close the tab
