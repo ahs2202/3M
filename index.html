@@ -15,7 +15,7 @@
     <meta name="description"
         content="Molecular Mimicry Map of SARS-CoV-2 web application">
     <title>Molecular Mimicry Map of SARS-CoV-2</title>
-	
+    
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="https://www.ebi.ac.uk/pdbe/pdb-component-library/css/pdbe-molstar-light-1.1.0.css">
     <!--Bootstrap CSS library-->
@@ -708,12 +708,11 @@
                         <input type="text" class="form-control" aria-label="the number of records in the datatable to display" id="input_n_records_for_datatable" title="input field for setting the number of records for display a datatable" value="1000">
                         <div class="input-group-append"><span class="input-group-text">records for</span></div> -->
                         <select class="custom-select w-auto" id="select_datatable" title="select datatable">
-                            <option value="acc_human.tsv">select datatable</option>
-                            <option value="acc_human.tsv" selected>aligned human proteins</option>
-                            <option value="acc_virus_representative.tsv">representative virus proteins</option>
-                            <option value="mhc_allele.tsv">MHC alleles</option>
-                            <option value="interpro_virus.tsv">InterPro virus protein annotation</option>
-<!--                             <option value="iedb_epitope_virus.tsv">IEDB SARS-CoV-2 epitopes</option> -->
+                            <option value="B-cell cross-reactivity prediction">select datatable</option>
+                            <option value="B-cell cross-reactivity prediction" selected>B-cell cross-reactivity prediction</option>
+                            <option value="T-cell cross-reactivity prediction">T-cell cross-reactivity prediction</option>
+<!--                             <option value="human proteins">human proteins</option> -->
+                            <option value="MHC alleles">MHC alleles</option>
                         </select>
                         <div class="input-group-append"><span class="input-group-text">datatable</span></div>
                     </div>
@@ -1368,7 +1367,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                 position: 'text', // enable minimal sizing of a dropdown list
                 highlightFirst: true, // enable enhanced autocomplete feature
             },
-            maxTags: 100,
+            maxTags: 1000,
             editTags: false, // disable editing
             enforceWhitelist: true, whitelist: l_whitelist
         });
@@ -2945,35 +2944,73 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         });
     }
     
-    var object_datatable_acc_human = [ ], df_datatable = null; // objects containing 2D-array for drawing datatable
+//     var object_datatable_acc_human = [ ], df_datatable = null; // objects containing 2D-array for drawing datatable
+//     function Display_DataTable( ) { // load datatable with loaded datasets
+//         let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // use the first dataset to display data
+//         let name_data = document.getElementById( "select_datatable" ).value, columns = [ ], dataSet = [ ], df = null, l_col = [ ];
+//         console.log( "Loading datatable", name_data );
+//         if ( name_data == "acc_human.tsv" ) { // retrieve appropriate dataframe for each setting
+//             if( object_data.flag.human_label_represents_virus ) { // do not show datatable of acc_human when human label represent virus proteins
+//                 return - 1
+//             }
+//             df = new DataFrame( dataset.arr_data_acc_human );
+//             df = df.select( "Gene_Symbol", "value", "n_counts", "seq_length", "description", "IEDB___n_unique_epitopes", "AAgAtlas___n_PubMed_ID" );
+//         } else if ( name_data == "acc_virus_representative.tsv" ) {
+//             df = new DataFrame( dataset.arr_data_acc_virus_representative );
+//             df = df.select( "name", "accession", "uniprot_acc", "length", "n_non_redundant_proteins" );
+//         } else if ( name_data == "mhc_allele.tsv" ) {
+//             df = new DataFrame( dataset.arr_data_mhc_allele );
+//         } else if ( name_data == "interpro_virus.tsv" ) {
+//             df = new DataFrame( dataset.interpro_virus.dict_data );
+//             df = df.select( "protein_name", "start", "end", "interpro_acc", "interpro_name", "annotation_acc" );
+//         } else if ( name_data == "iedb_epitope_virus.tsv" ) {
+// //             if ( object_data.flag.alignment_to_virus ) {
+// //                 df = new DataFrame( dataset.iedb_epitope_virus.dict_data );
+// //                 df = df.select( "accession_iedb", "iedb_epitope_sequence", "number_of_positive_B_cell_assay", "number_of_positive_T_cell_assay", "protein_name", "start", "end", "percent_identity", "mismatch", "gapopen" );
+// //             }
+//         } 
+//         df_datatable = df;
+//         dataSet = df_datatable.toArray( ), l_col = df_datatable.listColumns( );
+//         for ( let i = 0; i < l_col.length; i ++ ) { columns.push( { title: l_col[ i ] } ); }
+
+//         $( '#container_datatable_MolecularMimicryMap' ).empty( ); // empty the datatable and redraw the datatable
+//         $( '#container_datatable_MolecularMimicryMap' ).append( '<table id="datatable_MolecularMimicryMap" class="display" width="100%"></table>' );
+//         $( '#datatable_MolecularMimicryMap' ).DataTable( { data: dataSet, columns: columns } ); // display the datatable
+//     }
+
+    
+    var object_datatable_acc_query = [ ], df_datatable = null; // objects containing 2D-array for drawing datatable
     function Display_DataTable( ) { // load datatable with loaded datasets
         let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // use the first dataset to display data
-        let name_data = document.getElementById( "select_datatable" ).value, columns = [ ], dataSet = [ ], df = null, l_col = [ ];
-        console.log( "Loading datatable", name_data );
-        if ( name_data == "acc_human.tsv" ) { // retrieve appropriate dataframe for each setting
-            if( object_data.flag.human_label_represents_virus ) { // do not show datatable of acc_human when human label represent virus proteins
-                return - 1
-            }
-            df = new DataFrame( dataset.arr_data_acc_human );
-            df = df.select( "Gene_Symbol", "value", "n_counts", "seq_length", "description", "IEDB___n_unique_epitopes", "AAgAtlas___n_PubMed_ID" );
-        } else if ( name_data == "acc_virus_representative.tsv" ) {
-            df = new DataFrame( dataset.arr_data_acc_virus_representative );
-            df = df.select( "name", "accession", "uniprot_acc", "length", "n_non_redundant_proteins" );
-        } else if ( name_data == "mhc_allele.tsv" ) {
-            df = new DataFrame( dataset.arr_data_mhc_allele );
-        } else if ( name_data == "interpro_virus.tsv" ) {
-            df = new DataFrame( dataset.interpro_virus.dict_data );
-            df = df.select( "protein_name", "start", "end", "interpro_acc", "interpro_name", "annotation_acc" );
-        } else if ( name_data == "iedb_epitope_virus.tsv" ) {
-//             if ( object_data.flag.alignment_to_virus ) {
-//                 df = new DataFrame( dataset.iedb_epitope_virus.dict_data );
-//                 df = df.select( "accession_iedb", "iedb_epitope_sequence", "number_of_positive_B_cell_assay", "number_of_positive_T_cell_assay", "protein_name", "start", "end", "percent_identity", "mismatch", "gapopen" );
-//             }
-        } 
-        df_datatable = df;
-        dataSet = df_datatable.toArray( ), l_col = df_datatable.listColumns( );
-        for ( let i = 0; i < l_col.length; i ++ ) { columns.push( { title: l_col[ i ] } ); }
+        let name_data_table = document.getElementById( "select_datatable" ).value, data, l_col_selected, columns = [ ], dataSet = [ ], df = null, l_col = [ ];
+        console.log( "[Display_DataTable] Loading datatable: ", name_data_table );
 
+        switch( name_data_table ) {
+              case "B-cell cross-reactivity prediction":
+                data = dataset.object_plot_BCellCrossReactivity.dict_data;
+                l_col_selected = [ "window_size", "human_accession", "query_start", "query_end", "name_structure_query", "virus_accession", "target_start", "target_end", "name_structure_target", "e_value", "identity", "score_blosum", "score_similarity_ss8", "correl_coeffi_acc", "correl_p_value_acc", "correl_coeffi_phi", "score_blosum_weighted", "sum_of_weights", "avg_score_blosum_weighted" ];
+                break;
+              case "T-cell cross-reactivity prediction":
+                data = dataset.object_plot_TCellCrossReactivity.dict_data;
+                l_col_selected = [ "name_mhc_allele", "mhc_class", "window_size", "score_blosum", "avg_score", "human_accession", "query_start", "query_end", "query_subsequence", "score_geometric_mean_query", "virus_accession", "target_start", "target_end", "target_subsequence", "score_geometric_mean_target" ];
+                break;
+              case "human proteins":
+                data = dataset.acc_human.dict_data_all;
+                l_col_selected = [ "value", "n_counts" ];
+                break;
+              case "MHC alleles":
+                data = dataset.arr_data_mhc_allele;
+                l_col_selected = [ 'value' ];
+                break;
+              default:
+                data = [ ];
+        }
+        df = new DataFrame( data );
+        df_datatable = df; // set global variable pointing to current data_table
+        df = df.select( ... l_col_selected ); // select appropriate columns before visualization
+        
+        dataSet = df.toArray( ), l_col = df.listColumns( );
+        for ( let i = 0; i < l_col.length; i ++ ) { columns.push( { title: l_col[ i ] } ); } // set columns for DataTable.js
         $( '#container_datatable_MolecularMimicryMap' ).empty( ); // empty the datatable and redraw the datatable
         $( '#container_datatable_MolecularMimicryMap' ).append( '<table id="datatable_MolecularMimicryMap" class="display" width="100%"></table>' );
         $( '#datatable_MolecularMimicryMap' ).DataTable( { data: dataSet, columns: columns } ); // display the datatable
@@ -2988,6 +3025,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         name_file = name_file.slice( 0, name_file.lastIndexOf( '.' ) ) + '_MolecularMimicryMap_of_SARS-CoV-2_datatable.csv' // change the extension of the filename
         saveAs( blob, name_file ); // save file 
     }
+    
     
     var l_a = [ ];
     var l_b = [ ], l_xy = [ ];
@@ -3376,6 +3414,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             dataset.object_plot_BCellCrossReactivity.dict_data[ "string_correl_p_value_acc" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "correl_p_value_acc" ], function( num ) { if( num == null ) { return "not available" } else { return num.toExponential( n_digits ); } } );
             dataset.object_plot_BCellCrossReactivity.dict_data[ "string_correl_p_value_phi" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "correl_p_value_phi" ], function( num ) { if( num == null ) { return "not available" } else { return num.toExponential( n_digits ); } } );
             dataset.object_plot_BCellCrossReactivity.dict_data[ "string_correl_p_value_psi" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "correl_p_value_psi" ], function( num ) { if( num == null ) { return "not available" } else { return num.toExponential( n_digits ); } } );
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "name_structure_query" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "structure_id_query" ], function( acc ) { if( acc == - 1 ) { return "not available" } else { return dataset.arr_data_acc_pdb[ acc ].value; } } );
+            dataset.object_plot_BCellCrossReactivity.dict_data[ "name_structure_target" ] = ArrayApply( dataset.object_plot_BCellCrossReactivity.dict_data[ "structure_id_target" ], function( acc ) { if( acc == - 1 ) { return "not available" } else { return dataset.arr_data_acc_pdb[ acc ].value; } } );
             
             // retrieve YAxis setting
             selOpt = Select_Get_Selected_Option_Using_ID( "select_YAxis_BCellCrossReactivity" );
