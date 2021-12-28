@@ -304,10 +304,12 @@
             </li> -->
             <li class="nav-item">
                 <select class="custom-select w-auto mx-2 my-0" id="select_dataset" title="select dataset" onchange="Load_Dataset( )">
+                    <option value="NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228">12 SARS-CoV-2 Genomes, Omicron Variant (B.1.1.529) (NCBI-Virus, 12/28/2021)</option>
+                    <option value="NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered">198,276 SARS-CoV-2 Genomes (NCBI-Virus, 12/09/2021)</option>
                     <option selected value="NCBI_Virus_human_host_SARS_CoV_2">8,138 SARS-CoV-2 Genomes (NCBI-Virus, 06/26/2020)</option>
-                    <option value="gisaid.allprot1114.valid.nonredundant" disabled>196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                     <option value="non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant">184 Common Cold Coronavirus Genomes (NCBI-Virus)</option>
                     <option value="cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214">Cross-Reactivity Between SARS-CoV-2 and Other Viruses</option>
+                    <option value="gisaid.allprot1114.valid.nonredundant" disabled>196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                 </select>
             </li>
             <li class="nav-item">
@@ -509,7 +511,7 @@
                         <p>
                             <h4 class="text-muted">Tracks</h4>
                             <div class="btn-toolbar" role="toolbar">
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_count_non_consensus_residue" checked onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Mutation Counts</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_count_non_consensus_residue" checked onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">Mutation Counts</label></div>
                                 <select class="custom-select w-auto mr-2 my-2" id="select_vaccine_metric_count_non_consensus_residue" title="select country for displaying mutation counts (counts of non-consensus residues)">
                                     <option value="count_non_consensus_residue">select country</option>
                                     <option value="count_non_consensus_residue" selected>global</option>
@@ -517,11 +519,11 @@
                                     <option value="count_non_consensus_residue__Australia">Australia</option>
                                     <option value="count_non_consensus_residue__India">India</option>
                                 </select>
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_relative_accessible_surface_area" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Accessible Surface</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_relative_accessible_surface_area" onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">Accessible Surface</label></div>
                             </div>
                             <div class="btn-toolbar" role="toolbar">
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_iedb_t_cell_assay" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">IEDB Positive T-Cell Assay Counts</label></div>
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_i_binding_prediction" checked onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">MHC-I Binding Peptide Counts (MHCflurry)</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_iedb_t_cell_assay" onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">IEDB Positive T-Cell Assay Counts</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_i_binding_prediction" checked onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">MHC-I Binding Peptide Counts (MHCflurry)</label></div>
                                 <select class="custom-select w-auto mr-2 my-2" id="select_vaccine_metric__mhc_i_binding_peptide_count" title="select a minimum allele frequency threshold for defining common MHC-I alleles">
                                     <option value="count_peptide_binding_common_mhc_i_alleles__537_alleles__min_allele_frequency_0.001">allele frequency (# alleles)</option>
                                     <option value="count_peptide_binding_common_mhc_i_alleles__8_alleles__min_allele_frequency_0.5">0.5 (8)</option>
@@ -529,11 +531,11 @@
                                     <option value="count_peptide_binding_common_mhc_i_alleles__308_alleles__min_allele_frequency_0.01">0.01 (308)</option>
                                     <option value="count_peptide_binding_common_mhc_i_alleles__537_alleles__min_allele_frequency_0.001" selected>0.001 (537)</option>
                                 </select>
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_i_processing_score" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">MHC-I Ligand Processing Score Pred. (MHCflurry)</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_i_processing_score" onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">MHC-I Ligand Processing Score Pred. (MHCflurry)</label></div>
                             </div>
                             <div class="btn-toolbar" role="toolbar">
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_iedb_b_cell_assay" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">IEDB Positive B-Cell Assay Counts</label></div>
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_ii_binding_prediction" checked onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">MHC-II Binding Peptide Counts (netMHCIIpan)</label></div>                  
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_iedb_b_cell_assay" onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">IEDB Positive B-Cell Assay Counts</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary ml-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_mhc_ii_binding_prediction" checked onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">MHC-II Binding Peptide Counts (netMHCIIpan)</label></div>                  
                                 <select class="custom-select w-auto mr-2 my-2" id="select_vaccine_metric__mhc_ii_binding_peptide_count" title="select a minimum allele frequency threshold for defining common MHC-II alleles">
                                     <option value="count_peptide_binding_common_mhc_ii_alleles__1668_alleles__min_allele_frequency_0.001">allele frequency (# alleles)</option>
                                     <option value="count_peptide_binding_common_mhc_ii_alleles__19_alleles__min_allele_frequency_0.5">0.5 (19)</option>
@@ -541,7 +543,7 @@
                                     <option value="count_peptide_binding_common_mhc_ii_alleles__865_alleles__min_allele_frequency_0.01">0.01 (865)</option>
                                     <option value="count_peptide_binding_common_mhc_ii_alleles__1668_alleles__min_allele_frequency_0.001" selected>0.001 (1668)</option>
                                 </select>
-                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_bepipred" onclick="VaccineMetrics_Apply_Visibility( )" autocomplete="off">Linear B-Cell Epitope Pred. Score (BepiPred)</label></div>
+                                <div class="btn-group-toggle" data-toggle="buttons"><label class="btn btn-outline-secondary mx-2 my-2"><input type="checkbox" id="checkbox_toggle_vaccine_metric_bepipred" onclick="VaccineMetrics_Apply_Visibility( flag_function_call_within_script = true )" autocomplete="off">Linear B-Cell Epitope Pred. Score (BepiPred)</label></div>
                             </div>
                         </p>
                     </div>
@@ -765,17 +767,17 @@
                                 <option value="cell_line">Lung Cell Line</option>
                                 <option value="healthy_donors" >Healthy Donors</option>
                             </select>
-                            <select id="select__name_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq( )">
+                            <select id="select__name_dataset__plotly_scrnaseq" class="form-control mr-2 w-auto" style="text-align: center; height:30px; line-height: 0px; padding-top: 0px; padding-bottom: 0px;" onchange="PlotExpression_scRNA_Seq( 'changed' )">
                                 <option value="" selected>Select Category</option>
                             </select>
                             <div class="form-check form-check-inline">
-                                <input id="checkbox__covid_status__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Cell Type" data-off="COVID-19 Status" data-onstyle="secondary" data-offstyle="danger" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
+                                <input id="checkbox__covid_status__plotly_scrnaseq" type="checkbox" class="mr-2" checked data-toggle="toggle" data-on="Cell Type" data-off="COVID-19 Status" data-onstyle="secondary" data-offstyle="danger" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( 'changed' )">
                             </div>
                             <div class="form-check form-check-inline">
-                                <input id="checkbox__proportion__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="Expression" data-off="Proportion" data-onstyle="success" data-offstyle="warning" data-size="sm" data-style="ios" data-width="100" onchange="PlotExpression_scRNA_Seq( )">
+                                <input id="checkbox__proportion__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="Expression" data-off="Proportion" data-onstyle="success" data-offstyle="warning" data-size="sm" data-style="ios" data-width="100" onchange="PlotExpression_scRNA_Seq( 'changed' )">
                             </div>
                             <div class="form-check form-check-inline">
-                                <input id="checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="All Cells" data-off="Only Positive Cells" data-onstyle="primary" data-offstyle="info" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( )">
+                                <input id="checkbox__ignore_cells_with_zero_counts__plotly_scrnaseq" type="checkbox" checked data-toggle="toggle" data-on="All Cells" data-off="Only Positive Cells" data-onstyle="primary" data-offstyle="info" data-size="sm" data-style="ios" data-width="150" onchange="PlotExpression_scRNA_Seq( 'changed' )">
                             </div>
                         </div>
                     </div>
@@ -1164,6 +1166,10 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records = {
         'cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214': {'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000 },
         'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000}},
+        'NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered': {'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 33608, '100': 15610, '125': 2678, '150': 955},
+  'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 32658, '100': 15150, '125': 2664, '150': 950}},
+        'NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228': {'nonredundant_sequence': {'5': 8340, '8': 9819, '11': 8062, '14': 7735, '17': 7780, '20': 7049, '25': 5302, '30': 3775, '35': 2703, '45': 1965, '55': 1262, '70': 814, '85': 312, '100': 165, '125': 45, '150': 11 },
+  'nonredundant_position': { '5': 8340, '8': 9819, '11': 8060, '14': 7735, '17': 7778, '20': 7044, '25': 5302, '30': 3754, '35': 2703, '45': 1965, '55': 1248, '70': 814, '85': 312, '100': 165, '125': 45, '150': 11 }},
         'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 20000, '35': 20000, '45': 39054, '55': 30920, '70': 22061, '85': 15532, '100': 10931, '125': 6509, '150': 3761},
         'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 34737, '100': 24446, '125': 13576, '150': 7066}},
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 20000, '55': 38588, '70': 26000, '85': 16064, '100': 9917, '125': 4222, '150': 2052},
@@ -1172,6 +1178,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         'nonredundant_position': {'5': 19136, '8': 19931, '11': 19871, '14': 19531, '17': 18843, '20': 17697, '25': 15612, '30': 13858, '35': 12405, '45': 9906, '55': 7656, '70': 5069, '85': 3372, '100': 2106, '125': 1170, '150': 568}}};
     object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records = {
         'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_aligned_position': 35259, 'nonredundant_aligned_sequence': 20000, 'all': 20000},
+        'NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered': {'nonredundant_aligned_position': 31630, 'nonredundant_aligned_sequence': 20000, 'all': 20000},
+        'NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228': {'nonredundant_aligned_sequence': 4040, 'all': 4040, 'nonredundant_aligned_position': 3984 },
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_aligned_sequence': 40000, 'all': 40000, 'nonredundant_aligned_position': 20000},
         'NCBI_Virus_human_host_SARS_CoV_2': {'nonredundant_aligned_sequence': 38824, 'nonredundant_aligned_position': 23868, 'all': 20000}};
     
@@ -2275,6 +2283,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         document.getElementById( "div_display_current_number_of_peptides" ).innerHTML = "Total number of peptides is " + String( dataset.vaccine_design.arr_aligned_peptide.length ) + '.'; // update description in modal_generate_peptides
     }
     function Retrieve_Peptides( ) { // retrieve peptides of the given window size
+        let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // retrieve dataset
         let window_size = parseInt( document.getElementById( "input_window_size_generate_peptides" ).value ), str_message = "";
         if ( window_size <= 0 ) { // check validity of a given window size
             str_message = "peptide length cannot be smaller than 1";
@@ -2362,6 +2371,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     }
     
     function Retrieve_Selection_of_Peptides( ) {
+        let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // retrieve dataset
         if ( ! ( "selection" in dataset.vaccine_design ) ) { dataset.vaccine_design.selection = { }; } // add selection object if not present in the vaccine_design object
         dataset.vaccine_design.selection.selection_mode_include_or_exclude = $('#radio__Vaccine_Design__Selection_Thresholding_Mode__Include_or_Exclude label.active input').attr( "value" ); // retrieve selection mode
         dataset.vaccine_design.selection.selection_mode_above_or_below = $('#radio__Vaccine_Design__Selection_Thresholding_Mode__Above_or_Below label.active input').attr( "value" ); // retrieve selection mode
@@ -2390,6 +2400,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         Dismissible_Alert( "#modal_select_peptides_alert_container", "info", str_message ); // display number of peptides generated via an alert message  
     }
     function Update_Selection_of_Peptides( mode ) {
+        let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // retrieve dataset
         if ( ! ( "selection" in dataset.vaccine_design ) ) { return; } // exits when a function call is invalid
         if ( ! ( "l_selected_previous" in dataset.vaccine_design.selection ) ) { return; } 
         
@@ -2507,6 +2518,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         Loading_Screen( false ); Adjust_Layout_MolecularMimicryMap( "vaccine_design_y_axis_updated" ); return;// update y-axis annotation
     }
     function Download_Analysis_Result__Vaccine_Design( ) { // download analysis result of vaccine candidate as a csv file
+        let dataset = object_data.main.dataset[ object_data.main.l_name_dataset[ 0 ] ]; // retrieve dataset
         if ( dataset.vaccine_design.string_csv.length == 0 ) {
             let df = new DataFrame( dataset.vaccine_design.dict_data );
             dataset.vaccine_design.string_csv = df.toCSV( true );
@@ -4350,7 +4362,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         }
         return color;
     }
-    async function PlotExpression_scRNA_Seq( ) { // update expression plot using scRNA-seq data
+    async function PlotExpression_scRNA_Seq( str_entry_method = '' ) { // update expression plot using scRNA-seq data
         if ( object_data.flag.human_label_represents_virus ) { // when virus proteins are not used, do not draw GTEx expression plot
             return -1
         }
@@ -4361,7 +4373,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
             gene_symbol = dataset.arr_data_acc_human[ index_acc_human ].Gene_Symbol,
             str_title_nav = "Single Cell Expression of " + gene_symbol;
         
-        if ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav ) { // if plot of the current gene of interest has been already drawn, exit the function call
+        if ( document.getElementById( "expression_panel__link_to_cellxgene" ).innerHTML == str_title_nav && str_entry_method != 'changed' ) { // if plot of the current gene of interest has been already drawn, exit the function call
             console.log( `[PlotExpression_scRNA_Seq] expression of the gene of interest ${gene_symbol} has been already drawn, exiting` );
             return -1;
         }
@@ -4526,12 +4538,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                     }
                     dataset.scrnaseq.dict_dir_file_to_cached_data[ dir_file ].data[ index_acc_human ] = { l_trace: l_trace.sort( SortViolinTrace_Expression ), l_trace_covid_status: l_trace_covid_status.sort( SortViolinTrace_Expression ) }; // update data of the cache
                 } else { // plot proportion graph using bar graph
-                    let l_l_l_data = [ [ ], [ ] ], flag_gene_of_interestion_is_available = dictdictarr[ l_name_clus[ 0 ] ][ l_covid_status[ 0 ] ][ index_acc_human ].split( ',' ).length == 4; // retrieve flag indicating the number of counts are 4 or 2. Also, l_l_l_data contains index in the following order: covid_status > name_clus > [ n_cells ] + [ count data ] + [ proportion data ]
+                    let l_l_l_data = [ [ ], [ ] ], flag_gene_of_interest_is_available = dictdictarr[ l_name_clus[ 0 ] ][ l_covid_status[ 0 ] ][ index_acc_human ].split( ',' ).length == 4; // retrieve flag indicating the number of counts are 4 or 2. Also, l_l_l_data contains index in the following order: covid_status > name_clus > [ n_cells ] + [ count data ] + [ proportion data ]
                     for ( let i = 0; i < l_covid_status.length; i ++ ) {
                         let name_covid_status = l_covid_status[ i ], index_covid_status = ( name_covid_status.includes( "Symptomatic" ) | name_covid_status.includes( "Positive" ) ) ? 1 : 0; // negative = index 0, positive = index 1.
                         for ( let j = 0; j < l_name_clus.length; j ++ ) {
                             let name_clus = l_name_clus[ j ], entry = dictdictarr[ name_clus ][ name_covid_status ][ index_acc_human ];
-                            let l_count = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : ( flag_gene_of_interestion_is_available ? [ 0, 0, 0, 0 ] : [ 0, 0 ] ); // parse the string, and put an empty data based on 'flag_gene_of_interestion_is_available'
+                            let l_count = isNaN( entry ) ? ArrayAsInt( entry.split( ',' ) ) : ( flag_gene_of_interest_is_available ? [ 0, 0, 0, 0 ] : [ 0, 0 ] ); // parse the string, and put an empty data based on 'flag_gene_of_interest_is_available'
                             let n_cells = ArraySum( l_count );
                             let l = [ n_cells ];
                             l.push( ... l_count );
@@ -4539,7 +4551,6 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             l_l_l_data[ index_covid_status ].push( l ); // each row contains [ n_cells ] + [ count data ] + [ proportion data ] of a 'name_clus'
                         }
                     }
-                    console.log( l_l_l_data );
                     let l_l_data = [ ], l_trace = [ ];
                     if ( flag_patient_donor ) {
                         l_l_data = nj.array( l_l_l_data[ 1 ] ).add( l_l_l_data[ 0 ] ).tolist( ); // sum n_cells for two covid_status
@@ -4550,9 +4561,10 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                             l.push( ... l_count );
                             l.push( ... ArrayMultiply( l_count, 1 / n_cells ) );
 
-                            l_l.push(  ) // recalculate proportions
+                            l_l.push( l ) // recalculate proportions
                         }
                         l_l_data = l_l;
+                        
                     } else {
                         l_l_data = l_l_l_data[ 0 ];
                     }
@@ -4562,9 +4574,8 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
                         l_name_trace.push( l_name_clus[ i ] + str_separation + '(n=' + l_l_data[ 0 ][ i ] + ')' )
                     }
                     l_l_data.push( l_name_trace );
-                    console.log( l_l_data );
                     let gene_of_interest = dataset.scrnaseq.setting.gene_of_interest;
-                    if ( flag_gene_of_interestion_is_available ) {
+                    if ( flag_gene_of_interest_is_available ) {
                         let l_name_trace = [ 'cells positive for ' + gene_symbol + ' and ' + gene_of_interest, 'cells positive for ' + gene_symbol + ' but negative for ' + gene_of_interest, 'cells negative for ' + gene_symbol + ' but positive for ' + gene_of_interest, 'cells negative for ' + gene_symbol + ' and ' + gene_of_interest ], l_color_face = [ "#ff5736", "#ffcc5e", "#a592b0", "#bababa" ], l_color_line = [ "#a14432", "#9e8857", "#84768c", "#757575" ];
                         let arr_data = ArrayTranspose( ArrayTranspose( l_l_data ).sort( ( a, b ) => { return b[ 6 ] - a[ 6 ]; } ) ); // sort by second proportion
                         for ( let i = 0; i < 4; i ++ ) {
