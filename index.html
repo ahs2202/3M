@@ -304,12 +304,13 @@
             </li> -->
             <li class="nav-item">
                 <select class="custom-select w-auto mx-2 my-0" id="select_dataset" title="select dataset" onchange="Load_Dataset( )">
-                    <option value="NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228">12 SARS-CoV-2 Genomes, Omicron Variant (B.1.1.529) (NCBI-Virus, 12/28/2021)</option>
+                    <option value="gisaid.20211218.GRA.omicron.nonredundant.valid">7,571 SARS-CoV-2 Omicron Genomes (B.1.1.529) (GISAID, 12/28/2021)</option>
+                    <option value="NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228">12 SARS-CoV-2 Omicron Genomes (B.1.1.529) (NCBI-Virus, 12/28/2021)</option>
                     <option value="NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered">198,276 SARS-CoV-2 Genomes (NCBI-Virus, 12/09/2021)</option>
+                    <option value="gisaid.allprot1114.valid.nonredundant">196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                     <option selected value="NCBI_Virus_human_host_SARS_CoV_2">8,138 SARS-CoV-2 Genomes (NCBI-Virus, 06/26/2020)</option>
                     <option value="non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant">184 Common Cold Coronavirus Genomes (NCBI-Virus)</option>
                     <option value="cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214">Cross-Reactivity Between SARS-CoV-2 and Other Viruses</option>
-                    <option value="gisaid.allprot1114.valid.nonredundant" disabled>196,352 SARS-CoV-2 Genomes (GISAID, 11/14/2020)</option>
                 </select>
             </li>
             <li class="nav-item">
@@ -1166,10 +1167,12 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
     object_data.file.dict_name_dataset_to_dict_bcell_crossreactivity_data_to_n_records = {
         'cr.gisaid.allprot1114.and.non_SARS_CoV_2_coronavirus_20201214': {'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000 },
         'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 40000, '85': 40000, '100': 40000, '125': 40000, '150': 40000}},
+        'gisaid.20211218.GRA.omicron.nonredundant.valid': {'nonredundant_sequence': {'5': 20283, '8': 21218, '11': 20923, '14': 20031, '17': 18185, '20': 17269, '25': 14618, '30': 11894, '35': 9698, '45': 6279, '55': 3883, '70': 1929, '85': 762, '100': 343, '125': 8 },
+        'nonredundant_position': {'5': 20283, '8': 21217, '11': 20922, '14': 20030, '17': 18185, '20': 17269, '25': 14614, '30': 11880, '35': 9674, '45': 6261, '55': 3883, '70': 1929, '85': 762, '100': 343, '125': 8}},
         'NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered': {'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 33608, '100': 15610, '125': 2678, '150': 955},
-  'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 32658, '100': 15150, '125': 2664, '150': 950}},
+        'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 32658, '100': 15150, '125': 2664, '150': 950}},
         'NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228': {'nonredundant_sequence': {'5': 8340, '8': 9819, '11': 8062, '14': 7735, '17': 7780, '20': 7049, '25': 5302, '30': 3775, '35': 2703, '45': 1965, '55': 1262, '70': 814, '85': 312, '100': 165, '125': 45, '150': 11 },
-  'nonredundant_position': { '5': 8340, '8': 9819, '11': 8060, '14': 7735, '17': 7778, '20': 7044, '25': 5302, '30': 3754, '35': 2703, '45': 1965, '55': 1248, '70': 814, '85': 312, '100': 165, '125': 45, '150': 11 }},
+        'nonredundant_position': { '5': 8340, '8': 9819, '11': 8060, '14': 7735, '17': 7778, '20': 7044, '25': 5302, '30': 3754, '35': 2703, '45': 1965, '55': 1248, '70': 814, '85': 312, '100': 165, '125': 45, '150': 11 }},
         'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 20000, '35': 20000, '45': 39054, '55': 30920, '70': 22061, '85': 15532, '100': 10931, '125': 6509, '150': 3761},
         'nonredundant_sequence': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 40000, '55': 40000, '70': 20000, '85': 34737, '100': 24446, '125': 13576, '150': 7066}},
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_position': {'5': 40000, '8': 40000, '11': 40000, '14': 40000, '17': 40000, '20': 40000, '25': 40000, '30': 40000, '35': 40000, '45': 20000, '55': 38588, '70': 26000, '85': 16064, '100': 9917, '125': 4222, '150': 2052},
@@ -1178,6 +1181,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         'nonredundant_position': {'5': 19136, '8': 19931, '11': 19871, '14': 19531, '17': 18843, '20': 17697, '25': 15612, '30': 13858, '35': 12405, '45': 9906, '55': 7656, '70': 5069, '85': 3372, '100': 2106, '125': 1170, '150': 568}}};
     object_data.file.dict_name_dataset_to_dict_tcell_crossreactivity_data_to_n_records = {
         'non_SARS_CoV_2_coronavirus_20201214.valid.nonredundant': {'nonredundant_aligned_position': 35259, 'nonredundant_aligned_sequence': 20000, 'all': 20000},
+        'gisaid.20211218.GRA.omicron.nonredundant.valid': {'nonredundant_aligned_sequence': 9710, 'all': 9710, 'nonredundant_aligned_position': 9070},
         'NCBI_Virus_human_host_SARS_CoV_2.20211209.non_redundant_filtered': {'nonredundant_aligned_position': 31630, 'nonredundant_aligned_sequence': 20000, 'all': 20000},
         'NCBI_Virus_human_host_SARS_CoV_2.Lineage_B.1.1.529_omicron.20211228': {'nonredundant_aligned_sequence': 4040, 'all': 4040, 'nonredundant_aligned_position': 3984 },
         'gisaid.allprot1114.valid.nonredundant': {'nonredundant_aligned_sequence': 40000, 'all': 40000, 'nonredundant_aligned_position': 20000},
