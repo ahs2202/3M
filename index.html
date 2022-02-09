@@ -1003,7 +1003,9 @@
         </nav>
             <div class="modal-header">
                 <h1 class="modal-title">Introduction</h1>
+                <a class="btn btn-secondary btn-lg mt-2 ml-4 mr-2" href="https://github.com/ahs2202/3M/raw/master/documentation/3M_of_SARS-CoV-2.tutorial.20220201.pdf" download="3M_of_SARS-CoV-2.tutorial.20220201.pdf">Download Documentation</a>
                 <button class="btn btn-link btn-lg mt-2 mr-auto" onclick="Toggle_Introduction_Modal();">Skip Introduction</button>
+                
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -1013,7 +1015,7 @@
                 <div class="card mx-auto my-2" style="max-width: 60rem;">
                     <div class="card-body">
                         <h2 class="card-title">Abstract</h2>
-                        <p class="card-text">The development of autoimmune diseases following SARS-CoV-2 infection, including multisystem inflammatory syndrome, has been reported, and several mechanisms have been suggested, including molecular mimicry. We developed a novel pipeline to identify cross-reactive epitopes between SARS-CoV-2 and human proteins using the structural properties of the proteins. Overall, by searching 4,911,245 proteins from 196,352 SARS-CoV-2 genomes, we identified 133 and 648 human proteins harboring potential cross-reactive B-cell and CD8+ T-cell epitopes, respectively. To demonstrate the robustness of our pipeline, we predicted the cross-reactive epitopes of coronavirus spike proteins, which were recognized by known cross-neutralizing antibodies. Using single-cell expression data, we identified PARP14 as a potential target of intermolecular epitope spreading between the virus and human proteins. Finally, we developed a web application (https://ahs2202.github.io/3M/) to interactively visualize our results. Overall, our immunoinformatic resources provide a foundation for the investigation of molecular mimicry in the pathogenesis of autoimmune and chronic inflammatory diseases following COVID-19.</p>
+                        <p class="card-text">The development of autoimmune diseases following SARS-CoV-2 infection, including multisystem inflammatory syndrome, has been reported, and several mechanisms have been suggested, including molecular mimicry. We developed a scalable, comparative immunoinformatics pipeline called Cross-Reactive-Epitope-Search-using-Structural-Properties-of-proteins (CRESSP) to identify cross-reactive epitopes between a collection of SARS-CoV-2 proteomes and the human proteome using the structural properties of the proteins. Overall, by searching 4,911,245 proteins from 196,352 SARS-CoV-2 genomes, we identified 133 and 648 human proteins harboring potential cross-reactive B-cell and CD8+ T-cell epitopes, respectively. To demonstrate the robustness of our pipeline, we predicted the cross-reactive epitopes of coronavirus spike proteins, which were recognized by known cross-neutralizing antibodies. Using single-cell expression data, we identified PARP14 as a potential target of intermolecular epitope spreading between the virus and human proteins. Finally, we developed a web application (https://ahs2202.github.io/3M/) to interactively visualize our results. We also made our pipeline available as an open-source CRESSP package (https://pypi.org/project/cressp/), which can analyze any two proteomes of interest to identify potentially cross-reactive epitopes between the proteomes. Overall, our immunoinformatic resources provide a foundation for the investigation of molecular mimicry in the pathogenesis of autoimmune and chronic inflammatory diseases following COVID-19.</p>
                     </div>
                     <div class="mr-auto ml-auto"><a href="https://doi.org/10.1101/2020.11.12.344424" style="font-size: 1.35em; font-weight: bold" target="_blank" rel="noopener noreferrer" class="btn btn-link btn-sm mx-1 my-0" role="button" data-toggle="button" data-tooltip="tooltip" data-placement="bottom" data-html="true" title="Click to view our BioRXiv preprint">BioRXiv preprint<i class="material-icons icon-black" style="font-size: 0.9em">launch</i></a></div>
                 </div>
@@ -1031,29 +1033,37 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_main_graph.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Explore cross-reactive immune epitopes">
-                            <div class="carousel-caption d-none d-md-block">
+<!--                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Explore cross-reactive immune epitopes</h2>
                                 <p>Toggle <b>help messages</b> by pressing <kbd>Cmd</kbd> + <kbd>H</kbd><br>Keyboard shorcuts can be found at the upper right corner</p>
-                            </div>
+                            </div> -->
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_main_graph.zoom.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Visualize Aligned Structures">
+<!--                             <div class="carousel-caption d-none d-md-block">
+                                <h2>Explore cross-reactive immune epitopes</h2>
+                                <p>Zoom in/out to explore cross-reactive immune epitopes on the specific region of a human/virus protein</p>
+                            </div> -->
                         </div>
                         <div class="carousel-item">
                             <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_filter.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Filter cross-reactive immune epitopes">
-                            <div class="carousel-caption d-none d-md-block">
+<!--                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Filter cross-reactive immune epitopes</h2>
                                 <p>Multiple filters can be applied.<br>To remove a filter, click the filter again</p>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="carousel-item">
                             <img src="https://ahs2202.github.io/3M/images/3M_of_SARS-CoV-2.usage_aligned_structures.PNG" class="d-block w-100 mx-auto" style="max-width: 1700px !important;" alt="Visualize Aligned Structures">
-                            <div class="carousel-caption d-none d-md-block">
+<!--                             <div class="carousel-caption d-none d-md-block">
                                 <h2>Visualize Aligned Structures</h2>
                                 <p>Click a row in the aligned sequence table to highlight a pair of aligned residues on virus and human structures<br>When protein structure is not available, a black screen will be shown</p>
-<!--                                 Change the representation of protein structure <i>(Control Panel > Components > Polymer > Actions > Add Representation > Molecular Surface)</i><br> -->
-                            </div>
+                                Change the representation of protein structure <i>(Control Panel > Components > Polymer > Actions > Add Representation > Molecular Surface)</i><br>
+                            </div> -->
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
