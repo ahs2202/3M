@@ -286,21 +286,24 @@
 <!-- start of the current view container -->
 <div id="molecularmimicrymap-current-view">
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar"> <!-- sticky-top -->
-    <a class="navbar-brand mb-0 h1">Molecular Mimicry Map of SARS-CoV-2</a>
+    <a class="navbar-brand mb-0 h1" href="https://ahs2202.github.io/3M/">Molecular Mimicry Map of SARS-CoV-2</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav_top" aria-controls="navbarNav_top" aria-expanded="false" aria-label="Toggle top navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarNav_top">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" type="button" data-toggle="collapse" data-target="#introduction" aria-controls="introduction" aria-expanded="false" aria-label="Toggle introduction" onclick="Toggle_Introduction_Modal( )">Introduction</a>
             </li>
-<!--             <li class="nav-item active">
-                <a class="nav-link" type="button" data-toggle="collapse" data-target="#container_fileLoader" aria-controls="container_fileLoader" aria-expanded="false" aria-label="Toggle container_fileLoader">Files</a>
-            </li> -->
-<!--             <li class="nav-item">
+            <!--<li class="nav-item active">
+                <a class="nav-link" href="documentation/index.html">Documentation</a>
+            </li>
+             <li class="nav-item">
                 <a class="nav-link">Citation</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Feedback</a>
+            </li>-->
+<!--             <li class="nav-item active">
+                <a class="nav-link" type="button" data-toggle="collapse" data-target="#container_fileLoader" aria-controls="container_fileLoader" aria-expanded="false" aria-label="Toggle container_fileLoader">Files</a>
             </li> -->
             <li class="nav-item">
                 <select class="custom-select w-auto mx-2 my-0" id="select_dataset" title="select dataset" onchange="Load_Dataset( )">
@@ -988,16 +991,19 @@
   <div class="modal-dialog" style="width: 100%!important;height: 100%!important;margin: 0!important;padding: 0!important;max-width:none !important;">
     <div class="modal-content" style="height: auto !important; min-height: 100% !important; border-radius: 0 !important;min-width: 100% !important;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar"> <!-- sticky-top -->
-            <a class="navbar-brand mb-0 h1">Molecular Mimicry Map of SARS-CoV-2</a>
+            <a class="navbar-brand mb-0 h1" href="https://ahs2202.github.io/3M/">Molecular Mimicry Map of SARS-CoV-2</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav_top" aria-controls="navbarNav_top" aria-expanded="false" aria-label="Toggle top navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav_top">
                 <ul class="navbar-nav">
-<!--                     <li class="nav-item">
+					<li class="nav-item active">
+						<a class="nav-link" href="documentation/index.html">Documentation</a>
+					</li>
+                    <li class="nav-item">
                         <a class="nav-link">Citation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Feedback</a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -1005,7 +1011,6 @@
                 <h1 class="modal-title">Introduction</h1>
                 <a class="btn btn-secondary btn-lg mt-2 ml-4 mr-2" href="https://github.com/ahs2202/3M/raw/master/documentation/3M_of_SARS-CoV-2.tutorial.20220201.pdf" download="3M_of_SARS-CoV-2.tutorial.20220201.pdf">Download Documentation</a>
                 <button class="btn btn-link btn-lg mt-2 mr-auto" onclick="Toggle_Introduction_Modal();">Skip Introduction</button>
-                
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
