@@ -445,7 +445,7 @@ var DragSort=function(t){
     async function Responsive_Documentation_Height( ) { // initialize the web application
 		// from https://www.tutorialrepublic.com/faq/automatically-adjust-iframe-height-according-to-its-contents-using-javascript.php
 		// Adjusting the iframe height onload event
-		iframe_documentation.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+		iframe_documentation.style.height = iframe_documentation.contentWindow.document.body.scrollHeight + 'px';
     }    
 	iframe_documentation.addEventListener("load", Responsive_Documentation_Height ); // adjust height when iframe has been loaded
 	window.onresize = Responsive_Documentation_Height; // adjust height window is resized
