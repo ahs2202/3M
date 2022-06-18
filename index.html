@@ -4841,7 +4841,7 @@ var DragSort=function(t){var e,i=0,s={},r={},a=(e=window.MutationObserver||windo
         } else { BootstrapCollapseShownPromise( str_jquery_container ).then( ( ) => { Plotly.newPlot( tableSequence, data, lodash.cloneDeep( layout_tableSequence ), config_MolecularMimicryMap ); Add_Click_Callback_Aligned_Sequence_Table( ); } ); } // draw Plotly plot once the container is shown if the container is currently hidden
 
         // Render molecular structures using the Mol* JS application
-        str_url_coordinate_server =  "https://www.ebi.ac.uk/pdbe/coordinates/" // "https://webchem.ncbr.muni.cz/CoordinateServer/" (using either one is fine!)
+        str_url_coordinate_server = "https://webchem.ncbr.muni.cz/CoordinateServer/"; // "https://www.ebi.ac.uk/pdbe/coordinates/" // "https://webchem.ncbr.muni.cz/CoordinateServer/" (using either one is fine!)
         str_jquery_container = "#container_PDB";
         let pos_protein = 0, pos_pdb = 0;
         if ( flag_structure_exist_for_human_sequence ) { 
